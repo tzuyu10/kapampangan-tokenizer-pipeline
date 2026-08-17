@@ -1,0 +1,50 @@
+[build-system]
+requires = ["maturin==1.9.4"]
+build-backend = "maturin"
+
+[project]
+name = "kapampangan-morphbpe"
+version = "0.1.0"
+description = "Independent paper-defined Kapampangan MorphBPE tokenizer"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Local experimental research only; dataset rights are separate" }
+authors = [{ name = "Kapampangan MorphBPE thesis team" }]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "hypothesis==6.138.15",
+  "mypy==1.17.1",
+  "pytest==8.4.1",
+  "ruff==0.12.10",
+]
+
+[project.scripts]
+kapampangan-morphbpe = "kapampangan_morphbpe.cli:main"
+
+[tool.maturin]
+manifest-path = "rust/Cargo.toml"
+python-source = "src"
+module-name = "kapampangan_morphbpe._rust_segmenter"
+features = ["pyo3/extension-module"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["kapampangan_morphbpe"]
+mypy_path = ["src", "runtime"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.format]
+line-ending = "lf"

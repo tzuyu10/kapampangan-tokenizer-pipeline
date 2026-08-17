@@ -1,0 +1,16 @@
+# Reproduction lock for the Python build/test environment.
+attrs==26.1.0
+colorama==0.4.6
+hypothesis==6.138.15
+iniconfig==2.3.0
+maturin==1.9.4
+mypy==1.17.1
+mypy_extensions==1.1.0
+packaging==26.3
+pathspec==1.1.1
+pluggy==1.6.0
+Pygments==2.20.0
+pytest==8.4.1
+ruff==0.12.10
+sortedcontainers==2.4.0
+typing_extensions==4.16.0

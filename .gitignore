@@ -1,0 +1,12 @@
+.venv/
+target/
+runs/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.test-tmp/
+*.pyc
+*.pyd
+*.dll
+*.so

@@ -1,0 +1,12 @@
+{
+  "artifact_fingerprint": "d3974f566756314f961a678a6bbf665a4ed3ecd2e64a82826c01950aa3e0e14e",
+  "artifact_manifest_sha256": "897d9be86cd5e8b2da61a7478664150b873358ae964307269571d4cabf48481a",
+  "export_fingerprint": "790b8ddee2fc38d025d8bf005d0c2a7e826513587758d4bd53d44dd31f794b38",
+  "held_out_evaluation_executed": false,
+  "nllb_model_downloaded": false,
+  "nllb_model_trained": false,
+  "schema_version": "1.0.0",
+  "source_adapter_sha256": "f858e8392331c4c54d4d18a94544d1d1c2f8c86399a48c3f70d754e40bc7297c",
+  "source_contract_sha256": "bb487dbf770b4a5d03fe457a1d26f570086600633342d39319d12de2ae28a5db",
+  "status": "adapter_contract_exported_model_not_downloaded_or_trained"
+}

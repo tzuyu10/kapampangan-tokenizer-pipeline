@@ -1,0 +1,39 @@
+{
+  "checksum_inventory_sha256": "92ad5207e8ac26782bf66ba07ad40eae522e8de139d4623ac0a9adc9327985b3",
+  "corpus_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "counts": {
+    "code_switched_optional": 981,
+    "linguistic_evidence": 806,
+    "morphology_reference": 2212,
+    "neutral": 32836,
+    "parallel_pam_eng": 2484,
+    "parallel_pam_tgl": 45,
+    "test": 3284,
+    "train": 26268,
+    "validation": 3284
+  },
+  "dataset_name": "kapampangan-general-corpus-v1",
+  "dataset_version": "1.0.0",
+  "held_out_test": {
+    "content_parsed": false,
+    "records_from_manifest": 3284,
+    "sha256": "f79e8febc73fadf89ee8702b761f7fd2bda51e1a71f82362877bef504273cdcb"
+  },
+  "portable_zip": {
+    "path": "<DATASET_ROOT>/kapampangan-general-corpus-v1.zip",
+    "present": true,
+    "sha256": "9f45ba35ac48147677d269870c52d9f2244ddc3fb60703011c11f640daa6186f"
+  },
+  "verified_file_hashes": {
+    "data/all-clean-kapampangan.csv": "9104c8a63b84b4e673d5720e6f8361a7a5e498ff6faaab95e216a113d82003ff",
+    "data/code-switched-optional.csv": "8fc30cb4fb544f362e84ae1f1f8077d1dba3455ced516ec4ff11b95bb0807132",
+    "data/linguistic-evidence.csv": "42d9fc70fd49e019080157ed8ef0384abad934340f2c13d59c05f9301155c719",
+    "data/morphology-reference.csv": "0be577897d9647243586f153024af1d3ae7d7994465fa45a5ade595ddb049461",
+    "data/parallel-pam-eng.csv": "8ac1c68d81e57e0c9e8495ccf8a35e3ca8f203337219aca1df490a911c00daae",
+    "data/parallel-pam-tgl.csv": "13c6a197baa8a3f52fbcce10f01bf81f550d8039651e59244ea02c46789a7895",
+    "data/test.csv": "f79e8febc73fadf89ee8702b761f7fd2bda51e1a71f82362877bef504273cdcb",
+    "data/train.csv": "2309d439133c73b183a45954adfc8c54d36b8824b0cd2899631415497f6d4d2d",
+    "data/validation.csv": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+    "metadata/dataset-manifest.json": "2a7431fcf904341378e72fee0203456a4c9d80256a75b0b4dc6e8cdd36db7070"
+  }
+}
