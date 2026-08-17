@@ -22,7 +22,24 @@ development proxies, not formal thesis results. Held-out evaluation, the native
 NLLB tokenizer comparison, NLLB-200 download/fine-tuning, BLEU, chrF++, and
 statistical tests were deliberately not performed.
 
-## Environment
+## Setup from scratch (Windows)
+
+Prerequisites:
+
+- Python 3.11 or newer
+- `uv`
+- Rust and Cargo (required to build the PyO3 segmenter)
+- The external corpus only if you will reproduce training or validation
+
+Clone the repository and select the project branch after it has been pushed:
+
+```powershell
+git clone https://github.com/tzuyu10/kapampangan-tokenizer-pipeline.git
+cd kapampangan-tokenizer-pipeline
+git switch feat/kapampangan-morphbpe
+```
+
+Create the environment and install the locked dependencies:
 
 ```powershell
 uv venv .venv
@@ -30,9 +47,37 @@ uv pip install --python .venv\Scripts\python.exe -r requirements-lock.txt
 uv pip install --python .venv\Scripts\python.exe -e .
 ```
 
-This builds the PyO3 Rust segmenter with pinned maturin. The project supports
-Windows/Python/Rust and is CPU-only. See `requirements-lock.txt` and
-`docs/REPRODUCIBILITY.md`.
+The editable install builds the PyO3 Rust segmenter with pinned maturin. The
+project is CPU-only. Define the CLI path for the commands below:
+
+```powershell
+$K = '.\.venv\Scripts\kapampangan-morphbpe.exe'
+```
+
+Validate the committed standalone artifact without the external corpus:
+
+```powershell
+& $K validate-artifact --artifact .\artifacts\selected-tokenizer
+```
+
+Run a first tokenization test:
+
+```powershell
+& $K tokenize --artifact .\artifacts\selected-tokenizer --text "Masánting! ñ"
+```
+
+The output includes normalized text, token strings, token IDs, token kinds,
+and offsets. `tokenize` accepts raw text; do not run `segment` first.
+
+For optional local validation:
+
+```powershell
+& .\.venv\Scripts\pytest.exe -q -p no:cacheprovider --basetemp=.test-tmp
+& .\.venv\Scripts\ruff.exe check src runtime tests scripts
+```
+
+See `requirements-lock.txt` and `docs/REPRODUCIBILITY.md` for the pinned
+environment and complete reproduction sequence.
 
 ## Handoff for other agents
 
@@ -118,6 +163,18 @@ Example runtime use:
   --artifact .\artifacts\selected-tokenizer `
   --text "Masánting! ñ"
 ```
+
+To inspect morphology for one raw word, the training lexicon is required:
+
+```powershell
+& $K segment `
+  --lexicon .\resources\training-lexicon.json `
+  --text "sinulat"
+```
+
+`segment` and `tokenize` are separate views of the pipeline. Morphology is
+used during training before BPE learning; the standalone runtime uses only the
+selected artifact and does not load the lexicon.
 
 ## Key outputs
 
