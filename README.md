@@ -34,6 +34,65 @@ This builds the PyO3 Rust segmenter with pinned maturin. The project supports
 Windows/Python/Rust and is CPU-only. See `requirements-lock.txt` and
 `docs/REPRODUCIBILITY.md`.
 
+## Handoff for other agents
+
+This repository contains the tokenizer implementation and selected runtime
+artifact, but not the immutable source corpus. The current Windows machine
+stores the corpus at:
+
+```powershell
+$D = 'D:\DevTools\KapampanganTokenizer\kapampangan-general-corpus-v1'
+$Z = 'D:\DevTools\KapampanganTokenizer\kapampangan-general-corpus-v1.zip'
+```
+
+These paths are machine-specific examples. On another machine, set `$D` to the
+directory containing `metadata/dataset-manifest.json` and the `data/` folder.
+Every dataset command accepts `--dataset-root`; no command should rely on a
+hidden default path.
+
+The corpus ZIP and directory are external dependencies for dataset
+verification, lexicon construction, training preparation, and validation. They
+are not needed by the standalone runtime, which only reads
+`artifacts/selected-tokenizer/`.
+
+### Reproduce the derived training state
+
+The following creates the intentionally uncommitted, dataset-derived files:
+
+```powershell
+$K = '.\.venv\Scripts\kapampangan-morphbpe.exe'
+
+& $K verify-dataset --dataset-root $D --output .\reports\dataset-verification-local.json
+& $K build-lexicon --dataset-root $D --output-dir .\resources
+& $K prepare-training --dataset-root $D `
+  --lexicon .\resources\training-lexicon.json `
+  --output-dir .\runs\prepared --engine rust
+```
+
+Use `docs/REPRODUCIBILITY.md` for the complete candidate-training and
+validation sequence. Do not parse or train on `data/test.csv`.
+
+### Files intentionally absent from the baseline commit
+
+- `resources/training-lexicon.json` and its manifest: derived from the corpus;
+  add only in a private repository or after redistribution rights are cleared.
+- `artifacts/candidates/` and `artifacts/determinism-rebuild/`: reproducible
+  intermediate outputs; the selected artifact is already included.
+- `runs/`: generated training streams.
+- `.venv/`, `target/`, and `*.pyd`: local environments and build products.
+- `AGENT_CONTEXT.md`: machine-local agent handoff and intentionally untracked.
+
+If the derived lexicon is approved for a private commit, add it explicitly:
+
+```powershell
+git add resources/training-lexicon.json resources/training-lexicon-manifest.json
+git commit -m "Add derived training lexicon"
+```
+
+Agents should preserve the dataset fingerprint, keep the corpus outside the
+repository, and avoid pushing unless the repository owner explicitly requests
+it.
+
 ## CLI
 
 ```text
