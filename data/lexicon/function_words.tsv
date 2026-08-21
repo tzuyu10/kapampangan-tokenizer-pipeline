@@ -1,0 +1,103 @@
+# Grammatical morphemes the PALI dictionary does not list (it covers content
+# words only). These carry ~30% of all corpus tokens, so leaving them out
+# collapses segmenter coverage. Always merged into roots.tsv by stage 10.
+# VALIDATE each row with a Kapampangan speaker and fill `gloss_fil`.
+root	gloss_fil	pos	source
+ing	ang	det	SEED-FUNC
+ning	ng	det	SEED-FUNC
+king	sa	prep	SEED-FUNC
+karing	sa mga	prep	SEED-FUNC
+ding	ang mga	det	SEED-FUNC
+reng	ang mga	det	SEED-FUNC
+deng	ang mga	det	SEED-FUNC
+detang	ang mga iyon	det	SEED-FUNC
+retang	ang mga iyon	det	SEED-FUNC
+karetang	sa mga iyon	prep	SEED-FUNC
+iting	itong	det	SEED-FUNC
+iti	ito	dem	SEED-FUNC
+ini	ito	dem	SEED-FUNC
+ita	iyon	dem	SEED-FUNC
+oini	ito	dem	SEED-FUNC
+oita	iyon	dem	SEED-FUNC
+deti	ang mga ito	dem	SEED-FUNC
+a	na (linker)	lig	SEED-FUNC
+ya	siya	pron	SEED-FUNC
+la	sila	pron	SEED-FUNC
+ka	ikaw	pron	SEED-FUNC
+ku	ako	pron	SEED-FUNC
+mu	mo	pron	SEED-FUNC
+na	niya	pron	SEED-FUNC
+mi	namin	pron	SEED-FUNC
+ta	kita	pron	SEED-FUNC
+da	nila	pron	SEED-FUNC
+ra	nila	pron	SEED-FUNC
+yu	ninyo	pron	SEED-FUNC
+ko	ko sila	pron	SEED-FUNC
+ke	ko siya	pron	SEED-FUNC
+me	mo siya	pron	SEED-FUNC
+mo	mo sila	pron	SEED-FUNC
+ne	niya siya	pron	SEED-FUNC
+no	niya sila	pron	SEED-FUNC
+de	nila siya	pron	SEED-FUNC
+re	nila siya	pron	SEED-FUNC
+aku	ako	pron	SEED-FUNC
+ika	ikaw	pron	SEED-FUNC
+ikami	kami	pron	SEED-FUNC
+ikatamu	tayo	pron	SEED-FUNC
+ikayu	kayo	pron	SEED-FUNC
+ila	sila	pron	SEED-FUNC
+kaku	sa akin	pron	SEED-FUNC
+kanaku	sa akin	pron	SEED-FUNC
+keka	sa iyo	pron	SEED-FUNC
+kea	sa kanya	pron	SEED-FUNC
+keya	sa kanya	pron	SEED-FUNC
+kekami	sa amin	pron	SEED-FUNC
+kekatamu	sa atin	pron	SEED-FUNC
+kekayu	sa inyo	pron	SEED-FUNC
+karela	sa kanila	pron	SEED-FUNC
+kang	kay	prep	SEED-FUNC
+kening	sa ito	prep	SEED-FUNC
+at	at	conj	SEED-FUNC
+ampon	at	conj	SEED-FUNC
+o	o	conj	SEED-FUNC
+uling	dahil	conj	SEED-FUNC
+nung	kung	conj	SEED-FUNC
+neng	kung	conj	SEED-FUNC
+ban	upang	conj	SEED-FUNC
+bang	upang	conj	SEED-FUNC
+dapot	ngunit	conj	SEED-FUNC
+oneng	ngunit	conj	SEED-FUNC
+anti	tulad	conj	SEED-FUNC
+antimo	tulad ng	conj	SEED-FUNC
+makanian	ganoon	adv	SEED-FUNC
+makanini	ganito	adv	SEED-FUNC
+makananu	paano	interrog	SEED-FUNC
+nanu	ano	interrog	SEED-FUNC
+ninu	sino	interrog	SEED-FUNC
+nokarin	saan	interrog	SEED-FUNC
+kapilan	kailan	interrog	SEED-FUNC
+bakit	bakit	interrog	SEED-FUNC
+nu	saan	interrog	SEED-FUNC
+wari	ba	part	SEED-FUNC
+pin	nga	part	SEED-FUNC
+naman	naman	part	SEED-FUNC
+mu rin	lamang	part	SEED-FUNC
+rin	din	part	SEED-FUNC
+pa	pa	part	SEED-FUNC
+pu	po	part	SEED-FUNC
+ata	siguro	part	SEED-FUNC
+sana	sana	part	SEED-FUNC
+ala	wala	neg	SEED-FUNC
+alang	walang	neg	SEED-FUNC
+ali	hindi	neg	SEED-FUNC
+e	hindi	neg	SEED-FUNC
+atin	mayroon	exist	SEED-FUNC
+ating	mayroong	exist	SEED-FUNC
+atiu	nandoon	exist	SEED-FUNC
+keni	dito	adv	SEED-FUNC
+keta	doon	adv	SEED-FUNC
+oyni	heto	adv	SEED-FUNC
+ngeni	ngayon	adv	SEED-FUNC
+kanita	noon	adv	SEED-FUNC
+i	si	det	SEED-FUNC
+ni	ni	det	SEED-FUNC

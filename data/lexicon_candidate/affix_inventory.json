@@ -1,0 +1,988 @@
+{
+  "method": "Affixes are counted only over relationships the dictionary itself prints inside its entries (verb paradigms, infinitives, P.1/P.2 forms). A plain substring search over headwords was rejected: it returns artefacts such as p- (94 hits, e.g. plato = p- + lato) and -s (122 hits), which are string coincidences rather than morphology.",
+  "frequency_floors": {
+    "prefix": 20,
+    "infix": 20,
+    "suffix": 5,
+    "circumfix": 5,
+    "reduplication": 3
+  },
+  "explicit_pairs": 6806,
+  "non_concatenative_pairs": 4660,
+  "licensed": {
+    "prefix": {
+      "mag": 46,
+      "in": 40,
+      "man": 138,
+      "m": 53,
+      "min": 60,
+      "i": 186,
+      "mum": 35
+    },
+    "suffix": {
+      "an": 103,
+      "n": 11,
+      "nan": 8,
+      "anan": 5
+    },
+    "infix": {
+      "in": 306,
+      "um": 73,
+      "ar": 31
+    },
+    "circumfix": {
+      "in-...-an": 19,
+      "pi-...-an": 14,
+      "pag-...-an": 10,
+      "pa-...-an": 20,
+      "pig-...-an": 6,
+      "la-...-an": 9,
+      "li-...-an": 7,
+      "lu-...-an": 7,
+      "ta-...-an": 8,
+      "tu-...-an": 6
+    },
+    "redup": {
+      "ba": 16,
+      "bu": 12,
+      "ca": 30,
+      "cu": 14,
+      "da": 7,
+      "du": 7,
+      "ga": 17,
+      "gi": 5,
+      "gu": 6,
+      "ki": 10,
+      "la": 57,
+      "li": 27,
+      "lu": 24,
+      "pu": 12,
+      "pa": 33,
+      "pi": 9,
+      "sa": 7,
+      "ta": 98,
+      "ti": 33,
+      "tu": 54,
+      "wa": 4
+    }
+  },
+  "all_observed_counts": {
+    "prefix": {
+      "i": 186,
+      "man": 138,
+      "min": 60,
+      "m": 53,
+      "mag": 46,
+      "in": 40,
+      "mum": 35,
+      "mam": 17,
+      "mig": 16,
+      "iy": 14,
+      "mi": 11,
+      "mang": 10,
+      "pi": 9,
+      "mim": 9,
+      "ma": 8,
+      "yuy": 8,
+      "manğ": 7,
+      "men": 7,
+      "ipa": 7,
+      "s": 5,
+      "pag": 5,
+      "ipag": 5,
+      "pan": 4,
+      "yay": 4,
+      "manğa": 4,
+      "c": 3,
+      "g": 3,
+      "mama": 3,
+      "manga": 3,
+      "me": 3,
+      "maca": 3,
+      "pa": 3,
+      "pil": 3,
+      "pen": 2,
+      "cac": 2,
+      "cum": 2,
+      "kin": 2,
+      "ic": 2,
+      "ig": 2,
+      "mal": 2
+    },
+    "suffix": {
+      "an": 103,
+      "n": 11,
+      "nan": 8,
+      "anan": 5,
+      "ban": 1,
+      "án": 1,
+      "len": 1,
+      "uanan": 1,
+      "s": 1,
+      "banğan": 1,
+      "ciunan": 1
+    },
+    "infix": {
+      "in": 306,
+      "um": 73,
+      "ar": 31,
+      "i": 5,
+      "iñ": 3,
+      "em": 2,
+      "m": 2,
+      "acan": 1,
+      "ir": 1,
+      "ur": 1,
+      "nu": 1,
+      "anam": 1,
+      "n": 1,
+      "urn": 1,
+      "ini": 1,
+      "iti": 1
+    },
+    "circumfix": {
+      "pa-...-an": 20,
+      "in-...-an": 19,
+      "pi-...-an": 14,
+      "pag-...-an": 10,
+      "la-...-an": 9,
+      "ta-...-an": 8,
+      "li-...-an": 7,
+      "lu-...-an": 7,
+      "pig-...-an": 6,
+      "tu-...-an": 6,
+      "in-...-anan": 3,
+      "in-...-n": 3,
+      "mi-...-an": 3,
+      "bu-...-an": 3,
+      "ca-...-an": 3,
+      "pepa-...-an": 3,
+      "yuy-...-n": 3,
+      "yuy-...-an": 3,
+      "c-...-n": 2,
+      "in-...-nan": 2,
+      "c-...-an": 2,
+      "in-...-án": 2,
+      "penğ-...-an": 2,
+      "pag-...-n": 2,
+      "cu-...-an": 2,
+      "da-...-an": 2,
+      "ga-...-n": 2,
+      "gi-...-an": 2,
+      "pu-...-an": 2,
+      "pepa-...-n": 2,
+      "ta-...-n": 2,
+      "cay-...-anan": 1,
+      "key-...-anan": 1,
+      "g-...-an": 1,
+      "m-...-akiu": 1,
+      "m-...-alab": 1,
+      "l-...-n": 1,
+      "pic-...-n": 1,
+      "yay-...-an": 1,
+      "p-...-n": 1
+    },
+    "redup": {
+      "ta": 98,
+      "la": 57,
+      "tu": 54,
+      "pa": 33,
+      "ti": 33,
+      "ca": 30,
+      "li": 27,
+      "lu": 24,
+      "ga": 17,
+      "ba": 16,
+      "cu": 14,
+      "bu": 12,
+      "pu": 12,
+      "ki": 10,
+      "pi": 9,
+      "da": 7,
+      "du": 7,
+      "sa": 7,
+      "gu": 6,
+      "gi": 5,
+      "wa": 4,
+      "bi": 2,
+      "in": 2,
+      "le": 2,
+      "co": 1,
+      "de": 1,
+      "di": 1,
+      "ke": 1,
+      "na": 1,
+      "se": 1,
+      "te": 1,
+      "to": 1,
+      "u": 1
+    }
+  },
+  "examples": {
+    "prefix:mag": [
+      [
+        "abono",
+        "magabono",
+        16
+      ],
+      [
+        "aborciun",
+        "magaborciun",
+        16
+      ],
+      [
+        "abstinencia",
+        "magabstinencia",
+        17
+      ]
+    ],
+    "prefix:in": [
+      [
+        "absac",
+        "inabsac",
+        16
+      ],
+      [
+        "abú",
+        "inabú",
+        17
+      ],
+      [
+        "acbag",
+        "inacbag",
+        18
+      ]
+    ],
+    "prefix:man": [
+      [
+        "absac",
+        "manabsac",
+        16
+      ],
+      [
+        "abut",
+        "manabut",
+        18
+      ],
+      [
+        "acdac",
+        "manacdac",
+        19
+      ]
+    ],
+    "prefix:m": [
+      [
+        "abut",
+        "mabut",
+        18
+      ],
+      [
+        "acdut",
+        "macdut",
+        19
+      ],
+      [
+        "afecto",
+        "mafecto",
+        23
+      ]
+    ],
+    "prefix:min": [
+      [
+        "abut",
+        "minabut",
+        18
+      ],
+      [
+        "acdut",
+        "minacdut",
+        19
+      ],
+      [
+        "acut",
+        "minacut",
+        21
+      ]
+    ],
+    "prefix:i": [
+      [
+        "bagi",
+        "ibagi",
+        84
+      ],
+      [
+        "balaum",
+        "ibalaum",
+        91
+      ],
+      [
+        "balic",
+        "ibalic",
+        93
+      ]
+    ],
+    "prefix:mum": [
+      [
+        "ucuc",
+        "mumucuc",
+        794
+      ],
+      [
+        "ucul",
+        "mumucul",
+        794
+      ],
+      [
+        "ucum",
+        "mumucum",
+        794
+      ]
+    ],
+    "suffix:an": [
+      [
+        "acdac",
+        "acdacan",
+        19
+      ],
+      [
+        "agtas",
+        "agtasan",
+        27
+      ],
+      [
+        "am",
+        "aman",
+        29
+      ]
+    ],
+    "suffix:n": [
+      [
+        "albe",
+        "alben",
+        33
+      ],
+      [
+        "balisa",
+        "balisan",
+        96
+      ],
+      [
+        "cana",
+        "canan",
+        167
+      ]
+    ],
+    "suffix:nan": [
+      [
+        "alpa",
+        "alpanan",
+        40
+      ],
+      [
+        "anluagi",
+        "anluaginan",
+        50
+      ],
+      [
+        "kilala",
+        "kilalanan",
+        376
+      ]
+    ],
+    "suffix:anan": [
+      [
+        "bugtu",
+        "bugtuanan",
+        133
+      ],
+      [
+        "dam",
+        "damanan",
+        234
+      ],
+      [
+        "dulis",
+        "dulisanan",
+        267
+      ]
+    ],
+    "infix:in": [
+      [
+        "bacal",
+        "binacal",
+        81
+      ],
+      [
+        "bagi",
+        "binagi",
+        84
+      ],
+      [
+        "balac",
+        "binalac",
+        86
+      ]
+    ],
+    "infix:um": [
+      [
+        "calap",
+        "cumalap",
+        157
+      ],
+      [
+        "calus",
+        "cumalus",
+        162
+      ],
+      [
+        "canta",
+        "cumanta",
+        170
+      ]
+    ],
+    "infix:ar": [
+      [
+        "dacdac",
+        "daracdac",
+        224
+      ],
+      [
+        "daclut",
+        "daraclut",
+        224
+      ],
+      [
+        "dacurac",
+        "daracurac",
+        224
+      ]
+    ],
+    "circumfix:('in', 'an')": [
+      [
+        "acû",
+        "inacûan",
+        21
+      ],
+      [
+        "acut",
+        "inacutan",
+        21
+      ],
+      [
+        "agtas",
+        "inagtasan",
+        27
+      ]
+    ],
+    "circumfix:('pi', 'an')": [
+      [
+        "alipit",
+        "pialipitan",
+        38
+      ],
+      [
+        "alug",
+        "pialugan",
+        41
+      ],
+      [
+        "aluyun",
+        "pialuyunan",
+        42
+      ]
+    ],
+    "circumfix:('pag', 'an')": [
+      [
+        "bitkil",
+        "pagbitkilan",
+        128
+      ],
+      [
+        "culit",
+        "pagculitan",
+        212
+      ],
+      [
+        "lilu",
+        "pagliluan",
+        421
+      ]
+    ],
+    "circumfix:('pa', 'an')": [
+      [
+        "calulu",
+        "pacaluluan",
+        162
+      ],
+      [
+        "imalan",
+        "paimalanan",
+        350
+      ],
+      [
+        "lalac",
+        "palalacan",
+        393
+      ]
+    ],
+    "circumfix:('pig', 'an')": [
+      [
+        "casat",
+        "pigcasatan",
+        179
+      ],
+      [
+        "main",
+        "pigmainan",
+        455
+      ],
+      [
+        "salalac",
+        "pigsalalacan",
+        614
+      ]
+    ],
+    "circumfix:('la', 'an')": [
+      [
+        "labsac",
+        "lalabsacan",
+        385
+      ],
+      [
+        "labug",
+        "lalabugan",
+        386
+      ],
+      [
+        "lacam",
+        "lalacaman",
+        387
+      ]
+    ],
+    "circumfix:('li', 'an')": [
+      [
+        "linab",
+        "lilinaban",
+        424
+      ],
+      [
+        "linis",
+        "lilinisan",
+        425
+      ],
+      [
+        "liplip",
+        "liliplipan",
+        429
+      ]
+    ],
+    "circumfix:('lu', 'an')": [
+      [
+        "lucup",
+        "lulucupan",
+        439
+      ],
+      [
+        "lugpuc",
+        "lulugpucan",
+        440
+      ],
+      [
+        "lumlum",
+        "lulumluman",
+        443
+      ]
+    ],
+    "circumfix:('ta', 'an')": [
+      [
+        "tabas",
+        "tatabasan",
+        698
+      ],
+      [
+        "tacub",
+        "tatacuban",
+        703
+      ],
+      [
+        "tagal",
+        "tatagalan",
+        704
+      ]
+    ],
+    "circumfix:('tu', 'an')": [
+      [
+        "tubung",
+        "tutubungan",
+        773
+      ],
+      [
+        "tucsu",
+        "tutucsuan",
+        774
+      ],
+      [
+        "tuctuc",
+        "tutuctucan",
+        774
+      ]
+    ],
+    "redup:ba": [
+      [
+        "bagi",
+        "babagi",
+        84
+      ],
+      [
+        "bagul",
+        "babagul",
+        85
+      ],
+      [
+        "balacse",
+        "babalacse",
+        87
+      ]
+    ],
+    "redup:bu": [
+      [
+        "bucaca",
+        "bubucaca",
+        131
+      ],
+      [
+        "bugung",
+        "bubugung",
+        134
+      ],
+      [
+        "bulabud",
+        "bubulabud",
+        134
+      ]
+    ],
+    "redup:ca": [
+      [
+        "cabaung",
+        "cacabaung",
+        151
+      ],
+      [
+        "cabayu",
+        "cacabayu",
+        151
+      ],
+      [
+        "cacas",
+        "cacacas",
+        153
+      ]
+    ],
+    "redup:cu": [
+      [
+        "cuaki",
+        "cucuaki",
+        207
+      ],
+      [
+        "culcul",
+        "cuculcul",
+        211
+      ],
+      [
+        "culit",
+        "cuculit",
+        212
+      ]
+    ],
+    "redup:da": [
+      [
+        "damac",
+        "dadamac",
+        234
+      ],
+      [
+        "danğan",
+        "dadanğan",
+        238
+      ],
+      [
+        "danğat",
+        "dadanğat",
+        238
+      ]
+    ],
+    "redup:du": [
+      [
+        "dugmu",
+        "dudugmu",
+        266
+      ],
+      [
+        "dulang",
+        "dudulang",
+        267
+      ],
+      [
+        "dulduc",
+        "dudulduc",
+        267
+      ]
+    ],
+    "redup:ga": [
+      [
+        "galal",
+        "gagalal",
+        307
+      ],
+      [
+        "galauc",
+        "gagalauc",
+        308
+      ],
+      [
+        "gamal",
+        "gagamal",
+        310
+      ]
+    ],
+    "redup:gi": [
+      [
+        "gisan",
+        "gigisan",
+        323
+      ],
+      [
+        "gisi",
+        "gigisi",
+        323
+      ],
+      [
+        "gitil",
+        "gigitil",
+        324
+      ]
+    ],
+    "redup:gu": [
+      [
+        "gulait",
+        "gugulait",
+        329
+      ],
+      [
+        "gulis",
+        "gugulis",
+        329
+      ],
+      [
+        "gunlut",
+        "gugunlut",
+        331
+      ]
+    ],
+    "redup:ki": [
+      [
+        "kid",
+        "kikid",
+        376
+      ],
+      [
+        "kilala",
+        "kikilala",
+        376
+      ],
+      [
+        "kilic",
+        "kikilic",
+        377
+      ]
+    ],
+    "redup:la": [
+      [
+        "lablab",
+        "lalablab",
+        385
+      ],
+      [
+        "labsac",
+        "lalabsac",
+        385
+      ],
+      [
+        "labul",
+        "lalabul",
+        386
+      ]
+    ],
+    "redup:li": [
+      [
+        "libac",
+        "lilibac",
+        415
+      ],
+      [
+        "libad",
+        "lilibad",
+        415
+      ],
+      [
+        "libe",
+        "lilibe",
+        415
+      ]
+    ],
+    "redup:lu": [
+      [
+        "luba",
+        "luluba",
+        435
+      ],
+      [
+        "lubac",
+        "lulubac",
+        435
+      ],
+      [
+        "lucub",
+        "lulucub",
+        438
+      ]
+    ],
+    "redup:pu": [
+      [
+        "puri",
+        "pupuri",
+        487
+      ],
+      [
+        "puc",
+        "pupuc",
+        567
+      ],
+      [
+        "pucnat",
+        "pupucnat",
+        568
+      ]
+    ],
+    "redup:pa": [
+      [
+        "pake",
+        "papake",
+        517
+      ],
+      [
+        "pacsing",
+        "papacsing",
+        518
+      ],
+      [
+        "padta",
+        "papadta",
+        519
+      ]
+    ],
+    "redup:pi": [
+      [
+        "picpic",
+        "pipicpic",
+        553
+      ],
+      [
+        "pigil",
+        "pipigil",
+        553
+      ],
+      [
+        "pindang",
+        "pipindang",
+        556
+      ]
+    ],
+    "redup:sa": [
+      [
+        "sabang",
+        "sasabang",
+        598
+      ],
+      [
+        "sabo",
+        "sasabo",
+        599
+      ],
+      [
+        "sagilut",
+        "sasagilut",
+        607
+      ]
+    ],
+    "redup:ta": [
+      [
+        "tabac",
+        "tatabac",
+        697
+      ],
+      [
+        "tabas",
+        "tatabas",
+        698
+      ],
+      [
+        "tabing",
+        "tatabing",
+        698
+      ]
+    ],
+    "redup:ti": [
+      [
+        "tiba",
+        "titiba",
+        747
+      ],
+      [
+        "tibabâ",
+        "titibabâ",
+        747
+      ],
+      [
+        "tibag",
+        "titibag",
+        747
+      ]
+    ],
+    "redup:tu": [
+      [
+        "tuag",
+        "tutuag",
+        770
+      ],
+      [
+        "tuas",
+        "tutuas",
+        771
+      ],
+      [
+        "tuba",
+        "tutuba",
+        771
+      ]
+    ],
+    "redup:wa": [
+      [
+        "wala",
+        "wawala",
+        820
+      ],
+      [
+        "wale",
+        "wawale",
+        820
+      ],
+      [
+        "wasac",
+        "wawasac",
+        821
+      ]
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    { "label": "Run tests", "type": "shell", "command": "python -m pytest tests -q",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "group": { "kind": "test", "isDefault": true }, "problemMatcher": [] },
+    { "label": "Lint", "type": "shell", "command": "ruff check src scripts tests",
+      "problemMatcher": [] },
+    { "label": "Full tokenizer pipeline (toy data)", "type": "shell",
+      "command": "python scripts/make_toy_data.py && python scripts/00_prepare_data.py && python scripts/01_validate_lexicon.py && python scripts/03_train_tokenizer.py && python scripts/03_train_tokenizer.py --plain-bpe && python scripts/04_eval_tokenizer.py --allow-auto-gold && python scripts/07_report.py",
+      "options": { "env": { "PYTHONPATH": "${workspaceFolder}/src" } },
+      "problemMatcher": [] }
+  ]
+}

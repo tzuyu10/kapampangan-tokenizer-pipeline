@@ -1,0 +1,55 @@
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.log
+.DS_Store
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# COPYRIGHTED SOURCE MATERIAL — do not commit to a PUBLIC repository
+#
+# These files contain verbatim dictionary content extracted from:
+#   * Samson, Kapampangan Dictionary            (9,763 entries with definitions)
+#   * Mirikitani, Speaking Kapampangan          (University of Hawai'i Press,
+#                                                ISBN 9780824885922)
+#
+# Committing them to a public repo republishes copyrighted text. Fine in a
+# PRIVATE repo for thesis work; not fine in a public one.
+#
+# If your repository is private and your team needs these files, comment out
+# the four lines below. Note they add ~48 MB.
+# ---------------------------------------------------------------------------
+data/extracted/*.jsonl
+data/lexicon_candidate/*.jsonl
+!data/extracted/extraction_report.json
+!data/lexicon_candidate/affix_inventory.json
+
+# Never commit the source PDFs themselves
+*.pdf
+
+# ---------------------------------------------------------------------------
+# Generated data — reproducible by running the pipeline, so not worth
+# versioning. Keeping it out also keeps the repo small and the diffs readable.
+# ---------------------------------------------------------------------------
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Model checkpoints (large binaries)
+artifacts/nmt/**/*.pt
+artifacts/results/hyp_*.txt
+
+# Annotation templates are regenerated; the completed gold file IS committed
+data/gold/morpheme_gold.TEMPLATE.tsv
+data/gold/segmentation_candidates.tsv
+data/gold/morpheme_gold.PROVISIONAL.tsv

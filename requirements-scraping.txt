@@ -1,0 +1,8 @@
+# Only needed for scripts that collect Kapampangan news sentences.
+# Check each site's robots.txt and terms of use first; log source URL + date
+# of access for every sentence (thesis Ethical Considerations, p. 52-53).
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.1
+trafilatura>=1.8          # boilerplate removal for news pages
+langdetect>=1.0.9         # coarse language filtering before manual validation

@@ -1,0 +1,63 @@
+# Single source of truth for every script. Override on the CLI with --set key=value.
+paths:
+  raw_parallel:      data/raw/parallel.tsv          # columns: pam, fil, domain, source
+  lexicon_dir:       data/lexicon
+  gold_morphemes:    data/gold/morpheme_gold.tsv    # HUMAN annotated, provenance=human
+  processed_dir:     data/processed
+  artifacts_dir:     artifacts
+
+seed: 13
+
+clean:
+  min_words: 2
+  max_words: 80
+  max_len_ratio: 3.0
+  drop_duplicates: true
+
+split:
+  ratios: [0.8, 0.1, 0.1]
+
+segmenter:
+  strict_thesis_mode: false      # true = literal Figure 7 pseudocode
+  max_depth: 3
+  enable_reduplication: true
+  enable_vowel_restoration: true
+  clitic_match: suffix
+
+tokenizer:
+  candidates: [2000, 4000, 8000, 16000, 32000]
+  min_pair_frequency: 2
+  fertility_target: 1.6
+  lambda_fertility: 0.5
+  lowercase: true
+
+metrics:
+  mcf1_min_token_len: 2
+  mcf1_content_morphemes_only: true
+  mcf1_max_types: 5000
+
+nllb:
+  model_name: facebook/nllb-200-distilled-600M
+  tgt_lang: tgl_Latn
+  baseline_src_lang: tgl_Latn     # Kapampangan has no NLLB code; document this choice
+  init: subword_average           # random = literal thesis spec
+  freeze_backbone: true
+
+train:
+  epochs: 10
+  batch_size: 8
+  grad_accum: 4
+  lr: 5.0e-4
+  warmup_ratio: 0.06
+  label_smoothing: 0.1
+  fp16: true
+  patience: 3
+
+decode:
+  num_beams: 5
+  max_new_tokens: 128
+  length_penalty: 1.0
+
+stats:
+  alpha: 0.05
+  bootstrap_resamples: 1000

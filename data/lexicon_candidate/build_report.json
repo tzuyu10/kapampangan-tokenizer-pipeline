@@ -1,0 +1,26 @@
+{
+  "input_entries": 15128,
+  "kapampangan_entries": 14209,
+  "excluded_english_headwords": 919,
+  "morphological_status": {
+    "simple": 2805,
+    "unknown": 10257,
+    "derived": 579,
+    "variant": 542,
+    "compound": 26
+  },
+  "annotation_source": {
+    "dictionary_explicit": 3485,
+    "unknown": 10257,
+    "AI_proposed": 467
+  },
+  "confidence": {
+    "high": 3485,
+    "low": 10482,
+    "medium": 242
+  },
+  "with_root": 3384,
+  "with_segmentation": 3304,
+  "root_copied_from_headword_outside_simple": 0,
+  "all_unvalidated": true
+}

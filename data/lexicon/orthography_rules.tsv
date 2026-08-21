@@ -1,0 +1,16 @@
+# regex	replacement	note
+# ---------------------------------------------------------------------------
+# DERIVED FROM YOUR OWN CORPUS: these spellings co-occur in the literary and
+# religious files and refer to the same words. Each rule below was measured to
+# merge real type variants (see data/raw/orthography_impact.json).
+# A Kapampangan validator must still sign off on each line before you report
+# results. Comment out anything they reject.
+# ---------------------------------------------------------------------------
+\bq[ñn]g\b	king	qng/qñg -> king (12,007 tokens across 4 spellings)
+\bquing\b	king	Spanish-era quing -> king
+qu(?=[ei])	k	quecang -> kekang, queang -> keang
+c(?=[aou])	k	cu -> ku, caring -> karing
+c(?=[ei])	s	ce/ci -> se/si
+gui	gi	maguing -> maging
+gue	ge	Spanish-era gue -> ge
+ll	ly	Spanish-era ll -> ly

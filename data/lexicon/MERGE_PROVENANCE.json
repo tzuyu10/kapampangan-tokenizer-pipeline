@@ -1,0 +1,15 @@
+{
+  "included_annotation_sources": [
+    "dictionary_explicit"
+  ],
+  "min_confidence": "high",
+  "candidates_total": 14209,
+  "candidates_admitted": 13630,
+  "roots_before": 2642,
+  "roots_after": 11496,
+  "coverage_types_before": 0.2580560923382253,
+  "coverage_types_after": 0.4029874131717763,
+  "coverage_tokens_before": 0.7339700265916922,
+  "coverage_tokens_after": 0.8444410583591795,
+  "warning": "Every admitted entry is still validation_status=unvalidated in the candidate lexicon. Human validation is outstanding."
+}

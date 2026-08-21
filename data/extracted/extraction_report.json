@@ -1,0 +1,76 @@
+{
+  "sources": [
+    {
+      "source": "samson",
+      "entries": 9763,
+      "unique_headwords": 9030,
+      "with_definition": 9763,
+      "with_part_of_speech": 6529,
+      "needs_review": 8032,
+      "needs_review_pct": 82.3,
+      "alphabetical_monotonicity_pct": 94.1,
+      "pages_covered": 766
+    },
+    {
+      "source": "trilingual",
+      "entries": 3056,
+      "unique_headwords": 2950,
+      "with_definition": 2944,
+      "with_part_of_speech": 0,
+      "needs_review": 2991,
+      "needs_review_pct": 97.9,
+      "alphabetical_monotonicity_pct": 94.5,
+      "pages_covered": 56
+    },
+    {
+      "source": "mirikitani_pam_eng",
+      "entries": 1322,
+      "unique_headwords": 1304,
+      "with_definition": 679,
+      "with_part_of_speech": 0,
+      "needs_review": 1322,
+      "needs_review_pct": 100.0,
+      "alphabetical_monotonicity_pct": 71.6,
+      "pages_covered": 74
+    },
+    {
+      "source": "mirikitani_eng_pam",
+      "entries": 919,
+      "unique_headwords": 908,
+      "with_definition": 295,
+      "with_part_of_speech": 0,
+      "needs_review": 919,
+      "needs_review_pct": 100.0,
+      "alphabetical_monotonicity_pct": 84.3,
+      "pages_covered": 41
+    },
+    {
+      "source": "dayalekto",
+      "entries": 68,
+      "unique_headwords": 67,
+      "with_definition": 68,
+      "with_part_of_speech": 0,
+      "needs_review": 0,
+      "needs_review_pct": 0.0,
+      "alphabetical_monotonicity_pct": 52.2,
+      "pages_covered": 10
+    }
+  ],
+  "skipped_not_dictionaries": [
+    {
+      "file": "SL-030-forman-kapampangan-grammar-notes.pdf",
+      "reason": "Forman, Kapampangan Grammar Notes — grammar, not a dictionary. Use it as the source for the affix inventory in a later stage."
+    },
+    {
+      "file": "ilide.info-an-introduction-to-the-kapampangan-langu-pdf-pr_0f5aabe15f5d068f64c9a0185ad5b4cb.pdf",
+      "reason": "Introductory lecture notes — prose with scattered examples, no entry structure."
+    },
+    {
+      "file": "ilide.info-paghahambing-ng-wikang-kapampangan-pr_69a3c87aa6fb68cc16d0b0c89adba32f.pdf",
+      "reason": "Comparative linguistics paper in Filipino — documents orthography and morphology rules; cite it, but it has no lexical entries."
+    }
+  ],
+  "generated": "Wed Aug 19 22:30:51 2026",
+  "total_entries": 15128,
+  "total_unique_headwords": 12940
+}

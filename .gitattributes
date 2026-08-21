@@ -1,0 +1,6 @@
+# Keep line endings sane across Windows and Colab/Linux
+* text=auto eol=lf
+*.ipynb text eol=lf
+*.tsv text eol=lf
+*.json text eol=lf
+*.py text eol=lf

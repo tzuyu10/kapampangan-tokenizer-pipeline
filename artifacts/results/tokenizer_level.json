@@ -1,0 +1,84 @@
+{
+  "table2": {
+    "proposed": {
+      "fertility_corpus": 1.6014723037933947,
+      "fertility_sentence_mean": 1.6197864320582147,
+      "fertility_sentence_sd": 0.5116279979265185,
+      "total_tokens": 39811,
+      "total_words": 24859,
+      "n_sentences": 1699,
+      "mcf1": 0.013938583118135716,
+      "precision_c": 0.007167770631339797,
+      "recall_c": 0.251685393258427,
+      "n_types": 2988,
+      "ST": 93753,
+      "SM": 2670,
+      "ST_and_SM": 672,
+      "min_token_len": 2,
+      "content_morphemes_only": true,
+      "vocab_size": 12464
+    },
+    "plain": {
+      "fertility_corpus": 1.4625688885313166,
+      "fertility_sentence_mean": 1.4770099091390705,
+      "fertility_sentence_sd": 0.5207037553877071,
+      "total_tokens": 36358,
+      "total_words": 24859,
+      "n_sentences": 1699,
+      "mcf1": 0.004166820765067742,
+      "precision_c": 0.0021543207515902457,
+      "recall_c": 0.06329588014981273,
+      "n_types": 2988,
+      "ST": 78447,
+      "SM": 2670,
+      "ST_and_SM": 169,
+      "min_token_len": 2,
+      "content_morphemes_only": true,
+      "vocab_size": 14459
+    }
+  },
+  "table4": [
+    {
+      "baseline": "plain",
+      "paired_tests": [
+        {
+          "metric": "Fertility Rate (vs plain)",
+          "n": 1699,
+          "mean_proposed": 1.6197864320582136,
+          "sd_proposed": 0.5116279979265191,
+          "mean_baseline": 1.477009909139071,
+          "sd_baseline": 0.5207037553877071,
+          "mean_diff": 0.1427765229191431,
+          "sd_diff": 0.15213045103483996,
+          "t": 38.68453116487455,
+          "p_ttest": 2.6985763555997203e-235,
+          "wilcoxon_W": 20995.0,
+          "p_wilcoxon": 0.0,
+          "shapiro_W": NaN,
+          "p_shapiro": NaN,
+          "normality_ok": true,
+          "test_used": "paired t-test",
+          "p_value": 2.6985763555997203e-235,
+          "cohens_dz": 0.9385137685974869,
+          "effect_label": "large",
+          "favours": "baseline",
+          "decision_uncorrected": "reject H0",
+          "holm_threshold": 0.05,
+          "holm_rank": 1,
+          "decision_holm": "reject H0"
+        }
+      ],
+      "mcf1_paired_bootstrap": {
+        "mean_diff": 0.013125360398699519,
+        "ci_low": 0.008160000002670684,
+        "ci_high": 0.019620124603257936,
+        "p_value": 0.0,
+        "n_resamples": 200,
+        "n_types": 1200
+      }
+    }
+  ],
+  "gold_rows": 0,
+  "n_test_sentences": 1699,
+  "n_test_word_types": 5429
+}

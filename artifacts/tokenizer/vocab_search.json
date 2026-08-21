@@ -1,0 +1,35 @@
+{
+  "chosen": 16000,
+  "table": [
+    {
+      "vocab_size": 2000,
+      "morph_distance": 0.7018543874773914,
+      "fertility": 1.9190921690921692,
+      "objective": 0.8614004720234759
+    },
+    {
+      "vocab_size": 4000,
+      "morph_distance": 0.5814781006474304,
+      "fertility": 1.7828135828135827,
+      "objective": 0.6728848920542218
+    },
+    {
+      "vocab_size": 8000,
+      "morph_distance": 0.4898236895042009,
+      "fertility": 1.696916146916147,
+      "objective": 0.5382817629622743
+    },
+    {
+      "vocab_size": 16000,
+      "morph_distance": 0.45562063661105195,
+      "fertility": 1.6587664587664588,
+      "objective": 0.4850038659942813
+    },
+    {
+      "vocab_size": 32000,
+      "morph_distance": 0.45562063661105195,
+      "fertility": 1.6587664587664588,
+      "objective": 0.4850038659942813
+    }
+  ]
+}
