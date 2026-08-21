@@ -1,0 +1,28 @@
+{
+  "counts": {
+    "circumfixes": 3,
+    "clitics": 9,
+    "compound_records": 26,
+    "excluded_root_candidates": 79,
+    "infixes": 2,
+    "operational_compounds": 20,
+    "operational_root_keys": 1478,
+    "operational_root_surfaces": 1494,
+    "pang_variants": 3,
+    "prefixes": 15,
+    "sample_inflected_form_records": 118,
+    "spelling_variant_evidence": 187,
+    "spelling_variant_mappings": 0,
+    "suffixes": 1
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "input_files": {
+    "linguistic_evidence_sha256": "42d9fc70fd49e019080157ed8ef0384abad934340f2c13d59c05f9301155c719",
+    "morphology_reference_sha256": "0be577897d9647243586f153024af1d3ae7d7994465fa45a5ade595ddb049461",
+    "train_sha256": "2309d439133c73b183a45954adfc8c54d36b8824b0cd2899631415497f6d4d2d"
+  },
+  "lexicon_file_sha256": "c6695f09e13d0f07798358ac7177c278468f6a713658ab7a0545abb7d46ec8fd",
+  "lexicon_fingerprint": "02a9886ccfeff83b710374c71a0c3dd8bd5a8a99d440621cafe1709cfb03daba",
+  "manifest_fingerprint": "23ae806ac51b23c85ee5130e861eecfced430b48cc85bebe61632808d5524953",
+  "schema_version": "1.0.0"
+}

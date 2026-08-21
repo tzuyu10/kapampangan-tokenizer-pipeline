@@ -142,7 +142,10 @@ class Tokenizer:
         document = cast(dict[str, Any], raw)
         if document.get("schema_version") != "1.0.0":
             raise ValueError("unsupported tokenizer schema version")
-        if document.get("artifact_type") != "kapampangan_morphbpe":
+        if document.get("artifact_type") not in {
+            "kapampangan_morphbpe",
+            "kapampangan_plain_bpe",
+        }:
             raise ValueError("unexpected tokenizer artifact type")
         normalization = document.get("normalization")
         if normalization != {"unicode_normalization": "NFC", "spelling_mappings": []}:

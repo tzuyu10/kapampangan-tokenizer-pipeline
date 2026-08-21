@@ -1,0 +1,646 @@
+{
+  "condition": "expanded_morphology_v4_weighted",
+  "crossing_penalties": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "diagnostic_round_trips": {
+    "16384": {
+      "penalty_1": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_2": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_4": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_8": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mi",
+          "sam",
+          "ban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      }
+    },
+    "6080": {
+      "penalty_1": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_2": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_4": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_8": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mi",
+          "sam",
+          "ban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      }
+    },
+    "8192": {
+      "penalty_1": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_2": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_4": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mis",
+          "amban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      },
+      "penalty_8": {
+        "kabukasan": [
+          "ka",
+          "bukas",
+          "an"
+        ],
+        "misamban": [
+          "mi",
+          "sam",
+          "ban"
+        ],
+        "sinulat": [
+          "s",
+          "in",
+          "ulat"
+        ]
+      }
+    }
+  },
+  "independent_evaluation_gold": false,
+  "report_fingerprint": "b52298a686222de01489f0032890c076945ae0289cc7925e4cd46d3faae6738a",
+  "schema_version": "1.0.0",
+  "segmentation_manifest_fingerprint": "03c2289b33424e66800656775895268ab4861127fa5880a0490b4544f04c87e8",
+  "selection_performed": false,
+  "targets": {
+    "16384": {
+      "penalty_1": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-1/candidates/vocab-16384",
+        "boundary_f1": 0.46206069885270507,
+        "boundary_precision": 0.47932122630666024,
+        "boundary_recall": 0.44600007778166684,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 1,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 17219,
+        "exact_segment_types": 1610,
+        "extra_boundary_types": 3830,
+        "false_negative_pairs": 633819,
+        "false_positive_pairs": 481160,
+        "fertility": 2.1287476706059962,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 3823,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.1910693828867686,
+        "morphological_consistency_precision": 0.21486720003132959,
+        "morphological_consistency_recall": 0.17201743178950174,
+        "token_groups": 2609,
+        "token_sharing_pairs": 612839,
+        "true_positive_pairs": 131679,
+        "vocabulary_size": 16384
+      },
+      "penalty_2": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-2/candidates/vocab-16384",
+        "boundary_f1": 0.5245697329376855,
+        "boundary_precision": 0.5338205097233966,
+        "boundary_recall": 0.5156341150390853,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 4,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 19429,
+        "exact_segment_types": 2002,
+        "extra_boundary_types": 3595,
+        "false_negative_pairs": 611277,
+        "false_positive_pairs": 517826,
+        "fertility": 2.1717500530748,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 3353,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.21456163111415644,
+        "morphological_consistency_precision": 0.22947948580977223,
+        "morphological_consistency_recall": 0.20146492871307306,
+        "token_groups": 2579,
+        "token_sharing_pairs": 672047,
+        "true_positive_pairs": 154221,
+        "vocabulary_size": 16384
+      },
+      "penalty_4": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-4/candidates/vocab-16384",
+        "boundary_f1": 0.6092370030881804,
+        "boundary_precision": 0.616353577967046,
+        "boundary_recall": 0.6022828919223739,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 5,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 23437,
+        "exact_segment_types": 2360,
+        "extra_boundary_types": 3298,
+        "false_negative_pairs": 596022,
+        "false_positive_pairs": 518462,
+        "fertility": 2.185384379496615,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 2912,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.23320737892827753,
+        "morphological_consistency_precision": 0.2463535958182278,
+        "morphological_consistency_recall": 0.22139313231386626,
+        "token_groups": 2556,
+        "token_sharing_pairs": 687938,
+        "true_positive_pairs": 169476,
+        "vocabulary_size": 16384
+      },
+      "penalty_8": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-8/candidates/vocab-16384",
+        "boundary_f1": 0.737225493355206,
+        "boundary_precision": 0.7404138472099637,
+        "boundary_recall": 0.7340644810018279,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 6,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 28649,
+        "exact_segment_types": 2888,
+        "extra_boundary_types": 2769,
+        "false_negative_pairs": 544186,
+        "false_positive_pairs": 531664,
+        "fertility": 2.20267496992428,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 2280,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.29149264327212715,
+        "morphological_consistency_precision": 0.2939164063662056,
+        "morphological_consistency_recall": 0.2891085280431823,
+        "token_groups": 2467,
+        "token_sharing_pairs": 752976,
+        "true_positive_pairs": 221312,
+        "vocabulary_size": 16384
+      },
+      "plain_bpe": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/plain/candidates/vocab-16384",
+        "boundary_f1": 0.16944599248367412,
+        "boundary_precision": 0.31953651306925357,
+        "boundary_recall": 0.11529187570489635,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 0,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 4451,
+        "exact_segment_types": 913,
+        "extra_boundary_types": 3909,
+        "false_negative_pairs": 690361,
+        "false_positive_pairs": 294338,
+        "fertility": 1.4376901847003043,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 4523,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.1324031496784505,
+        "morphological_consistency_precision": 0.20336152649029027,
+        "morphological_consistency_recall": 0.09815440406114712,
+        "token_groups": 2612,
+        "token_sharing_pairs": 369475,
+        "true_positive_pairs": 75137,
+        "vocabulary_size": 16384
+      }
+    },
+    "6080": {
+      "penalty_1": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-1/candidates/vocab-6080",
+        "boundary_f1": 0.43668098227067503,
+        "boundary_precision": 0.4134605359190908,
+        "boundary_recall": 0.462664799906662,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 4,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 14616,
+        "exact_segment_types": 1073,
+        "extra_boundary_types": 4543,
+        "false_negative_pairs": 610977,
+        "false_positive_pairs": 914567,
+        "fertility": 2.357441086971906,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 3714,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.16845326411517364,
+        "morphological_consistency_precision": 0.14453534227304018,
+        "morphological_consistency_recall": 0.2018568304554682,
+        "token_groups": 1672,
+        "token_sharing_pairs": 1069088,
+        "true_positive_pairs": 154521,
+        "vocabulary_size": 6080
+      },
+      "penalty_2": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-2/candidates/vocab-6080",
+        "boundary_f1": 0.49568213261956645,
+        "boundary_precision": 0.46327817312080594,
+        "boundary_recall": 0.5329599813324,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 6,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 16206,
+        "exact_segment_types": 1316,
+        "extra_boundary_types": 4392,
+        "false_negative_pairs": 593190,
+        "false_positive_pairs": 922076,
+        "fertility": 2.395536999032859,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 3245,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.18528917425944225,
+        "morphological_consistency_precision": 0.15744747730229974,
+        "morphological_consistency_recall": 0.22509268476207644,
+        "token_groups": 1655,
+        "token_sharing_pairs": 1094384,
+        "true_positive_pairs": 172308,
+        "vocabulary_size": 6080
+      },
+      "penalty_4": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-4/candidates/vocab-6080",
+        "boundary_f1": 0.5722297635207545,
+        "boundary_precision": 0.5291164327002478,
+        "boundary_recall": 0.6229922607241474,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 7,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 19547,
+        "exact_segment_types": 1584,
+        "extra_boundary_types": 4171,
+        "false_negative_pairs": 577106,
+        "false_positive_pairs": 884565,
+        "fertility": 2.428301842285283,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 2779,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.20494600085397793,
+        "morphological_consistency_precision": 0.17558205967247523,
+        "morphological_consistency_recall": 0.24610384351102157,
+        "token_groups": 1644,
+        "token_sharing_pairs": 1072957,
+        "true_positive_pairs": 188392,
+        "vocabulary_size": 6080
+      },
+      "penalty_8": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-8/candidates/vocab-6080",
+        "boundary_f1": 0.6881824192712521,
+        "boundary_precision": 0.6366131058652383,
+        "boundary_recall": 0.7488429977054408,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 8,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 23988,
+        "exact_segment_types": 1916,
+        "extra_boundary_types": 3836,
+        "false_negative_pairs": 538746,
+        "false_positive_pairs": 904313,
+        "fertility": 2.426933691883094,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 2140,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.2391188692387229,
+        "morphological_consistency_precision": 0.20047654202013146,
+        "morphological_consistency_recall": 0.2962150129719477,
+        "token_groups": 1608,
+        "token_sharing_pairs": 1131065,
+        "true_positive_pairs": 226752,
+        "vocabulary_size": 6080
+      },
+      "plain_bpe": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/plain/candidates/vocab-6080",
+        "boundary_f1": 0.24535044531725397,
+        "boundary_precision": 0.28460689442747505,
+        "boundary_recall": 0.21561078053902696,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 2,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 4902,
+        "exact_segment_types": 666,
+        "extra_boundary_types": 4740,
+        "false_negative_pairs": 650105,
+        "false_positive_pairs": 798013,
+        "fertility": 1.9189960606703937,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 4305,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.1374622968317426,
+        "morphological_consistency_precision": 0.12633264944613895,
+        "morphological_consistency_recall": 0.15074239253401053,
+        "token_groups": 1680,
+        "token_sharing_pairs": 913406,
+        "true_positive_pairs": 115393,
+        "vocabulary_size": 6080
+      }
+    },
+    "8192": {
+      "penalty_1": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-1/candidates/vocab-8192",
+        "boundary_f1": 0.4470496584615092,
+        "boundary_precision": 0.43705533780394923,
+        "boundary_recall": 0.4575117644771127,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 4,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 15580,
+        "exact_segment_types": 1289,
+        "extra_boundary_types": 4261,
+        "false_negative_pairs": 619475,
+        "false_positive_pairs": 721881,
+        "fertility": 2.2698558724317692,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 3751,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.17879615673300264,
+        "morphological_consistency_precision": 0.1682478707322469,
+        "morphological_consistency_recall": 0.190755560432555,
+        "token_groups": 2008,
+        "token_sharing_pairs": 867904,
+        "true_positive_pairs": 146023,
+        "vocabulary_size": 8192
+      },
+      "penalty_2": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-2/candidates/vocab-8192",
+        "boundary_f1": 0.5064863501788531,
+        "boundary_precision": 0.4872854703926678,
+        "boundary_recall": 0.5272624742348229,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 5,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 17460,
+        "exact_segment_types": 1599,
+        "extra_boundary_types": 4074,
+        "false_negative_pairs": 599434,
+        "false_positive_pairs": 738550,
+        "fertility": 2.312598778100158,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 3277,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.1988657048150064,
+        "morphological_consistency_precision": 0.18357443064113532,
+        "morphological_consistency_recall": 0.21693590316369213,
+        "token_groups": 1983,
+        "token_sharing_pairs": 904614,
+        "true_positive_pairs": 166064,
+        "vocabulary_size": 8192
+      },
+      "penalty_4": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-4/candidates/vocab-8192",
+        "boundary_f1": 0.5866967347202839,
+        "boundary_precision": 0.55906857132792,
+        "boundary_recall": 0.6171975265429939,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 5,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 21222,
+        "exact_segment_types": 1879,
+        "extra_boundary_types": 3845,
+        "false_negative_pairs": 584994,
+        "false_positive_pairs": 719131,
+        "fertility": 2.339206944542731,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 2831,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.216804303319915,
+        "morphological_consistency_precision": 0.20064137122277367,
+        "morphological_consistency_recall": 0.23579944036431186,
+        "token_groups": 1974,
+        "token_sharing_pairs": 899635,
+        "true_positive_pairs": 180504,
+        "vocabulary_size": 8192
+      },
+      "penalty_8": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/penalty-8/candidates/vocab-8192",
+        "boundary_f1": 0.7022959675863399,
+        "boundary_precision": 0.6656565128794608,
+        "boundary_recall": 0.7432038268580096,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 7,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 25762,
+        "exact_segment_types": 2261,
+        "extra_boundary_types": 3466,
+        "false_negative_pairs": 540035,
+        "false_positive_pairs": 743328,
+        "fertility": 2.354398131767037,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 2195,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.26000626193212323,
+        "morphological_consistency_precision": 0.23272615042873024,
+        "morphological_consistency_recall": 0.29453114181878987,
+        "token_groups": 1904,
+        "token_sharing_pairs": 968791,
+        "true_positive_pairs": 225463,
+        "vocabulary_size": 8192
+      },
+      "plain_bpe": {
+        "artifact": "experiments/expanded_morphology_v4/artifacts/plain/candidates/vocab-8192",
+        "boundary_f1": 0.2325425353462737,
+        "boundary_precision": 0.3029281388524693,
+        "boundary_recall": 0.18869832380507914,
+        "capped_morpheme_groups": 14,
+        "capped_token_groups": 0,
+        "evaluated_occurrences": 42393,
+        "evaluated_types": 5897,
+        "evaluated_words": 13615,
+        "exact_segment_occurrences": 4952,
+        "exact_segment_types": 745,
+        "extra_boundary_types": 4521,
+        "false_negative_pairs": 661984,
+        "false_positive_pairs": 595419,
+        "fertility": 1.7556436204090298,
+        "lexicon_used_at_runtime": false,
+        "missed_boundary_types": 4372,
+        "morpheme_groups": 2230,
+        "morpheme_sharing_pairs": 765498,
+        "morphological_consistency_f1": 0.14137094885317233,
+        "morphological_consistency_precision": 0.14810289398268503,
+        "morphological_consistency_recall": 0.13522438987430405,
+        "token_groups": 1997,
+        "token_sharing_pairs": 698933,
+        "true_positive_pairs": 103514,
+        "vocabulary_size": 8192
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "condition": "weighted_morphbpe_extension",
+  "merge_score": "allowed_frequency - crossing_penalty * crossing_frequency",
+  "crossing_penalties": [1, 2, 4, 8],
+  "target_vocabulary_sizes": [6080, 8192, 16384],
+  "runtime": "standard_bpe_without_lexicon",
+  "surface_specific_runtime_guarantees": [],
+  "surface_specific_training_overrides": [],
+  "selection_performed": false,
+  "independent_evaluation_gold": false,
+  "interpretation": "thesis_extension_ablation_not_unmodified_paper_replication"
+}

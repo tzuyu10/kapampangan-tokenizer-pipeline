@@ -7,6 +7,8 @@ from .bpe import BPEModel
 from .constants import DATASET_FINGERPRINT, SCHEMA_VERSION, SPECIAL_TOKENS
 from .serialization import fingerprint, sha256_file, write_json
 
+SUPPORTED_ARTIFACT_TYPES = frozenset({"kapampangan_morphbpe", "kapampangan_plain_bpe"})
+
 
 def _vocabulary_entries(model: BPEModel) -> list[dict[str, object]]:
     special_surfaces = {surface for surface, _identifier, _role in SPECIAL_TOKENS}
@@ -43,7 +45,10 @@ def export_tokenizer_artifact(
     *,
     metadata: dict[str, object],
     tokenizer_card: str | None = None,
+    artifact_type: str = "kapampangan_morphbpe",
 ) -> dict[str, object]:
+    if artifact_type not in SUPPORTED_ARTIFACT_TYPES:
+        raise ValueError(f"unsupported tokenizer artifact type: {artifact_type}")
     output_dir.mkdir(parents=True, exist_ok=True)
     vocabulary = _vocabulary_entries(model)
     merges = [merge.to_dict() for merge in model.merges]
@@ -73,7 +78,7 @@ def export_tokenizer_artifact(
     }
     tokenizer_document = {
         "schema_version": SCHEMA_VERSION,
-        "artifact_type": "kapampangan_morphbpe",
+        "artifact_type": artifact_type,
         "normalization": normalization,
         "pretokenizer": pretokenizer,
         "special_tokens": special_tokens,
@@ -112,7 +117,7 @@ def export_tokenizer_artifact(
     core_hashes = {name: sha256_file(output_dir / name) for name in core_names}
     manifest_body: dict[str, object] = {
         "schema_version": SCHEMA_VERSION,
-        "artifact_type": "kapampangan_morphbpe",
+        "artifact_type": artifact_type,
         "dataset_fingerprint": DATASET_FINGERPRINT,
         "core_file_sha256": core_hashes,
         "metadata": metadata,

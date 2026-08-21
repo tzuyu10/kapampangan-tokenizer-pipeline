@@ -1,0 +1,71 @@
+{
+  "evidence_policy": {
+    "A": "Root- or stem-oriented source evidence; may nominate a provisional root for review.",
+    "B": "Kapampangan lexical attestation; corroborates a form but does not by itself prove productive-root status.",
+    "C": "Community or collaboratively edited lexical attestation; discovery/corroboration only."
+  },
+  "sources": [
+    {
+      "id": "forman1971",
+      "tier": "A",
+      "title": "Kapampangan Dictionary",
+      "author": "Michael L. Forman",
+      "year": 1971,
+      "url": "https://www.jstor.org/stable/j.ctv9hvskw",
+      "download_url": "https://zorc.net/RDZorc/KAPAMPANGAN~PAMPANGO/Kapampangan_Dictionary%5BForman-1971%29.pdf",
+      "license": "CC BY-NC-SA 4.0 open-access edition",
+      "use": "Root-oriented full-word headword evidence; cross-reference entries and explicitly unaffixable particles/substitutes are retained only as lexical evidence."
+    },
+    {
+      "id": "bergano1732_samson_translation",
+      "tier": "B",
+      "title": "Vocabulary of the Kapampangan Language in Spanish and Dictionary of the Spanish Language in Kapampangan",
+      "author": "Diego Bergaño; English translation by Venancio Q. Samson",
+      "year": 2007,
+      "url": "https://quod.lib.umich.edu/p/philamer/AQN8189.0001.001?view=toc",
+      "license": "Local supplied translation; extracted text is not redistributed. University of Michigan access is for educational and research use.",
+      "use": "Historical headword evidence. Only entries explicitly labelled root are treated as root evidence."
+    },
+    {
+      "id": "samson2011",
+      "tier": "B",
+      "title": "Kapampangan Dictionary",
+      "author": "Venancio Q. Samson",
+      "year": 2011,
+      "url": "https://tuklas.up.edu.ph/Record/UP-99796217609955159",
+      "license": "Copyright Juan D. Nepomuceno Center for Kapampangan Studies; extracted text is not redistributed.",
+      "use": "Modern lexical headword evidence, not automatic root evidence."
+    },
+    {
+      "id": "acd_v1_2",
+      "tier": "B",
+      "title": "Austronesian Comparative Dictionary CLDF dataset",
+      "author": "Robert Blust, Stephen Trussel, Alexander D. Smith, and Robert Forkel",
+      "year": 2023,
+      "url": "https://doi.org/10.5281/zenodo.7741197",
+      "license": "CC BY 4.0",
+      "use": "Kapampangan lexical and explicitly notated derived-form corroboration; some records ultimately cite Forman and are not independent."
+    },
+    {
+      "id": "ucla_phonetics_archive",
+      "tier": "B",
+      "title": "UCLA Phonetics Lab Archive Kapampangan Word Lists",
+      "url": "https://archive.phonetics.ucla.edu/Language/PAM/pam.html",
+      "license": "Research archive; retain URLs and record identifiers, do not redistribute audio or scans.",
+      "use": "Speaker-linked word-form attestation, not root evidence."
+    },
+    {
+      "id": "kaikki_enwiktionary",
+      "tier": "C",
+      "title": "Kaikki.org machine-readable Kapampangan dictionary extracted from English Wiktionary",
+      "url": "https://kaikki.org/dictionary/Kapampangan/index.html",
+      "license": "Derived from Wiktionary; preserve source metadata and applicable attribution/share-alike terms.",
+      "use": "Community corroboration only; potentially circular with the current reference lexicon."
+    }
+  ],
+  "held_sources": [
+    "ocr-010",
+    "ocr-011",
+    "ocr-012"
+  ]
+}

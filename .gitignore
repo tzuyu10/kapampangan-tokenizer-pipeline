@@ -5,8 +5,15 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.hypothesis/
 .test-tmp/
 *.pyc
 *.pyd
 *.dll
 *.so
+
+# Third-party pretrained tokenizer files fetched from Hugging Face
+# (facebook/nllb-200-distilled-600M is CC-BY-NC-4.0; redistribution rights
+# are unresolved, so only the small provenance manifest -- revision, file
+# hashes -- is tracked, matching this project's existing OCR-source policy).
+experiments/expanded_morphology_v4/resources/nllb-tokenizer/

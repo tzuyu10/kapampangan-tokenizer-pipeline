@@ -1,0 +1,30 @@
+{
+  "actual_vocabulary_size": 1656,
+  "artifact_fingerprint": "fb0e20e68584a00ae5fd94d7c0fa0eefb6ebafc8ac85d7d2c721e06133b8c8a3",
+  "artifact_type": "kapampangan_morphbpe",
+  "core_file_sha256": {
+    "merges.json": "f61eb810fe8c3978c6c00fa8188c52dee5516f0334f4235cacf08c0416b01498",
+    "normalization.json": "93feac29893a18dfcb6c77e54ce5e02d10a5ebd57b4a5f0d83590bf21a231005",
+    "pretokenizer.json": "6315cf42d8aa53234fe3d31fee173be7fb7e382debe8b0e3d911ab8a9ecf0cda",
+    "special_tokens.json": "7735fa9451bc5d4b8495c2cc9aec21d3882b2f65d24e38577de3e6a5d6f0535c",
+    "tokenizer.json": "4eae7372b6704adaeabd1ec8b696446d225ea4034778a6ca107efe169b5a9254",
+    "vocab.json": "589251179e5236dcce869271fe1e729cbed1da119f73cefc4e78bc15bf5c532f"
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "merge_count": 64,
+  "metadata": {
+    "candidate": true,
+    "candidate_grid_fingerprint": "5f098d5b92dc2428a7324783df0413536ff29c3896702b4971f90cf6c2194d0b",
+    "candidate_training_report_fingerprint": "04aabaa44b3dc51c8bae8daa8a0ebb69e1b71a00a0ec9da45bdd1a51cb41de3a",
+    "held_out_test_used": false,
+    "lexicon_fingerprint": "02a9886ccfeff83b710374c71a0c3dd8bd5a8a99d440621cafe1709cfb03daba",
+    "prepared_manifest_fingerprint": "b67953c3ced4417ccecc4a69824d42d298697ba326909c88ae592d22b19172d2",
+    "segmentation_engine": "rust",
+    "train_sha256": "2309d439133c73b183a45954adfc8c54d36b8824b0cd2899631415497f6d4d2d",
+    "training_records": 26268
+  },
+  "protected_boundary_merge_violations": 0,
+  "schema_version": "1.0.0",
+  "special_token_count": 4,
+  "target_vocabulary_size": 1656
+}

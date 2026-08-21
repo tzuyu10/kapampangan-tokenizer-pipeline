@@ -147,6 +147,7 @@ prepare-training        freeze-candidates
 train-candidates        evaluate-validation
 select-candidate        finalize-tokenizer
 tokenize                decode
+compare-tokenizers
 inspect-artifact        validate-artifact
 verify-runtime-independence
 export-nllb-contract
@@ -164,17 +165,158 @@ Example runtime use:
   --text "Masánting! ñ"
 ```
 
-To inspect morphology for one raw word, the training lexicon is required:
+To inspect morphology for one raw word or a sentence, the training lexicon is
+required:
 
 ```powershell
 & $K segment `
   --lexicon .\resources\training-lexicon.json `
-  --text "sinulat"
+  --text "Kasulatan ya."
 ```
 
+A single pretoken retains the word-level segmentation response. Multi-pretoken
+text returns normalized text, a `||`-delimited display, and lossless pretokens
+with offsets; word pretokens contain an `analysis`, while whitespace,
+punctuation, and symbols have `analysis: null`.
+
 `segment` and `tokenize` are separate views of the pipeline. Morphology is
-used during training before BPE learning; the standalone runtime uses only the
-selected artifact and does not load the lexicon.
+used during training before BPE learning. The artifact-only `tokenize` command
+is the paper-aligned standard runtime and does not load the lexicon. Use `prop`
+for the primary matched comparison at any trained size:
+
+```powershell
+prop 6k original "text or sentence"
+prop 8k original "text or sentence"
+prop 16k original "text or sentence"
+
+prop 6k experimental "text or sentence"
+prop 8k experimental "text or sentence"
+prop 16k experimental "text or sentence"
+```
+
+`prop` runs both the Plain-BPE artifact and MorphBPE-trained artifact through
+the same ordinary, lexicon-free BPE runtime. Morphology affects MorphBPE merge
+learning only. The optional text defaults to `kabukasan`.
+
+The `prop`, `comp`, and `prop2` shortcuts print a compact human-readable view:
+
+```text
+kabukasan
+  MorphBPE  3 | ka + bukas + an
+  Plain BPE 2 | kabu + kasan
+              | fertility morph 3.00 plain 2.00
+```
+
+For sentences, `|` separates input words and `+` separates subword pieces
+inside a word. Fertility is the number of word-subword tokens divided by the
+number of input word pretokens. The underlying comparison data remains
+unchanged; use the explicit `compare-tokenizers` command when full JSON with
+IDs, offsets, artifact fingerprints, and morphology diagnostics is required.
+
+An isolated training-only boundary-safe extension is available through `prop2`:
+
+```powershell
+prop2 6k "kabukasan"
+prop2 8k "kabukasan"
+prop2 16k "kabukasan"
+```
+
+`prop2` also uses ordinary artifact-only BPE inference and loads no lexicon at
+runtime. Its trainer defers merges that would cross the five frozen word forms
+whose boundaries changed under the source-adjudicated experiment. All three
+artifacts emit `ka + bukas + an` for `kabukasan`. This is an explicitly labelled
+extension with a closed-set guarantee, not the primary MorphBPE paper
+replication and not a claim about unseen words. See
+`experiments/boundary_safe_v1/README.md` for construction and diagnostics.
+
+The full-corpus conservative source-reconciliation experiment is available as
+`v2prop` (source-enriched MorphBPE with standard runtime) and `v2prop2`
+(boundary-safe extension with standard runtime):
+
+```powershell
+v2prop 6k "sinulat"
+v2prop 8k "sinulat"
+v2prop 16k "sinulat"
+
+v2prop2 6k "sinulat"
+v2prop2 8k "sinulat"
+v2prop2 16k "sinulat"
+```
+
+At all three sizes, `v2prop2` emits `s + in + ulat`, `S + in + ulat`, and
+`ka + bukas + an`. Its hard exact guarantee covers only lowercase/title-case
+variants of those two required regressions; all 1,197 externally
+relationship-supported derivations are
+reported as a measurement list, not a simultaneous guarantee. Keep `prop` as
+the paper-replication baseline, treat `v2prop` as the source-enriched
+experimental condition, and report `v2prop2` separately as an extension. See
+`experiments/source_adjudicated_v2/README.md` for the frozen evidence policy,
+artifacts, limitations, and reproduction commands.
+
+The weighted v3 extension removes the v2 word-specific guarantee and applies a
+general boundary-conflict penalty to every merge candidate:
+
+```text
+score(pair) = allowed_frequency - penalty * crossing_frequency
+```
+
+Use `v3prop` with a vocabulary size, one of the frozen penalties 1/2/4/8, and
+optional quoted text:
+
+```powershell
+v3prop 6k 1 "sumulat"
+v3prop 8k 2 "Sumulat ako ng tula"
+v3prop 8k 4 "sinulat at kabukasan"
+v3prop 16k 8 "sumulat"
+```
+
+V3 contains no surface-form override or hard runtime guarantee. It retains
+ordinary lexicon-free BPE inference and must be reported as a weighted
+MorphBPE extension/ablation, not as the unmodified paper algorithm. The penalty
+grid is intentionally unselected until independent development/test morphology
+and downstream translation evaluation are available. See
+`experiments/weighted_morphbpe_v3/README.md` for reproduction and current silver
+diagnostics.
+
+The explicit `compare-tokenizers` command and its compact `comp` shorthand are
+a separate runtime-constrained diagnostic extension:
+
+```powershell
+& $K compare-tokenizers `
+  --plain-artifact .\experiments\source_adjudicated_v1\artifacts\plain-bpe-tokenizer `
+  --morph-artifact .\experiments\source_adjudicated_v1\artifacts\selected-tokenizer `
+  --morph-lexicon .\experiments\source_adjudicated_v1\resources\training-lexicon.json `
+  --text "kabukasan"
+```
+
+That diagnostic requires equal vocabulary sizes and a runtime lexicon. It first
+segments each word and applies BPE independently inside each segment, providing
+a hard boundary guarantee not specified by the paper. BPE pieces remain
+statistical subwords rather than gold morpheme labels.
+
+For the runtime-constrained diagnostic, the installed `comp` shortcut resolves
+all paths automatically:
+
+```powershell
+comp 8k original "kasulatan"
+comp 8k experimental "kabukasan"
+comp 16k experimental "Bukas na datang ing pangulo."
+```
+
+Accepted sizes are `6k`, `8k`, and `16k`; accepted conditions are `original`
+and `experimental`. Run it inside the repository, or add `--root PATH` when
+invoking it elsewhere. Activate this repository's virtual environment first so
+its `comp.exe` is resolved ahead of Windows' unrelated system `comp.exe`.
+
+For the original canonical 6,080-entry implementation, use:
+
+```powershell
+& $K compare-tokenizers `
+  --plain-artifact .\experiments\source_adjudicated_v1\artifacts\plain-bpe-tokenizer `
+  --morph-artifact .\artifacts\selected-tokenizer `
+  --morph-lexicon .\resources\training-lexicon.json `
+  --text "kasulatan"
+```
 
 ## Key outputs
 

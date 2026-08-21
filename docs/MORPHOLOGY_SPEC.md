@@ -6,6 +6,11 @@ Morphological segmentation runs only while preparing tokenizer training data.
 The paper-mandated order is implemented independently in Python and Rust. The
 final runtime contains neither implementation nor any morphological inventory.
 
+The diagnostic `segment` CLI accepts either one pretoken or raw sentence text.
+For a sentence it runs the shared NFC pre-tokenizer, analyzes only word
+pretokens, and preserves whitespace, punctuation, symbols, and normalized
+code-point offsets. This diagnostic path does not change the standalone runtime.
+
 ## Inventory
 
 - Prefixes: `ma me pa maka ka mag meg mang meng i ipa makapag mig meka mekapag`
@@ -84,4 +89,3 @@ For 1,476,145 training word occurrences, accepted multi-segment analyses total
 occurrences are protected as indivisible units. Ninety-one ambiguous
 occurrences (20 types) remain unchanged. These counts are provisional because
 the underlying references are not human-adjudicated.
-

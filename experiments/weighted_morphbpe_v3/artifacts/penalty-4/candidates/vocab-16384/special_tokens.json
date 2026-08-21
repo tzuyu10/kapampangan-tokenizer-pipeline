@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0.0",
+  "special_tokens": [
+    {
+      "id": 0,
+      "role": "pad",
+      "token": "<pad>"
+    },
+    {
+      "id": 1,
+      "role": "unk",
+      "token": "<unk>"
+    },
+    {
+      "id": 2,
+      "role": "bos",
+      "token": "<s>"
+    },
+    {
+      "id": 3,
+      "role": "eos",
+      "token": "</s>"
+    }
+  ]
+}

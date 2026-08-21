@@ -1,0 +1,1078 @@
+{
+  "ambiguous_examples": [
+    {
+      "frequency": 1,
+      "surface": "Albuganan",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN|SUFFIX_ANAN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Atan",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "BIEN",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN|SUFFIX_EN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Balanan",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_ANAN"
+      ]
+    },
+    {
+      "frequency": 3,
+      "surface": "Banten",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN|SUFFIX_EN"
+      ]
+    },
+    {
+      "frequency": 9,
+      "surface": "Bien",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN|SUFFIX_EN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Bulanan",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN|SUFFIX_ANAN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Dalanan",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN|SUFFIX_ANAN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Dinen",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN|SUFFIX_EN"
+      ]
+    },
+    {
+      "frequency": 6,
+      "surface": "Ipaku",
+      "trace": [
+        "normalize:nfc",
+        "stage:prefix",
+        "ambiguous:PREFIX_I|PREFIX_IPA"
+      ]
+    },
+    {
+      "frequency": 2,
+      "surface": "Ipangaku",
+      "trace": [
+        "normalize:nfc",
+        "stage:prefix",
+        "ambiguous:PREFIX_I|PREFIX_IPA"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Iparas",
+      "trace": [
+        "normalize:nfc",
+        "stage:prefix",
+        "ambiguous:PREFIX_I|PREFIX_IPA"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Kabalan",
+      "trace": [
+        "normalize:nfc",
+        "stage:circumfix",
+        "ambiguous:CIRCUMFIX_KA_AN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Kakamwan",
+      "trace": [
+        "normalize:nfc",
+        "stage:circumfix",
+        "ambiguous:CIRCUMFIX_KA_AN"
+      ]
+    },
+    {
+      "frequency": 6,
+      "surface": "Kakanan",
+      "trace": [
+        "normalize:nfc",
+        "stage:circumfix",
+        "ambiguous:CIRCUMFIX_KA_AN"
+      ]
+    },
+    {
+      "frequency": 4,
+      "surface": "Kapangan",
+      "trace": [
+        "normalize:nfc",
+        "stage:circumfix",
+        "ambiguous:CIRCUMFIX_KA_AN"
+      ]
+    },
+    {
+      "frequency": 3,
+      "surface": "Katasan",
+      "trace": [
+        "normalize:nfc",
+        "stage:circumfix",
+        "ambiguous:CIRCUMFIX_KA_AN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Kawan",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "Ketan",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN"
+      ]
+    },
+    {
+      "frequency": 5,
+      "surface": "Luan",
+      "trace": [
+        "normalize:nfc",
+        "stage:suffix",
+        "ambiguous:SUFFIX_AN"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "MALAYA",
+      "trace": [
+        "normalize:nfc",
+        "stage:prefix",
+        "ambiguous:PREFIX_MA|PREFIX_M_BARE"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "MAMALA",
+      "trace": [
+        "normalize:nfc",
+        "stage:prefix",
+        "ambiguous:PREFIX_MAN_MAM_LABIAL_M_SUBSTITUTION"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "MAMUN",
+      "trace": [
+        "normalize:nfc",
+        "stage:prefix",
+        "ambiguous:PREFIX_MA|PREFIX_MAN_MAM_LABIAL_M_SUBSTITUTION"
+      ]
+    },
+    {
+      "frequency": 1,
+      "surface": "MANAKIT",
+      "trace": [
+        "normalize:nfc",
+        "stage:prefix",
+        "ambiguous:PREFIX_MAN_MAN_DENTAL_N_SUBSTITUTION|PREFIX_MAN_MAN_UNCHANGED"
+      ]
+    },
+    {
+      "frequency": 2,
+      "surface": "MANGA",
+      "trace": [
+        "normalize:nfc",
+        "stage:prefix",
+        "ambiguous:PREFIX_MA|PREFIX_MAN_MAN_DENTAL_N_SUBSTITUTION"
+      ]
+    }
+  ],
+  "ambiguous_types": 890,
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "newly_analyzed_examples": [
+    {
+      "frequency": 1,
+      "surface": "AGKATAN",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        5
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "AGKAT",
+        "AN"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "AGKAT + -an"
+    },
+    {
+      "frequency": 1,
+      "surface": "ALALAYAN",
+      "v2_protected_boundaries": [
+        6
+      ],
+      "v4_protected_boundaries": [
+        2,
+        7
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "AL",
+        "ALAYA",
+        "N"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(ALAYA) + ALAYA + -an"
+    },
+    {
+      "frequency": 2,
+      "surface": "AUSAN",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        3
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "AUS",
+        "AN"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "AUS + -an"
+    },
+    {
+      "frequency": 1,
+      "surface": "Aalma",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        1
+      ],
+      "v4_rule_id": "REDUP_V_REDUPLICATION",
+      "v4_segments": [
+        "A",
+        "alma"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(alma) + alma"
+    },
+    {
+      "frequency": 9,
+      "surface": "Agkatan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        5
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Agkat",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Agkat + -an"
+    },
+    {
+      "frequency": 44,
+      "surface": "Agusan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        4
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Agus",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Agus + -an"
+    },
+    {
+      "frequency": 22,
+      "surface": "Akakit",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ak",
+        "akit"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(akit) + akit"
+    },
+    {
+      "frequency": 1,
+      "surface": "Akitan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        4
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Akit",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Akit + -an"
+    },
+    {
+      "frequency": 2,
+      "surface": "Alacan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        4
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Alac",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Alac + -an"
+    },
+    {
+      "frequency": 1,
+      "surface": "Alala",
+      "v2_protected_boundaries": [
+        3
+      ],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Al",
+        "ala"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(ala) + ala"
+    },
+    {
+      "frequency": 1,
+      "surface": "Alalaya",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Al",
+        "alaya"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(alaya) + alaya"
+    },
+    {
+      "frequency": 1,
+      "surface": "Alalayan",
+      "v2_protected_boundaries": [
+        6
+      ],
+      "v4_protected_boundaries": [
+        2,
+        7
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Al",
+        "alaya",
+        "n"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(alaya) + alaya + -an"
+    },
+    {
+      "frequency": 22,
+      "surface": "Alan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        3
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Ala",
+        "n"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Ala + -an"
+    },
+    {
+      "frequency": 1,
+      "surface": "Albuganan",
+      "v2_protected_boundaries": [
+        7
+      ],
+      "v4_protected_boundaries": [],
+      "v4_rule_id": null,
+      "v4_segments": [
+        "Albuganan"
+      ],
+      "v4_status": "ambiguous",
+      "v4_underlying_display": "Albuganan"
+    },
+    {
+      "frequency": 2,
+      "surface": "Aminan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        4
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Amin",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Amin + -an"
+    },
+    {
+      "frequency": 2,
+      "surface": "Ananang",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "An",
+        "anang"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(anang) + anang"
+    },
+    {
+      "frequency": 8,
+      "surface": "Ananta",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "An",
+        "anta"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(anta) + anta"
+    },
+    {
+      "frequency": 1,
+      "surface": "Aninagan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        6
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Aninag",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Aninag + -an"
+    },
+    {
+      "frequency": 2,
+      "surface": "Apaya",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        3
+      ],
+      "v4_rule_id": "CLITIC_YA",
+      "v4_segments": [
+        "Apa",
+        "ya"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Apa + =ya"
+    },
+    {
+      "frequency": 2,
+      "surface": "Arena",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        3
+      ],
+      "v4_rule_id": "CLITIC_NA",
+      "v4_segments": [
+        "Are",
+        "na"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Are + =na"
+    },
+    {
+      "frequency": 2,
+      "surface": "Arian",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        3
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Ari",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Ari + -an"
+    },
+    {
+      "frequency": 1,
+      "surface": "Arwan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Ar",
+        "wan"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Ari + -an"
+    },
+    {
+      "frequency": 1,
+      "surface": "Aswan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "As",
+        "wan"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Asu + -an"
+    },
+    {
+      "frequency": 1,
+      "surface": "Atan",
+      "v2_protected_boundaries": [
+        2
+      ],
+      "v4_protected_boundaries": [],
+      "v4_rule_id": null,
+      "v4_segments": [
+        "Atan"
+      ],
+      "v4_status": "ambiguous",
+      "v4_underlying_display": "Atan"
+    },
+    {
+      "frequency": 1,
+      "surface": "Atate",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "At",
+        "ate"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(ate) + ate"
+    },
+    {
+      "frequency": 54,
+      "surface": "Ausan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        3
+      ],
+      "v4_rule_id": "SUFFIX_AN",
+      "v4_segments": [
+        "Aus",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "Aus + -an"
+    },
+    {
+      "frequency": 2,
+      "surface": "Babalag",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "balag"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(balag) + balag"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babalasan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2,
+        7
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "balas",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(balas) + balas + -an"
+    },
+    {
+      "frequency": 4,
+      "surface": "Babalik",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "balik"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(balik) + balik"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babaltang",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "baltang"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(baltang) + baltang"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babalut",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "balut"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(balut) + balut"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babandila",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2,
+        7
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "bandi",
+        "la"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(bandi) + bandi + =la"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babangalan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2,
+        8
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "bangal",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(bangal) + bangal + -an"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babasa",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "basa"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(basa) + basa"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babasan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "basan"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(basan) + basan"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babatan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2,
+        6
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "bata",
+        "n"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(bata) + bata + -an"
+    },
+    {
+      "frequency": 2,
+      "surface": "Babau",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "bau"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(bau) + bau"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babawalan",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2,
+        7
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "bawal",
+        "an"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(bawal) + bawal + -an"
+    },
+    {
+      "frequency": 2,
+      "surface": "Babayat",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "bayat"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(bayat) + bayat"
+    },
+    {
+      "frequency": 1,
+      "surface": "Babayo",
+      "v2_protected_boundaries": [],
+      "v4_protected_boundaries": [
+        2
+      ],
+      "v4_rule_id": "REDUP_CV_REDUPLICATION",
+      "v4_segments": [
+        "Ba",
+        "bayo"
+      ],
+      "v4_status": "accepted",
+      "v4_underlying_display": "REDUP(bayo) + bayo"
+    }
+  ],
+  "newly_analyzed_occurrences_vs_v2": 42393,
+  "newly_analyzed_types_vs_v2": 5897,
+  "rejected_and_deferred_items": [
+    {
+      "disposition": "rejected",
+      "item": "paki-...-an circumfix",
+      "reason": "The only -an-suffixed forms near paki- resolve to something else: pakitanan is pa- + kit(a) + -anan (Mirikitani p.635), and pakidinan is paki- + the irregular suppletive stem dinan ('give to', Mirikitani p.570 item 5). Neither is a productive paki-...-an pattern."
+    },
+    {
+      "disposition": "rejected",
+      "item": "-in suffix",
+      "reason": "Not found in any reviewed Kapampangan source."
+    },
+    {
+      "disposition": "rejected (out of scope for v4)",
+      "item": "-ng linker",
+      "reason": "User instruction: model only as a linker with exact-host/context safeguards, not as an ordinary derivational suffix; left for a separately scoped experiment."
+    },
+    {
+      "disposition": "rejected",
+      "item": "Tagalog pinaka-",
+      "reason": "Not Kapampangan. Kapampangan's own superlative peka- is operationalized."
+    },
+    {
+      "disposition": "rejected",
+      "item": "'mi' in misamban treated as an infix",
+      "reason": "misamban is analyzed through the mi-...-an circumfix applied to the attested root samba, not through any infix rule."
+    },
+    {
+      "disposition": "deferred",
+      "item": "mekipag- (aspect pair of makipag-)",
+      "reason": "meki- and makipag- are each directly attested but no source shows mekipag- itself; adding it would be paradigm analogy, not attestation."
+    },
+    {
+      "disposition": "deferred",
+      "item": "peN-/piN- as aspect-marked paN- allomorphs",
+      "reason": "Mirikitani pp.744, 795, 945 glossary entries are internally inconsistent about whether they mark aspect on pag- or on paN-."
+    },
+    {
+      "disposition": "documented, not operationalized",
+      "item": "Tense-conditioned root vowel alternation (a<->e, u<->i)",
+      "reason": "Forman: lexically conditioned per root, not a general phonological rule."
+    },
+    {
+      "disposition": "documented, not operationalized",
+      "item": "min- unfolded-tense variant of maN- (vs. operationalized men-)",
+      "reason": "Same lexical-conditioning problem; no reliable surface trigger."
+    },
+    {
+      "disposition": "documented, not operationalized",
+      "item": "Vowel lengthening for continuing/progressive tense",
+      "reason": "Not consistently marked in the plain-text training corpus and does not correspond to a segment boundary."
+    },
+    {
+      "disposition": "partially operationalized",
+      "item": "Medial d->r alternation as a general standalone rule",
+      "reason": "Only accepted as a reduplication hypothesis, exactly where documented."
+    }
+  ],
+  "reused_v2_lexicon_fingerprint": "cb29e62d0fe6ce29c6a695c119826a565155dc351af56b3b542f5a1ee500dcfa",
+  "root_inventory_unchanged": true,
+  "rule_occurrences": {
+    "CIRCUMFIX_KA_AN": 4402,
+    "CIRCUMFIX_MI_AN": 404,
+    "CIRCUMFIX_PAG_AN": 317,
+    "CIRCUMFIX_PANG_AN": 131,
+    "CIRCUMFIX_PANG_PAM_AN": 62,
+    "CIRCUMFIX_PANG_PANGA_AN": 32,
+    "CIRCUMFIX_PANG_PAN_AN": 1613,
+    "CIRCUMFIX_PA_AN": 785,
+    "CIRCUMFIX_PI_AN": 477,
+    "CLITIC_KU": 889,
+    "CLITIC_LA": 1948,
+    "CLITIC_MU": 965,
+    "CLITIC_NA": 576,
+    "CLITIC_NE": 261,
+    "CLITIC_NO": 80,
+    "CLITIC_PA": 215,
+    "CLITIC_RA": 443,
+    "CLITIC_YA": 365,
+    "INFIX_IN": 7505,
+    "INFIX_UM": 1139,
+    "PREFIX_I": 3037,
+    "PREFIX_IPA": 185,
+    "PREFIX_KA": 8031,
+    "PREFIX_KA_FULL_REDUPLICATION": 23,
+    "PREFIX_MA": 6350,
+    "PREFIX_MAG": 2232,
+    "PREFIX_MAGKA": 122,
+    "PREFIX_MAGPA": 153,
+    "PREFIX_MAGPAKA": 29,
+    "PREFIX_MAKA": 2840,
+    "PREFIX_MAKAPAG": 106,
+    "PREFIX_MAKI": 430,
+    "PREFIX_MAKIPAG": 24,
+    "PREFIX_MANG": 163,
+    "PREFIX_MAN_MAM_LABIAL_M_SUBSTITUTION": 504,
+    "PREFIX_MAN_MANG_VELAR_NG_SUBSTITUTION": 173,
+    "PREFIX_MAN_MANY_DENTAL_Y_SUBSTITUTION": 125,
+    "PREFIX_MAN_MAN_DENTAL_N_SUBSTITUTION": 346,
+    "PREFIX_MAN_MAN_UNCHANGED": 446,
+    "PREFIX_MAN_MEM_LABIAL_M_SUBSTITUTION": 148,
+    "PREFIX_MAN_MENG_VELAR_NG_SUBSTITUTION": 33,
+    "PREFIX_MAN_MENY_DENTAL_Y_SUBSTITUTION": 10,
+    "PREFIX_MAN_MEN_DENTAL_N_SUBSTITUTION": 88,
+    "PREFIX_MAN_MEN_UNCHANGED": 322,
+    "PREFIX_ME": 2045,
+    "PREFIX_MEG": 1049,
+    "PREFIX_MEGKA": 1,
+    "PREFIX_MEGPA": 6,
+    "PREFIX_MEKA": 148,
+    "PREFIX_MEKAPAG": 11,
+    "PREFIX_MEKI": 130,
+    "PREFIX_MENG": 111,
+    "PREFIX_MI": 4712,
+    "PREFIX_MIG": 657,
+    "PREFIX_MIGKA": 28,
+    "PREFIX_MIGPA": 59,
+    "PREFIX_MIGPAKA": 8,
+    "PREFIX_M_BARE": 1406,
+    "PREFIX_PA": 5204,
+    "PREFIX_PAKI": 112,
+    "PREFIX_PAN_PAM_LABIAL_M_SUBSTITUTION": 3275,
+    "PREFIX_PAN_PANGA_LITERAL": 25,
+    "PREFIX_PAN_PANG_UNCHANGED": 208,
+    "PREFIX_PAN_PANG_VELAR_NG_SUBSTITUTION": 453,
+    "PREFIX_PAN_PAN_DENTAL_N_SUBSTITUTION": 668,
+    "PREFIX_PEKA": 889,
+    "PROTECT_COMPOUND": 5781,
+    "PROTECT_ROOT": 533463,
+    "REDUP_CV_REDUPLICATION": 8336,
+    "REDUP_V_REDUPLICATION": 29,
+    "SUFFIX_AN": 7771,
+    "SUFFIX_ANAN": 846,
+    "SUFFIX_EN": 709
+  },
+  "rule_types": {
+    "CIRCUMFIX_KA_AN": 295,
+    "CIRCUMFIX_MI_AN": 87,
+    "CIRCUMFIX_PAG_AN": 59,
+    "CIRCUMFIX_PANG_AN": 20,
+    "CIRCUMFIX_PANG_PAM_AN": 19,
+    "CIRCUMFIX_PANG_PANGA_AN": 9,
+    "CIRCUMFIX_PANG_PAN_AN": 47,
+    "CIRCUMFIX_PA_AN": 158,
+    "CIRCUMFIX_PI_AN": 103,
+    "CLITIC_KU": 39,
+    "CLITIC_LA": 62,
+    "CLITIC_MU": 42,
+    "CLITIC_NA": 75,
+    "CLITIC_NE": 31,
+    "CLITIC_NO": 28,
+    "CLITIC_PA": 40,
+    "CLITIC_RA": 36,
+    "CLITIC_YA": 43,
+    "INFIX_IN": 506,
+    "INFIX_UM": 208,
+    "PREFIX_I": 338,
+    "PREFIX_IPA": 52,
+    "PREFIX_KA": 418,
+    "PREFIX_KA_FULL_REDUPLICATION": 10,
+    "PREFIX_MA": 597,
+    "PREFIX_MAG": 278,
+    "PREFIX_MAGKA": 17,
+    "PREFIX_MAGPA": 61,
+    "PREFIX_MAGPAKA": 18,
+    "PREFIX_MAKA": 404,
+    "PREFIX_MAKAPAG": 17,
+    "PREFIX_MAKI": 75,
+    "PREFIX_MAKIPAG": 13,
+    "PREFIX_MANG": 48,
+    "PREFIX_MAN_MAM_LABIAL_M_SUBSTITUTION": 70,
+    "PREFIX_MAN_MANG_VELAR_NG_SUBSTITUTION": 42,
+    "PREFIX_MAN_MANY_DENTAL_Y_SUBSTITUTION": 32,
+    "PREFIX_MAN_MAN_DENTAL_N_SUBSTITUTION": 61,
+    "PREFIX_MAN_MAN_UNCHANGED": 83,
+    "PREFIX_MAN_MEM_LABIAL_M_SUBSTITUTION": 44,
+    "PREFIX_MAN_MENG_VELAR_NG_SUBSTITUTION": 17,
+    "PREFIX_MAN_MENY_DENTAL_Y_SUBSTITUTION": 7,
+    "PREFIX_MAN_MEN_DENTAL_N_SUBSTITUTION": 31,
+    "PREFIX_MAN_MEN_UNCHANGED": 42,
+    "PREFIX_ME": 309,
+    "PREFIX_MEG": 39,
+    "PREFIX_MEGKA": 1,
+    "PREFIX_MEGPA": 6,
+    "PREFIX_MEKA": 68,
+    "PREFIX_MEKAPAG": 8,
+    "PREFIX_MEKI": 31,
+    "PREFIX_MENG": 17,
+    "PREFIX_MI": 407,
+    "PREFIX_MIG": 138,
+    "PREFIX_MIGKA": 9,
+    "PREFIX_MIGPA": 28,
+    "PREFIX_MIGPAKA": 6,
+    "PREFIX_M_BARE": 132,
+    "PREFIX_PA": 330,
+    "PREFIX_PAKI": 33,
+    "PREFIX_PAN_PAM_LABIAL_M_SUBSTITUTION": 652,
+    "PREFIX_PAN_PANGA_LITERAL": 18,
+    "PREFIX_PAN_PANG_UNCHANGED": 75,
+    "PREFIX_PAN_PANG_VELAR_NG_SUBSTITUTION": 21,
+    "PREFIX_PAN_PAN_DENTAL_N_SUBSTITUTION": 103,
+    "PREFIX_PEKA": 84,
+    "PROTECT_COMPOUND": 24,
+    "PROTECT_ROOT": 4565,
+    "REDUP_CV_REDUPLICATION": 994,
+    "REDUP_V_REDUPLICATION": 23,
+    "SUFFIX_AN": 745,
+    "SUFFIX_ANAN": 50,
+    "SUFFIX_EN": 17
+  },
+  "schema_version": "1.0.0",
+  "status_occurrences": {
+    "accepted": 87425,
+    "ambiguous": 7172,
+    "protected_compound": 5781,
+    "protected_root": 533463,
+    "unchanged": 842304
+  },
+  "status_types": {
+    "accepted": 9026,
+    "ambiguous": 890,
+    "protected_compound": 24,
+    "protected_root": 4565,
+    "unchanged": 129024
+  },
+  "word_types_resegmented": 143529
+}
