@@ -7,3 +7,11 @@
 # checksums. Treat them as binary so git never touches their line endings.
 artifacts/** -text
 experiments/**/artifacts/** -text
+
+# Same risk, different source: translation_gold_v1/ and morphology_gold_v1/
+# copy external source CSVs into resources/ and record their SHA-256 in a
+# provenance-manifest.json computed against the LF on-disk bytes at copy
+# time (see AGENT_CONTEXT.md's 2026-08-25 Phase 1 entries). Protect them the
+# same way.
+experiments/translation_gold_v1/resources/** -text
+experiments/morphology_gold_v1/resources/** -text

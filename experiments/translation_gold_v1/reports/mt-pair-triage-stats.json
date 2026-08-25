@@ -1,0 +1,11 @@
+{
+  "shuffle_evidence_rows": 12,
+  "tier_counts": {
+    "A_correct_translation": 10,
+    "B_plausible_partial_match": 10,
+    "C_same_domain_wrong_specific": 110,
+    "D_no_correspondence": 111,
+    "E_dictionary_gloss_not_a_pair": 9
+  },
+  "total_rows": 250
+}
