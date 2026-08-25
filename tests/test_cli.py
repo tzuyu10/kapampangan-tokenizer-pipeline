@@ -16,6 +16,7 @@ from kapampangan_morphbpe.cli import (
     nllbprop_main,
     prop2_main,
     prop_main,
+    stochprop_main,
     v2prop2_main,
     v2prop_main,
     v3prop_main,
@@ -776,6 +777,170 @@ def test_nllbprop_prints_cached_metrics_when_report_present(
     assert "0.1414" in out
     assert "0.2168" in out
     assert "0.2199" in out
+
+
+@pytest.mark.parametrize("size", ["6k", "8k", "16k"])
+@pytest.mark.parametrize("dropout_rate", [0.1, 0.2])
+def test_stochastic_paths(tmp_path: Path, size: str, dropout_rate: float) -> None:
+    vocabulary = {"6k": "6080", "8k": "8192", "16k": "16384"}[size]
+    assert cli._stochastic_paths(tmp_path, size, dropout_rate) == (
+        tmp_path / "experiments/expanded_morphology_v4/artifacts/plain/candidates"
+        f"/vocab-{vocabulary}",
+        tmp_path / "experiments/expanded_morphology_v4/artifacts/penalty-4/candidates"
+        f"/vocab-{vocabulary}",
+        tmp_path
+        / "experiments/expanded_morphology_v4/artifacts"
+        / f"stochastic-p4-d{dropout_rate:g}"
+        / "candidates"
+        / f"vocab-{vocabulary}",
+    )
+
+
+def _synthetic_stochastic_comparison(text: str) -> dict[str, object]:
+    normalized, pretokens = pretokenize(text)
+    tokens = [
+        {
+            "end": pretoken.end,
+            "pretoken_kind": pretoken.kind,
+            "start": pretoken.start,
+            "token": pretoken.surface,
+        }
+        for pretoken in pretokens
+    ]
+    side: dict[str, object] = {
+        "tokens": tokens,
+        "word_token_count": sum(pretoken.kind == "word" for pretoken in pretokens),
+    }
+    return {
+        "normalized_text": normalized,
+        "crossing_penalty": 4,
+        "dropout_rate": 0.2,
+        "plain_bpe": side,
+        "morphbpe": side,
+        "stochastic": side,
+    }
+
+
+def test_stochprop_labels_every_condition(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: object,
+) -> None:
+    calls: list[tuple[Path, str, float, str]] = []
+
+    def fake_compare(
+        repository_root: Path,
+        size: str,
+        dropout_rate: float,
+        text: str,
+    ) -> dict[str, object]:
+        calls.append((repository_root, size, dropout_rate, text))
+        return _synthetic_stochastic_comparison(text)
+
+    monkeypatch.setattr(cli, "_compare_stochastic_morphbpe", fake_compare)
+    assert stochprop_main(["8k", "0.2", "--root", str(tmp_path)]) == 0
+    out = capsys.readouterr().out  # type: ignore[attr-defined]
+    assert out.startswith("misamban\n")
+    assert "Plain BPE" in out
+    assert "MorphBPE p4" in out
+    assert "Stochastic d0.2" in out
+    assert calls == [(tmp_path, "8k", 0.2, "misamban")]
+
+    sentence = "Sumulat ako ng tula."
+    assert stochprop_main(["6k", "0.1", sentence, "--root", str(tmp_path)]) == 0
+    out = capsys.readouterr().out  # type: ignore[attr-defined]
+    assert out.startswith(sentence + "\n")
+    assert calls[-1] == (tmp_path, "6k", 0.1, sentence)
+
+
+def test_stochastic_cached_metrics_returns_none_when_report_missing(tmp_path: Path) -> None:
+    assert cli._stochastic_cached_metrics(tmp_path, "8k", 0.2) is None
+
+
+def _write_stochastic_reports(root: Path) -> None:
+    report_dir = root / "experiments/expanded_morphology_v4/reports"
+    report_dir.mkdir(parents=True)
+    v4_report = {
+        "targets": {
+            "8192": {
+                "plain_bpe": {
+                    "boundary_f1": 0.2325,
+                    "boundary_precision": 0.3029,
+                    "boundary_recall": 0.1887,
+                    "morphological_consistency_f1": 0.1414,
+                    "morphological_consistency_precision": 0.1481,
+                    "morphological_consistency_recall": 0.1352,
+                },
+                "penalty_4": {
+                    "boundary_f1": 0.5867,
+                    "boundary_precision": 0.5591,
+                    "boundary_recall": 0.6172,
+                    "morphological_consistency_f1": 0.2168,
+                    "morphological_consistency_precision": 0.2006,
+                    "morphological_consistency_recall": 0.2358,
+                },
+            }
+        }
+    }
+    (report_dir / "runtime-evaluation.json").write_text(json.dumps(v4_report), encoding="utf-8")
+    stochastic_report = {
+        "targets": {
+            "8192": {
+                "stochastic-p4-d0.2": {
+                    "boundary_f1": 0.6395,
+                    "boundary_precision": 0.5900,
+                    "boundary_recall": 0.6982,
+                    "morphological_consistency_f1": 0.2308,
+                    "morphological_consistency_precision": 0.1937,
+                    "morphological_consistency_recall": 0.2856,
+                },
+            }
+        }
+    }
+    (report_dir / "stochastic-morphbpe-runtime-evaluation.json").write_text(
+        json.dumps(stochastic_report), encoding="utf-8"
+    )
+
+
+def test_stochastic_cached_metrics_reads_cached_reports(tmp_path: Path) -> None:
+    _write_stochastic_reports(tmp_path)
+    result = cli._stochastic_cached_metrics(tmp_path, "8k", 0.2)
+    assert result is not None
+    plain, morph, stochastic = result
+    assert plain["boundary_f1"] == 0.2325
+    assert morph["boundary_f1"] == 0.5867
+    assert stochastic["boundary_f1"] == 0.6395
+    # A dropout rate not present in the cached report degrades gracefully to None.
+    assert cli._stochastic_cached_metrics(tmp_path, "8k", 0.1) is None
+
+
+def test_stochprop_prints_cached_metrics_when_report_present(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    capsys: object,
+) -> None:
+    _write_stochastic_reports(tmp_path)
+
+    def fake_compare(
+        repository_root: Path,
+        size: str,
+        dropout_rate: float,
+        text: str,
+    ) -> dict[str, object]:
+        return _synthetic_stochastic_comparison(text)
+
+    monkeypatch.setattr(cli, "_compare_stochastic_morphbpe", fake_compare)
+    assert stochprop_main(["8k", "0.2", "--root", str(tmp_path)]) == 0
+    out = capsys.readouterr().out  # type: ignore[attr-defined]
+    assert "corpus-wide silver diagnostics" in out
+    assert "morpheme boundary F1" in out
+    assert "0.2325" in out
+    assert "0.5867" in out
+    assert "0.6395" in out
+    assert "morphological consistency F1 (MCF1)" in out
+    assert "0.1414" in out
+    assert "0.2168" in out
+    assert "0.2308" in out
 
 
 def test_v4_cached_metrics_returns_none_when_report_missing(tmp_path: Path) -> None:

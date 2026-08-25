@@ -177,6 +177,150 @@ Sumulat ako ng tula.
 If `validate` has not been run yet (no cached report), this whole block is
 silently omitted rather than failing the primary token comparison.
 
+## All conditions in one call: the `allprop` command
+
+For checking a word or sentence against every condition at once -- NLLB-200,
+the Unigram ablation, Plain BPE, MorphBPE penalty-4, and both stochastic-
+dropout conditions -- `allprop` is an installed console command:
+
+```powershell
+allprop 8k "Sumulat ako ng tula."
+allprop 6k "misamban"
+```
+
+`allprop <6k|8k|16k> ["text or sentence"]` (omitted text defaults to
+`misamban`). No retraining happens when you run it -- it only loads
+artifacts that already exist on disk (fetched/trained by the scripts
+described above) and encodes your text with each. Requires everything
+`nllbprop` and `stochprop` each need (the `nllb-baseline` extra, the NLLB
+tokenizer files, the trained Unigram ablation, and the trained stochastic
+conditions); fails with a clear message listing exactly which artifact is
+missing if any aren't present yet.
+
+## Stochastic MorphBPE: train-time-only regularization
+
+A new, explicitly-labeled MorphBPE extension --
+`StochasticWeightedMorphBPETrainer`
+(`src/kapampangan_morphbpe/stochastic_bpe.py`) -- adds train-time-only
+stochastic dropout on top of `WeightedMorphBPETrainer`'s existing penalty
+score: at merge-application time, each individual *allowed* (never
+boundary-crossing -- that stays strictly forbidden, unchanged) occurrence
+of the selected pair is independently skipped with probability
+`dropout_rate`, so training is exposed to more than one greedy segmentation
+path per word instead of committing to a single one -- similar in spirit
+to BPE-dropout (Provilkov et al., 2020) and Unigram's own subword sampling,
+but scoped to *this trainer's own vocabulary-construction process only*.
+**The exported artifact is unaffected**: standard, fully deterministic,
+lexicon-free greedy BPE inference, identical in kind to every other
+condition here (`lexicon_used_at_runtime: false`). Only how the merge
+table was learned differs. This is **not** the unmodified MorphBPE
+algorithm from Asgari et al. (2025), nor a literal reproduction of
+BPE-dropout or Unigram sampling -- it is a new thesis extension, same
+spirit as `weighted_morphbpe_v3`/this experiment's own `penalty-*`.
+
+Determinism is preserved by construction: dropout decisions come from a
+seeded `random.Random(seed)`, consumed in a fixed, deterministic traversal
+order (sorted sequence IDs, left-to-right within each sequence), so two
+independent training runs with the same inputs/seed/dropout_rate produce
+byte-identical results -- verified the same way every other trainer here
+is (two in-memory builds compared for equality, plus a real
+determinism-rebuild artifact comparison).
+
+```powershell
+python experiments/expanded_morphology_v4/train_stochastic_morphbpe.py
+```
+
+Trains at `crossing_penalty=4` (this experiment's own established
+representative mid-grid choice) crossed with `dropout_rate` in `{0.1,
+0.2}`, seed `20260822`, at all three vocabulary sizes, on the exact same
+morphology-resegmented stream `penalty-*` already trains on. Artifacts land
+at `artifacts/stochastic-p4-d<rate>/candidates/vocab-<size>` (same shape as
+every other condition here); reports at
+`reports/stochastic-morphbpe-training-report.json` and
+`reports/stochastic-morphbpe-runtime-evaluation.json` (boundary F1/MCF1,
+computed by reusing `run_experiment.py`'s own metric functions directly --
+this trainer produces a real artifact through the same
+`export_tokenizer_artifact`/`RuntimeTokenizer` pipeline as `plain`/
+`penalty-*`, unlike the Unigram ablation, which needed its own parallel
+implementation).
+
+**A real bug was caught training on the full corpus, not the unit tests**:
+an early version of the merge-application code treated *any* protected-
+position match of a selected "allowed" pair as a fatal error. That's wrong
+-- the same `(left, right)` pair can legitimately occur at one allowed
+position and one protected position within the *same* word (e.g. `abcab`
+with a boundary at position 4: the pair `(a,b)` is allowed at positions
+0-1 but crosses the boundary at positions 3-4), and the correct behavior
+(matching `weighted_bpe.py`'s own `_apply_allowed_pair`) is to silently
+leave the protected occurrence unmerged, not raise. This never surfaced in
+small synthetic test corpora -- only the real ~3.18M-occurrence corpus hit
+it. Fixed, and locked in with a permanent regression test
+(`test_same_pair_allowed_at_one_position_and_protected_at_another_in_one_word`
+in `tests/test_stochastic_bpe.py`).
+
+**Result: a clean, consistent win on both corpus-wide silver metrics, at
+every vocabulary size** (bF1 = boundary F1 vs. the resegmentation audit;
+MCF1 = Morphological Consistency F1; both against penalty-4, the
+condition being extended):
+
+| vocab | condition | boundary F1 | MCF1 | fertility |
+|---|---|---|---|---|
+| 6,080 | penalty-4 | 0.5722 | 0.2049 | 2.4283 |
+| 6,080 | +dropout 0.1 | 0.5989 (+4.7%) | 0.2153 (+5.1%) | 2.5139 |
+| 6,080 | +dropout 0.2 | 0.6255 (+9.3%) | 0.2159 (+5.4%) | 2.5255 |
+| 8,192 | penalty-4 | 0.5867 | 0.2168 | 2.3392 |
+| 8,192 | +dropout 0.1 | 0.6076 (+3.6%) | 0.2302 (+6.2%) | 2.4378 |
+| 8,192 | +dropout 0.2 | 0.6395 (+9.0%) | 0.2308 (+6.5%) | 2.4354 |
+| 16,384 | penalty-4 | 0.6092 | 0.2332 | 2.1854 |
+| 16,384 | +dropout 0.1 | 0.6333 (+4.0%) | 0.2519 (+8.0%) | 2.2628 |
+| 16,384 | +dropout 0.2 | 0.6599 (+8.3%) | 0.2536 (+8.8%) | 2.2787 |
+
+**But not a free lunch at the word level -- check individual words, not
+just the aggregate**: `misamban` improves at dropout 0.2 (`mi + sam + ban`,
+no longer forming the boundary-crossing `mis`, matching the partial
+improvement previously only seen at penalty-8 in the plain weighted grid)
+and `kabukasan`/`Dumalan` stay stable (`ka + bukas + an`, `D + um + alan`
+at every dropout rate) -- but `Sumulat` **regresses** from the
+morphologically correct `S + um + ulat` at plain penalty-4 to
+`Su + mu + lat` (losing the `-um-` infix) at *both* dropout 0.1 and 0.2.
+This is the same kind of word-specific regression already documented for
+the plain penalty grid at penalty-8 (see "Verified" section below) --
+aggregate improvement across the corpus does not mean every word improves,
+and this is an empirical, per-word question, not a guarantee. No
+dropout_rate, penalty, or vocabulary size is selected.
+
+### Ad hoc comparisons: the `stochprop` command
+
+For checking an arbitrary word or sentence interactively, `stochprop` is an
+installed console command with the same shape as `v4prop`/`v3prop`:
+
+```powershell
+stochprop 8k 0.2 "Sumulat ako ng tula."
+stochprop 6k 0.1 "misamban"
+```
+
+`stochprop <6k|8k|16k> <0.1|0.2> ["text or sentence"]` (omitted text
+defaults to `misamban`). Prints Plain BPE, MorphBPE penalty-4, and the
+stochastic-dropout condition side by side with word-token counts, grouped
+pieces, and fertility, then (once `train_stochastic_morphbpe.py` has been
+run) the same corpus-wide boundary-F1/MCF1 diagnostic block `v4prop`/
+`nllbprop` already print, degrading silently if that report isn't present
+yet. Example:
+
+```
+Sumulat ako ng tula.
+  Plain BPE       5 | Sum + ulat | ako | ng | tula
+  MorphBPE p4     6 | S + um + ulat | ako | ng | tula
+  Stochastic d0.2 6 | Su + mu + lat | ako | ng | tula
+                    | fertility Plain BPE 1.25  MorphBPE p4 1.50  Stochastic d0.2 1.50
+```
+
+This is the concrete word-level illustration from the section above:
+MorphBPE p4 gets the `-um-` infix right, the stochastic condition doesn't,
+even though the stochastic condition wins on both corpus-wide metrics --
+`stochprop`'s own printed diagnostic block makes that tension visible in
+one call instead of requiring a separate report lookup.
+
 ## NLLB-200 baseline comparison (encode-time only)
 
 Every comparison above (`v4prop`, and every `prop`/`comp`/`v2prop`/`v3prop`

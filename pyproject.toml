@@ -34,6 +34,8 @@ v2prop2 = "kapampangan_morphbpe.cli:v2prop2_main"
 v3prop = "kapampangan_morphbpe.cli:v3prop_main"
 v4prop = "kapampangan_morphbpe.cli:v4prop_main"
 nllbprop = "kapampangan_morphbpe.cli:nllbprop_main"
+stochprop = "kapampangan_morphbpe.cli:stochprop_main"
+allprop = "kapampangan_morphbpe.cli:allprop_main"
 
 [tool.maturin]
 manifest-path = "rust/Cargo.toml"

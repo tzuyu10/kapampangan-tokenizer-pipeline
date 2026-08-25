@@ -1,0 +1,9 @@
+# Tokenizer artifact files are checksum-validated byte-for-byte at load
+# time (see src/kapampangan_morphbpe/artifact.py's validate_artifact_files
+# and the runtime bridge's _validate_checksums). core.autocrlf is enabled
+# globally on this machine; without this override, any checkout-style git
+# operation (git stash pop, git checkout, git reset, a fresh clone) rewrites
+# these LF-only files as CRLF and silently breaks their recorded SHA-256
+# checksums. Treat them as binary so git never touches their line endings.
+artifacts/** -text
+experiments/**/artifacts/** -text
