@@ -68,6 +68,7 @@ def artifact_fingerprint(art: Path) -> str:
 def main() -> int:
     from tokenizers import Tokenizer
 
+    BUNDLE_DIR.mkdir(parents=True, exist_ok=True)
     morphbpe = load_runtime_tokenizer(MORPHBPE_ART)
     penalty8 = load_runtime_tokenizer(PENALTY8_ART)
     unigram = Tokenizer.from_file(str(UNIGRAM_JSON))
@@ -87,7 +88,31 @@ def main() -> int:
         ids.append(EOS_ID)
         return ids
 
-    BUNDLE_DIR.mkdir(parents=True, exist_ok=True)
+    # id-ordered token strings per condition, so the notebook can WARM-START
+    # each new 6,080-row embedding from the mean of NLLB's own sub-token
+    # embeddings for that string (standard vocab-replacement init).
+    def morphbpe_vocab(art: Path) -> list[str]:
+        doc = read_json(art / "vocab.json")
+        assert isinstance(doc, dict)
+        toks = doc["tokens"]
+        assert isinstance(toks, list) and len(toks) == 6080
+        out = [""] * 6080
+        for entry in toks:
+            out[int(entry["id"])] = str(entry["token"])
+        return out
+
+    unigram_vocab = [""] * 6080
+    for tok, idx in unigram.get_vocab().items():
+        unigram_vocab[idx] = tok
+    vocab = {
+        "morphbpe": morphbpe_vocab(MORPHBPE_ART),
+        "penalty8": morphbpe_vocab(PENALTY8_ART),
+        "unigram6080": unigram_vocab,
+    }
+    (BUNDLE_DIR / "vocab.json").write_text(
+        json.dumps(vocab, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+
     split_hashes: dict[str, str] = {}
     counts: dict[str, int] = {}
     for split in ("train", "dev", "test"):
@@ -118,22 +143,35 @@ def main() -> int:
 
     meta = {
         "task": "Kapampangan -> Filipino (tgl_Latn) NLLB-200-distilled-600M fine-tune",
-        "conditions": ["nllb_native", "morphbpe", "penalty8", "unigram6080"],
+        "conditions": ["morphbpe", "penalty8", "unigram6080"],
+        "reference_condition": "nllb_zeroshot (no training)",
         "comparison": {
             "fair_headline": "morphbpe / penalty8 vs unigram6080 -- same vocab (6,080), "
-            "same Kapampangan corpus, same fresh-embedding recipe; only the subword "
-            "algorithm differs (morphology-constrained BPE vs Unigram-LM).",
-            "reference": "nllb_native (encoder embedding adapted) + nllb_zeroshot -- the "
-            "pretrained off-the-shelf NLLB-200 tokenizer named in the thesis proposal "
-            "(Scope & Limitation, p.15).",
+            "same Kapampangan corpus, same warm-started-embedding recipe; only the "
+            "subword algorithm differs (morphology-constrained BPE vs Unigram-LM).",
+            "reference": "nllb_zeroshot -- the pretrained off-the-shelf NLLB-200 "
+            "tokenizer named in the thesis proposal (Scope & Limitation, p.15). "
+            "Trained nllb_native was dropped for v1 (256K trainable embedding OOMs a T4).",
         },
-        "seeds": [0, 1, 2],
+        "seeds": [0],
+        "seeds_note": "1 seed for the first warm-start pass; add [1, 2] once a "
+        "condition beats nllb_zeroshot and the comparison is worth error bars.",
         "training": {
-            "trainable": "encoder input embedding only (nn.Embedding(6080,1024) for "
-            "morphbpe/penalty8/unigram6080; an untied copy of `shared` for nllb_native); "
-            "everything else frozen; do NOT call tie_weights() after the swap",
-            "note": "matches Phase 4 verification (nllb/phase4-architecture-verification.md)",
+            "trainable": "encoder input embedding only -- nn.Embedding(6080,1024), "
+            "WARM-STARTED from the mean of NLLB's own sub-token embeddings for each "
+            "token string (see data/bundle/vocab.json). Everything else frozen; do "
+            "NOT call tie_weights() after the swap.",
+            "hyperparams": {
+                "batch": 16,
+                "epochs": 15,
+                "patience": 4,
+                "lr": 3e-4,
+                "select_on": "dev loss (cheap); generation eval only at the end",
+            },
+            "note": "matches Phase 4 verification (nllb/phase4-architecture-verification.md). "
+            "The random-init recipe (first run) collapsed to chrF++ ~10 vs zero-shot 33.6.",
         },
+        "vocab_file": "vocab.json  {condition: [id-ordered token strings]}",
         "source_vocab_size_morphbpe": 6080,
         "source_pad_id_morphbpe": 0,
         "nllb": {

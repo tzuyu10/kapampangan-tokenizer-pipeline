@@ -19,8 +19,16 @@ is still the gate for any thesis-gold claim.
 
 Everything else frozen; `tie_weights()` never called after the swap
 (Phase 4, `nllb/phase4-architecture-verification.md`). Plus a
-`nllb_zeroshot` reference (no training), once. = 12 training runs + 1
-zero-shot, ~3 h on a T4.
+`nllb_zeroshot` reference (no training), once.
+
+**Warm-start rev (2026-09-03).** First run (random-init, embedding-only):
+every trained condition collapsed to chrF++ ~10 vs zero-shot 33.6 -- a
+fresh random 6,080 embedding can't learn NLLB's space from 598 pairs. The
+notebook now (a) **warm-starts** each embedding row from the mean of NLLB's
+own sub-token embeddings for that string (`data/bundle/vocab.json`),
+(b) selects checkpoints on **dev loss** (cheap) with generation eval only
+at the end, (c) runs **1 seed** first (~20 min/run). Trained `nllb_native`
+was dropped (256K trainable embedding OOMs a T4).
 
 ### The comparison, two layers
 
