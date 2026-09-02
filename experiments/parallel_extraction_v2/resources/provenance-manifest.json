@@ -1,0 +1,25 @@
+{
+  "file": "pld_prompt_entries_pam_fil.csv",
+  "sha256": "ccd3b48023e137171e633b1f51f58c6cef3bcde6a727f23209dc2bd4fd88941b",
+  "bytes": 22883274,
+  "copied_from": "D:\\Coding\\thesis\\curated_research_dataset\\pld_prompt_entries_pam_fil.csv",
+  "copied_utc": "2026-08-31T14:44:45.073352+00:00",
+  "origin": "parsed by a prior session from the 48GB PLD archive (D:/Coding/thesis/1773845964108-up-dsp-pld.tar.gz) .log session files, without full extraction; see curated_research_dataset/README_pld_kapampangan_datasets.md",
+  "nature": "raw per-recording elicitation-prompt text (NOT spoken transcriptions); redistribution rights unresolved (local research use only)",
+  "columns": [
+    "lang_code",
+    "speaker_id",
+    "session_log_path",
+    "record_id",
+    "source_name",
+    "source_name_normalized",
+    "prompt_family",
+    "prompt_label",
+    "prompt_ordinal",
+    "prompt_text",
+    "is_recorded",
+    "is_not_recorded",
+    "is_placeholder_prompt",
+    "granularity"
+  ]
+}

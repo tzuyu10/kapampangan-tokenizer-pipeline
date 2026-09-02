@@ -1,0 +1,38 @@
+{
+  "actual_vocabulary_size": 6080,
+  "artifact_fingerprint": "5c34233ebd33939aad1c6af9ccfb041855ccfa84a98b9894a24a4ed54c24803d",
+  "artifact_type": "kapampangan_morphbpe",
+  "core_file_sha256": {
+    "merges.json": "3278fec975321098d0ab133d5851edc9464a3d23e198e959a136ee1a6c7eb5dc",
+    "normalization.json": "93feac29893a18dfcb6c77e54ce5e02d10a5ebd57b4a5f0d83590bf21a231005",
+    "pretokenizer.json": "6315cf42d8aa53234fe3d31fee173be7fb7e382debe8b0e3d911ab8a9ecf0cda",
+    "special_tokens.json": "7735fa9451bc5d4b8495c2cc9aec21d3882b2f65d24e38577de3e6a5d6f0535c",
+    "tokenizer.json": "b034e67b0c6e53db63230e418870ab5e3a8414435236ab75d3d6971443381c01",
+    "vocab.json": "8fe2e34d99419accd5cf098220eb99fb319e5c066f75cd0bd1bf35fb07129ed4"
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "merge_count": 4488,
+  "metadata": {
+    "candidate": true,
+    "condition": "morphbpe",
+    "current_validation_re_evaluated": false,
+    "held_out_test_used": false,
+    "independent_evaluation_gold_used": false,
+    "lexicon_used_at_runtime": false,
+    "merge_constraint": "no_merge_across_protected_boundary",
+    "paper_aligned_hard_constrained": true,
+    "paper_replication_training": true,
+    "prepared_manifest_fingerprint": "8ecec7d3ec96ac63c68afa0f976298c1e604743f988efbaf17467dad9c4a0118",
+    "root_inventory_unchanged_from_source_adjudicated_v2": true,
+    "runtime_boundary_guarantee_scope": "none",
+    "selection_performed": false,
+    "stochastic_dropout_used": false,
+    "surface_specific_runtime_guarantees": [],
+    "surface_specific_training_overrides": [],
+    "weighted_penalty_used": false
+  },
+  "protected_boundary_merge_violations": 0,
+  "schema_version": "1.0.0",
+  "special_token_count": 4,
+  "target_vocabulary_size": 6080
+}

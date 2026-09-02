@@ -1,0 +1,25 @@
+How to fill in native-speaker-review-sheet.csv
+============================================
+
+Each row is a Kapampangan sentence and its supposed Filipino translation.
+Please fill in two columns:
+
+  correct  -> y   (the Filipino is a correct translation of the Kapampangan)
+              n   (it is wrong: wrong meaning, or not a translation at all)
+              p   (partly right: understandable but has an error)
+              ?   (you are not sure)
+
+  comment  -> only if 'n' or 'p': say what is wrong, and if you can, write
+              the correct Kapampangan and/or Filipino. Free text, any format.
+
+Leave 'id' and 'batch' untouched (they are just for matching afterwards).
+
+Batches, in order of importance:
+  1 - main         : the sentences we most want to use. Please do these first.
+  2 - extra        : lower-confidence sentences.
+  3 - vocabulary   : short word / phrase pairs.
+  4 - double-check : pairs already checked once; a second look.
+  5 - stories      : native-authored story sentences; just a light spot-check
+                     for typos / obvious slips, not a full review.
+
+If you only have time for batch 1 (and maybe 2), that is already very useful.

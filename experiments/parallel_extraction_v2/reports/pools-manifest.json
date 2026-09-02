@@ -1,0 +1,11 @@
+{
+  "source_csv": "pld_prompt_entries_pam_fil.csv",
+  "source_csv_sha256": "ccd3b48023e137171e633b1f51f58c6cef3bcde6a727f23209dc2bd4fd88941b",
+  "rows_total": 114438,
+  "rows_kept_sentence_or_phrase": 71616,
+  "alignment_units": 15,
+  "distinct_pam_sentences": 1606,
+  "distinct_fil_sentences": 1725,
+  "total_candidate_pairs": 347994,
+  "note": "prompt_text is the elicitation prompt, not a spoken transcription; PLD redistribution rights unresolved -> local research use only"
+}

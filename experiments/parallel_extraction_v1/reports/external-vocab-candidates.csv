@@ -1,0 +1,215 @@
+item_num,section,fil,pam,eng,is_duplicate_of_existing_pair,pam_tokens_checked,all_tokens_attested,any_token_attested,token_detail
+1,Greetings and Courtesies,Magandang umaga po.,Mayap a abak pu.,Good morning.,False,"mayap, a, abak, pu",True,True,mayap=attested; a=attested; abak=attested; pu=attested
+2,Greetings and Courtesies,Magandang tanghali po.,Mayap a ugto pu.,Good noon.,False,"mayap, a, ugto, pu",False,True,mayap=attested; a=attested; ugto=NOT_FOUND; pu=attested
+3,Greetings and Courtesies,Magandang hapon po.,Mayap a gatpanapun pu.,Good afternoon.,False,"mayap, a, gatpanapun, pu",True,True,mayap=attested; a=attested; gatpanapun=attested; pu=attested
+4,Greetings and Courtesies,Magandang gabi po.,Mayap a bengi pu.,Good evening.,False,"mayap, a, bengi, pu",True,True,mayap=attested; a=attested; bengi=attested; pu=attested
+5,Greetings and Courtesies,Maraming salamat po.,Dakal a salamat pu.,Thank you very much.,False,"dakal, a, salamat, pu",True,True,dakal=attested; a=attested; salamat=attested; pu=attested
+6,Greetings and Courtesies,Tanggapin po ninyo ang aming taós-pusong pasasalamat!,Tanggapan ye pu ing kecaming taus-pusung pamipasalamat!,Please accept our heartfelt thanks!,False,"tanggapan, ye, pu, ing, kecaming, taus-pusung, pamipasalamat",True,True,tanggapan=attested; ye=attested; pu=attested; ing=attested; kecaming=attested; taus-pusung=attested; pamipasalamat=attested
+7,Greetings and Courtesies,Walang anuman.,Alang anuman.,You're welcome.,False,"alang, anuman",True,True,alang=attested; anuman=attested
+8,Greetings and Courtesies,Tuloy po kayo.,Tulik pu / Usuk pu.,Please come in.,False,"tulik, pu, usuk, pu",False,True,tulik=NOT_FOUND; pu=attested; usuk=attested; pu=attested
+9,Greetings and Courtesies,Kumusta po kayo?,Komusta kayu pu? / Mapanu kayu pu?,How are you?,False,"komusta, kayu, pu, mapanu, kayu, pu",False,True,komusta=attested; kayu=attested; pu=attested; mapanu=NOT_FOUND; kayu=attested; pu=attested
+10,Greetings and Courtesies,Ipagpaumanhin po ninyo ang aking pagkakamali.,Ipagpaumahin yu pu ing cacung pamagcamali.,Please forgive my mistake.,True,"ipagpaumahin, yu, pu, ing, cacung, pamagcamali",True,True,ipagpaumahin=attested; yu=attested; pu=attested; ing=attested; cacung=attested; pamagcamali=attested
+11,Greetings and Courtesies,Tanggapin mo ang aking pakikiramay.,Tanggapan ye pu ing cacung pamakirame.,Please accept my condolences.,True,"tanggapan, ye, pu, ing, cacung, pamakirame",True,True,tanggapan=attested; ye=attested; pu=attested; ing=attested; cacung=attested; pamakirame=attested
+12,Greetings and Courtesies,Ikinagagalak ko po kayong makilala.,Catutula cu pu ing akilala da cayu.,Glad to meet you.,True,"catutula, cu, pu, ing, akilala, da, cayu",False,True,catutula=NOT_FOUND; cu=attested; pu=attested; ing=attested; akilala=attested; da=attested; cayu=attested
+13,Greetings and Courtesies,Maligayang bati sa iyong pagtatapos.,Maligayang puge king kecang pamamupus.,Congratulations on your graduation.,True,"maligayang, puge, king, kecang, pamamupus",True,True,maligayang=attested; puge=attested; king=attested; kecang=attested; pamamupus=attested
+14,Greetings and Courtesies,Maligayang Pasko po at manígong bagong taon.,Maligayang Pascu pu at masaplalang bayung banua.,Merry Christmas and a prosperous new year.,True,"maligayang, pascu, pu, at, masaplalang, bayung, banua",True,True,maligayang=attested; pascu=attested; pu=attested; at=attested; masaplalang=attested; bayung=attested; banua=attested
+15,Greetings and Courtesies,Magkita na lang po tayo sa susunod.,Anga keng pasibayung pamiikit.,Let's meet again next time.,True,"anga, keng, pasibayung, pamiikit",True,True,anga=attested; keng=attested; pasibayung=attested; pamiikit=attested
+16,Greetings and Courtesies,Mag-ingat ka.,Mag-ingat ka. / Manganat ka.,Take care.,False,"mag-ingat, ka, manganat, ka",False,True,mag-ingat=NOT_FOUND; ka=attested; manganat=NOT_FOUND; ka=attested
+17,Greetings and Courtesies,Paalam na po.,Mako na ku pu. / King ulian na ku pu.,Goodbye.,False,"mako, na, ku, pu, king, ulian, na, ku, pu",True,True,mako=attested; na=attested; ku=attested; pu=attested; king=attested; ulian=attested; na=attested; ku=attested; pu=attested
+18,Greetings and Courtesies,Maligayang kaarawan!,Maligayang kebaitan!,Happy birthday!,False,"maligayang, kebaitan",True,True,maligayang=attested; kebaitan=attested
+19,Interrogatives & Question Words,Ano?,Nanu?,What?,False,nanu,True,True,nanu=attested
+20,Interrogatives & Question Words,Sino?,Ninu?,Who?,False,ninu,True,True,ninu=attested
+21,Interrogatives & Question Words,Saan? / Nasaan?,Nukarin? / Pukarin?,Where?,False,"nukarin, pukarin",False,True,nukarin=attested; pukarin=NOT_FOUND
+22,Interrogatives & Question Words,Kailan?,Kapilan?,When?,False,kapilan,True,True,kapilan=attested
+23,Interrogatives & Question Words,Bakit?,Obat? / Bakit?,Why?,False,"obat, bakit",True,True,obat=attested; bakit=attested
+24,Interrogatives & Question Words,Paano?,Makananu?,How?,False,makananu,True,True,makananu=attested
+25,Interrogatives & Question Words,Alin?,Isanu? / Isanung?,Which?,False,"isanu, isanung",True,True,isanu=attested; isanung=attested
+26,Interrogatives & Question Words,Ilan?,Pilan?,How many?,False,pilan,True,True,pilan=attested
+27,Interrogatives & Question Words,Magkano?,Magkanu? / Pilan ya?,How much?,False,"magkanu, pilan, ya",True,True,magkanu=attested; pilan=attested; ya=attested
+28,Interrogatives & Question Words,Nakanino? / Kanino?,Kanganinu? / Kang ninu?,Whose? / With whom?,False,"kanganinu, kang, ninu",False,True,kanganinu=NOT_FOUND; kang=attested; ninu=attested
+29,Interrogatives & Question Words,Nasaan ang gamit niya? / Nawawala ba ang gamit niya?,Mawawala wari ing gamit na?,Are his/her belongings missing?,True,"mawawala, wari, ing, gamit, na",True,True,mawawala=attested; wari=attested; ing=attested; gamit=attested; na=attested
+30,Interrogatives & Question Words,Saan po kayo nakatira?,Nukarin cayu pu macatucnang?,Where do you live?,True,"nukarin, cayu, pu, macatucnang",True,True,nukarin=attested; cayu=attested; pu=attested; macatucnang=attested
+31,Interrogatives & Question Words,Paano niya nahanap ang gamit ni James?,Macananu nang ikit ing gamit nang James?,How did he find James's belongings?,True,"macananu, nang, ikit, ing, gamit, nang, james",True,True,macananu=attested; nang=attested; ikit=attested; ing=attested; gamit=attested; nang=attested; james=attested
+32,Interrogatives & Question Words,"Tutugtog ba si Francisco, o kakanta?","Tigtig ya wari i Francisco, o magcanta?","Will Francisco play an instrument, or sing?",True,"tigtig, ya, wari, i, francisco, o, magcanta",True,True,tigtig=attested; ya=attested; wari=attested; i=attested; francisco=attested; o=attested; magcanta=attested
+33,Interrogatives & Question Words,Nakanino ang susi ng bahay?,Nucarin ya ing kawi/susi ning bale?,Who has the house key? / Where is the key?,False,"nucarin, ya, ing, kawi, susi, ning, bale",False,True,nucarin=attested; ya=attested; ing=attested; kawi=NOT_FOUND; susi=attested; ning=attested; bale=attested
+34,Pronouns & Demonstratives,Ako,Aku,I / Me,False,aku,True,True,aku=attested
+35,Pronouns & Demonstratives,Ikaw / Ka,Ika / Ka,You (singular),False,"ika, ka",True,True,ika=attested; ka=attested
+36,Pronouns & Demonstratives,Siya,Ya,He / She,False,ya,True,True,ya=attested
+37,Pronouns & Demonstratives,Kami,Kami,We (exclusive),False,kami,True,True,kami=attested
+38,Pronouns & Demonstratives,Tayo,Katamu / Tamu,We (inclusive),False,"katamu, tamu",True,True,katamu=attested; tamu=attested
+39,Pronouns & Demonstratives,Kayo,Kayu,You (plural),False,kayu,True,True,kayu=attested
+40,Pronouns & Demonstratives,Sila,Ila,They,False,ila,True,True,ila=attested
+41,Pronouns & Demonstratives,Akin / Ko,Kakung / Ku,My / Mine,False,"kakung, ku",True,True,kakung=attested; ku=attested
+42,Pronouns & Demonstratives,Iyo / Mo,Kekang / Mu,Your / Yours,False,"kekang, mu",True,True,kekang=attested; mu=attested
+43,Pronouns & Demonstratives,Kanya / Niya,Kaya / Na,His / Her / Hers,False,"kaya, na",True,True,kaya=attested; na=attested
+44,Pronouns & Demonstratives,Amin / Namin,Kekami / Mi,Our / Ours (exclusive),False,"kekami, mi",True,True,kekami=attested; mi=attested
+45,Pronouns & Demonstratives,Atin / Natin,Kekatamu / Tamu,Our / Ours (inclusive),False,"kekatamu, tamu",True,True,kekatamu=attested; tamu=attested
+46,Pronouns & Demonstratives,Inyo / Ninyo,Kekayu / Yu,Your / Yours (plural),False,"kekayu, yu",True,True,kekayu=attested; yu=attested
+47,Pronouns & Demonstratives,Kanila / Nila,Keraklan / Da,Their / Theirs,False,"keraklan, da",True,True,keraklan=attested; da=attested
+48,Pronouns & Demonstratives,Ito,Ini / Iti,This,False,"ini, iti",True,True,ini=attested; iti=attested
+49,Pronouns & Demonstratives,Iyan,Iyan,That (near listener),False,iyan,True,True,iyan=attested
+50,Pronouns & Demonstratives,Iyon,Ita,That (far from both),False,ita,True,True,ita=attested
+51,Pronouns & Demonstratives,Dito,Keni,Here,False,keni,True,True,keni=attested
+52,Pronouns & Demonstratives,Diyan,Kena,There (near listener),False,kena,True,True,kena=attested
+53,Pronouns & Demonstratives,Doon,Karin,There (far),False,karin,True,True,karin=attested
+54,"Numbers, Time & Calendar",Isa,Metung,One,False,metung,True,True,metung=attested
+55,"Numbers, Time & Calendar",Dalawa,Addua,Two,False,addua,True,True,addua=attested
+56,"Numbers, Time & Calendar",Tatlo,Atlu,Three,False,atlu,True,True,atlu=attested
+57,"Numbers, Time & Calendar",Apat,Apat,Four,False,apat,True,True,apat=attested
+58,"Numbers, Time & Calendar",Lima,Lima,Five,False,lima,True,True,lima=attested
+59,"Numbers, Time & Calendar",Anim,Anam,Six,False,anam,True,True,anam=attested
+60,"Numbers, Time & Calendar",Pito,Pitu,Seven,False,pitu,True,True,pitu=attested
+61,"Numbers, Time & Calendar",Walo,Walu,Eight,False,walu,True,True,walu=attested
+62,"Numbers, Time & Calendar",Siyam,Siam,Nine,False,siam,True,True,siam=attested
+63,"Numbers, Time & Calendar",Sampu,Apulu,Ten,False,apulu,True,True,apulu=attested
+64,"Numbers, Time & Calendar",Labing-isa,Labing-metung,Eleven,False,labing-metung,True,True,labing-metung=attested
+65,"Numbers, Time & Calendar",Labing-dalawa,Labing-addua,Twelve,False,labing-addua,False,False,labing-addua=NOT_FOUND
+66,"Numbers, Time & Calendar",Dalawampu,Labing-addua / Adduang pulu,Twenty,False,"labing-addua, adduang, pulu",False,True,labing-addua=NOT_FOUND; adduang=attested; pulu=attested
+67,"Numbers, Time & Calendar",Isandaan,Dalan / Metung a dalan,One hundred,False,"dalan, metung, a, dalan",True,True,dalan=attested; metung=attested; a=attested; dalan=attested
+68,"Numbers, Time & Calendar",Isang libo,Libu / Metung a libu,One thousand,False,"libu, metung, a, libu",True,True,libu=attested; metung=attested; a=attested; libu=attested
+69,"Numbers, Time & Calendar",Ngayon,Ngeni,Now / Today,False,ngeni,True,True,ngeni=attested
+70,"Numbers, Time & Calendar",Kahapon,Napun,Yesterday,False,napun,True,True,napun=attested
+71,"Numbers, Time & Calendar",Bukas,Bukas,Tomorrow,False,bukas,True,True,bukas=attested
+72,"Numbers, Time & Calendar",Kanina,Nandin,Earlier,False,nandin,True,True,nandin=attested
+73,"Numbers, Time & Calendar",Mamaya,Pota,Later,False,pota,True,True,pota=attested
+74,"Numbers, Time & Calendar",Araw,Aldo,Day / Sun,False,aldo,True,True,aldo=attested
+75,"Numbers, Time & Calendar",Gabi,Bengi,Night,False,bengi,True,True,bengi=attested
+76,"Numbers, Time & Calendar",Umaga,Abak,Morning,False,abak,True,True,abak=attested
+77,"Numbers, Time & Calendar",Tanghali,Ugto,Noon,False,ugto,False,False,ugto=NOT_FOUND
+78,"Numbers, Time & Calendar",Hapon,Gatpanapun,Afternoon,False,gatpanapun,True,True,gatpanapun=attested
+79,"Numbers, Time & Calendar",Linggo,Domingo / Linggu,Week / Sunday,False,"domingo, linggu",True,True,domingo=attested; linggu=attested
+80,"Numbers, Time & Calendar",Buwan,Bulan,Month / Moon,False,bulan,True,True,bulan=attested
+81,"Numbers, Time & Calendar",Taon,Banua,Year,False,banua,True,True,banua=attested
+82,Family & Human Relations,Ama / Tatay,Tatang / Ibpa,Father,False,"tatang, ibpa",True,True,tatang=attested; ibpa=attested
+83,Family & Human Relations,Ina / Nanay,Indu / Ima,Mother,False,"indu, ima",True,True,indu=attested; ima=attested
+84,Family & Human Relations,Anak,Anak,Child,False,anak,True,True,anak=attested
+85,Family & Human Relations,Kapatid,Kaputol / Kapatad,Sibling,False,"kaputol, kapatad",True,True,kaputol=attested; kapatad=attested
+86,Family & Human Relations,Panganay,Pangane,Eldest child,False,pangane,True,True,pangane=attested
+87,Family & Human Relations,Bunso,Bunsso / Anaktian,Youngest child,False,"bunsso, anaktian",False,False,bunsso=NOT_FOUND; anaktian=NOT_FOUND
+88,Family & Human Relations,Lolo,Apu a lalaki,Grandfather,False,"apu, a, lalaki",True,True,apu=attested; a=attested; lalaki=attested
+89,Family & Human Relations,Lola,Apu a babai,Grandmother,False,"apu, a, babai",True,True,apu=attested; a=attested; babai=attested
+90,Family & Human Relations,Tiyo / Tito,Bapa,Uncle,False,bapa,True,True,bapa=attested
+91,Family & Human Relations,Tiya / Tita,Dara,Aunt,False,dara,True,True,dara=attested
+92,Family & Human Relations,Pinsan,Pisan,Cousin,False,pisan,True,True,pisan=attested
+93,Family & Human Relations,Pamangkin,Pangunakan,Nephew / Niece,False,pangunakan,True,True,pangunakan=attested
+94,Family & Human Relations,Asawa,Asawa,Spouse,False,asawa,True,True,asawa=attested
+95,Family & Human Relations,Kasintahan / Nobya / Nobyo,Kasintahan / Novia,Sweetheart / Partner,False,"kasintahan, novia",False,False,kasintahan=NOT_FOUND; novia=NOT_FOUND
+96,Family & Human Relations,Kaibigan,Kaluguran,Friend,False,kaluguran,True,True,kaluguran=attested
+97,Family & Human Relations,Kambal,Kambal / Cacambal,Twin,False,"kambal, cacambal",False,True,kambal=attested; cacambal=NOT_FOUND
+98,Family & Human Relations,Tao,Tau,Person / Human,False,tau,True,True,tau=attested
+99,Family & Human Relations,Lalaki,Lalaki,Man / Male,False,lalaki,True,True,lalaki=attested
+100,Family & Human Relations,Babae,Babai,Woman / Female,False,babai,True,True,babai=attested
+101,Body Parts & Health,Ulo,Buntuk,Head,False,buntuk,True,True,buntuk=attested
+102,Body Parts & Health,Buhok,Bwak / Buak,Hair,False,"bwak, buak",True,True,bwak=attested; buak=attested
+103,Body Parts & Health,Mata,Mata,Eye,False,mata,True,True,mata=attested
+104,Body Parts & Health,Ilong,Arung,Nose,False,arung,True,True,arung=attested
+105,Body Parts & Health,Bibig,Asbuk,Mouth,False,asbuk,True,True,asbuk=attested
+106,Body Parts & Health,Ngipin,Gipang,Tooth / Teeth,False,gipang,False,False,gipang=NOT_FOUND
+107,Body Parts & Health,Dila,Dila,Tongue,False,dila,True,True,dila=attested
+108,Body Parts & Health,Tenga,Balugbug / Tuli,Ear,False,"balugbug, tuli",True,True,balugbug=attested; tuli=attested
+109,Body Parts & Health,Mukha,Lupa,Face,False,lupa,True,True,lupa=attested
+110,Body Parts & Health,Kamay,Gamat,Hand,False,gamat,True,True,gamat=attested
+111,Body Parts & Health,Daliri,Taliri,Finger / Toe,False,taliri,True,True,taliri=attested
+112,Body Parts & Health,Binti,Binti,Leg,False,binti,False,False,binti=NOT_FOUND
+113,Body Parts & Health,Paa,Bitis,Foot,False,bitis,True,True,bitis=attested
+114,Body Parts & Health,Puso,Pusu,Heart,False,pusu,True,True,pusu=attested
+115,Body Parts & Health,Tiyan,Atian / Atsan,Stomach / Belly,False,"atian, atsan",True,True,atian=attested; atsan=attested
+116,Body Parts & Health,Likod,Gulut,Back,False,gulut,True,True,gulut=attested
+117,Body Parts & Health,Sakit,Sakit,Sickness / Pain,False,sakit,True,True,sakit=attested
+118,Body Parts & Health,Kalingkingan,Palakingkingan,Little finger / Pinky,True,palakingkingan,False,False,palakingkingan=NOT_FOUND
+119,Body Parts & Health,Bukung-bukong,Bucung-bucung,Ankle,False,bucung-bucung,False,False,bucung-bucung=NOT_FOUND
+120,Body Parts & Health,Galang-galangan,Galang-galangan,Wrist,False,galang-galangan,False,False,galang-galangan=NOT_FOUND
+121,"Food, Cooking & Dining",Pagkain,Pamangan,Food,False,pamangan,True,True,pamangan=attested
+122,"Food, Cooking & Dining",Tubig,Danum,Water,False,danum,True,True,danum=attested
+123,"Food, Cooking & Dining",Kanin,Nasi,Cooked rice,False,nasi,True,True,nasi=attested
+124,"Food, Cooking & Dining",Ulam,Ulam / Asan,Dish / Side dish,False,"ulam, asan",True,True,ulam=attested; asan=attested
+125,"Food, Cooking & Dining",Isda,Asan / Isda,Fish,False,"asan, isda",True,True,asan=attested; isda=attested
+126,"Food, Cooking & Dining",Karne,Karne,Meat,False,karne,True,True,karne=attested
+127,"Food, Cooking & Dining",Gulay,Gule,Vegetables,False,gule,True,True,gule=attested
+128,"Food, Cooking & Dining",Prutas,Prutas,Fruits,False,prutas,True,True,prutas=attested
+129,"Food, Cooking & Dining",Asukal,Asukar / Yumu,Sugar,False,"asukar, yumu",False,True,asukar=NOT_FOUND; yumu=attested
+130,"Food, Cooking & Dining",Asin,Asin,Salt,False,asin,True,True,asin=attested
+131,"Food, Cooking & Dining",Suka,Suka,Vinegar,False,suka,True,True,suka=attested
+132,"Food, Cooking & Dining",Kape,Kape,Coffee,False,kape,True,True,kape=attested
+133,"Food, Cooking & Dining",Gatas,Gatas,Milk,False,gatas,True,True,gatas=attested
+134,"Food, Cooking & Dining",Kumain,Mangan,To eat,False,mangan,True,True,mangan=attested
+135,"Food, Cooking & Dining",Uminom,Minum,To drink,False,minum,True,True,minum=attested
+136,"Food, Cooking & Dining",Magluto,Maglutu,To cook,False,maglutu,True,True,maglutu=attested
+137,"Food, Cooking & Dining",Kainan,Kakanan,Dining place / Eating,False,kakanan,True,True,kakanan=attested
+138,"Nature, Weather & Environment",Hangin,Angin,Wind / Air,False,angin,True,True,angin=attested
+139,"Nature, Weather & Environment",Bugso ng hangin,Bugsu ning angin,Gust of wind,True,"bugsu, ning, angin",True,True,bugsu=attested; ning=attested; angin=attested
+140,"Nature, Weather & Environment",Ulan,Uran,Rain,False,uran,True,True,uran=attested
+141,"Nature, Weather & Environment",Araw,Aldo,Sun / Day,False,aldo,True,True,aldo=attested
+142,"Nature, Weather & Environment",Buwan,Bulan,Moon,False,bulan,True,True,bulan=attested
+143,"Nature, Weather & Environment",Bituin,Bituin,Star,False,bituin,True,True,bituin=attested
+144,"Nature, Weather & Environment",Langit,Banua / Langit,Sky / Heaven,False,"banua, langit",True,True,banua=attested; langit=attested
+145,"Nature, Weather & Environment",Lupa,Labi / Lupa / Gabun,Earth / Ground / Soil,False,"labi, lupa, gabun",True,True,labi=attested; lupa=attested; gabun=attested
+146,"Nature, Weather & Environment",Dagat,Kalatdan / Dagat,Sea / Ocean,False,"kalatdan, dagat",False,True,kalatdan=NOT_FOUND; dagat=attested
+147,"Nature, Weather & Environment",Ilog,Ilug,River,False,ilug,True,True,ilug=attested
+148,"Nature, Weather & Environment",Bundok,Bundok / Bunduc,Mountain,False,"bundok, bunduc",True,True,bundok=attested; bunduc=attested
+149,"Nature, Weather & Environment",Puno,Pun,Tree,False,pun,True,True,pun=attested
+150,"Nature, Weather & Environment",Dahon,Bulung,Leaf,False,bulung,True,True,bulung=attested
+151,"Nature, Weather & Environment",Bulaklak,Bulaklak / Bulaclac,Flower,False,"bulaklak, bulaclac",True,True,bulaklak=attested; bulaclac=attested
+152,"Nature, Weather & Environment",Hayop,Hayop / Ayup,Animal,False,"hayop, ayup",True,True,hayop=attested; ayup=attested
+153,"Nature, Weather & Environment",Ibon,Ayup,Bird,False,ayup,True,True,ayup=attested
+154,"Nature, Weather & Environment",Pagong,Pau,Turtle,False,pau,True,True,pau=attested
+155,"Nature, Weather & Environment",Matsing,Matsing,Monkey,False,matsing,True,True,matsing=attested
+156,"Nature, Weather & Environment",Alitaptap,Iput-iput / Alitaptap,Firefly,False,"iput-iput, alitaptap",False,True,iput-iput=NOT_FOUND; alitaptap=attested
+157,"Nature, Weather & Environment",Gorilya,Gorilya,Gorilla,False,gorilya,True,True,gorilya=attested
+158,Common Verbs & Actions,Lakad / Lumakad,Lakad / Lumakad,Walk / To walk,False,"lakad, lumakad",True,True,lakad=attested; lumakad=attested
+159,Common Verbs & Actions,Takbo / Tumakbo,Mulayi,Run / To run,False,mulayi,True,True,mulayi=attested
+160,Common Verbs & Actions,Tulog / Matulog,Tulug / Matulug,Sleep / To sleep,False,"tulug, matulug",False,False,tulug=NOT_FOUND; matulug=NOT_FOUND
+161,Common Verbs & Actions,Gising / Gumising,Gising / Migising,Wake up / To wake up,False,"gising, migising",True,True,gising=attested; migising=attested
+162,Common Verbs & Actions,Basa / Magbasa,Basa / Magbasa,Read / To read,False,"basa, magbasa",True,True,basa=attested; magbasa=attested
+163,Common Verbs & Actions,Sulat / Magsulat,Sulat / Sumulat,Write / To write,False,"sulat, sumulat",True,True,sulat=attested; sumulat=attested
+164,Common Verbs & Actions,Aral / Mag-aral,Aral / Mag-aral,Study / To study,False,"aral, mag-aral",True,True,aral=attested; mag-aral=attested
+165,Common Verbs & Actions,Trabaho / Magtrabaho,Obra / Magobra,Work / To work,False,"obra, magobra",True,True,obra=attested; magobra=attested
+166,Common Verbs & Actions,Bili / Bumili,Sali / Sumali,Buy / To buy,False,"sali, sumali",True,True,sali=attested; sumali=attested
+167,Common Verbs & Actions,Tinda / Magbenta,Magsali / Magtinda,Sell / To sell,False,"magsali, magtinda",False,True,magsali=NOT_FOUND; magtinda=attested
+168,Common Verbs & Actions,Punta / Pumunta,Munta / Muna,Go / To go,False,"munta, muna",True,True,munta=attested; muna=attested
+169,Common Verbs & Actions,Dating / Dumating,Datang / Dumatang,Arrive / To arrive,False,"datang, dumatang",False,True,datang=attested; dumatang=NOT_FOUND
+170,Common Verbs & Actions,Tingin / Tumingin,Lawi / Lawen,Look / To look,False,"lawi, lawen",True,True,lawi=attested; lawen=attested
+171,Common Verbs & Actions,Rinig / Makinig,Ramdam / Makiramdam,Hear / Listen,False,"ramdam, makiramdam",True,True,ramdam=attested; makiramdam=attested
+172,Common Verbs & Actions,Salita / Magsalita,Salita / Magsalita,Speak / To speak,False,"salita, magsalita",True,True,salita=attested; magsalita=attested
+173,Common Verbs & Actions,Bagsak / Mahulog,Baldug / Mabaldag,Fall / Drop,False,"baldug, mabaldag",False,True,baldug=attested; mabaldag=NOT_FOUND
+174,Common Verbs & Actions,Isip / Mag-isip,Isip / Pamisip,Think / Thought,False,"isip, pamisip",True,True,isip=attested; pamisip=attested
+175,Common Verbs & Actions,Hanap / Maghanap,Nintun / Panintunan,Search / To search,False,"nintun, panintunan",False,True,nintun=NOT_FOUND; panintunan=attested
+176,Common Verbs & Actions,Limot / Makalimutan,Kalingwan / Kakalinguan,Forget / To forget,False,"kalingwan, kakalinguan",True,True,kalingwan=attested; kakalinguan=attested
+177,Common Verbs & Actions,Sagot / Sumagot,Kibat / Pakibatan,Answer / To respond,False,"kibat, pakibatan",False,True,kibat=NOT_FOUND; pakibatan=attested
+178,Common Verbs & Actions,Bigay / Magbigay,Din / Dinan,Give / To grant,False,"din, dinan",True,True,din=attested; dinan=attested
+179,Common Verbs & Actions,Nais / Gusto,Buri,Want / Desire,False,buri,True,True,buri=attested
+180,Adjectives & Descriptors,Maganda,Masanting / Malagyu,Beautiful,False,"masanting, malagyu",False,True,masanting=attested; malagyu=NOT_FOUND
+181,Adjectives & Descriptors,Gwapo,Masanting,Handsome,False,masanting,True,True,masanting=attested
+182,Adjectives & Descriptors,Malaki,Maragul,Big / Large,False,maragul,True,True,maragul=attested
+183,Adjectives & Descriptors,Maliit,Malati,Small / Little,False,malati,True,True,malati=attested
+184,Adjectives & Descriptors,Masaya,Matula,Happy,False,matula,True,True,matula=attested
+185,Adjectives & Descriptors,Malungkot,Malungkut,Sad,False,malungkut,True,True,malungkut=attested
+186,Adjectives & Descriptors,Mainit,Mapali / Malapali,Hot,False,"mapali, malapali",False,True,mapali=attested; malapali=NOT_FOUND
+187,Adjectives & Descriptors,Malamig,Marimla,Cold,False,marimla,True,True,marimla=attested
+188,Adjectives & Descriptors,Masarap,Manyaman,Delicious / Good,False,manyaman,True,True,manyaman=attested
+189,Adjectives & Descriptors,Mabilis,Mabilis / Malagwa,Fast / Quick,False,"mabilis, malagwa",True,True,mabilis=attested; malagwa=attested
+190,Adjectives & Descriptors,Mabagal,Mabagal,Slow,False,mabagal,True,True,mabagal=attested
+191,Adjectives & Descriptors,Mataas,Mataas,High / Tall,False,mataas,True,True,mataas=attested
+192,Adjectives & Descriptors,Mababa,Mababa,Low / Short,False,mababa,True,True,mababa=attested
+193,Adjectives & Descriptors,Bago,Bayu,New,False,bayu,True,True,bayu=attested
+194,Adjectives & Descriptors,Luma,Luma,Old (objects),False,luma,True,True,luma=attested
+195,Adjectives & Descriptors,Matanda,Matua,Old (people),False,matua,True,True,matua=attested
+196,Adjectives & Descriptors,Bata,Anak,Young / Child,False,anak,True,True,anak=attested
+197,Adjectives & Descriptors,Malakas,Masikan / Masikanan,Strong,False,"masikan, masikanan",True,True,masikan=attested; masikanan=attested
+198,Adjectives & Descriptors,Mahina,Mahina,Weak,False,mahina,False,False,mahina=NOT_FOUND
+199,Adjectives & Descriptors,Matapat,Matapat,Faithful / Honest,False,matapat,True,True,matapat=attested
+200,Adjectives & Descriptors,Tamis / Matamis,Yumu / Mayumu,Sweetness / Sweet,False,"yumu, mayumu",True,True,yumu=attested; mayumu=attested
+201,Adjectives & Descriptors,Kasalukuyan,Salucuian / Kasalukuyan,Present / Current,False,"salucuian, kasalukuyan",False,True,salucuian=NOT_FOUND; kasalukuyan=attested
+202,Common Conversational Expressions,Magandang umaga po sa inyo.,Mayap a abak pu kecayu.,Good morning to you.,True,"mayap, a, abak, pu, kecayu",True,True,mayap=attested; a=attested; abak=attested; pu=attested; kecayu=attested
+203,Common Conversational Expressions,Magandang gabi po sa inyo.,Mayap a bengi pu kecayu.,Good evening to you.,False,"mayap, a, bengi, pu, kecayu",True,True,mayap=attested; a=attested; bengi=attested; pu=attested; kecayu=attested
+204,Common Conversational Expressions,Nawawala ba ang gamit niya?,Mawawala wari ing gamit na?,Will his/her belongings be lost?,True,"mawawala, wari, ing, gamit, na",True,True,mawawala=attested; wari=attested; ing=attested; gamit=attested; na=attested
+205,Common Conversational Expressions,May kakilala ka ba sa pamilya mo na may ganyang sakit din?,Atin ca waring camaganac a ating capareung saket?,Do you have a relative in your family with a similar illness?,False,"atin, ca, waring, camaganac, a, ating, capareung, saket",False,True,atin=attested; ca=attested; waring=attested; camaganac=attested; a=attested; ating=attested; capareung=NOT_FOUND; saket=attested
+206,Common Conversational Expressions,Saan po kayo nakatira?,Nucarin cayu pu macatucnang?,Where do you live?,True,"nucarin, cayu, pu, macatucnang",True,True,nucarin=attested; cayu=attested; pu=attested; macatucnang=attested
+207,Common Conversational Expressions,Saan ko nabili ang lapis kanina?,Nucarin ya ing seli cung lapis nandin?,Where is the pencil I bought earlier?,False,"nucarin, ya, ing, seli, cung, lapis, nandin",True,True,nucarin=attested; ya=attested; ing=attested; seli=attested; cung=attested; lapis=attested; nandin=attested
+208,Common Conversational Expressions,Maligayang bati po.,Maligayang bati pu.,Happy greetings to you.,True,"maligayang, bati, pu",True,True,maligayang=attested; bati=attested; pu=attested
+209,Common Conversational Expressions,Anong pangalan mo?,Nanu ing lagyu mu?,What is your name?,False,"nanu, ing, lagyu, mu",True,True,nanu=attested; ing=attested; lagyu=attested; mu=attested
+210,Common Conversational Expressions,Ang pangalan ko ay...,Ing lagyu ku...,My name is...,False,"ing, lagyu, ku",True,True,ing=attested; lagyu=attested; ku=attested
+211,Proverbs & Sayings,Ang hindi marunong lumingon sa pinanggalingan ay hindi makararating sa paroroonan.,Ing e biasang melikid king penibatan e ya miras king puntalan.,One who does not look back at where they came from will not reach their destination.,True,"ing, e, biasang, melikid, king, penibatan, e, ya, miras, king, puntalan",True,True,ing=attested; e=attested; biasang=attested; melikid=attested; king=attested; penibatan=attested; e=attested; ya=attested; miras=attested; king=attested; puntalan=attested
+212,Proverbs & Sayings,"Ako ang nagbayo, ako ang nagsaing, saka ng maluto'y iba ang kumain.","Acu ing mitanam, ing binayu at siniasat, saca niang melutu aliua ya ing mengan.","I planted, pounded, and cooked, but someone else ate the meal when ready.",True,"acu, ing, mitanam, ing, binayu, at, siniasat, saca, niang, melutu, aliua, ya, ing, mengan",True,True,acu=attested; ing=attested; mitanam=attested; ing=attested; binayu=attested; at=attested; siniasat=attested; saca=attested; niang=attested; melutu=attested; aliua=attested; ya=attested; ing=attested; mengan=attested
+213,Proverbs & Sayings,"Pagkahaba-haba man ng prusisyon, sa simbahan din ang tuloy.","King kecaban man ning prucicion, king pisamban mu rin malaus.","No matter how long the procession, it ends up in church.",True,"king, kecaban, man, ning, prucicion, king, pisamban, mu, rin, malaus",True,True,king=attested; kecaban=attested; man=attested; ning=attested; prucicion=attested; king=attested; pisamban=attested; mu=attested; rin=attested; malaus=attested
+214,Proverbs & Sayings,"Ang tapat na kaibigan, ay maaasahan kailanman.","Ing matapat a caluguran, tune yang ayasaan.",A true friend can always be relied upon.,True,"ing, matapat, a, caluguran, tune, yang, ayasaan",True,True,ing=attested; matapat=attested; a=attested; caluguran=attested; tune=attested; yang=attested; ayasaan=attested

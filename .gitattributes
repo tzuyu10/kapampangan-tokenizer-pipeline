@@ -15,3 +15,19 @@ experiments/**/artifacts/** -text
 # same way.
 experiments/translation_gold_v1/resources/** -text
 experiments/morphology_gold_v1/resources/** -text
+experiments/parallel_extraction_v1/resources/** -text
+experiments/parallel_extraction_v2/resources/** -text
+experiments/parallel_extraction_v2/data/** -text
+
+# Phase 3 held-out morphology reference: SHA-256 recorded in
+# reports/reference-build-manifest.json and reports/split-manifest.json
+# against the LF on-disk bytes.
+experiments/tokenizer_selection_v1/data/** -text
+
+# Phase 5 translation split + Colab bundle: SHA-256 recorded in
+# experiments/nllb_finetune_v1/reports/split-manifest.json and data/bundle/meta.json.
+experiments/nllb_finetune_v1/data/** -text
+
+# Phase 4 NLLB architecture-verification result copied verbatim from Colab;
+# SHA-256 recorded in nllb/phase4-provenance-manifest.json.
+nllb/phase4-architecture-verification.json -text

@@ -1,7 +1,19 @@
 {
   "artifact_fingerprint": "d3974f566756314f961a678a6bbf665a4ed3ecd2e64a82826c01950aa3e0e14e",
-  "contract_fingerprint": "786def27ae99ed6132c08d9cfc7d882ac78c43bafa489d6d468390a3c69576f9",
+  "contract_fingerprint": "87640c4e64fdd0961ae4ee3dadefe864d7f0f9a7117a393bc29b2bf6d5424259",
   "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "integration_property": "The software stack must expose a genuinely independent source embedding without changing tied target embeddings or output projection.",
+  "integration_property_verification": {
+    "caveat": "model.tie_weights() re-points the encoder embedding back to the shared matrix (from_pretrained calls it at load; resize_token_embeddings and save_pretrained/from_pretrained round-trips can too). Apply the encoder-only swap after model load, do not call tie_weights() again, and re-apply the swap after any checkpoint reload. lm_head<->shared tying is unaffected by the re-tie.",
+    "date": "2026-08-31",
+    "independent_source_embedding_supported": true,
+    "model": "facebook/nllb-200-distilled-600M (M2M100ForConditionalGeneration)",
+    "notebook": "notebooks/phase4-nllb-architecture-verification.ipynb",
+    "only_new_source_embedding_receives_gradient": true,
+    "result_file": "nllb/phase4-architecture-verification.json",
+    "status": "verified_on_real_weights",
+    "target_side_provably_unchanged": true
+  },
   "language_token_requirements": {
     "filipino_target_language_token_must_remain_native": true,
     "kapampangan_native_nllb_language_token_assumed": false,
@@ -63,6 +75,5 @@
     "caller_must_supply_max_length": true,
     "default": "disabled",
     "side": "right_when_explicitly_enabled"
-  },
-  "unverified_integration_property": "The future software stack must expose a genuinely independent source embedding without changing tied target embeddings or output projection."
+  }
 }

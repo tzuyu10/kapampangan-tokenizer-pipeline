@@ -1,0 +1,98 @@
+surface,user_verdict,user_correct_analysis,method,boundaries,segmentation,note
+alipan,flag_correct,alipan (monomorphemic),user_monomorphemic,,alipan,user: monomorphemic / loan / proper name -> zero-boundary row
+angganan,candidate_correct,anggan + an,auto_parse,6,anggan | an,user analysis parsed and surface-reconstructs verbatim
+balayan,candidate_correct,balay + an,auto_parse,5,balay | an,user analysis parsed and surface-reconstructs verbatim
+bamban,flag_correct,bamban (monomorphemic),user_monomorphemic,,bamban,user: monomorphemic / loan / proper name -> zero-boundary row
+camatayan,candidate_wrong_different_root,ka + matay + an,manual_surface_map,2 7,ca | matay | an,surface-mapped from the user's underlying analysis
+canaan,flag_correct,Canaan (proper name),user_monomorphemic,,canaan,user: monomorphemic / loan / proper name -> zero-boundary row
+capitan,flag_correct,"capitan (Spanish loan, monomorphemic)",user_monomorphemic,,capitan,user: monomorphemic / loan / proper name -> zero-boundary row
+dinalung,candidate_correct,d + in + alung,auto_parse,1 3,d | in | alung,user analysis parsed and surface-reconstructs verbatim
+dinuku,candidate_correct,d + in + uku,auto_parse,1 3,d | in | uku,user analysis parsed and surface-reconstructs verbatim
+gagalgal,candidate_correct,ga~ + galgal,manual_surface_map,,gagalgal,surface-mapped from the user's underlying analysis
+ingatan,candidate_partially_correct,ingat + an,auto_parse,5,ingat | an,user analysis parsed and surface-reconstructs verbatim
+ipasiag,candidate_correct,ipa + siag,auto_parse,3,ipa | siag,user analysis parsed and surface-reconstructs verbatim
+kabaldugan,candidate_correct,ka + baldug + an,auto_parse,2 8,ka | baldug | an,user analysis parsed and surface-reconstructs verbatim
+kagutgutan,candidate_correct,ka + gutgut + an,auto_parse,2 8,ka | gutgut | an,user analysis parsed and surface-reconstructs verbatim
+kakanan,existing_correct,ka~ + kan + an,manual_surface_map,5,kakan | an,surface-mapped from the user's underlying analysis
+kaligaligan,candidate_correct,ka + ligalig + an,auto_parse,2 9,ka | ligalig | an,user analysis parsed and surface-reconstructs verbatim
+kapalaran,candidate_wrong_different_root,ka + palad + an,manual_surface_map,2 7,ka | palar | an,surface-mapped from the user's underlying analysis
+kapanamdaman,candidate_partially_correct,ka + panamdam + an,auto_parse,2 10,ka | panamdam | an,user analysis parsed and surface-reconstructs verbatim
+kapasalamatan,candidate_wrong_different_root,ka + salamat + an,manual_surface_map,2 4 11,ka | pa | salamat | an,surface-mapped from the user's underlying analysis
+kapupusan,candidate_correct,ka + pupus + an,auto_parse,2 7,ka | pupus | an,user analysis parsed and surface-reconstructs verbatim
+kapurian,candidate_correct,ka + puri + an,auto_parse,2 6,ka | puri | an,user analysis parsed and surface-reconstructs verbatim
+katapatan,candidate_correct,ka + tapat + an,auto_parse,2 7,ka | tapat | an,user analysis parsed and surface-reconstructs verbatim
+katuliran,candidate_wrong_different_root,ka + tulid + an,manual_surface_map,2 7,ka | tulir | an,surface-mapped from the user's underlying analysis
+kawan,flag_correct,kawan (monomorphemic),user_monomorphemic,,kawan,user: monomorphemic / loan / proper name -> zero-boundary row
+kekeng,flag_correct,kekeng (monomorphemic),user_monomorphemic,,kekeng,user: monomorphemic / loan / proper name -> zero-boundary row
+kinagli,candidate_correct,k + in + agli,auto_parse,1 3,k | in | agli,user analysis parsed and surface-reconstructs verbatim
+linawe,candidate_correct,l + in + awe,auto_parse,1 3,l | in | awe,user analysis parsed and surface-reconstructs verbatim
+linipul,candidate_correct,l + in + ipul,auto_parse,1 3,l | in | ipul,user analysis parsed and surface-reconstructs verbatim
+lipulan,candidate_correct,lipul + an,auto_parse,5,lipul | an,user analysis parsed and surface-reconstructs verbatim
+lumbe,candidate_wrong_different_root,limbe/lumbe (monomorphemic-ish),user_monomorphemic,,lumbe,user: monomorphemic / loan / proper name -> zero-boundary row
+mababa,candidate_correct,ma + baba,auto_parse,2,ma | baba,user analysis parsed and surface-reconstructs verbatim
+maestro,flag_correct,"maestro (Spanish loan, monomorphemic)",user_monomorphemic,,maestro,user: monomorphemic / loan / proper name -> zero-boundary row
+magkailangan,existing_correct,mag + kailangan,auto_parse,3,mag | kailangan,user analysis parsed and surface-reconstructs verbatim
+makanian,flag_correct,makanian (monomorphemic),user_monomorphemic,,makanian,user: monomorphemic / loan / proper name -> zero-boundary row
+makanyan,both_wrong,ma- + kanyan,auto_parse,2,ma | kanyan,user analysis parsed and surface-reconstructs verbatim
+makasumami,candidate_correct,maka + sumami,auto_parse,4,maka | sumami,user analysis parsed and surface-reconstructs verbatim
+makule,candidate_correct,ma + kule,auto_parse,2,ma | kule,user analysis parsed and surface-reconstructs verbatim
+malagwa,candidate_correct,ma + lagwa,auto_parse,2,ma | lagwa,user analysis parsed and surface-reconstructs verbatim
+malale,candidate_correct,ma + lale,auto_parse,2,ma | lale,user analysis parsed and surface-reconstructs verbatim
+maligaya,candidate_correct,ma + ligaya,auto_parse,2,ma | ligaya,user analysis parsed and surface-reconstructs verbatim
+malipul,candidate_correct,ma + lipul,auto_parse,2,ma | lipul,user analysis parsed and surface-reconstructs verbatim
+maluka,candidate_correct,ma + luka,auto_parse,2,ma | luka,user analysis parsed and surface-reconstructs verbatim
+mamangan,existing_correct,ma + mangan,auto_parse,2,ma | mangan,user analysis parsed and surface-reconstructs verbatim
+mangatas,candidate_correct,mang + atas,auto_parse,4,mang | atas,user analysis parsed and surface-reconstructs verbatim
+manibatan,candidate_correct,man + ibat + an,auto_parse,3 7,man | ibat | an,user analysis parsed and surface-reconstructs verbatim
+mapaling,candidate_correct,ma + paling,auto_parse,2,ma | paling,user analysis parsed and surface-reconstructs verbatim
+masampat,candidate_correct,ma + sampat,auto_parse,2,ma | sampat,user analysis parsed and surface-reconstructs verbatim
+masias,candidate_correct,ma + sias,auto_parse,2,ma | sias,user analysis parsed and surface-reconstructs verbatim
+masikanan,candidate_correct,ma + sikan + an,auto_parse,2 7,ma | sikan | an,user analysis parsed and surface-reconstructs verbatim
+matatag,candidate_correct,ma + tatag,auto_parse,2,ma | tatag,user analysis parsed and surface-reconstructs verbatim
+matuang,candidate_wrong_different_root,ma + tua + -ng,manual_surface_map,2,ma | tuang,surface-mapped from the user's underlying analysis
+matula,candidate_correct,ma + tula,auto_parse,2,ma | tula,user analysis parsed and surface-reconstructs verbatim
+mawala,candidate_correct,ma + wala,auto_parse,2,ma | wala,user analysis parsed and surface-reconstructs verbatim
+mayumu,candidate_correct,ma + yumu,auto_parse,2,ma | yumu,user analysis parsed and surface-reconstructs verbatim
+minuna,both_wrong,m- + -in- + una,auto_parse,1 3,m | in | una,user analysis parsed and surface-reconstructs verbatim
+pakibatan,existing_correct,pakibat + an,auto_parse,7,pakibat | an,user analysis parsed and surface-reconstructs verbatim
+pamisip,candidate_correct,pam + isip,auto_parse,3,pam | isip,user analysis parsed and surface-reconstructs verbatim
+panamdaman,candidate_wrong_different_root,pa + damdam + an,manual_surface_map,2 8,pa | namdam | an,surface-mapped from the user's underlying analysis
+panata,flag_correct,panata (monomorphemic),user_monomorphemic,,panata,user: monomorphemic / loan / proper name -> zero-boundary row
+panayan,candidate_wrong_different_root,panaya + an,manual_surface_map,6,panaya | n,surface-mapped from the user's underlying analysis
+pangane,both_wrong,pangane (monomorphemic,user_monomorphemic,,pangane,user: monomorphemic / loan / proper name -> zero-boundary row
+panimanman,candidate_wrong_different_root,pani- + manman,auto_parse,4,pani | manman,user analysis parsed and surface-reconstructs verbatim
+panintunan,existing_correct,pan + intun + an,auto_parse,3 8,pan | intun | an,user analysis parsed and surface-reconstructs verbatim
+pantas,flag_correct,pantas (monomorphemic),user_monomorphemic,,pantas,user: monomorphemic / loan / proper name -> zero-boundary row
+parang,flag_correct,parang (monomorphemic),user_monomorphemic,,parang,user: monomorphemic / loan / proper name -> zero-boundary row
+parusa,candidate_wrong_different_root,pa- + dusa,manual_surface_map,2,pa | rusa,surface-mapped from the user's underlying analysis
+pasbulan,unclear_categorization,pasbul + an,auto_parse,6,pasbul | an,user analysis parsed and surface-reconstructs verbatim
+pastul,flag_correct,"pastul (Spanish loan, monomorphemic)",user_monomorphemic,,pastul,user: monomorphemic / loan / proper name -> zero-boundary row
+payapa,flag_correct,payapa (monomorphemic Tagalog loan),user_monomorphemic,,payapa,user: monomorphemic / loan / proper name -> zero-boundary row
+pibatan,candidate_wrong_different_root,pi- + bata + an,manual_surface_map,2 6,pi | bata | n,surface-mapped from the user's underlying analysis
+pilubluban,candidate_correct,pi + lublub + an,auto_parse,2 8,pi | lublub | an,user analysis parsed and surface-reconstructs verbatim
+purian,candidate_correct,puri + an,auto_parse,4,puri | an,user analysis parsed and surface-reconstructs verbatim
+sinira,candidate_correct,s + in + ira,auto_parse,1 3,s | in | ira,user analysis parsed and surface-reconstructs verbatim
+sintang,flag_correct,sintang (monomorphemic loan),user_monomorphemic,,sintang,user: monomorphemic / loan / proper name -> zero-boundary row
+tatang,flag_correct,tatang (monomorphemic),user_monomorphemic,,tatang,user: monomorphemic / loan / proper name -> zero-boundary row
+tatas,flag_correct,tatas (monomorphemic),user_monomorphemic,,tatas,user: monomorphemic / loan / proper name -> zero-boundary row
+tinabi,candidate_correct,t + in + abi,auto_parse,1 3,t | in | abi,user analysis parsed and surface-reconstructs verbatim
+tipan,flag_correct,tipan (monomorphemic),user_monomorphemic,,tipan,user: monomorphemic / loan / proper name -> zero-boundary row
+tumula,candidate_correct,t + um + ula,auto_parse,1 3,t | um | ula,user analysis parsed and surface-reconstructs verbatim
+tuntunan,candidate_correct,tuntun + an,auto_parse,6,tuntun | an,user analysis parsed and surface-reconstructs verbatim
+tutula,candidate_correct,tu~ + tula,manual_surface_map,,tutula,surface-mapped from the user's underlying analysis
+tutung,flag_correct,tutung (monomorphemic),user_monomorphemic,,tutung,user: monomorphemic / loan / proper name -> zero-boundary row
+dinan,existing_correct_or_close,din/da + an,EXCLUDE,,,din/da root alternation unresolved
+kakalinguan,existing_correct_or_close,ka~ + kalingwan,EXCLUDE,,,ka~ reduplication over an already circumfixed stem; layered
+kakaluguran,both_wrong,ka~ + (ka + lugud + an),EXCLUDE,,,nested ka~ over ka-...-an + d->r; surface split ambiguous
+maging,candidate_correct_or_close,m-/ma- + aging/ging,EXCLUDE,,,m-/ma- and aging/ging both left open by the user
+makalangan,candidate_wrong_different_root,maka- + alang/kalangan + an,EXCLUDE,,,alang/kalangan root alternation unresolved
+migising,candidate_wrong_different_root,mi-/mig- + gising,EXCLUDE,,,mi-/mig- prefix alternation unresolved
+mumuna,candidate_wrong_different_root,m/um- + una,EXCLUDE,,,m-/um- alternation unresolved
+pakalulu,candidate_partially_correct,paka-/pa- + kalulu,EXCLUDE,,,paka-/pa- affix ambiguous per the user
+pakiramdaman,both_wrong,paki- + damdam/ramdam + -an,EXCLUDE,,,damdam/ramdam alternation unresolved by the user
+pamanalastas,both_wrong,paman- + talastas,EXCLUDE,,,"both_wrong; assimilated t, surface split not determinable"
+panamdam,candidate_wrong_different_root,paN- + damdam/ramdam,EXCLUDE,,,"paN- + damdam/ramdam; assimilated surface, alternation open"
+panenayan,candidate_wrong_different_root,panaya-based derivation,EXCLUDE,,,"'panaya-based derivation', no definite split given"
+paralaya,candidate_wrong_different_root,pa + alaya/dalaya,EXCLUDE,,,alaya/dalaya root alternation unresolved
+patayan,candidate_wrong_different_root,patai/pate + an,EXCLUDE,,,"patai/pate alternation + i->y glide, surface split unclear"
+pengan,candidate_wrong_different_root,pe- + pangan/mangan,EXCLUDE,,,"pe- + pangan/mangan; nasal-assimilated, does not reconstruct"

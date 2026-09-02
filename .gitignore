@@ -17,3 +17,10 @@ __pycache__/
 # are unresolved, so only the small provenance manifest -- revision, file
 # hashes -- is tracked, matching this project's existing OCR-source policy).
 experiments/expanded_morphology_v4/resources/nllb-tokenizer/
+
+# Bulk raw PLD parse (22 MB, 114k rows, derived from the 48 GB Philippine
+# Languages Database archive; redistribution rights unresolved). Only the
+# provenance-manifest.json (which records its SHA-256) is tracked, same
+# policy as the NLLB tokenizer above. The small curated derivatives
+# (pld_prompt_inventory_*, candidate/verified pair CSVs) are kept.
+experiments/parallel_extraction_*/resources/pld_prompt_entries_pam_fil.csv

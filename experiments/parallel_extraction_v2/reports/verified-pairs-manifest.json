@@ -1,0 +1,30 @@
+{
+  "output": "verified-pairs.csv",
+  "output_sha256": "aae0b8aeccfd798bb88fe552a39c963dfa42ba7e8052936fce70042d5256d808",
+  "total_pairs": 716,
+  "by_tier": {
+    "gold_v1": 220,
+    "gold_stories": 174,
+    "silver_a": 230,
+    "silver_b": 92
+  },
+  "story_pairs_added": 174,
+  "claude_read_through_2026_09_02": {
+    "dropped_not_a_pair": 3,
+    "kept_flagged_partial": 27,
+    "note": "non-native read-through; the ENTIRE set is SILVER for Phase 5"
+  },
+  "v2_sweep_disposition": {
+    "silver_a": 232,
+    "silver_b": 93,
+    "excluded": 516,
+    "dup_of_gold": 8
+  },
+  "label": "THE ENTIRE SET IS SILVER for Phase 5. A native-speaker validation pass on reports/native-speaker-review-sheet.csv is still the gate for any thesis-gold claim. Tiers: gold_stories = native-authored connected narrative (user-vouched, modern/cultural register); gold_v1 = 220 user spot-checked pairs (user is not a native speaker); silver_a/b = PLD sweep, three non-native passes (LaBSE+MNN, the user's dictionary-alignment script, a full Claude read-through 2026-09-02). The Claude read-through dropped 3 rows as not-a-pair and flagged 27 in the claude_review column as 'partial'.",
+  "inputs": {
+    "user_evaluated_csv_sha256": "d3afd78930e347f8e601147d83093ae993ce8e15ac988fd5bec63b8f08965f50",
+    "story_csv_sha256": "1ada0005c09d457547cfab1a79eeb9065e92125411e038aab5887ca8e392ee4d",
+    "v1_matched_sha256": "4ce6e1f461849618fc061bbe18bfd7ae1dd381a67bb257937dd659c02fd92f99",
+    "v1_vocab_sha256": "d9425decaf6578e2fb06f64c2a0028ead7f90b2dcdc9ec8c1790dfdaca325a01"
+  }
+}

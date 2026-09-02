@@ -1,0 +1,10 @@
+{
+  "file": "kapampangan-stories-sentence-by-sentence.pdf",
+  "sha256": "6175009f49698fb0674ae4c66ca3fa8dc8867c411bcfef62234832ebee186008",
+  "bytes": 154509,
+  "origin": "supplied by the user 2026-09-01; per the user, the Kapampangan stories and their Filipino sentence-by-sentence translations were written/translated by a native Kapampangan speaker",
+  "content": "15 short stories (modern + cultural register: school life, environment, community history, Kuraldal, Arti Sta. Rita, transportation, family), 174 KP<->FIL sentence pairs, KP:/FIL: line format",
+  "tier": "gold_stories -- native-authored; the highest-quality connected-narrative PAM<->FIL data in the project. Register the project otherwise lacks entirely.",
+  "rights": "author is the user / their collaborator; usable for this research. Not third-party redistribution-cleared beyond that.",
+  "copied_utc": "2026-09-02T07:06:33.206946+00:00"
+}

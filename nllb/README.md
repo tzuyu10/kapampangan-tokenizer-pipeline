@@ -16,3 +16,19 @@ and output projection must remain unchanged. See
 `docs/NLLB_INTEGRATION_PLAN.md` and `docs/NLLB_READINESS_REPORT.md` before any
 model download or training.
 
+## Phase 4 verification (2026-08-31) — done
+
+That independence property was verified on the real
+`facebook/nllb-200-distilled-600M` weights (Colab, Tesla T4). Result:
+**sound, with one operational caveat** — `model.tie_weights()` re-points the
+encoder embedding back to the shared matrix, so Phase 5 must apply the
+encoder-only swap after model load and re-apply it around any checkpoint
+round-trip. 7 of 8 mechanical checks pass; the 8th is that expected re-tie
+behaviour.
+
+- `phase4-architecture-verification.json` — raw notebook output.
+- `phase4-architecture-verification.md` — readable verdict + the exact
+  Phase 5 requirements.
+- `phase4-provenance-manifest.json` — SHA-256, source path, Colab environment.
+- `notebooks/phase4-nllb-architecture-verification.ipynb` — the notebook.
+

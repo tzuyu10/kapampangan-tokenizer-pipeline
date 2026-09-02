@@ -1,0 +1,43 @@
+{
+  "task": "Kapampangan -> Filipino (tgl_Latn) NLLB-200-distilled-600M fine-tune",
+  "conditions": [
+    "nllb_native",
+    "morphbpe",
+    "penalty8"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "training": {
+    "trainable": "encoder input embedding only (nn.Embedding(6080,1024)); everything else frozen; do NOT call tie_weights() after the swap",
+    "note": "matches Phase 4 verification (nllb/phase4-architecture-verification.md)"
+  },
+  "source_vocab_size_morphbpe": 6080,
+  "source_pad_id_morphbpe": 0,
+  "nllb": {
+    "model": "facebook/nllb-200-distilled-600M",
+    "target_lang": "tgl_Latn",
+    "native_baseline_source_lang": "tgl_Latn",
+    "decoder_start_token_id": 2,
+    "pad_token_id": 1
+  },
+  "artifact_fingerprints": {
+    "morphbpe": "5c34233ebd33939aad1c6af9ccfb041855ccfa84a98b9894a24a4ed54c24803d",
+    "penalty8": "f2ea195a970c387f5e5e3ba7fe5675bae9103853950d46d1072fd2685d151258"
+  },
+  "split_counts": {
+    "train": 598,
+    "dev": 45,
+    "test": 70
+  },
+  "split_sha256": {
+    "train": "5e7a1a09ec8c8dc0f619ef4241fa298d4733623f899757c0cb43bd534a2c1df0",
+    "dev": "3e60019f0abf33d8963fe13df7a23a399eab8630f5d81e2682fb36db40ebf939",
+    "test": "bf732d729e962928ff1d487968e36768a693c3477f2e8c94f37deadf6a94cc7e"
+  },
+  "split_manifest": "reports/split-manifest.json",
+  "label": "ALL SILVER training data. See split-manifest.json.",
+  "rights_note": "train/dev contain PLD-derived pairs (redistribution rights unresolved) + native-authored story pairs (author = the user) + gold_v1. Review before uploading to Colab."
+}

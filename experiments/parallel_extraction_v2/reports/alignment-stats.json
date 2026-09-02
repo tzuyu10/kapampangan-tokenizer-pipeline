@@ -1,0 +1,90 @@
+{
+  "model": "sentence-transformers/LaBSE",
+  "thresholds": {
+    "emb_keep": 0.62,
+    "jaccard_keep": 0.3,
+    "top_k": 3
+  },
+  "units": 15,
+  "candidate_rows": 849,
+  "mutual_best_rows": 314,
+  "emb_cosine_ge_0.80_rows": 154,
+  "per_unit": {
+    "Iso_Kinship.txt": {
+      "pam": 10,
+      "fil": 2,
+      "candidates_kept": 1
+    },
+    "Iso_MinPairs.txt": {
+      "pam": 22,
+      "fil": 56,
+      "candidates_kept": 10
+    },
+    "Iso_Ordinal.txt": {
+      "pam": 41,
+      "fil": 30,
+      "candidates_kept": 24
+    },
+    "Iso_Time.txt": {
+      "pam": 5,
+      "fil": 1,
+      "candidates_kept": 0
+    },
+    "Iso_Weather.txt": {
+      "pam": 4,
+      "fil": 4,
+      "candidates_kept": 5
+    },
+    "Utt_CommonExpressions.txt": {
+      "pam": 96,
+      "fil": 95,
+      "candidates_kept": 100
+    },
+    "Utt_Educ.txt": {
+      "pam": 318,
+      "fil": 351,
+      "candidates_kept": 92
+    },
+    "Utt_Essay.txt": {
+      "pam": 124,
+      "fil": 139,
+      "candidates_kept": 16
+    },
+    "Utt_Greetings.txt": {
+      "pam": 78,
+      "fil": 77,
+      "candidates_kept": 68
+    },
+    "Utt_Interrogatives.txt": {
+      "pam": 82,
+      "fil": 77,
+      "candidates_kept": 132
+    },
+    "Utt_Letter.txt": {
+      "pam": 34,
+      "fil": 54,
+      "candidates_kept": 3
+    },
+    "Utt_Medical.txt": {
+      "pam": 136,
+      "fil": 127,
+      "candidates_kept": 90
+    },
+    "Utt_News.txt": {
+      "pam": 325,
+      "fil": 360,
+      "candidates_kept": 246
+    },
+    "Utt_Salawikain.txt": {
+      "pam": 141,
+      "fil": 159,
+      "candidates_kept": 16
+    },
+    "STORY_folktales(PAM 5 files vs FIL Utt_Story.txt)": {
+      "pam": 190,
+      "fil": 193,
+      "candidates_kept": 46
+    }
+  },
+  "label": "CANDIDATES for human review, not verified pairs"
+}

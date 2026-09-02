@@ -61,10 +61,28 @@ def export_nllb_contract(artifact_dir: Path, nllb_dir: Path) -> dict[str, object
             "decoder_vocabulary_changed": False,
             "target_output_projection_changed": False,
         },
-        "unverified_integration_property": (
-            "The future software stack must expose a genuinely independent source embedding "
+        "integration_property": (
+            "The software stack must expose a genuinely independent source embedding "
             "without changing tied target embeddings or output projection."
         ),
+        "integration_property_verification": {
+            "status": "verified_on_real_weights",
+            "date": "2026-08-31",
+            "model": "facebook/nllb-200-distilled-600M (M2M100ForConditionalGeneration)",
+            "notebook": "notebooks/phase4-nllb-architecture-verification.ipynb",
+            "result_file": "nllb/phase4-architecture-verification.json",
+            "independent_source_embedding_supported": True,
+            "target_side_provably_unchanged": True,
+            "only_new_source_embedding_receives_gradient": True,
+            "caveat": (
+                "model.tie_weights() re-points the encoder embedding back to the shared "
+                "matrix (from_pretrained calls it at load; resize_token_embeddings and "
+                "save_pretrained/from_pretrained round-trips can too). Apply the "
+                "encoder-only swap after model load, do not call tie_weights() again, and "
+                "re-apply the swap after any checkpoint reload. lm_head<->shared tying is "
+                "unaffected by the re-tie."
+            ),
+        },
     }
     contract = {**contract_body, "contract_fingerprint": fingerprint(contract_body)}
     nllb_dir.mkdir(parents=True, exist_ok=True)

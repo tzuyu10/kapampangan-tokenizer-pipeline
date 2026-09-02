@@ -55,6 +55,31 @@
       "use": "Speaker-linked word-form attestation, not root evidence."
     },
     {
+      "id": "mirikitani1971_speaking_kapampangan",
+      "tier": "B",
+      "title": "Speaking Kapampangan",
+      "author": "Leatrice T. Mirikitani",
+      "year": 1971,
+      "series": "PALI Language Texts: Philippines",
+      "publisher": "University of Hawaii Press",
+      "isbn_original": "9780870225321",
+      "isbn_2021_reprint": "9780824885922",
+      "url": "https://www.degruyterbrill.com/document/doi/10.1515/9780824885922/html",
+      "note": "50-lesson conversational-Kapampangan course text with a Kapampangan-English glossary. Not part of the internet_root_reconciliation_v1 word-evidence.csv pipeline (never appears in reconciliation-manifest.json's source_whole_form_match_types) -- cited separately, extensively, and by page number in experiments/expanded_morphology_v4/EVIDENCE.md for morphology-rule evidence (e.g. paki-, peka-, maki-/meki-, makipag-, the maN- assimilation classes), cross-triangulated there against Forman's grammar notes. Full text (1,012 pages) already OCR/text-extracted locally under runs/source-ocr/text/mirikitani-speaking-kapampangan/ and independently re-verified in a second pass (runs/source-ocr-v2/, 2026-08-26, 0 pages flagged) -- see AGENT_CONTEXT.md.",
+      "license": "Copyright University of Hawaii Press; the specific PDF copy used for OCR (recorded in runs/source-ocr/source-manifest.json, matched by exact byte size) traces to a shadow-library ('Anna's Archive') filename, not an authorized channel -- unlike this project's other sources, which were sourced from a library catalog, an open-access edition, or a CC-licensed dataset. Extracted text is not redistributed, matching this project's existing posture for every source here; the redistribution-rights question this raises has not been separately resolved beyond that existing local-only policy."
+    },
+    {
+      "id": "martizano2024_slang_pampangos",
+      "tier": "C",
+      "title": "A Qualitative Study on the Slang Words and Socio-Cultural Expressions of the Pampangos",
+      "author": "Michael R. Martizano",
+      "year": 2024,
+      "publisher": "Ignatian International Journal for Multidisciplinary Research, Vol 2 No 6, June 2024",
+      "url": "https://doi.org/10.5281/zenodo.11516426",
+      "license": "Published journal article with a Zenodo DOI; openly citable.",
+      "use": "Discovered 2026-08-28 while mining the Step-3 new-PDF batch (runs/source-ocr-v2/, source_id sl-008-martizano-slang-pampangos-2024) for morphology/lexicon evidence. Documents 16 modern Kapampangan slang terms/expressions (opu/pu, meyatu, patawas me, bari-bari apu, tawu, taksyapo, dyandirit, misdan a yatut, pasirkulatuk, borbolen, o-jo, alang-atdo, arya, keni, diyablus, salibatbat, atin yang ditak) via 15 native-speaker interviews (Tarlac city), each with a definition and an example Kapampangan sentence translated to English (a few also carry an embedded Tagalog gloss for the individual word, not the full sentence). Community/single-study tier (C) -- not a dictionary, one small qualitative study -- but genuinely valuable as the only source in this project documenting modern colloquial slang register, distinct from every historical/formal dictionary or PLD-elicited formulaic-phrase source already used elsewhere. Not yet formally extracted into a tracked pair/lexicon dataset; see AGENT_CONTEXT.md for the full term list pending a decision on where it should live."
+    },
+    {
       "id": "kaikki_enwiktionary",
       "tier": "C",
       "title": "Kaikki.org machine-readable Kapampangan dictionary extracted from English Wiktionary",
