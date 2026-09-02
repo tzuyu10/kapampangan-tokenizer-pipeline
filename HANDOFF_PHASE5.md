@@ -32,7 +32,7 @@ git).
 | 2 — parallel extraction | done + a 2nd pass (`parallel_extraction_v1` + `_v2`) |
 | 3 — tokenizer selection | **done**. Winner: **`penalty-8` @ vocab 6,080** (held-out morphology DEV boundary F1 0.4639 / TEST 0.4093). Hard-constrained `morphbpe` family added to v4. See `experiments/tokenizer_selection_v1/`. |
 | 4 — NLLB architecture | **done, verified on real weights**. Encoder embedding can be untied + trained alone; target side unchanged. **Caveat: `tie_weights()` re-ties the encoder — apply the swap after model load and never call `tie_weights()`.** See `nllb/phase4-architecture-verification.md`. |
-| 5 — NLLB fine-tune | **scaffolded, NOT run**. `experiments/nllb_finetune_v1/` + `notebooks/phase5-nllb-morphbpe-finetune.ipynb`. Waiting on: (a) user's data changes, (b) rights review before Colab upload, (c) the user actually running the notebook. |
+| 5 — NLLB fine-tune | **scaffolded, NOT run**. `experiments/nllb_finetune_v1/` + `notebooks/phase5-nllb-morphbpe-finetune.ipynb`. **4 conditions** (2026-09-02, on a user methodology question): `morphbpe` / `penalty8` vs **`unigram6080`** (the fair headline — Unigram-LM = NLLB's own algorithm, trained on this project's Kapampangan corpus, matched 6,080 vocab) + `nllb_native` / `nllb_zeroshot` (the pretrained-off-the-shelf reference the proposal names). Waiting on: (a) user's data changes, (b) rights review before Colab upload, (c) the user running it. |
 | 6 — evaluation | not started. Fuller BLEU/chrF++/COMET on the held-out test set, building on `phase5-results.json`. |
 
 ## The translation dataset (all SILVER)
@@ -73,10 +73,11 @@ but that is non-native.
    sample; seed 20260902; leakage asserted. Adjust `TEST_STORY_UNITS` /
    sizes there if the story set changes.
 3. `build_colab_bundle.py` writes `data/bundle/{train,dev,test}.jsonl`
-   with the Kapampangan side pre-tokenised by **both** vocab-6080 MorphBPE
-   artifacts (`morphbpe`, `penalty-8`) so the notebook needs no project
-   code. It also stamps `meta.json` with the split SHA-256s and a
-   `rights_note`.
+   with the Kapampangan side pre-tokenised three ways at vocab 6,080
+   (`morphbpe_ids`, `penalty8_ids`, `unigram_ids`) so the notebook needs no
+   project code. It also stamps `meta.json` with the split SHA-256s and a
+   `rights_note`. Needs `tokenizers` (`.venv` `nllb-baseline` extra) for the
+   Unigram artifact.
 4. The notebook (`notebooks/phase5-nllb-morphbpe-finetune.ipynb`) is
    data-agnostic — the user just re-uploads the 4 bundle files and
    `Run all`.

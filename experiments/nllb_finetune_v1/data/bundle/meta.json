@@ -3,15 +3,20 @@
   "conditions": [
     "nllb_native",
     "morphbpe",
-    "penalty8"
+    "penalty8",
+    "unigram6080"
   ],
+  "comparison": {
+    "fair_headline": "morphbpe / penalty8 vs unigram6080 -- same vocab (6,080), same Kapampangan corpus, same fresh-embedding recipe; only the subword algorithm differs (morphology-constrained BPE vs Unigram-LM).",
+    "reference": "nllb_native (encoder embedding adapted) + nllb_zeroshot -- the pretrained off-the-shelf NLLB-200 tokenizer named in the thesis proposal (Scope & Limitation, p.15)."
+  },
   "seeds": [
     0,
     1,
     2
   ],
   "training": {
-    "trainable": "encoder input embedding only (nn.Embedding(6080,1024)); everything else frozen; do NOT call tie_weights() after the swap",
+    "trainable": "encoder input embedding only (nn.Embedding(6080,1024) for morphbpe/penalty8/unigram6080; an untied copy of `shared` for nllb_native); everything else frozen; do NOT call tie_weights() after the swap",
     "note": "matches Phase 4 verification (nllb/phase4-architecture-verification.md)"
   },
   "source_vocab_size_morphbpe": 6080,
@@ -25,17 +30,19 @@
   },
   "artifact_fingerprints": {
     "morphbpe": "5c34233ebd33939aad1c6af9ccfb041855ccfa84a98b9894a24a4ed54c24803d",
-    "penalty8": "f2ea195a970c387f5e5e3ba7fe5675bae9103853950d46d1072fd2685d151258"
+    "penalty8": "f2ea195a970c387f5e5e3ba7fe5675bae9103853950d46d1072fd2685d151258",
+    "unigram6080": "454549cf07cc05ad5b8d6c8de9488126656da750a201bf5a360d71615f2a0662"
   },
+  "unigram6080_note": "NOT NLLB's tokenizer file; a fresh Unigram-LM model trained on this project's Kapampangan corpus (train_unigram_ablation.py). Disclosed limitation: the tokenizers-library Unigram trainer is not byte-reproducible; this is one frozen instance.",
   "split_counts": {
     "train": 598,
     "dev": 45,
     "test": 70
   },
   "split_sha256": {
-    "train": "5e7a1a09ec8c8dc0f619ef4241fa298d4733623f899757c0cb43bd534a2c1df0",
-    "dev": "3e60019f0abf33d8963fe13df7a23a399eab8630f5d81e2682fb36db40ebf939",
-    "test": "bf732d729e962928ff1d487968e36768a693c3477f2e8c94f37deadf6a94cc7e"
+    "train": "4406506be1c5c01fe08bb68a933ff0142744e06de6ddf7d1090a98c6394d7138",
+    "dev": "a602473807708d994ea0e4c9567a1b4790b53981d90ce25c7428c52ec4581412",
+    "test": "38317ba529d88857577cb6093add416038720f53eadd3529634063beb39ad56b"
   },
   "split_manifest": "reports/split-manifest.json",
   "label": "ALL SILVER training data. See split-manifest.json.",
