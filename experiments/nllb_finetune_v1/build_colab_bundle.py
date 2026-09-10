@@ -3,9 +3,11 @@
 The notebook runs in Colab with NO project code. Everything it needs is
 pre-computed here:
 
-  data/bundle/{train,dev,test}.jsonl
+  data/bundle/{train,dev,test_bible,test_ood}.jsonl
       one row per pair: {pam_text, fil_text, tier, claude_review,
                          morphbpe_ids, penalty8_ids, unigram_ids}
+      test_bible = held-out Bible chapters (in-domain); test_ood = whole
+      native-authored stories + gold_v1 sentences (register transfer).
       *_ids are the Kapampangan side tokenised at vocab 6,080 with <s>/</s>
       included, ids in [0, 6080):
         morphbpe_ids  -- paper-aligned hard-constrained MorphBPE
@@ -115,7 +117,7 @@ def main() -> int:
 
     split_hashes: dict[str, str] = {}
     counts: dict[str, int] = {}
-    for split in ("train", "dev", "test"):
+    for split in ("train", "dev", "test_bible", "test_ood"):
         src = DATA_DIR / f"{split}.csv"
         if not src.exists():
             raise SystemExit(f"missing {src}; run build_split.py first")
@@ -153,23 +155,36 @@ def main() -> int:
             "tokenizer named in the thesis proposal (Scope & Limitation, p.15). "
             "Trained nllb_native was dropped for v1 (256K trainable embedding OOMs a T4).",
         },
-        "seeds": [0],
-        "seeds_note": "1 seed for the first warm-start pass; add [1, 2] once a "
-        "condition beats nllb_zeroshot and the comparison is worth error bars.",
+        "seeds": [0, 1, 2],
+        "seeds_note": "3 seeds from the start -- the training set is now ~3,600 "
+        "pairs (Bible-primary refresh 2026-09-03), past the point where a single "
+        "seed is enough for a defensible tokenizer comparison.",
+        "test_sets": {
+            "test_bible": "IN-DOMAIN -- whole held-out Bible chapters. The "
+            "headline number; matches the proposal's primary dataset.",
+            "test_ood": "OUT-OF-DOMAIN -- native-authored stories + gold_v1 "
+            "sentences. Register-transfer number (train is ~71% religious).",
+        },
         "training": {
             "trainable": "encoder input embedding only -- nn.Embedding(6080,1024), "
             "WARM-STARTED from the mean of NLLB's own sub-token embeddings for each "
             "token string (see data/bundle/vocab.json). Everything else frozen; do "
             "NOT call tie_weights() after the swap.",
             "hyperparams": {
-                "batch": 16,
-                "epochs": 15,
-                "patience": 4,
+                "batch": 8,
+                "epochs": 10,
+                "patience": 3,
                 "lr": 3e-4,
-                "select_on": "dev loss (cheap); generation eval only at the end",
+                "max_new_tokens": 160,
+                "select_on": "dev loss (cheap); generation eval on both test sets only at the end",
+                "batch_note": "8 is deliberately conservative for a T4 -- Bible verses are "
+                "~40% longer than the old 598-pair set (morphbpe_ids p99 ~140, max 184). "
+                "Raise to 16 in meta.json if the runtime has headroom.",
             },
             "note": "matches Phase 4 verification (nllb/phase4-architecture-verification.md). "
-            "The random-init recipe (first run) collapsed to chrF++ ~10 vs zero-shot 33.6.",
+            "Warm-start kept from the 2026-09-03 rev (random-init collapsed to chrF++ "
+            "~10 vs zero-shot 33.6 at 598 pairs); with ~3,600 pairs the frozen-encoder "
+            "recipe may now hold on its own, but warm-start is cheap and de-risks.",
         },
         "vocab_file": "vocab.json  {condition: [id-ordered token strings]}",
         "source_vocab_size_morphbpe": 6080,
@@ -197,9 +212,13 @@ def main() -> int:
         "split_manifest": "reports/split-manifest.json",
         "label": "ALL SILVER training data. See split-manifest.json.",
         "rights_note": (
-            "train/dev contain PLD-derived pairs (redistribution rights "
-            "unresolved) + native-authored story pairs (author = the user) + "
-            "gold_v1. Review before uploading to Colab."
+            "train/dev/test contain: the PLOC Kapampangan<->Tagalog Bible "
+            "corpus (~71% of train; provenance via a groupmate, believed "
+            "PLOC/DLSU LTL / LGPL but UNCONFIRMED -- redistribution rights "
+            "UNRESOLVED), PLD-derived pairs (rights unresolved), native-"
+            "authored story pairs (author = the user), gold_v1, and Gemini "
+            "AI-generated sentences. Confirm the Bible corpus rights with the "
+            "user before uploading to Colab."
         ),
     }
     (BUNDLE_DIR / "meta.json").write_text(

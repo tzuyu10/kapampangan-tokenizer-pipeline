@@ -21,5 +21,11 @@ Batches, in order of importance:
   4 - double-check : pairs already checked once; a second look.
   5 - stories      : native-authored story sentences; just a light spot-check
                      for typos / obvious slips, not a full review.
+  6 - religious    : a sample of Bible verse pairs (Kapampangan <-> Tagalog).
+                     The 'id' is the verse reference. Main thing to catch:
+                     the Kapampangan and Tagalog being DIFFERENT verses, or
+                     an obviously wrong translation. Not a full review.
+  7 - AI-generated : Gemini-made conversational / news sentences. These are
+                     machine-generated and unreviewed - please check properly.
 
 If you only have time for batch 1 (and maybe 2), that is already very useful.

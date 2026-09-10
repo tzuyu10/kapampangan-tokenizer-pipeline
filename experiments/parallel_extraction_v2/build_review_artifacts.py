@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import random
 from pathlib import Path
 
 EXPERIMENT_ROOT = Path(__file__).resolve().parent
@@ -27,12 +28,17 @@ INVENTORY_CSV = REPO_ROOT / "DATASET_INVENTORY.csv"
 REVIEW_CSV = EXPERIMENT_ROOT / "reports/native-speaker-review-sheet.csv"
 REVIEW_INSTRUCTIONS = EXPERIMENT_ROOT / "reports/native-speaker-review-INSTRUCTIONS.txt"
 
+SEED = 20260903
+BIBLE_REVIEW_SAMPLE = 200  # 3,084 verses can't be hand-reviewed; a spot-check sample
+
 BATCH_LABELS = {
     "P1": "1 - main (please do these first)",
     "P2": "2 - extra",
     "P3": "3 - vocabulary",
     "P4": "4 - double-check",
     "P5": "5 - stories (already native-authored; light spot-check only)",
+    "P6": "6 - religious (Bible sample; check the pair aligns, not a full review)",
+    "P7": "7 - AI-generated (Gemini conversational/news; needs review)",
 }
 
 
@@ -129,16 +135,28 @@ INVENTORY: list[tuple[str, str, str, str, str, str, str, str, str, str]] = [
         "849 rows; 314 mutual-best",
     ),
     (
+        "PLOC Kapampangan<->Tagalog Bible corpus",
+        "experiments/parallel_extraction_v2/resources/kapampangan-tagalog-bible-parallel.csv",
+        "translation",
+        "PAM<->FIL (Tagalog) verse-aligned",
+        "silver (committee translation; folded as tier=bible)",
+        "no - committee translation, not reviewed for this project",
+        "UNRESOLVED - from a groupmate; believed PLOC/DLSU LTL (LGPL) but unconfirmed",
+        "supplied by the user 2026-09-03 (groupmate extract); the proposal's PRIMARY dataset",
+        "Phase 5 training (PRIMARY) + in-domain test_bible",
+        "3,085 verses (Gen 1527 / Deut 956 / Jud 602); 1 dup dropped (Deut 28:29==28:30 in source)",
+    ),
+    (
         "Gemini sentence batch",
         "experiments/parallel_extraction_v1/resources/gemini_kapampangan_sentence_batch.md",
         "translation",
-        "PAM<->FIL sentence",
-        "silver (word-attested only)",
-        "PENDING - out with an external reviewer",
+        "PAM<->FIL sentence (conversational / news)",
+        "silver (AI-generated, word-attested only; folded as tier=silver_gemini)",
+        "no - external review still out; also queued as review batch 7",
         "AI-generated (Google/Gemini), pasted in chat; no source",
-        "mechanical word-attestation check only",
-        "not in training; fold in if the review returns usable",
-        "500 sentences; ~13% show un-adapted Tagalog",
+        "mechanical word-attestation check + >=77% attestation / no flagged Tagalog filter",
+        "Phase 5 training (supplementary, register diversity)",
+        "500 sentences -> 430 kept as silver_gemini, 70 dropped (~14%)",
     ),
     (
         "translation_gold_v1 triage",
@@ -166,15 +184,15 @@ INVENTORY: list[tuple[str, str, str, str, str, str, str, str, str, str]] = [
     ),
     (
         "SMOL / GATITOS en_pam",
-        "(external) google/smol : gatitos/en_pam.jsonl",
+        "experiments/parallel_extraction_v2/resources/smol-gatitos-en_pam.jsonl",
         "translation / lexicon",
         "EN->PAM lexicon + short phrase",
         "professional (external human)",
         "external professional vendor (not this project)",
         "CC-BY-4.0 (attribution) - cleanly usable",
         "Google SMOL release; arXiv 2502.12301 / 2303.15265",
-        "Phase 5 auxiliary candidate; lexicon cross-check",
-        "3,993 entries; 93% single words; NOT yet copied into the repo",
+        "auxiliary / lexicon cross-check; NOT folded into PAM->FIL training (wrong direction)",
+        "3,993 entries; 93% single words; copied into the repo 2026-09-03 with a manifest",
     ),
     (
         "morphology_gold_v1 dataset",
@@ -386,12 +404,12 @@ def build_review_sheet() -> None:
     rows: list[dict[str, str]] = []
     n = 0
 
-    def add(priority: str, pam: str, fil: str) -> None:
+    def add(priority: str, pam: str, fil: str, handle: str = "") -> None:
         nonlocal n
         n += 1
         rows.append(
             {
-                "id": f"rv_{n:04d}",
+                "id": handle or f"rv_{n:04d}",
                 "batch": BATCH_LABELS[priority],
                 "kapampangan": _norm(pam),
                 "filipino": _norm(fil),
@@ -414,6 +432,20 @@ def build_review_sheet() -> None:
     if story_csv.exists():
         for r in csv.DictReader(story_csv.open(encoding="utf-8")):
             add("P5", r["pam_text"], r["fil_text"])
+
+    # batch 6: a seeded sample of the Bible corpus (full corpus too large for
+    # a hand review) -- the id carries the verse ref so systematic
+    # misalignment (e.g. the Deut 28:29==28:30 source dup) is catchable
+    bible = [r for r in verified if r["tier"] == "bible"]
+    random.Random(SEED).shuffle(bible)
+    for r in bible[:BIBLE_REVIEW_SAMPLE]:
+        ref = r["signal"].split("ref=", 1)[-1] if "ref=" in r["signal"] else r["pair_id"]
+        add("P6", r["pam_text"], r["fil_text"], handle=ref)
+
+    # batch 7: every Gemini row that passed the silver filter
+    for r in verified:
+        if r["tier"] == "silver_gemini":
+            add("P7", r["pam_text"], r["fil_text"])
 
     fields = ["id", "batch", "kapampangan", "filipino", "correct", "comment"]
     REVIEW_CSV.parent.mkdir(parents=True, exist_ok=True)
@@ -440,7 +472,13 @@ def build_review_sheet() -> None:
         "  3 - vocabulary   : short word / phrase pairs.\n"
         "  4 - double-check : pairs already checked once; a second look.\n"
         "  5 - stories      : native-authored story sentences; just a light spot-check\n"
-        "                     for typos / obvious slips, not a full review.\n\n"
+        "                     for typos / obvious slips, not a full review.\n"
+        "  6 - religious    : a sample of Bible verse pairs (Kapampangan <-> Tagalog).\n"
+        "                     The 'id' is the verse reference. Main thing to catch:\n"
+        "                     the Kapampangan and Tagalog being DIFFERENT verses, or\n"
+        "                     an obviously wrong translation. Not a full review.\n"
+        "  7 - AI-generated : Gemini-made conversational / news sentences. These are\n"
+        "                     machine-generated and unreviewed - please check properly.\n\n"
         "If you only have time for batch 1 (and maybe 2), that is already very useful.\n",
         encoding="utf-8",
         newline="\n",

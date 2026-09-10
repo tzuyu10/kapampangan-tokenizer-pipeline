@@ -11,19 +11,27 @@
     "reference": "nllb_zeroshot -- the pretrained off-the-shelf NLLB-200 tokenizer named in the thesis proposal (Scope & Limitation, p.15). Trained nllb_native was dropped for v1 (256K trainable embedding OOMs a T4)."
   },
   "seeds": [
-    0
+    0,
+    1,
+    2
   ],
-  "seeds_note": "1 seed for the first warm-start pass; add [1, 2] once a condition beats nllb_zeroshot and the comparison is worth error bars.",
+  "seeds_note": "3 seeds from the start -- the training set is now ~3,600 pairs (Bible-primary refresh 2026-09-03), past the point where a single seed is enough for a defensible tokenizer comparison.",
+  "test_sets": {
+    "test_bible": "IN-DOMAIN -- whole held-out Bible chapters. The headline number; matches the proposal's primary dataset.",
+    "test_ood": "OUT-OF-DOMAIN -- native-authored stories + gold_v1 sentences. Register-transfer number (train is ~71% religious)."
+  },
   "training": {
     "trainable": "encoder input embedding only -- nn.Embedding(6080,1024), WARM-STARTED from the mean of NLLB's own sub-token embeddings for each token string (see data/bundle/vocab.json). Everything else frozen; do NOT call tie_weights() after the swap.",
     "hyperparams": {
-      "batch": 16,
-      "epochs": 15,
-      "patience": 4,
+      "batch": 8,
+      "epochs": 10,
+      "patience": 3,
       "lr": 0.0003,
-      "select_on": "dev loss (cheap); generation eval only at the end"
+      "max_new_tokens": 160,
+      "select_on": "dev loss (cheap); generation eval on both test sets only at the end",
+      "batch_note": "8 is deliberately conservative for a T4 -- Bible verses are ~40% longer than the old 598-pair set (morphbpe_ids p99 ~140, max 184). Raise to 16 in meta.json if the runtime has headroom."
     },
-    "note": "matches Phase 4 verification (nllb/phase4-architecture-verification.md). The random-init recipe (first run) collapsed to chrF++ ~10 vs zero-shot 33.6."
+    "note": "matches Phase 4 verification (nllb/phase4-architecture-verification.md). Warm-start kept from the 2026-09-03 rev (random-init collapsed to chrF++ ~10 vs zero-shot 33.6 at 598 pairs); with ~3,600 pairs the frozen-encoder recipe may now hold on its own, but warm-start is cheap and de-risks."
   },
   "vocab_file": "vocab.json  {condition: [id-ordered token strings]}",
   "source_vocab_size_morphbpe": 6080,
@@ -42,16 +50,18 @@
   },
   "unigram6080_note": "NOT NLLB's tokenizer file; a fresh Unigram-LM model trained on this project's Kapampangan corpus (train_unigram_ablation.py). Disclosed limitation: the tokenizers-library Unigram trainer is not byte-reproducible; this is one frozen instance.",
   "split_counts": {
-    "train": 598,
-    "dev": 45,
-    "test": 70
+    "train": 3590,
+    "dev": 238,
+    "test_bible": 329,
+    "test_ood": 70
   },
   "split_sha256": {
-    "train": "4406506be1c5c01fe08bb68a933ff0142744e06de6ddf7d1090a98c6394d7138",
-    "dev": "a602473807708d994ea0e4c9567a1b4790b53981d90ce25c7428c52ec4581412",
-    "test": "38317ba529d88857577cb6093add416038720f53eadd3529634063beb39ad56b"
+    "train": "29aca8467eb79961d63077770c16b13e8b95e4645e0d65d75d9c48daa2d95ac1",
+    "dev": "0ef3114e7cbf4c22d90aeca10e739adbb5167d4114775577b71487dd1bfbde68",
+    "test_bible": "426f52abd3029b0653a9a1d10e4810d6c50113dbf5994e3fafa223b3ccc349ae",
+    "test_ood": "9c4872d2d60817644e55c2b87b864efb1337963738841b46edf2d7b169a86cd8"
   },
   "split_manifest": "reports/split-manifest.json",
   "label": "ALL SILVER training data. See split-manifest.json.",
-  "rights_note": "train/dev contain PLD-derived pairs (redistribution rights unresolved) + native-authored story pairs (author = the user) + gold_v1. Review before uploading to Colab."
+  "rights_note": "train/dev/test contain: the PLOC Kapampangan<->Tagalog Bible corpus (~71% of train; provenance via a groupmate, believed PLOC/DLSU LTL / LGPL but UNCONFIRMED -- redistribution rights UNRESOLVED), PLD-derived pairs (rights unresolved), native-authored story pairs (author = the user), gold_v1, and Gemini AI-generated sentences. Confirm the Bible corpus rights with the user before uploading to Colab."
 }

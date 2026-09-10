@@ -1,6 +1,26 @@
 {
-  "seed": 20260902,
-  "source_csv_sha256": "aae0b8aeccfd798bb88fe552a39c963dfa42ba7e8052936fce70042d5256d808",
+  "seed": 20260903,
+  "source_csv_sha256": "0763d7af5c4b330f2ae1477f2ddf71e16ae8326073c78494dec483d62be2ec06",
+  "bible_test_chapters": [
+    "bible Deuteronomy 28",
+    "bible Deuteronomy 9",
+    "bible Genesis 1",
+    "bible Genesis 22",
+    "bible Genesis 36",
+    "bible Genesis 43",
+    "bible Judges 17",
+    "bible Judges 5",
+    "bible Judges 9"
+  ],
+  "bible_dev_chapters": [
+    "bible Deuteronomy 20",
+    "bible Deuteronomy 25",
+    "bible Deuteronomy 6",
+    "bible Genesis 10",
+    "bible Genesis 18",
+    "bible Genesis 44",
+    "bible Judges 16"
+  ],
   "test_story_units": [
     "story 11: Kebaytan nang Imang Lily",
     "story 12: Transportasyun king Pilipinas",
@@ -8,39 +28,54 @@
     "story 2: Ing Panabilin kang Roy",
     "story 8: Ing kekaming Komunidad, Kanita at Ngeni"
   ],
-  "leakage_check": "TEST stories are removed whole; assert below",
-  "train": {
-    "rows": 598,
-    "by_tier": {
-      "silver_a": 215,
-      "gold_v1": 183,
-      "gold_stories": 108,
-      "silver_b": 92
+  "splits": {
+    "train": {
+      "rows": 3590,
+      "by_tier": {
+        "bible": 2562,
+        "silver_gemini": 430,
+        "silver_a": 215,
+        "gold_v1": 183,
+        "gold_stories": 108,
+        "silver_b": 92
+      },
+      "partial_flagged": 24,
+      "mean_pam_words": 23.0
     },
-    "partial_flagged": 24,
-    "mean_pam_words": 7.7
-  },
-  "dev": {
-    "rows": 45,
-    "by_tier": {
-      "gold_stories": 15,
-      "gold_v1": 15,
-      "silver_a": 15
+    "dev": {
+      "rows": 238,
+      "by_tier": {
+        "bible": 193,
+        "gold_stories": 15,
+        "gold_v1": 15,
+        "silver_a": 15
+      },
+      "partial_flagged": 0,
+      "mean_pam_words": 23.5
     },
-    "partial_flagged": 0,
-    "mean_pam_words": 8.0
-  },
-  "test": {
-    "rows": 70,
-    "by_tier": {
-      "gold_stories": 48,
-      "gold_v1": 22
+    "test_bible": {
+      "rows": 329,
+      "by_tier": {
+        "bible": 329
+      },
+      "partial_flagged": 0,
+      "mean_pam_words": 28.9
     },
-    "partial_flagged": 0,
-    "mean_pam_words": 12.4
+    "test_ood": {
+      "rows": 70,
+      "by_tier": {
+        "gold_stories": 48,
+        "gold_v1": 22
+      },
+      "partial_flagged": 0,
+      "mean_pam_words": 12.4
+    }
   },
-  "train_csv_sha256": "340659468453fd8122d02d0038bcffa55745135c394fc473d7a3984cf544938f",
-  "dev_csv_sha256": "5d1e15deab4fe9c05083c3b53cbf91394a05dfac9b0dae22c080f24e3796daa3",
-  "test_csv_sha256": "1570b71cfbd2f5bacb06bc805c820cd7e6537ce59eb397a7b53c778143a7c81e",
-  "label": "ALL SILVER. Story-level holdout for TEST; TEST/DEV are claude_review=='ok' only; TRAIN keeps silver_b + partial rows."
+  "sha256": {
+    "train": "b546d2ff8b9e658a8f3f0f5b76f20bca8debf20645063176035a34efb9c9f93b",
+    "dev": "cc3f85c3097d4854b9f6195ce2def7e4c21130bb9adfed82a03af53acd2bbee8",
+    "test_bible": "64858f8705bd2bb97482221fa8b845e168676b390ec753dcf32fc37b5c738efd",
+    "test_ood": "98f0705faddf5a8033975c3c35984c52fd4498e27ded52343ad77173a2585b3a"
+  },
+  "label": "ALL SILVER. IN-DOMAIN test_bible = whole held-out Bible chapters (leakage-safe). OUT-OF-DOMAIN test_ood = 5 whole native-authored stories + clean gold_v1 sentences (register transfer). DEV = held-out Bible chapters + a modern sample. TRAIN keeps silver_b + silver_gemini + partial rows. Bible corpus rights are UNRESOLVED (see resources manifest)."
 }
