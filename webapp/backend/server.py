@@ -71,7 +71,7 @@ class Handler(BaseHTTPRequestHandler):
                     {
                         "status": "ok",
                         "vocabulary_size": trace_service.TOKENIZER.vocabulary_size,
-                        "artifact": "morphbpe-penalty64",
+                        "artifact": "morphbpe-penalty32",
                     },
                 )
             elif path == "/api/examples":
@@ -107,7 +107,7 @@ def main() -> None:
     print(f"[startup] trace/encode parity check: {passed}/{total} words passed")
     scoring_passed, scoring_total = comparison_service.verify_scoring_fidelity()
     print(f"[startup] scoring-explain parity check: {scoring_passed}/{scoring_total} cases passed")
-    print(f"[startup] tokenizer artifact loaded: morphbpe-penalty64 "
+    print(f"[startup] tokenizer artifact loaded: morphbpe-penalty32 "
           f"(vocab size {trace_service.TOKENIZER.vocabulary_size})")
     print(f"[startup] comparison artifacts loaded: plain-bpe "
           f"(vocab size {comparison_service.PLAIN.vocabulary_size}), "

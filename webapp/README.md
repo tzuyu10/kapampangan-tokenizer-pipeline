@@ -1,17 +1,20 @@
 # Kapampangan Tokenizer — Web App
 
 A React frontend + Python backend that puts your trained MorphBPE tokenizer
-(`morphbpe-penalty64`, a weighted-MorphBPE candidate — swapped in 2026-09-13
-from the earlier `penalty-8` artifact after scoring the crossing-penalty
-sweep against the real `data/validation.csv`; see
-`experiments/weighted_morphbpe_penalty_extension_v1/README.md` for why 64
-was chosen over both lower and higher penalties) behind a browser UI,
-matching the "Translator / Tokenizer" design you provided, plus a third
-**Comparison** tab. The **Tokenizer** tab is fully working and shows the
-real, live, step‑by‑step segmentation process for anything you type. The
-**Comparison** tab is also fully working: it takes the exact same text you
-just tokenized on the Tokenizer tab and compares MorphBPE penalty-64, Plain
-BPE, and Unigram-LM (NLLB's own algorithm) side by side — word splits, a
+(`morphbpe-penalty32`, a weighted-MorphBPE candidate — swapped in
+2026-09-13, trained on the richer `expanded_morphology_v4` lexicon
+(3,311 roots) after scoring the crossing-penalty sweep against both the
+real `data/validation.csv` and the authoritative, partially-human-verified
+`tokenizer_selection_v1` DEV/TEST reference; penalty=32 beats the
+previously-established `penalty-8` "Phase 3" winner on both — see
+`experiments/expanded_morphology_v4_penalty_extension_v1/README.md`)
+behind a browser UI, matching the "Translator / Tokenizer" design you
+provided, plus a third **Comparison** tab. The **Tokenizer** tab is fully
+working and shows the real, live, step‑by‑step segmentation process for
+anything you type. The **Comparison** tab is also fully working: it takes
+the exact same text you just tokenized on the Tokenizer tab and compares
+MorphBPE penalty-32, Plain BPE, and Unigram-LM (NLLB's own algorithm) side
+by side — word splits, a
 bar-chart score comparison, and a "how these scores are computed" panel that
 shows the literal intermediate values (true/false positives, boundary
 positions, shared-morpheme groups) the scoring code produced for your input.
@@ -33,7 +36,7 @@ kapampangan-tokenizer-app/
 │       │   ├── __init__.py
 │       │   └── tokenizer.py
 │       ├── artifacts/
-│       │   ├── morphbpe-penalty64/         <- copy of the 9 artifact files (penalty=64, see above)
+│       │   ├── morphbpe-penalty32/         <- copy of the 9 artifact files (penalty=32, see above)
 │       │   ├── plain-bpe/                  <- UNCHANGED copy, same runtime class
 │       │   └── unigram-lm-6080/            <- UNCHANGED copy (tokenizer.json + manifest)
 │       ├── unigram_lm.py                   <- the UnigramLM Viterbi decoder, copied verbatim
@@ -81,7 +84,7 @@ You should see:
 ```
 [startup] trace/encode parity check: 30/30 words passed
 [startup] scoring-explain parity check: 6/6 cases passed
-[startup] tokenizer artifact loaded: morphbpe-penalty64 (vocab size 6080)
+[startup] tokenizer artifact loaded: morphbpe-penalty32 (vocab size 6080)
 [startup] comparison artifacts loaded: plain-bpe (vocab size 6080), unigram-lm-6080 (vocab size 6080)
 [startup] serving on http://127.0.0.1:8000  (Ctrl+C to stop)
 ```
@@ -147,7 +150,7 @@ tab. Type/pick an example there, press **Tokenize**, then switch to
 **Comparison**:
 
 - **Your Input — 3-Way Split** — the exact text you just tokenized, run
-  through MorphBPE penalty-64, Plain BPE, and Unigram-LM live.
+  through MorphBPE penalty-32, Plain BPE, and Unigram-LM live.
 - **Score Comparison** — a bar chart per metric (Fertility always; Boundary
   F1 and Consistency F1 once you've marked gold boundaries with `|`, e.g.
   `s|in|ulat`, same convention as the Tokenizer tab), one bar per tokenizer,

@@ -34,7 +34,7 @@ from kapampangan_morphbpe_runtime.tokenizer import _pretokenize  # real pretoken
 
 import reference_data as ref
 
-ARTIFACT_DIR = Path(__file__).resolve().parent / "artifacts" / "morphbpe-penalty64"
+ARTIFACT_DIR = Path(__file__).resolve().parent / "artifacts" / "morphbpe-penalty32"
 
 # Loaded once at import time (same artifact, same checksummed files).
 TOKENIZER = Tokenizer(ARTIFACT_DIR)

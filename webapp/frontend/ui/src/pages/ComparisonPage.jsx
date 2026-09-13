@@ -221,7 +221,7 @@ export default function ComparisonPage({ input, result, loading, error, onGoToTo
     <div className="page">
       <h1 className="page-title">Tokenizer Comparison</h1>
       <p className="page-subtitle">
-        MorphBPE penalty-64 vs. Plain BPE vs. Unigram-LM (NLLB&rsquo;s own algorithm) — using the
+        MorphBPE penalty-32 vs. Plain BPE vs. Unigram-LM (NLLB&rsquo;s own algorithm) — using the
         same input you tokenize on the Tokenizer tab
       </p>
 

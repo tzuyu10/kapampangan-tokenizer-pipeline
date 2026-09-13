@@ -1,4 +1,4 @@
-"""3-way tokenizer comparison (MorphBPE penalty-64 vs Plain BPE vs Unigram-LM).
+"""3-way tokenizer comparison (MorphBPE penalty-32 vs Plain BPE vs Unigram-LM).
 
 Everything computed here reuses, unchanged:
   - the real Tokenizer.encode() for MorphBPE and Plain BPE
@@ -30,7 +30,7 @@ from unigram_lm import UnigramLM
 
 ARTIFACTS = Path(__file__).resolve().parent / "artifacts"
 
-MORPH = Tokenizer(ARTIFACTS / "morphbpe-penalty64")
+MORPH = Tokenizer(ARTIFACTS / "morphbpe-penalty32")
 PLAIN = Tokenizer(ARTIFACTS / "plain-bpe")
 UNI = UnigramLM(ARTIFACTS / "unigram-lm-6080" / "tokenizer.json")
 NAMES = ("MorphBPE", "Plain BPE", "Unigram-LM")

@@ -10,17 +10,28 @@ pieces wired together." Read `README.md` first if you just want to run it.
   folder. Not one character edited. This is the file that actually decides
   how a word gets split — the `Tokenizer` class, `_pretokenize()`, and the
   merge loop inside `_encode_pretoken()`.
-- `backend/tokenizer/artifacts/morphbpe-penalty64/*`, `plain-bpe/*`, and
+- `backend/tokenizer/artifacts/morphbpe-penalty32/*`, `plain-bpe/*`, and
   `unigram-lm-6080/*` — the exact artifact files. `plain-bpe` and
   `unigram-lm-6080` are still the original files copied from your
-  `demo/plain-bpe/` and `demo/unigram-lm-6080/`. `morphbpe-penalty64` is
-  **not** from `demo/` — it was swapped in on 2026-09-13, replacing the
-  original `morphbpe-penalty8` folder, after scoring the crossing-penalty
-  sweep against the real `data/validation.csv` showed penalty=64 dominates
-  penalty=8 on every morphological metric with no consistency-F1 tradeoff
-  (see `experiments/weighted_morphbpe_penalty_extension_v1/README.md`).
+  `demo/plain-bpe/` and `demo/unigram-lm-6080/`. `morphbpe-penalty32` is
+  **not** from `demo/` — it went through two swaps on 2026-09-13: first
+  `morphbpe-penalty8` -> a canonical-lexicon-trained `penalty-64` (based on
+  the silver-lexicon `data/validation.csv` method alone), then that ->
+  this `penalty-32`, trained on the richer `expanded_morphology_v4` lexicon
+  (3,311 roots, verified byte-identical to the stream that produced the
+  real official `penalty-1/2/4/8` artifacts) after scoring the full
+  1..256 sweep against BOTH the silver-lexicon method AND the authoritative,
+  partially-human-verified `tokenizer_selection_v1` DEV/TEST reference --
+  the same reference that originally established `penalty-8` as the "Phase
+  3" winner. Penalty=32 beats that established winner on both DEV (0.5422
+  vs 0.4639) and TEST (0.4977 vs 0.4093) F1, and also beat the intermediate
+  canonical-lexicon `penalty-64` the first swap had put in (0.4052 DEV /
+  0.4000 TEST) -- that first swap was a regression by this more rigorous
+  standard, corrected here. See
+  `experiments/expanded_morphology_v4_penalty_extension_v1/README.md` and
+  `reports/selection-v1-extended-scores.json` for full numbers.
   It's an exact, unmodified copy of that experiment's exported
-  `penalty-64/candidates/vocab-6080/` artifact — same export path
+  `penalty-32/candidates/vocab-6080/` artifact — same export path
   (`export_tokenizer_artifact`), same checksum format, nothing hand-edited.
   All three BPE-family artifacts get the same `checksums.sha256` re-hash on
   load (existing `tokenizer.py` code) — so if any were ever altered, the
