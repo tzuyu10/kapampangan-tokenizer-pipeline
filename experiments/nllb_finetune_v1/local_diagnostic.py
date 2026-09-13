@@ -77,7 +77,9 @@ def main() -> int:
         description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
     )
     ap.add_argument(
-        "--condition", default="morphbpe", choices=("morphbpe", "penalty8", "unigram6080")
+        "--condition",
+        default="morphbpe",
+        choices=("morphbpe", "penalty8", "bpe6080", "unigram6080"),
     )
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--lr", type=float, default=3e-3)
@@ -136,6 +138,8 @@ def main() -> int:
             return rec["morphbpe_ids"]  # type: ignore[no-any-return]
         if condition == "penalty8":
             return rec["penalty8_ids"]  # type: ignore[no-any-return]
+        if condition == "bpe6080":
+            return rec["bpe_ids"]  # type: ignore[no-any-return]
         if condition == "unigram6080":
             return rec["unigram_ids"]  # type: ignore[no-any-return]
         tokenizer.src_lang = native_src_lang

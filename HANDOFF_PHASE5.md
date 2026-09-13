@@ -1,7 +1,16 @@
-# Session Handoff — Phase 5 (NLLB fine-tuning), winding toward a negative result
+# Session Handoff — Phase 5 (NLLB fine-tuning), continuous development — NOT finalized
 
-Updated 2026-09-08 (Option 4 complete). Paste this whole file as the opening
-prompt for a new session. Supersedes `HANDOFF_PHASE3.md`.
+Updated 2026-09-13 (bpe6080 constraint-ablation added, in flight). Paste this
+whole file as the opening prompt for a new session. Supersedes
+`HANDOFF_PHASE3.md`.
+
+**Status is OPEN, not accepted.** The 2026-09-08 note below called the null
+result "accepted" after Option 4. That call is **retracted** — a 4th
+tokenizer condition (`bpe6080`, the morphology-constraint ablation) was added
+2026-09-13 and is running locally now, and the two groupmate Colab
+escalations are still outstanding. **Do not tell groupmates Phase 5 is
+closed or that the null result is final** until `bpe6080-lora` lands and the
+user has reviewed it alongside whatever the groupmates send back.
 
 Continue the Kapampangan MorphBPE tokenizer project at
 `D:\Coding\thesis\kapampangan-morphbpe-paper-v1` (branch
@@ -15,11 +24,13 @@ session-by-session log, most-recent entries prepended per section. It is
 
 ---
 
-## TL;DR — where Phase 5 actually stands
+## TL;DR — where Phase 5 actually stands (provisional, under active extension)
 
 The proposal's setup — swap NLLB's tokenizer for Kapampangan MorphBPE and
-adapt lightly while the decoder stays frozen — **does not beat the zero-shot
-NLLB baseline** at ~3,600 silver pairs. Demonstrated across all 3 tokenizers:
+adapt lightly while the decoder stays frozen — **has not beaten the
+zero-shot NLLB baseline** at ~3,600 silver pairs, in every run so far. That
+pattern is currently 3-for-3 across tokenizers, but is being tested a 4th
+way before anyone calls it a settled result:
 
 | condition | test_bible chrF++ / BLEU | test_ood chrF++ / BLEU |
 |---|---|---|
@@ -29,29 +40,46 @@ NLLB baseline** at ~3,600 silver pairs. Demonstrated across all 3 tokenizers:
 | `unigram6080` + LoRA-on-encoder r16 (local) | 20.6 / 1.82 | 16.2 / 0.49 |
 | `morphbpe` + LoRA-on-encoder r16 (local) | 20.4 / 1.90 | 14.0 / 0.21 |
 | `penalty8` + LoRA-on-encoder r16 (local) | 18.5 / 1.04 | 13.6 / 0.27 |
+| `bpe6080` + LoRA-on-encoder r16 (local) | **running — started 2026-09-13** | — |
 
 LoRA roughly doubled the embedding-only score but is still ~13-17 chrF++ /
-~10 BLEU short, for all three tokenizers. Ordering `unigram6080 >= morphbpe
-> penalty8` (dev-loss agrees) — NLLB's own subword algorithm adapts best
-downstream, the Phase-3 intrinsic winner adapts worst: the intrinsic
-boundary metric does not predict downstream MT here. The bottleneck is a
-**frozen-decoder capacity** limit: the
-frozen decoder + lm_head expect encoder representations built from NLLB's
-own 256K SentencePiece vocab; a 6,080-token MorphBPE vocab is a different
-input distribution and ~3,600 silver pairs can't re-align the encoder
-output (even with adapters) to what the frozen decoder wants. Zero-shot
-works because Kapampangan shares heavy surface vocabulary with Filipino.
+~10 BLEU short, for all three tokenizers scored so far. Ordering
+`unigram6080 >= morphbpe > penalty8` (dev-loss agrees) — NLLB's own subword
+algorithm adapts best downstream, the Phase-3 intrinsic winner adapts worst:
+the intrinsic boundary metric does not predict downstream MT here. The
+working hypothesis is a **frozen-decoder capacity** limit: the frozen
+decoder + lm_head expect encoder representations built from NLLB's own 256K
+SentencePiece vocab; a 6,080-token vocab of any kind is a different input
+distribution and ~3,600 silver pairs can't re-align the encoder output
+(even with adapters) to what the frozen decoder wants. Zero-shot works
+because Kapampangan shares heavy surface vocabulary with Filipino.
+
+**`bpe6080`** is the plain (unconstrained) BPE candidate from the same
+`expanded_morphology_v4` grid as `morphbpe`/`penalty8` — identical merge
+algorithm and training corpus, same 6,080 vocab, but no morphology-boundary
+crossing penalty during training. It isolates the morphology constraint
+itself (vs `unigram6080`, which isolates algorithm family instead). If it
+lands in the same 18-20 chrF++ band as the other three, that's strong
+additional evidence the gap is the frozen-decoder retrofit recipe, not
+tokenizer choice. If it lands meaningfully differently, the "intrinsic
+metric doesn't predict downstream MT" conclusion needs re-examination before
+anything goes to groupmates as final. Wiring: `experiments/nllb_finetune_v1/build_colab_bundle.py`,
+`local_lora.py --condition bpe6080`.
 
 Full detail + the dev-loss curves: `experiments/nllb_finetune_v1/reports/phase5-run-2026-09-04-transcript.md`.
 
 ## What's in flight right now
 
-1. **Option 4 — DONE (2026-09-08).** LoRA-r16-on-encoder now run for all
-   three tokenizers locally on the RTX 4050 (`penalty8-lora/seed0` chrF++
+1. **Option 4 — done for 3 tokenizers (2026-09-08), a 4th is running
+   (2026-09-13).** LoRA-r16-on-encoder run for `morphbpe`/`penalty8`/
+   `unigram6080` locally on the RTX 4050 (`penalty8-lora/seed0` chrF++
    18.5/13.6 ~212 min; `unigram6080-lora/seed0` chrF++ 20.6/16.2 ~207 min;
-   both in `phase5-results-local.json`). The fair three-way is complete:
-   `unigram6080 >= morphbpe > penalty8`, all ~13-17 chrF++ below zero-shot.
-   **-> the null result is accepted** (see the Decision framework below).
+   both in `phase5-results-local.json`). All three land ~13-17 chrF++ below
+   zero-shot. **`bpe6080-lora/seed0` (the morphology-constraint ablation —
+   same BPE algorithm as morphbpe/penalty8, no boundary penalty) started
+   2026-09-13, same recipe, ~200 min expected.** Do not treat the three-way
+   result as the final word until this lands — see the Decision framework
+   below, which now explicitly withholds acceptance.
 2. **Two Colab escalation notebooks are with the user's groupmates:**
    - `notebooks/phase5-lora-encoder.ipynb` — option 2, bigger encoder LoRA
      (r32, all attn proj + FFN), decoder frozen, no methodology caveat.
@@ -69,23 +97,34 @@ Full detail + the dev-loss curves: `experiments/nllb_finetune_v1/reports/phase5-
 3. **A data refresh is coming** — the user is gathering more data for BOTH
    the tokenizer and the translation set. See "Folding in the data refresh".
 
-## Decision framework — how Phase 5 closes out
+## Decision framework — how Phase 5 closes out (NOT reached yet)
 
-- **Option 4 done, all 3 tokenizers below zero-shot's 33.6 -> the null
-  result IS accepted (2026-09-08).** Reframe the thesis around the
+**Nothing below is decided. This is still open, continuous work — do not
+present any of it to groupmates as final.**
+
+- **Pending: `bpe6080-lora` result.** If it lands in the same ~13-17
+  chrF++-below-zero-shot band as the other three (running 2026-09-13,
+  expected ~200 min) → strong four-way convergence, the frozen-decoder
+  capacity explanation holds up, and *then* the null-result framing below
+  becomes reasonable to move toward. If it lands meaningfully differently
+  from `morphbpe`/`penalty8` (its closest algorithmic siblings), the
+  "intrinsic metric doesn't predict downstream MT" read needs
+  re-examination before drawing any conclusion.
+- **If/when a four-way convergence holds:** reframe the thesis around the
   tokenizer contribution (Phases 1-4 — MorphBPE beats plain BPE on held-out
   morphology, boundary F1 0.46 vs 0.20). Zero-shot NLLB is the honest MT
-  baseline. The Phase 5 section documents what was tried (4 conditions, 2
-  scales, 2 LRs, +encoder-LoRA, +decoder-LoRA) and why lightweight retrofit
-  fails at this data scale. This is a legitimate, thorough low-resource
-  finding. Then do Phase 6 (fuller BLEU/chrF++/COMET on zero-shot) + the
-  native-speaker review.
+  baseline. The Phase 5 section documents what was tried (now 4 tokenizer
+  conditions, 2 scales, 2 LRs, +encoder-LoRA, +decoder-LoRA) and why
+  lightweight retrofit fails at this data scale. This would be a legitimate,
+  thorough low-resource finding — but only once `bpe6080` and the outstanding
+  groupmate runs are in. Then do Phase 6 (fuller BLEU/chrF++/COMET on
+  zero-shot) + the native-speaker review.
 - **If option 3 shows `penalty8` clearly beating `nllb_native`** under equal
   adaptation → MorphBPE has a real downstream effect; report it *with* the
   frozen-decoder caveat.
 - **If the data refresh lands ~8-13k translation pairs** → re-run everything
-  (local_lora.py + both notebooks) on the bigger set before concluding; LoRA
-  scales with data and the picture could change.
+  (local_lora.py + both notebooks, now including `bpe6080`) on the bigger
+  set before concluding; LoRA scales with data and the picture could change.
 
 ## Folding in the data refresh (when it arrives)
 
@@ -139,7 +178,9 @@ experiments now run locally, no Colab session limits.
   run (`morphbpe/seed0`, lr 3e-3 → the collapse above).
 - **`experiments/nllb_finetune_v1/local_lora.py`** — LoRA-on-encoder,
   validated. CLI `--condition/--seed/--r/--alpha/--targets/--emb-lr/--lora-lr`.
-  `morphbpe-lora/seed0` done (chrF++ 20.4). **This is the option-4 tool.**
+  Conditions: `morphbpe`, `penalty8`, `bpe6080`, `unigram6080`.
+  `morphbpe-lora/seed0` done (chrF++ 20.4); `bpe6080-lora/seed0` running
+  (started 2026-09-13). **This is the option-4 tool.**
 - Both write `reports/phase5-results-local.json` (same schema as the Colab
   `phase5-results.json`, distinct keys — mergeable).
 - **Monitor discipline:** when running these in the background, stop the
@@ -171,7 +212,7 @@ untracked.
 | 2 — parallel extraction | done (`parallel_extraction_v1` + `_v2`); `verified-pairs.csv` = 4,230 silver pairs |
 | 3 — tokenizer selection | **done**. Winner **`penalty-8` @ vocab 6,080** (silver held-out morphology; DEV boundary F1 0.4639 / TEST 0.4093). A gold re-selection (`tokenizer_selection_v2`) is warranted if native-validated data arrives. |
 | 4 — NLLB architecture | **done, verified on real weights**. **Caveat: never call `tie_weights()` after the encoder-embedding swap.** `nllb/phase4-architecture-verification.md`. |
-| 5 — NLLB fine-tune | **negative result COMPLETE & ACCEPTED (2026-09-08).** Embedding-only + encoder-LoRA both below zero-shot for all 3 tokenizers (`unigram6080` 20.6 >= `morphbpe` 20.4 > `penalty8` 18.5 chrF++ test_bible, vs zero-shot 33.6). 2 Colab escalations (groupmates) still outstanding but not expected to change the conclusion. Reframe around Phases 1-4 + zero-shot MT baseline. |
+| 5 — NLLB fine-tune | **IN PROGRESS — not accepted, not closed (2026-09-13).** Embedding-only + encoder-LoRA both below zero-shot for the 3 tokenizers scored so far (`unigram6080` 20.6 >= `morphbpe` 20.4 > `penalty8` 18.5 chrF++ test_bible, vs zero-shot 33.6). A 4th condition, `bpe6080` (morphology-constraint ablation), is running locally now. 2 Colab escalations (groupmates) still outstanding. No reframing decision until `bpe6080` + groupmate results are in and reviewed with the user. |
 | 6 — evaluation | not started. Fuller BLEU/chrF++/COMET on `test_bible` + `test_ood`, most likely of `nllb_zeroshot` as the baseline. |
 
 ## The Phase 5 dataset (all SILVER)
@@ -241,8 +282,10 @@ Kapampangan side pre-tokenised 3 ways (`morphbpe_ids` / `penalty8_ids` /
 - `AGENT_CONTEXT.md` — full log (untracked, on disk).
 - `DATASET_INVENTORY.csv` — every thesis dataset, labelled (22 rows).
 - `experiments/tokenizer_selection_v1/` — Phase 3 selection (silver).
-- `experiments/expanded_morphology_v4/artifacts/{morphbpe,penalty-8,unigram-ablation}/…/vocab-6080`
-  — the 3 tokenizers Phase 5 uses. `penalty-8` = the winner = `v4prop 6k 8`.
+- `experiments/expanded_morphology_v4/artifacts/{morphbpe,penalty-8,plain,unigram-ablation}/…/vocab-6080`
+  — the 4 tokenizers Phase 5 uses. `penalty-8` = the Phase 3 winner =
+  `v4prop 6k 8`; `plain` is the `bpe6080` morphology-constraint ablation
+  (added 2026-09-13).
 - `nllb/phase4-architecture-verification.{json,md}` — Phase 4 verdict + the
   exact Phase 5 requirements.
 - `experiments/parallel_extraction_v2/` — `adjudicate.py`, `verified-pairs.csv`,

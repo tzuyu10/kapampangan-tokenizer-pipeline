@@ -5,7 +5,7 @@ pre-computed here:
 
   data/bundle/{train,dev,test_bible,test_ood}.jsonl
       one row per pair: {pam_text, fil_text, tier, claude_review,
-                         morphbpe_ids, penalty8_ids, unigram_ids}
+                         morphbpe_ids, penalty8_ids, unigram_ids, bpe_ids}
       test_bible = held-out Bible chapters (in-domain); test_ood = whole
       native-authored stories + gold_v1 sentences (register transfer).
       *_ids are the Kapampangan side tokenised at vocab 6,080 with <s>/</s>
@@ -21,6 +21,15 @@ pre-computed here:
                          MorphBPE. Tokenised the project's way (pretokenise,
                          then Unigram per segment) so it is directly
                          comparable.
+        bpe_ids       -- the plain (unconstrained) BPE candidate from the
+                         same expanded_morphology_v4 grid as morphbpe/
+                         penalty8: identical merge algorithm, same corpus,
+                         same 6,080 vocab, but with NO morphology-boundary
+                         penalty during training. Isolates the morphology
+                         constraint itself (same algorithm family as
+                         morphbpe/penalty8; only the constraint differs),
+                         complementing unigram6080 (same constraint-free
+                         setting but a different algorithm family).
   data/bundle/meta.json
       vocab sizes, pad id, artifact fingerprints, split SHA-256s, and the
       NLLB settings the notebook should use.
@@ -55,6 +64,7 @@ BUNDLE_DIR = DATA_DIR / "bundle"
 V4_ART = REPO_ROOT / "experiments/expanded_morphology_v4/artifacts"
 MORPHBPE_ART = V4_ART / "morphbpe/candidates/vocab-6080"
 PENALTY8_ART = V4_ART / "penalty-8/candidates/vocab-6080"
+PLAIN_ART = V4_ART / "plain/candidates/vocab-6080"
 UNIGRAM_JSON = V4_ART / "unigram-ablation/vocab-6080/tokenizer.json"
 UNIGRAM_MANIFEST = V4_ART / "unigram-ablation/vocab-6080/unigram-ablation-manifest.json"
 
@@ -73,9 +83,12 @@ def main() -> int:
     BUNDLE_DIR.mkdir(parents=True, exist_ok=True)
     morphbpe = load_runtime_tokenizer(MORPHBPE_ART)
     penalty8 = load_runtime_tokenizer(PENALTY8_ART)
+    plain = load_runtime_tokenizer(PLAIN_ART)
     unigram = Tokenizer.from_file(str(UNIGRAM_JSON))
     if morphbpe.vocabulary_size != 6080 or penalty8.vocabulary_size != 6080:
         raise SystemExit("expected vocab-6080 MorphBPE artifacts")
+    if plain.vocabulary_size != 6080:
+        raise SystemExit("expected vocab-6080 plain BPE artifact")
     if unigram.get_vocab_size() != 6080:
         raise SystemExit("expected vocab-6080 unigram ablation")
     if unigram.token_to_id("<s>") != BOS_ID or unigram.token_to_id("</s>") != EOS_ID:
@@ -109,6 +122,7 @@ def main() -> int:
     vocab = {
         "morphbpe": morphbpe_vocab(MORPHBPE_ART),
         "penalty8": morphbpe_vocab(PENALTY8_ART),
+        "bpe6080": morphbpe_vocab(PLAIN_ART),
         "unigram6080": unigram_vocab,
     }
     (BUNDLE_DIR / "vocab.json").write_text(
@@ -134,6 +148,7 @@ def main() -> int:
                     "claude_review": r["claude_review"],
                     "morphbpe_ids": list(morphbpe.encode(pam, add_special_tokens=True).ids),
                     "penalty8_ids": list(penalty8.encode(pam, add_special_tokens=True).ids),
+                    "bpe_ids": list(plain.encode(pam, add_special_tokens=True).ids),
                     "unigram_ids": unigram_ids(pam),
                 }
                 handle.write(json.dumps(rec, ensure_ascii=False) + "\n")
@@ -145,12 +160,18 @@ def main() -> int:
 
     meta = {
         "task": "Kapampangan -> Filipino (tgl_Latn) NLLB-200-distilled-600M fine-tune",
-        "conditions": ["morphbpe", "penalty8", "unigram6080"],
+        "conditions": ["morphbpe", "penalty8", "bpe6080", "unigram6080"],
         "reference_condition": "nllb_zeroshot (no training)",
         "comparison": {
             "fair_headline": "morphbpe / penalty8 vs unigram6080 -- same vocab (6,080), "
             "same Kapampangan corpus, same warm-started-embedding recipe; only the "
             "subword algorithm differs (morphology-constrained BPE vs Unigram-LM).",
+            "constraint_ablation": "morphbpe / penalty8 vs bpe6080 -- same vocab (6,080), "
+            "same Kapampangan corpus, same BPE merge algorithm, same warm-started-"
+            "embedding recipe; only the morphology-boundary crossing penalty differs "
+            "(constrained/weighted vs none). Isolates the morphology constraint itself, "
+            "holding the algorithm family fixed -- the cleanest test of the thesis's "
+            "actual claim.",
             "reference": "nllb_zeroshot -- the pretrained off-the-shelf NLLB-200 "
             "tokenizer named in the thesis proposal (Scope & Limitation, p.15). "
             "Trained nllb_native was dropped for v1 (256K trainable embedding OOMs a T4).",
@@ -199,8 +220,16 @@ def main() -> int:
         "artifact_fingerprints": {
             "morphbpe": artifact_fingerprint(MORPHBPE_ART),
             "penalty8": artifact_fingerprint(PENALTY8_ART),
+            "bpe6080": artifact_fingerprint(PLAIN_ART),
             "unigram6080": str(unigram_meta.get("artifact_fingerprint")),
         },
+        "bpe6080_note": (
+            "The 'plain' candidate from the expanded_morphology_v4 grid "
+            "(tokenizer_selection_v1: intrinsic boundary F1 below every "
+            "morphology-aware condition -- the floor of the ranking). Same BPE "
+            "merge algorithm and training corpus as morphbpe/penalty8, vocab 6,080, "
+            "but trained with NO morphology-boundary crossing penalty."
+        ),
         "unigram6080_note": (
             "NOT NLLB's tokenizer file; a fresh Unigram-LM model trained on this "
             "project's Kapampangan corpus (train_unigram_ablation.py). Disclosed "

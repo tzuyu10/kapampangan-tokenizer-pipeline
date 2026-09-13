@@ -18,10 +18,15 @@ is still the gate for any thesis-gold claim.
 
 ## Conditions (each trained condition x 3 seeds)
 
+**Status: IN PROGRESS, not accepted.** A 4th condition (`bpe6080`) was added
+2026-09-13 and is running; do not treat the 3-condition table in
+`HANDOFF_PHASE5.md` as final until it lands.
+
 | condition | encoder source tokenizer | trainable params |
 |---|---|---|
 | `morphbpe` | paper-aligned hard-constrained MorphBPE @ 6,080, trained on Kapampangan | fresh `nn.Embedding(6080, 1024)` |
 | `penalty8` | weighted MorphBPE, crossing penalty 8 @ 6,080, trained on Kapampangan | fresh `nn.Embedding(6080, 1024)` |
+| `bpe6080` | **plain (unconstrained) BPE — same algorithm + corpus as morphbpe/penalty8, no crossing penalty** @ 6,080 | fresh `nn.Embedding(6080, 1024)` |
 | `unigram6080` | **Unigram-LM (NLLB's own subword algorithm) trained from scratch on this project's Kapampangan corpus** @ 6,080 | fresh `nn.Embedding(6080, 1024)` |
 
 Each new embedding is **warm-started** from the mean of NLLB's own sub-token
@@ -37,7 +42,7 @@ chrF++ ~10 vs zero-shot 33.6 -> warm-start rev. The 2026-09-03 refresh then
 folded in the Bible corpus (598 -> ~3,590 pairs) and moved to 3 seeds + two
 test sets; warm-start is kept (cheap, de-risks).
 
-### The comparison, two layers
+### The comparison, three layers
 
 - **Fair headline:** `morphbpe` / `penalty8` **vs `unigram6080`** -- same
   vocab (6,080), same Kapampangan corpus, same fresh-embedding recipe;
@@ -47,9 +52,20 @@ test sets; warm-start is kept (cheap, de-risks).
   `train_unigram_ablation.py` artifact from 2026-08-22, built for exactly
   this; disclosed limitation: the `tokenizers`-library Unigram trainer is
   not byte-reproducible, so it is one frozen instance.)
+- **Constraint ablation (added 2026-09-13):** `morphbpe` / `penalty8`
+  **vs `bpe6080`** -- same vocab, same corpus, same BPE merge algorithm,
+  same fresh-embedding recipe; only the morphology-boundary crossing
+  penalty differs (constrained/weighted vs none). This isolates the
+  morphology constraint itself, holding the algorithm family fixed --
+  the cleanest downstream test of the thesis's actual claim. (`bpe6080`
+  is the `plain` candidate from `expanded_morphology_v4`, already scored
+  intrinsically in `tokenizer_selection_v1` as the floor of the boundary-F1
+  ranking.)
 - **Reference:** `nllb_zeroshot` -- the pretrained off-the-shelf NLLB-200
   tokenizer the thesis proposal names (Scope & Limitation, p.15). Not a
-  like-for-like tokenizer test.
+  like-for-like tokenizer test (confounded by vocab size and pretraining
+  exposure, not just algorithm) -- see the two controlled layers above for
+  the actual tokenizer claim.
 
 ## Pipeline
 
