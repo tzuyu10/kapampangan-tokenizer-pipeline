@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./components/Header.jsx";
 import TranslatorPage from "./pages/TranslatorPage.jsx";
+import TranslatorComparisonPage from "./pages/TranslatorComparisonPage.jsx";
 import TokenizerPage from "./pages/TokenizerPage.jsx";
 import ComparisonPage from "./pages/ComparisonPage.jsx";
 import { compareCustom } from "./api.js";
@@ -45,6 +46,7 @@ export default function App() {
     <div className="app-shell">
       <Header active={tab} onChange={setTab} />
       {tab === "translator" && <TranslatorPage />}
+      {tab === "translator-comparison" && <TranslatorComparisonPage />}
       {tab === "tokenizer" && (
         <TokenizerPage onTokenized={runComparison} onCleared={clearComparison} />
       )}

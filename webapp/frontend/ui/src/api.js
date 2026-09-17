@@ -35,3 +35,15 @@ export function compareCustom(text) {
     body: JSON.stringify({ text }),
   });
 }
+
+export function getTranslationStatus() {
+  return request("/api/translation/status");
+}
+
+export function compareTranslations(text) {
+  return request("/api/translate/compare", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text }),
+  });
+}

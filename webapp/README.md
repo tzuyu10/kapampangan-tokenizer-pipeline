@@ -18,8 +18,11 @@ by side — word splits, a
 bar-chart score comparison, and a "how these scores are computed" panel that
 shows the literal intermediate values (true/false positives, boundary
 positions, shared-morpheme groups) the scoring code produced for your input.
-The **Translator** tab is a UI shell only — see
-[Translator tab](#translator-tab-not-functional) below for why.
+The **Translator** tab is a UI shell only. A separate **Translator A/B** tab
+now presents the planned controlled comparison between MorphBPE + NLLB-200
+and the original NLLB-200 baseline. It reads live checkpoint readiness from
+the backend and deliberately displays no generated text while the models are
+absent — see [Translator tabs](#translator-tabs-not-functional) below.
 
 The tokenizer algorithm itself is **not modified in any way** — see
 `ARCHITECTURE.md` for exactly what this project added versus what was copied
@@ -31,6 +34,7 @@ kapampangan-tokenizer-app/
 ├── ARCHITECTURE.md        <- what changed, what didn't, how data flows end-to-end
 ├── backend/
 │   ├── server.py          <- the HTTP API (stdlib only, no pip install needed)
+│   ├── translation_service.py <- truthful NLLB checkpoint/readiness metadata
 │   └── tokenizer/
 │       ├── kapampangan_morphbpe_runtime/   <- UNCHANGED copy of your runtime
 │       │   ├── __init__.py
@@ -54,7 +58,7 @@ kapampangan-tokenizer-app/
             ├── api.js                       <- fetch wrapper to the backend
             ├── styles/global.css            <- Lexend font + your color palette
             ├── components/
-            │   ├── Header.jsx               <- Translator / Tokenizer / Comparison tabs
+            │   ├── Header.jsx               <- app navigation tabs
             │   ├── ResultsPanel.jsx         <- Fertility / Boundary F1 / Consistency F1
             │   ├── SegmentationProcess.jsx  <- the step-by-step panel
             │   ├── ExampleChips.jsx         <- one-click known-good demo inputs
@@ -62,7 +66,8 @@ kapampangan-tokenizer-app/
             └── pages/
                 ├── TokenizerPage.jsx        <- fully functional
                 ├── ComparisonPage.jsx       <- fully functional (mirrors the Tokenizer tab's input)
-                └── TranslatorPage.jsx       <- UI shell only, not wired up
+                ├── TranslatorPage.jsx       <- UI shell only, not wired up
+                └── TranslatorComparisonPage.jsx <- honest A/B translation interface
 ```
 
 ## Prerequisites
@@ -96,9 +101,11 @@ breakdown on the Comparison tab always agrees with `reference_data.py`'s own
 `score()`/`mcf1()` numbers (see `ARCHITECTURE.md`). If either ever fails,
 the server won't start, and the exact mismatch is in the error.
 
-Leave this running. It serves four endpoints on `http://127.0.0.1:8000`:
+Leave this running. It serves six endpoints on `http://127.0.0.1:8000`:
 `GET /api/health`, `GET /api/examples`, `POST /api/tokenize`,
-`POST /api/comparison/custom`.
+`POST /api/comparison/custom`, `GET /api/translation/status`, and the reserved
+`POST /api/translate/compare` route. The reserved route returns HTTP 503 until
+real inference is available; it never returns placeholder translations.
 
 ## 2. Run the frontend
 
@@ -177,7 +184,7 @@ BPE 0.198) aren't shown on this tab anymore; cite them from your thesis
 directly if asked, since there's no `hard-constrained` artifact in this demo
 folder to recompute them from live.
 
-## Translator tab (not functional)
+## Translator tabs (not functional)
 
 The Translator page matches your design pixel-for-pixel but doesn't call
 anything — there is no trained Kapampangan→Filipino translation model yet.
@@ -186,6 +193,22 @@ NLLB-200 download and fine-tuning are explicitly future work, not done. The
 **Translate** button is disabled and the page says so under the two boxes.
 The **Clear** button and the **Copy** icon on the Filipino side both work
 locally (no backend needed) since they don't require translation.
+
+The **Translator A/B** page is the comparison interface for the future
+experiment. It sends one Kapampangan input to two conditions and is designed
+to show their Filipino output, tokenizer/model identity, source/output token
+counts, and latency side by side:
+
+- **MorphBPE + NLLB-200** — the proposed source-tokenizer and matching
+  encoder-embedding condition.
+- **Original NLLB-200** — the unchanged pretrained tokenizer/model baseline.
+
+Today both cards show **Checkpoint required**, based on
+`nllb/export_manifest.json`. The compare button stays disabled because the
+repository explicitly records `nllb_model_downloaded: false` and
+`nllb_model_trained: false`. Use **Load demo data** to populate both cards
+with visibly labeled dummy translations and metrics for interface testing;
+demo values are never sent to or returned by the translation API.
 
 ## Troubleshooting
 

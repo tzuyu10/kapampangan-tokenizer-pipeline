@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "tokenizer"))
 
 import trace_service  # noqa: E402
 import comparison_service  # noqa: E402
+import translation_service  # noqa: E402
 
 HOST = "127.0.0.1"
 PORT = 8000
@@ -76,6 +77,8 @@ class Handler(BaseHTTPRequestHandler):
                 )
             elif path == "/api/examples":
                 self._send_json(200, trace_service.examples())
+            elif path == "/api/translation/status":
+                self._send_json(200, translation_service.status())
             else:
                 self._send_json(404, {"error": f"not found: {path}"})
         except Exception as exc:  # pragma: no cover - defensive
@@ -83,7 +86,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         path = urlparse(self.path).path
-        if path not in ("/api/tokenize", "/api/comparison/custom"):
+        if path not in ("/api/tokenize", "/api/comparison/custom", "/api/translate/compare"):
             self._send_json(404, {"error": f"not found: {path}"})
             return
         try:
@@ -95,8 +98,18 @@ class Handler(BaseHTTPRequestHandler):
                 raise ValueError("`text` must be a string")
             if path == "/api/tokenize":
                 result = trace_service.analyze(text)
-            else:
+            elif path == "/api/comparison/custom":
                 result = comparison_service.custom_compare(text)
+            else:
+                readiness = translation_service.status()
+                self._send_json(
+                    503,
+                    {
+                        "error": readiness["message"],
+                        "readiness": readiness,
+                    },
+                )
+                return
             self._send_json(200, result)
         except Exception as exc:
             self._send_json(400, {"error": str(exc)})
