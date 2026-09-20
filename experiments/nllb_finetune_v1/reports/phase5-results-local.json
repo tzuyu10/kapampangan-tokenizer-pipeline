@@ -123,5 +123,65 @@
       "chrf": 16.16
     },
     "minutes": 206.5
+  },
+  "bpe6080-lora/seed0": {
+    "condition": "bpe6080-lora",
+    "seed": 0,
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "targets": "q_proj,v_proj"
+    },
+    "trainable_params": {
+      "embedding": 6225920,
+      "lora": 786432
+    },
+    "best_epoch": 25,
+    "best_dev_loss": 3.282,
+    "emb_lr": 0.001,
+    "lora_lr": 0.0002,
+    "dev": {
+      "bleu": 1.71,
+      "chrf": 19.15
+    },
+    "test_bible": {
+      "bleu": 1.47,
+      "chrf": 18.6
+    },
+    "test_ood": {
+      "bleu": 0.28,
+      "chrf": 14.47
+    },
+    "minutes": 245.5
+  },
+  "penalty32-lora/seed0": {
+    "condition": "penalty32-lora",
+    "seed": 0,
+    "lora": {
+      "r": 16,
+      "alpha": 32,
+      "targets": "q_proj,v_proj"
+    },
+    "trainable_params": {
+      "embedding": 6225920,
+      "lora": 786432
+    },
+    "best_epoch": 25,
+    "best_dev_loss": 3.239,
+    "emb_lr": 0.001,
+    "lora_lr": 0.0002,
+    "dev": {
+      "bleu": 2.35,
+      "chrf": 20.87
+    },
+    "test_bible": {
+      "bleu": 1.91,
+      "chrf": 20.74
+    },
+    "test_ood": {
+      "bleu": 0.21,
+      "chrf": 15.59
+    },
+    "minutes": 161.1
   }
 }

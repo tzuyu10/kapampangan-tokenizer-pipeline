@@ -1,0 +1,36 @@
+device=cuda  amp_dtype=torch.bfloat16
+GPU: NVIDIA GeForce RTX 4050 Laptop GPU  6.0 GiB
+train 3590 | dev 238 | test_bible 329 | test_ood 70
+
+--- penalty32-lora/seed0  r=16 alpha=32 targets=q_proj,v_proj  emb-lr=0.001 lora-lr=0.0002  epochs<= 25 ---
+trainable: embedding 6,225,920  +  LoRA 786,432  =  7,012,352
+  penalty32-lora/seed0 ep01  train 3.945  dev-loss 3.624  (231s)
+  penalty32-lora/seed0 ep02  train 3.688  dev-loss 3.569  (224s)
+  penalty32-lora/seed0 ep03  train 3.637  dev-loss 3.514  (223s)
+  penalty32-lora/seed0 ep04  train 3.633  dev-loss 3.506  (237s)
+  penalty32-lora/seed0 ep05  train 3.593  dev-loss 3.485  (253s)
+  penalty32-lora/seed0 ep06  train 3.579  dev-loss 3.456  (240s)
+  penalty32-lora/seed0 ep07  train 3.591  dev-loss 3.476  (241s)
+  penalty32-lora/seed0 ep08  train 3.550  dev-loss 3.413  (252s)
+  penalty32-lora/seed0 ep09  train 3.519  dev-loss 3.404  (240s)
+  penalty32-lora/seed0 ep10  train 3.497  dev-loss 3.401  (241s)
+  penalty32-lora/seed0 ep11  train 3.480  dev-loss 3.384  (240s)
+  penalty32-lora/seed0 ep12  train 3.463  dev-loss 3.363  (239s)
+  penalty32-lora/seed0 ep13  train 3.446  dev-loss 3.356  (240s)
+  penalty32-lora/seed0 ep14  train 3.432  dev-loss 3.355  (239s)
+  penalty32-lora/seed0 ep15  train 3.418  dev-loss 3.339  (259s)
+  penalty32-lora/seed0 ep16  train 3.407  dev-loss 3.324  (268s)
+  penalty32-lora/seed0 ep17  train 3.389  dev-loss 3.317  (332s)
+  penalty32-lora/seed0 ep18  train 3.370  dev-loss 3.303  (334s)
+  penalty32-lora/seed0 ep19  train 3.359  dev-loss 3.317  (306s)
+  penalty32-lora/seed0 ep20  train 3.347  dev-loss 3.298  (305s)
+  penalty32-lora/seed0 ep21  train 3.337  dev-loss 3.295  (306s)
+  penalty32-lora/seed0 ep22  train 3.314  dev-loss 3.284  (293s)
+  penalty32-lora/seed0 ep23  train 3.300  dev-loss 3.267  (294s)
+  penalty32-lora/seed0 ep24  train 3.285  dev-loss 3.266  (341s)
+  penalty32-lora/seed0 ep25  train 3.265  dev-loss 3.239  (349s)
+D:\Coding\thesis\kapampangan-morphbpe-paper-v1\runs\nllb-local\.venv\Lib\site-packages\transformers\generation\utils.py:1733: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+  -> penalty32-lora/seed0  DEV {'bleu': 2.35, 'chrf': 20.87}  test_bible {'bleu': 1.91, 'chrf': 20.74}  test_ood {'bleu': 0.21, 'chrf': 15.59}  (161.1 min)
+
+wrote D:\Coding\thesis\kapampangan-morphbpe-paper-v1\experiments\nllb_finetune_v1\reports\phase5-results-local.json

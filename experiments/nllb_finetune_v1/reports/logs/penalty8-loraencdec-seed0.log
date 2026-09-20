@@ -1,0 +1,6 @@
+device=cuda  amp_dtype=torch.bfloat16
+GPU: NVIDIA GeForce RTX 4050 Laptop GPU  6.0 GiB
+train 3590 | dev 238 | test_bible 329 | test_ood 70
+
+--- penalty8-loraencdec/seed0  r=16 alpha=32 targets=q_proj,v_proj (enc+dec)  emb-lr=0.001 lora-lr=0.0002  epochs<= 25 ---
+trainable: embedding 6,225,920  +  LoRA 2,359,296  =  8,585,216

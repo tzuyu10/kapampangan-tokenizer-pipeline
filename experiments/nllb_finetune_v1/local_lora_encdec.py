@@ -1,28 +1,45 @@
-"""Phase 5 escalation: LoRA-on-encoder, run locally on an NVIDIA GPU.
+"""Phase 5 escalation (Option 3): LoRA on encoder AND decoder, run locally.
 
-Embedding-only fine-tuning has failed three ways (random-init @598,
-warm-start @3,590, warm-start + 10x LR @3,590 -- all chrF++ ~11-13 vs
-zero-shot ~33.6; see reports/phase5-run-2026-09-04-transcript.md). This adds
-low-rank adapters to the **encoder self-attention** so the frozen stack has
-capacity to re-interpret the swapped Kapampangan embeddings. Decoder +
-lm_head + shared stay frozen (target side unchanged); `tie_weights()` is
-never called after the swap.
+Local port of `notebooks/phase5-lora-encoder-decoder.ipynb` (written for
+Colab, never run). Encoder-only LoRA (`local_lora.py`, Option 4) has all
+four tokenizer conditions converging ~13-20 chrF++ below zero-shot -- the
+frozen decoder never adapts to the new tokenisation at all. This unfreezes
+the decoder's self-attention AND cross-attention (`encoder_attn`, where it
+reads the encoder's output) via LoRA, so the model has actual capacity to
+build a pathway that could differentiate a better-segmented source from a
+worse-segmented one.
 
-Trainable = the warm-started nn.Embedding(6080,1024)  +  LoRA A/B on the
-encoder's q_proj/v_proj (configurable). Everything else frozen.
+**This departs from the proposal's frozen-NLLB framing and needs an explicit
+methodology caveat if reported.** It also risks catastrophic forgetting of
+NLLB's existing Filipino fluency -- a real failure mode, not hypothetical.
+
+**The matched control is mandatory.** Once the decoder adapts, `nllb_zeroshot`
+is no longer a fair comparison (any gain could just be decoder fine-tuning,
+nothing to do with the tokenizer). The real test is a swap condition
+(`penalty8`/`morphbpe`/`bpe6080`/`unigram6080`) vs `--condition nllb_native`
+under the IDENTICAL LoRA budget -- `nllb_native` uses NLLB's own tokenizer
+and its own (frozen) `shared` embedding, no encoder-embedding swap, but
+gets the same encoder+decoder LoRA adapters. `nllb_zeroshot` stays only as
+the untrained reference.
+
+decoder's `embed_tokens` / `lm_head` / `shared` (the 256K-vocab table) stay
+frozen throughout -- LoRA only adds small adapters alongside them;
+`tie_weights()` is never called after the encoder-embedding swap.
 
 Run (repo root, isolated local venv):
-  runs\\nllb-local\\.venv\\Scripts\\python.exe experiments\\nllb_finetune_v1\\local_lora.py
+  runs\\nllb-local\\.venv\\Scripts\\python.exe experiments\\nllb_finetune_v1\\local_lora_encdec.py
 
 Key options (see --help):
-  --condition {morphbpe,penalty8,bpe6080,unigram6080}   default morphbpe
+  --condition {morphbpe,penalty8,bpe6080,unigram6080,nllb_native}  default penalty8
   --seed INT                default 0
   --r INT / --alpha INT      LoRA rank / alpha        default 16 / 32
-  --targets q_proj,v_proj    encoder self-attn projections to adapt
+  --targets q_proj,v_proj    self-attn (+ cross-attn) projections to adapt
   --emb-lr / --lora-lr       default 1e-3 / 2e-4  (separate param groups)
   --epochs / --patience / --batch     default 25 / 5 / 8
 
-Result key: `<condition>-lora/seed<N>` in reports/phase5-results-local.json.
+Result key: `<condition>-loraencdec/seed<N>` in reports/phase5-results-local.json
+(distinct from `local_lora.py`'s `<condition>-lora/seed<N>` -- both live in
+the same file without colliding).
 """
 
 from __future__ import annotations
@@ -70,8 +87,8 @@ def main() -> int:
     )
     ap.add_argument(
         "--condition",
-        default="morphbpe",
-        choices=("morphbpe", "penalty8", "bpe6080", "penalty32", "unigram6080"),
+        default="penalty8",
+        choices=("morphbpe", "penalty8", "bpe6080", "penalty32", "unigram6080", "nllb_native"),
     )
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--r", type=int, default=16)
@@ -186,9 +203,12 @@ def main() -> int:
         return emb
 
     projections = "|".join(t.strip() for t in args.targets.split(","))
-    target_regex = rf"model\.encoder\.layers\.\d+\.self_attn\.({projections})"
+    # encoder self-attn + decoder self-attn + decoder cross-attn (encoder_attn)
+    target_regex = (
+        rf"model\.(encoder|decoder)\.layers\.\d+\.(self_attn|encoder_attn)\.({projections})"
+    )
 
-    def prepare_model(condition: str, seed: int) -> tuple[Any, nn.Embedding]:
+    def prepare_model(condition: str, seed: int) -> tuple[Any, nn.Embedding | None]:
         torch.manual_seed(seed)
         np.random.seed(seed)
         random.seed(seed)
@@ -196,11 +216,13 @@ def main() -> int:
         m.config.use_cache = False
         for p in m.parameters():
             p.requires_grad_(False)
-        # swap encoder input embedding for a warm-started, trainable one
-        emb = warm_start_embedding(condition, m.model.shared.weight.detach())
-        emb.weight.requires_grad_(True)
-        m.model.encoder.embed_tokens = emb
-        # LoRA on the encoder self-attention only
+        emb = None
+        if condition in swap_conditions:
+            # swap encoder input embedding for a warm-started, trainable one
+            emb = warm_start_embedding(condition, m.model.shared.weight.detach())
+            emb.weight.requires_grad_(True)
+            m.model.encoder.embed_tokens = emb
+        # LoRA on encoder self-attn + decoder self-attn + decoder cross-attn
         cfg = LoraConfig(
             r=args.r,
             lora_alpha=args.alpha,
@@ -212,9 +234,10 @@ def main() -> int:
         m = get_peft_model(m, cfg)
         # peft froze everything except adapters; re-enable the swapped embedding
         base = m.get_base_model()
-        base.model.encoder.embed_tokens.weight.requires_grad_(True)
+        if emb is not None:
+            base.model.encoder.embed_tokens.weight.requires_grad_(True)
         m.to(DEVICE)
-        return m, base.model.encoder.embed_tokens
+        return m, (base.model.encoder.embed_tokens if emb is not None else None)
 
     gen_kw = dict(num_beams=4, max_new_tokens=args.max_new_tokens, forced_bos_token_id=tgt_bos)
 
@@ -251,27 +274,25 @@ def main() -> int:
             "chrf": round(sacrebleu.corpus_chrf(hyps, [refs], word_order=2).score, 2),
         }
 
-    key = f"{args.condition}-lora/seed{args.seed}"
+    key = f"{args.condition}-loraencdec/seed{args.seed}"
     if key in results:
         print(f"{key} already in {args.results}; delete it to re-run.")
         return 0
 
     print(
-        f"\n--- {key}  r={args.r} alpha={args.alpha} targets={args.targets}  "
+        f"\n--- {key}  r={args.r} alpha={args.alpha} targets={args.targets} (enc+dec)  "
         f"emb-lr={args.emb_lr} lora-lr={args.lora_lr}  epochs<= {args.epochs} ---"
     )
     t0 = time.time()
     m, emb = prepare_model(args.condition, args.seed)
     lora_params = [p for n, p in m.named_parameters() if "lora_" in n and p.requires_grad]
-    n_emb = emb.weight.numel()
+    n_emb = emb.weight.numel() if emb is not None else 0
     n_lora = sum(p.numel() for p in lora_params)
     print(f"trainable: embedding {n_emb:,}  +  LoRA {n_lora:,}  =  {n_emb + n_lora:,}")
-    opt = torch.optim.AdamW(
-        [
-            {"params": [emb.weight], "lr": args.emb_lr},
-            {"params": lora_params, "lr": args.lora_lr},
-        ]
-    )
+    param_groups = [{"params": lora_params, "lr": args.lora_lr}]
+    if emb is not None:
+        param_groups.append({"params": [emb.weight], "lr": args.emb_lr})
+    opt = torch.optim.AdamW(param_groups)
 
     order = list(range(len(train)))
     best_loss = float("inf")
@@ -313,9 +334,14 @@ def main() -> int:
     dev_score = eval_gen(m, dev, args.condition)
     test_scores = {name: eval_gen(m, data, args.condition) for name, data in test_sets.items()}
     results[key] = {
-        "condition": f"{args.condition}-lora",
+        "condition": f"{args.condition}-loraencdec",
         "seed": args.seed,
-        "lora": {"r": args.r, "alpha": args.alpha, "targets": args.targets},
+        "lora": {
+            "r": args.r,
+            "alpha": args.alpha,
+            "targets": args.targets,
+            "scope": "encoder+decoder",
+        },
         "trainable_params": {"embedding": n_emb, "lora": n_lora},
         "best_epoch": best_ep,
         "best_dev_loss": round(best_loss, 3),

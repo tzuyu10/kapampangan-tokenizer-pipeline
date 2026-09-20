@@ -5,7 +5,8 @@ pre-computed here:
 
   data/bundle/{train,dev,test_bible,test_ood}.jsonl
       one row per pair: {pam_text, fil_text, tier, claude_review,
-                         morphbpe_ids, penalty8_ids, unigram_ids, bpe_ids}
+                         morphbpe_ids, penalty8_ids, unigram_ids, bpe_ids,
+                         penalty32_ids}
       test_bible = held-out Bible chapters (in-domain); test_ood = whole
       native-authored stories + gold_v1 sentences (register transfer).
       *_ids are the Kapampangan side tokenised at vocab 6,080 with <s>/</s>
@@ -65,6 +66,7 @@ V4_ART = REPO_ROOT / "experiments/expanded_morphology_v4/artifacts"
 MORPHBPE_ART = V4_ART / "morphbpe/candidates/vocab-6080"
 PENALTY8_ART = V4_ART / "penalty-8/candidates/vocab-6080"
 PLAIN_ART = V4_ART / "plain/candidates/vocab-6080"
+PENALTY32_ART = EXPERIMENT_ROOT / "external-tokenizers/penalty32-vocab6080"
 UNIGRAM_JSON = V4_ART / "unigram-ablation/vocab-6080/tokenizer.json"
 UNIGRAM_MANIFEST = V4_ART / "unigram-ablation/vocab-6080/unigram-ablation-manifest.json"
 
@@ -84,11 +86,14 @@ def main() -> int:
     morphbpe = load_runtime_tokenizer(MORPHBPE_ART)
     penalty8 = load_runtime_tokenizer(PENALTY8_ART)
     plain = load_runtime_tokenizer(PLAIN_ART)
+    penalty32 = load_runtime_tokenizer(PENALTY32_ART)
     unigram = Tokenizer.from_file(str(UNIGRAM_JSON))
     if morphbpe.vocabulary_size != 6080 or penalty8.vocabulary_size != 6080:
         raise SystemExit("expected vocab-6080 MorphBPE artifacts")
     if plain.vocabulary_size != 6080:
         raise SystemExit("expected vocab-6080 plain BPE artifact")
+    if penalty32.vocabulary_size != 6080:
+        raise SystemExit("expected vocab-6080 penalty32 artifact")
     if unigram.get_vocab_size() != 6080:
         raise SystemExit("expected vocab-6080 unigram ablation")
     if unigram.token_to_id("<s>") != BOS_ID or unigram.token_to_id("</s>") != EOS_ID:
@@ -123,6 +128,7 @@ def main() -> int:
         "morphbpe": morphbpe_vocab(MORPHBPE_ART),
         "penalty8": morphbpe_vocab(PENALTY8_ART),
         "bpe6080": morphbpe_vocab(PLAIN_ART),
+        "penalty32": morphbpe_vocab(PENALTY32_ART),
         "unigram6080": unigram_vocab,
     }
     (BUNDLE_DIR / "vocab.json").write_text(
@@ -149,6 +155,7 @@ def main() -> int:
                     "morphbpe_ids": list(morphbpe.encode(pam, add_special_tokens=True).ids),
                     "penalty8_ids": list(penalty8.encode(pam, add_special_tokens=True).ids),
                     "bpe_ids": list(plain.encode(pam, add_special_tokens=True).ids),
+                    "penalty32_ids": list(penalty32.encode(pam, add_special_tokens=True).ids),
                     "unigram_ids": unigram_ids(pam),
                 }
                 handle.write(json.dumps(rec, ensure_ascii=False) + "\n")
@@ -160,7 +167,7 @@ def main() -> int:
 
     meta = {
         "task": "Kapampangan -> Filipino (tgl_Latn) NLLB-200-distilled-600M fine-tune",
-        "conditions": ["morphbpe", "penalty8", "bpe6080", "unigram6080"],
+        "conditions": ["morphbpe", "penalty8", "bpe6080", "penalty32", "unigram6080"],
         "reference_condition": "nllb_zeroshot (no training)",
         "comparison": {
             "fair_headline": "morphbpe / penalty8 vs unigram6080 -- same vocab (6,080), "
@@ -221,6 +228,7 @@ def main() -> int:
             "morphbpe": artifact_fingerprint(MORPHBPE_ART),
             "penalty8": artifact_fingerprint(PENALTY8_ART),
             "bpe6080": artifact_fingerprint(PLAIN_ART),
+            "penalty32": artifact_fingerprint(PENALTY32_ART),
             "unigram6080": str(unigram_meta.get("artifact_fingerprint")),
         },
         "bpe6080_note": (
@@ -229,6 +237,17 @@ def main() -> int:
             "morphology-aware condition -- the floor of the ranking). Same BPE "
             "merge algorithm and training corpus as morphbpe/penalty8, vocab 6,080, "
             "but trained with NO morphology-boundary crossing penalty."
+        ),
+        "penalty32_note": (
+            "EXTERNAL artifact, not produced by this repo's own expanded_morphology_v4 "
+            "grid script -- a teammate's exploratory extension of the crossing-penalty "
+            "sweep (penalty-1/2/4/8 -> 32), trained on the same "
+            "experiments/expanded_morphology_v4/runs/prepared/training-stream.jsonl and "
+            "source_adjudicated_v2 lexicon as the official grid (verified byte-identical "
+            "training_stream_sha256 in its own tokenizer-manifest.json). Vocab 6,080. "
+            "Not selected, not a frozen thesis artifact. See "
+            "experiments/nllb_finetune_v1/external-tokenizers/"
+            "penalty32-vocab6080-PROVENANCE.md for full provenance."
         ),
         "unigram6080_note": (
             "NOT NLLB's tokenizer file; a fresh Unigram-LM model trained on this "

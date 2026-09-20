@@ -1,0 +1,36 @@
+device=cuda  amp_dtype=torch.bfloat16
+GPU: NVIDIA GeForce RTX 4050 Laptop GPU  6.0 GiB
+train 3590 | dev 238 | test_bible 329 | test_ood 70
+
+--- bpe6080-lora/seed0  r=16 alpha=32 targets=q_proj,v_proj  emb-lr=0.001 lora-lr=0.0002  epochs<= 25 ---
+trainable: embedding 6,225,920  +  LoRA 786,432  =  7,012,352
+  bpe6080-lora/seed0 ep01  train 3.936  dev-loss 3.598  (489s)
+  bpe6080-lora/seed0 ep02  train 3.672  dev-loss 3.524  (1467s)
+  bpe6080-lora/seed0 ep03  train 3.625  dev-loss 3.495  (613s)
+  bpe6080-lora/seed0 ep04  train 3.597  dev-loss 3.491  (446s)
+  bpe6080-lora/seed0 ep05  train 3.569  dev-loss 3.454  (501s)
+  bpe6080-lora/seed0 ep06  train 3.551  dev-loss 3.446  (607s)
+  bpe6080-lora/seed0 ep07  train 3.533  dev-loss 3.429  (430s)
+  bpe6080-lora/seed0 ep08  train 3.515  dev-loss 3.401  (355s)
+  bpe6080-lora/seed0 ep09  train 3.499  dev-loss 3.390  (329s)
+  bpe6080-lora/seed0 ep10  train 3.495  dev-loss 3.384  (350s)
+  bpe6080-lora/seed0 ep11  train 3.476  dev-loss 3.380  (350s)
+  bpe6080-lora/seed0 ep12  train 3.461  dev-loss 3.371  (342s)
+  bpe6080-lora/seed0 ep13  train 3.444  dev-loss 3.368  (338s)
+  bpe6080-lora/seed0 ep14  train 3.439  dev-loss 3.351  (341s)
+  bpe6080-lora/seed0 ep15  train 3.431  dev-loss 3.345  (344s)
+  bpe6080-lora/seed0 ep16  train 3.421  dev-loss 3.337  (350s)
+  bpe6080-lora/seed0 ep17  train 3.416  dev-loss 3.345  (342s)
+  bpe6080-lora/seed0 ep18  train 3.394  dev-loss 3.324  (321s)
+  bpe6080-lora/seed0 ep19  train 3.384  dev-loss 3.331  (347s)
+  bpe6080-lora/seed0 ep20  train 3.376  dev-loss 3.319  (323s)
+  bpe6080-lora/seed0 ep21  train 3.373  dev-loss 3.326  (332s)
+  bpe6080-lora/seed0 ep22  train 3.360  dev-loss 3.298  (355s)
+  bpe6080-lora/seed0 ep23  train 3.349  dev-loss 3.298  (341s)
+  bpe6080-lora/seed0 ep24  train 3.341  dev-loss 3.290  (344s)
+  bpe6080-lora/seed0 ep25  train 3.339  dev-loss 3.282  (327s)
+D:\Coding\thesis\kapampangan-morphbpe-paper-v1\runs\nllb-local\.venv\Lib\site-packages\transformers\generation\utils.py:1733: UserWarning: You have modified the pretrained model configuration to control generation. This is a deprecated strategy to control generation and will be removed in v5. Please use and modify the model generation configuration (see https://huggingface.co/docs/transformers/generation_strategies#default-text-generation-configuration )
+  warnings.warn(
+  -> bpe6080-lora/seed0  DEV {'bleu': 1.71, 'chrf': 19.15}  test_bible {'bleu': 1.47, 'chrf': 18.6}  test_ood {'bleu': 0.28, 'chrf': 14.47}  (245.5 min)
+
+wrote D:\Coding\thesis\kapampangan-morphbpe-paper-v1\experiments\nllb_finetune_v1\reports\phase5-results-local.json
