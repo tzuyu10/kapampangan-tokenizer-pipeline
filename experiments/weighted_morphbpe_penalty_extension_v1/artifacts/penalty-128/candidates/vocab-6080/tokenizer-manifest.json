@@ -1,0 +1,30 @@
+{
+  "actual_vocabulary_size": 6080,
+  "artifact_fingerprint": "c9d24e9bc352cfc616760fd6d3bfaf7adce963aa3761ae2dd76536eab2965b85",
+  "artifact_type": "kapampangan_morphbpe",
+  "core_file_sha256": {
+    "merges.json": "73441211ee9fabaa183e4eda550612762d0815f0b618f40d9b2f0f38fc88af3c",
+    "normalization.json": "93feac29893a18dfcb6c77e54ce5e02d10a5ebd57b4a5f0d83590bf21a231005",
+    "pretokenizer.json": "6315cf42d8aa53234fe3d31fee173be7fb7e382debe8b0e3d911ab8a9ecf0cda",
+    "special_tokens.json": "7735fa9451bc5d4b8495c2cc9aec21d3882b2f65d24e38577de3e6a5d6f0535c",
+    "tokenizer.json": "e83cd11aaae64531444c65c3d2e620592c620b2d04de24a4e852d6afb78f4356",
+    "vocab.json": "981de4d746cedbeb53381bdffe793395b9cd89eecd2b9bca423681e3cdbd5d03"
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "merge_count": 4488,
+  "metadata": {
+    "candidate": true,
+    "canonical_lexicon_used_for_training": true,
+    "condition": "weighted_morphbpe_penalty_extension",
+    "crossing_penalty": 128,
+    "current_validation_re_evaluated": true,
+    "held_out_test_used": false,
+    "lexicon_used_at_runtime": false,
+    "merge_score": "allowed_frequency-crossing_penalty*crossing_frequency",
+    "selection_performed": false
+  },
+  "protected_boundary_merge_violations": 0,
+  "schema_version": "1.0.0",
+  "special_token_count": 4,
+  "target_vocabulary_size": 6080
+}

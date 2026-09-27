@@ -1,0 +1,159 @@
+{
+  "dataset_root": "C:\\DevTools\\KapampanganTokenizer\\kapampangan-general-corpus-v1",
+  "eval_lexicon_path": "C:\\Users\\Gabo\\kapampangan-tokenizer-pipeline\\resources\\training-lexicon.json",
+  "evidence_status": "official_validation_evaluation_of_newly_trained_artifact",
+  "note": "penalty=64 trained on the verified expanded_morphology_v4 stream (3,311-root lexicon, rule-refined). See README.md for provenance verification. No selection performed here.",
+  "rows": [
+    {
+      "boundary_f1": 0.8681010289990646,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.49923054689758073,
+      "crossing_penalty": 16,
+      "fertility_rate": 1.6137833895065143,
+      "morphological_distance": 0.06663669544570834,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.875268817204301,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.5423090543190043,
+      "crossing_penalty": 16,
+      "fertility_rate": 1.5245686402736556,
+      "morphological_distance": 0.06301419729531317,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8849338288023991,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.5801845117014938,
+      "crossing_penalty": 16,
+      "fertility_rate": 1.3753257206096887,
+      "morphological_distance": 0.057817730671807906,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.87253645737995,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.49072757227142794,
+      "crossing_penalty": 32,
+      "fertility_rate": 1.635746264902661,
+      "morphological_distance": 0.06876612895926205,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8788066353057687,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.5312349195971294,
+      "crossing_penalty": 32,
+      "fertility_rate": 1.5478193068061774,
+      "morphological_distance": 0.06661300668811398,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8925987050907707,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.6062449234024065,
+      "crossing_penalty": 32,
+      "fertility_rate": 1.3948941093616378,
+      "morphological_distance": 0.058991896277304,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8465784933870041,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.3913760291468639,
+      "crossing_penalty": 64,
+      "fertility_rate": 1.6972684742693294,
+      "morphological_distance": 0.08402851321306265,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8644489167751864,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.4302267573696146,
+      "crossing_penalty": 64,
+      "fertility_rate": 1.6001961869309322,
+      "morphological_distance": 0.07573541741996681,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8856193055897562,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.5485083782521628,
+      "crossing_penalty": 64,
+      "fertility_rate": 1.4190854670758086,
+      "morphological_distance": 0.0641326782421203,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.6681015549503646,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.1424297137746247,
+      "crossing_penalty": 128,
+      "fertility_rate": 2.0404698425474117,
+      "morphological_distance": 0.2276568924637594,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.6704772032433869,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.1509469567565633,
+      "crossing_penalty": 128,
+      "fertility_rate": 1.9491825544544494,
+      "morphological_distance": 0.22569617435497266,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.6755180766125414,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.17619582433405329,
+      "crossing_penalty": 128,
+      "fertility_rate": 1.781840132803461,
+      "morphological_distance": 0.22057659793711298,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.5196478564441597,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.08875753512049685,
+      "crossing_penalty": 256,
+      "fertility_rate": 2.4567986317219175,
+      "morphological_distance": 0.43582215352601605,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.5201126990053975,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.09327363145742112,
+      "crossing_penalty": 256,
+      "fertility_rate": 2.360772674681825,
+      "morphological_distance": 0.43369528659228207,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.5245146881979041,
+      "condition": "penalty_expanded_morphology_v4_stream",
+      "consistency_f1": 0.10171056655049583,
+      "crossing_penalty": 256,
+      "fertility_rate": 2.205171286282006,
+      "morphological_distance": 0.4264746340926598,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    }
+  ],
+  "training_stream_sha256": "fc520e0e3359c3643b70f68f9a63521436be1dd4aac14b0adb1467238e3753c7"
+}

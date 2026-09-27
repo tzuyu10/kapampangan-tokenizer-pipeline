@@ -1,0 +1,45 @@
+{
+  "rows": [
+    {
+      "boundary_f1": 0.8541035240981756,
+      "consistency_f1": 0.4584974435501627,
+      "crossing_penalty": 36,
+      "dropout_rate": 0.05,
+      "fertility_rate": 1.6623371396951556,
+      "label": "crossing36_dropout0.05_runtime1",
+      "morphological_distance": 0.07995630382969443,
+      "runtime_penalty": 1
+    },
+    {
+      "boundary_f1": 0.8509921828021647,
+      "consistency_f1": 0.46138048326541087,
+      "crossing_penalty": 36,
+      "dropout_rate": 0.05,
+      "fertility_rate": 1.6551285275919312,
+      "label": "crossing36_dropout0.05_runtime4",
+      "morphological_distance": 0.08169118673410523,
+      "runtime_penalty": 4
+    },
+    {
+      "boundary_f1": 0.8516228748068008,
+      "consistency_f1": 0.4581309031654546,
+      "crossing_penalty": 36,
+      "dropout_rate": 0.05,
+      "fertility_rate": 1.6631571004577694,
+      "label": "crossing36_dropout0.05_runtime16",
+      "morphological_distance": 0.08225186234842895,
+      "runtime_penalty": 16
+    },
+    {
+      "boundary_f1": 0.8265749252721222,
+      "consistency_f1": 0.37721451734056394,
+      "crossing_penalty": 36,
+      "dropout_rate": 0.05,
+      "fertility_rate": 1.7099753508727804,
+      "label": "crossing36_dropout0.05_runtime64",
+      "morphological_distance": 0.09569065888808378,
+      "runtime_penalty": 64
+    }
+  ],
+  "vocab": 6080
+}

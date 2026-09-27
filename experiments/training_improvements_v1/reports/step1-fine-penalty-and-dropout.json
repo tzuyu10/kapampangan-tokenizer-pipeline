@@ -1,0 +1,122 @@
+{
+  "best_dropout_at_32": 0.05,
+  "best_fine_penalty": 36,
+  "combo_1_2": {
+    "dropout": 0.05,
+    "penalty": 36
+  },
+  "rows": [
+    {
+      "boundary_f1": 0.8681359731042212,
+      "consistency_f1": 0.49799516390682874,
+      "crossing_penalty": 20,
+      "dropout_rate": 0.0,
+      "fertility_rate": 1.6203179234367926,
+      "label": "penalty=20",
+      "morphological_distance": 0.06743349044851195,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8585234570921769,
+      "consistency_f1": 0.4898720255220587,
+      "crossing_penalty": 24,
+      "dropout_rate": 0.0,
+      "fertility_rate": 1.6326475174807586,
+      "label": "penalty=24",
+      "morphological_distance": 0.07706905040596031,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8586976459798227,
+      "consistency_f1": 0.48763645595328764,
+      "crossing_penalty": 28,
+      "dropout_rate": 0.0,
+      "fertility_rate": 1.6334775391116254,
+      "label": "penalty=28",
+      "morphological_distance": 0.077001467774,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8773579220153076,
+      "consistency_f1": 0.4868296868296868,
+      "crossing_penalty": 36,
+      "dropout_rate": 0.0,
+      "fertility_rate": 1.6434981638915438,
+      "label": "penalty=36",
+      "morphological_distance": 0.0665970831743364,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8772667227092591,
+      "consistency_f1": 0.47880798526665685,
+      "crossing_penalty": 40,
+      "dropout_rate": 0.0,
+      "fertility_rate": 1.6491171588108053,
+      "label": "penalty=40",
+      "morphological_distance": 0.06687953796322896,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8663972423630097,
+      "consistency_f1": 0.43218136311128225,
+      "crossing_penalty": 44,
+      "dropout_rate": 0.0,
+      "fertility_rate": 1.664329191609236,
+      "label": "penalty=44",
+      "morphological_distance": 0.07190809905402185,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8672209026128266,
+      "consistency_f1": 0.4450374052684163,
+      "crossing_penalty": 48,
+      "dropout_rate": 0.0,
+      "fertility_rate": 1.6610292268222748,
+      "label": "penalty=48",
+      "morphological_distance": 0.07211399115905558,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8578602486373936,
+      "consistency_f1": 0.48085029116895583,
+      "crossing_penalty": 32,
+      "dropout_rate": 0.05,
+      "fertility_rate": 1.6462850243976055,
+      "label": "penalty=32_dropout=0.05",
+      "morphological_distance": 0.0754305482309775,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8397491083507563,
+      "consistency_f1": 0.480525911158021,
+      "crossing_penalty": 32,
+      "dropout_rate": 0.1,
+      "fertility_rate": 1.6539564364404649,
+      "label": "penalty=32_dropout=0.1",
+      "morphological_distance": 0.08850078152653264,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8344592574878938,
+      "consistency_f1": 0.45448126415232154,
+      "crossing_penalty": 32,
+      "dropout_rate": 0.2,
+      "fertility_rate": 1.6790482418632728,
+      "label": "penalty=32_dropout=0.2",
+      "morphological_distance": 0.08608758909188102,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.8564745396749235,
+      "consistency_f1": 0.46775161912548063,
+      "crossing_penalty": 36,
+      "dropout_rate": 0.05,
+      "fertility_rate": 1.6645706524473063,
+      "label": "penalty=36_dropout=0.05",
+      "morphological_distance": 0.0792292531026437,
+      "training_protected_boundary_merge_violations": 0
+    }
+  ],
+  "training_stream_sha256": "fc520e0e3359c3643b70f68f9a63521436be1dd4aac14b0adb1467238e3753c7",
+  "vocab": 6080
+}

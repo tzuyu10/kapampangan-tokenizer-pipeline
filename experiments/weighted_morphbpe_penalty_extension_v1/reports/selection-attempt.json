@@ -1,0 +1,25 @@
+{
+  "caveat": "morphological_distance was still decreasing at the top of the tested penalty range (64), so this selection is 'best of what was tried,' not a validated global optimum. See README.md.",
+  "eligible_candidate_count": 27,
+  "grid_evaluated": "experiments/weighted_morphbpe_penalty_extension_v1 (canonical-lexicon-trained, penalties 1..64)",
+  "rejected_candidates": [],
+  "selected": {
+    "boundary_f1": 0.9495656521467408,
+    "condition": "weighted_morphbpe_canonical_lexicon",
+    "consistency_f1": 0.6228196100761081,
+    "crossing_penalty": 256,
+    "fertility_rate": 1.372312490567936,
+    "morphological_distance": 0.022862033055166084,
+    "target_vocabulary_size": 16384,
+    "training_protected_boundary_merge_violations": 0
+  },
+  "selection_hierarchy_source": "configs/candidate-grid.json",
+  "shipped_baseline": {
+    "boundary_f1": 0.445369260069126,
+    "condition": "shipped_constrained_bpe",
+    "consistency_f1": 0.15262938809490773,
+    "fertility_rate": 1.580627798178983,
+    "morphological_distance": 0.2647229439611416,
+    "target_vocabulary_size": 6080
+  }
+}

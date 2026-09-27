@@ -1,0 +1,31 @@
+{
+  "actual_vocabulary_size": 6080,
+  "artifact_fingerprint": "ba3a1e70b76813d910a8ab92844c1321d2c8a45297887a6c2c593c992711a1d7",
+  "artifact_type": "kapampangan_morphbpe",
+  "core_file_sha256": {
+    "merges.json": "9dfb7ea3543c40cc995c6afcc5843ceab240cdd2bad210ede0e41eb71a4ac667",
+    "normalization.json": "93feac29893a18dfcb6c77e54ce5e02d10a5ebd57b4a5f0d83590bf21a231005",
+    "pretokenizer.json": "6315cf42d8aa53234fe3d31fee173be7fb7e382debe8b0e3d911ab8a9ecf0cda",
+    "special_tokens.json": "7735fa9451bc5d4b8495c2cc9aec21d3882b2f65d24e38577de3e6a5d6f0535c",
+    "tokenizer.json": "2240a65dc9375b2d05870ca90c56f0ee680dfd128b0b73e7cd768418302f9463",
+    "vocab.json": "70dfa96258d67a8ed6ad92ba12d1a36ffbfdb078065a8b8d68b8c62f7bb3fbe3"
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "merge_count": 4488,
+  "metadata": {
+    "candidate": true,
+    "condition": "penalty-128",
+    "crossing_penalty": 128,
+    "current_validation_re_evaluated": true,
+    "held_out_test_used": false,
+    "lexicon_used_at_runtime": false,
+    "merge_score": "allowed_frequency-crossing_penalty*crossing_frequency",
+    "selection_performed": false,
+    "training_stream_sha256": "fc520e0e3359c3643b70f68f9a63521436be1dd4aac14b0adb1467238e3753c7",
+    "training_stream_source": "expanded_morphology_v4 (verified byte-identical to the stream that produced the real penalty-1/2/4/8 artifacts)"
+  },
+  "protected_boundary_merge_violations": 0,
+  "schema_version": "1.0.0",
+  "special_token_count": 4,
+  "target_vocabulary_size": 6080
+}

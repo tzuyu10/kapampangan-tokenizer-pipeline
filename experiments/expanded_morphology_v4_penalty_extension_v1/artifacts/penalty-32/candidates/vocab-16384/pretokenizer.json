@@ -1,0 +1,17 @@
+{
+  "algorithm": "unicode_category_state_machine",
+  "internal_joiners_when_flanked": [
+    "'",
+    "-",
+    "’"
+  ],
+  "offset_unit": "normalized_unicode_code_points",
+  "punctuation_preserved": true,
+  "schema_version": "1.0.0",
+  "whitespace_preserved": true,
+  "word_core_categories": [
+    "L",
+    "M",
+    "N"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "counts": {
+    "circumfixes": 3,
+    "clitics": 9,
+    "compound_records": 26,
+    "excluded_root_candidates": 79,
+    "infixes": 2,
+    "operational_compounds": 20,
+    "operational_root_keys": 3311,
+    "operational_root_surfaces": 4044,
+    "pang_variants": 3,
+    "prefixes": 15,
+    "sample_inflected_form_records": 118,
+    "spelling_variant_evidence": 187,
+    "spelling_variant_mappings": 1,
+    "suffixes": 1,
+    "v2_added_root_keys": 1830
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "evidence_status": "external_source_supported_provisional_silver_not_gold",
+  "input_files": {
+    "adjudication_manifest_sha256": "e92bd1e1d0de5c9b936461d6b7d2b0fe02ee21991deafe5e93db8af82ec67a59",
+    "source_v1_lexicon_sha256": "5bf90ad7808e3d44b29cadab1f02cdad451a62cb29535269937a3382e03574f2",
+    "source_v1_stream_sha256": "fa1a59212353f288fe90ca205ef16a657237d89ddccd79c891987d4d91719336"
+  },
+  "lexicon_file_sha256": "5219e018bcd9c4aec44e377f0ba37b07dd2ce38485173102b5462501651050d8",
+  "lexicon_fingerprint": "cb29e62d0fe6ce29c6a695c119826a565155dc351af56b3b542f5a1ee500dcfa",
+  "manifest_fingerprint": "b3ae07dc5afb73f92db235250cc772fc211c85113929948effec1abb8bebb762",
+  "richards_candidate_ids_held": [
+    "ocr-010",
+    "ocr-011",
+    "ocr-012"
+  ],
+  "schema_version": "1.0.0"
+}

@@ -1,0 +1,764 @@
+{
+  "dataset_root": "C:\\DevTools\\KapampanganTokenizer\\kapampangan-general-corpus-v1",
+  "evidence_status": "official_validation_evaluation_of_previously_trained_artifacts",
+  "full_reports": {
+    "penalty-1/vocab-16384": {
+      "actual_vocabulary_size": 16384,
+      "artifact_fingerprint": "7406ddd46a02e36b50ae2c2adcb1f15389e99a918cd93e01df9262d18bf62144",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.763079139053078,
+        "character_fallback_rate": 0.11045808704997313,
+        "fertility_rate": 1.348075858946627,
+        "morpheme_boundary": {
+          "f1": 0.6113181504485852,
+          "false_negative": 3412,
+          "false_positive": 2220,
+          "precision": 0.6661152052940291,
+          "recall": 0.5648514220124984,
+          "true_positive": 4429
+        },
+        "morphological_consistency": {
+          "f1": 0.18096299405184016,
+          "precision": 0.5327652322113337,
+          "recall": 0.10899201562009693,
+          "shared_both_pairs": 6252,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 11735,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.1904409789066442,
+        "protected_root_or_compound_extra_boundaries": 731,
+        "tokens_per_sentence_nonwhitespace": 92.6111449451888,
+        "tokens_per_sentence_with_whitespace": 152.04141291108405,
+        "tokens_per_word": 1.348075858946627,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.000410472267001015,
+        "validation_proxy_boundary_crossings": 3412
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "28b997d210d4a94b442f0764b38588683d2e50cd5879a96a03bb6e9bc9c668fe",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 16384,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-1/vocab-6080": {
+      "actual_vocabulary_size": 6080,
+      "artifact_fingerprint": "c3e140b93a3b47a937005b483329b75fb7663c82be1ec461deb363d503c6f823",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.1880330802157295,
+        "character_fallback_rate": 0.15685914985363017,
+        "fertility_rate": 1.5912369837516978,
+        "morpheme_boundary": {
+          "f1": 0.5883584041857423,
+          "false_negative": 3343,
+          "false_positive": 2951,
+          "precision": 0.6038394415357766,
+          "recall": 0.5736513199846959,
+          "true_positive": 4498
+        },
+        "morphological_consistency": {
+          "f1": 0.19598754255087997,
+          "precision": 0.3186028257456829,
+          "recall": 0.14152226212475158,
+          "shared_both_pairs": 8118,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 25480,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.21386274074042314,
+        "protected_root_or_compound_extra_boundaries": 2962,
+        "tokens_per_sentence_nonwhitespace": 107.3303897685749,
+        "tokens_per_sentence_with_whitespace": 166.76065773447016,
+        "tokens_per_word": 1.5912369837516978,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.00034774691611712114,
+        "validation_proxy_boundary_crossings": 3343
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "e4cd7ff02922e84134bf18d49d9e1d904007fcad03c6c5a3b3567979d37ebbdc",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 6080,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-1/vocab-8192": {
+      "actual_vocabulary_size": 8192,
+      "artifact_fingerprint": "c02e4ff7686f90c2ca7a73de6454083a9285ffefd71855687cc84b783c468b08",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.3809236442879893,
+        "character_fallback_rate": 0.13723577235772358,
+        "fertility_rate": 1.5004527390713818,
+        "morpheme_boundary": {
+          "f1": 0.5969152700807906,
+          "false_negative": 3371,
+          "false_positive": 2666,
+          "precision": 0.6264013452914798,
+          "recall": 0.5700803468945288,
+          "true_positive": 4470
+        },
+        "morphological_consistency": {
+          "f1": 0.1938437459240903,
+          "precision": 0.3848663766314481,
+          "recall": 0.129545692270144,
+          "shared_both_pairs": 7431,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 19308,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.20472990886081016,
+        "protected_root_or_compound_extra_boundaries": 1928,
+        "tokens_per_sentence_nonwhitespace": 101.83495736906212,
+        "tokens_per_sentence_with_whitespace": 161.26522533495736,
+        "tokens_per_word": 1.5004527390713818,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.0003687871930265694,
+        "validation_proxy_boundary_crossings": 3371
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "cd428d24432b8eed1d234f98480b372d65dc2c24b131e8553ec859ae65148f2e",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 8192,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-2/vocab-16384": {
+      "actual_vocabulary_size": 16384,
+      "artifact_fingerprint": "cafdc22f4748bc1762ba157ef6ea87b9a1f7ed9bba95cee578784c01d87a9f59",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.754826434526181,
+        "character_fallback_rate": 0.11171264423452841,
+        "fertility_rate": 1.351038784647115,
+        "morpheme_boundary": {
+          "f1": 0.65083135391924,
+          "false_negative": 3046,
+          "false_positive": 2099,
+          "precision": 0.6955323469683783,
+          "recall": 0.6115291416911108,
+          "true_positive": 4795
+        },
+        "morphological_consistency": {
+          "f1": 0.2623411718142239,
+          "precision": 0.6041234521340122,
+          "recall": 0.16754994595725392,
+          "shared_both_pairs": 9611,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 15909,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.17611294880608197,
+        "protected_root_or_compound_extra_boundaries": 740,
+        "tokens_per_sentence_nonwhitespace": 92.7904993909866,
+        "tokens_per_sentence_with_whitespace": 152.22076735688185,
+        "tokens_per_word": 1.351038784647115,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.00040957207165277223,
+        "validation_proxy_boundary_crossings": 3046
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "bb536d6ca74553f3c8779d8efceacbccbd011e0ed55c325d103a9cc7562098d3",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 16384,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-2/vocab-6080": {
+      "actual_vocabulary_size": 6080,
+      "artifact_fingerprint": "0d9e0bdc937b98dbabe0791245f372f6fb047b17c016d504a4d549621fcc2cea",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.1846000322108994,
+        "character_fallback_rate": 0.15805446168324055,
+        "fertility_rate": 1.5929523617888224,
+        "morpheme_boundary": {
+          "f1": 0.6307274139269997,
+          "false_negative": 2968,
+          "false_positive": 2738,
+          "precision": 0.6402575220076205,
+          "recall": 0.6214768524422906,
+          "true_positive": 4873
+        },
+        "morphological_consistency": {
+          "f1": 0.2773408934939867,
+          "precision": 0.39099127676447265,
+          "recall": 0.21488093162720964,
+          "shared_both_pairs": 12326,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 31525,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.19682583749107355,
+        "protected_root_or_compound_extra_boundaries": 2978,
+        "tokens_per_sentence_nonwhitespace": 107.43422655298417,
+        "tokens_per_sentence_with_whitespace": 166.8644945188794,
+        "tokens_per_word": 1.5929523617888224,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.00034737244325986933,
+        "validation_proxy_boundary_crossings": 2968
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "7ba59913a622309c7e3462d3d99ef85462441acce788e8bc46d44488cdf50e5a",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 6080,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-2/vocab-8192": {
+      "actual_vocabulary_size": 8192,
+      "artifact_fingerprint": "7aa491995cf4092f8b916cfb79362a06babcf7cb6bf3f008e226b86ca114128e",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.3764183572000146,
+        "character_fallback_rate": 0.13839215463064958,
+        "fertility_rate": 1.502454851853715,
+        "morpheme_boundary": {
+          "f1": 0.6409765753876608,
+          "false_negative": 2984,
+          "false_positive": 2457,
+          "precision": 0.6640689089417555,
+          "recall": 0.6194362963907665,
+          "true_positive": 4857
+        },
+        "morphological_consistency": {
+          "f1": 0.278531349109539,
+          "precision": 0.46376634982533105,
+          "recall": 0.1990342038283184,
+          "shared_both_pairs": 11417,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 24618,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.18729756176108103,
+        "protected_root_or_compound_extra_boundaries": 1934,
+        "tokens_per_sentence_nonwhitespace": 101.95615103532278,
+        "tokens_per_sentence_with_whitespace": 161.38641900121803,
+        "tokens_per_word": 1.502454851853715,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.0003682957615854128,
+        "validation_proxy_boundary_crossings": 2984
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "9901fb6357f0bc71193af898ed18ddde9e1d1785597d70b9fe1952c80f346869",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 8192,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-4/vocab-16384": {
+      "actual_vocabulary_size": 16384,
+      "artifact_fingerprint": "26b0b64a0e7699b961b97af73302dca0f2e3e4176a846af90263795509138db5",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.745274049424715,
+        "character_fallback_rate": 0.1127691656329617,
+        "fertility_rate": 1.3544846320237436,
+        "morpheme_boundary": {
+          "f1": 0.7113239732318593,
+          "false_negative": 2420,
+          "false_positive": 1980,
+          "precision": 0.7324685853263072,
+          "recall": 0.6913658972069889,
+          "true_positive": 5421
+        },
+        "morphological_consistency": {
+          "f1": 0.35151499797324687,
+          "precision": 0.6428968584931888,
+          "recall": 0.2418848715177295,
+          "shared_both_pairs": 13875,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 21582,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.1476024392869887,
+        "protected_root_or_compound_extra_boundaries": 758,
+        "tokens_per_sentence_nonwhitespace": 92.99908647990256,
+        "tokens_per_sentence_with_whitespace": 152.4293544457978,
+        "tokens_per_word": 1.3544846320237436,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.0004085301086690089,
+        "validation_proxy_boundary_crossings": 2420
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "9fa762d4d750b8338ac6523ad69f3c430a54b34b53e422e56c545947fbe3d86f",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 16384,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-4/vocab-6080": {
+      "actual_vocabulary_size": 6080,
+      "artifact_fingerprint": "acb94f46ad30279ff5e44eb3c34fb897a96fb52a64508bdb308895c3c20b9fb3",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.1796397367865126,
+        "character_fallback_rate": 0.1576853104298502,
+        "fertility_rate": 1.595437396247296,
+        "morpheme_boundary": {
+          "f1": 0.6929213625427378,
+          "false_negative": 2369,
+          "false_positive": 2481,
+          "precision": 0.6880422482082234,
+          "recall": 0.6978701696212218,
+          "true_positive": 5472
+        },
+        "morphological_consistency": {
+          "f1": 0.3429992937629784,
+          "precision": 0.4337856933372437,
+          "recall": 0.28363725114187094,
+          "shared_both_pairs": 16270,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 37507,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.16243015449024034,
+        "protected_root_or_compound_extra_boundaries": 2984,
+        "tokens_per_sentence_nonwhitespace": 107.58465286236297,
+        "tokens_per_sentence_with_whitespace": 167.01492082825823,
+        "tokens_per_word": 1.595437396247296,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.00034683138004206116,
+        "validation_proxy_boundary_crossings": 2369
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "70d040eac7273e620fb32c380acf0cab2594526d1d41032209a28615ae7bf361",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 6080,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-4/vocab-8192": {
+      "actual_vocabulary_size": 8192,
+      "artifact_fingerprint": "034db661ef27e732bc1220cad5bcea0b39ece75ae169ab25494dd138963be0cc",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.369840537867244,
+        "character_fallback_rate": 0.13830967465982302,
+        "fertility_rate": 1.5053875949494442,
+        "morpheme_boundary": {
+          "f1": 0.7027096608096801,
+          "false_negative": 2382,
+          "false_positive": 2237,
+          "precision": 0.7093295218295218,
+          "recall": 0.6962122178293585,
+          "true_positive": 5459
+        },
+        "morphological_consistency": {
+          "f1": 0.35108579727245903,
+          "precision": 0.5027293995321029,
+          "recall": 0.2697256023151215,
+          "shared_both_pairs": 15472,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 30776,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.1539976356499962,
+        "protected_root_or_compound_extra_boundaries": 1937,
+        "tokens_per_sentence_nonwhitespace": 102.1336784409257,
+        "tokens_per_sentence_with_whitespace": 161.56394640682095,
+        "tokens_per_word": 1.5053875949494442,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.00036757826075333496,
+        "validation_proxy_boundary_crossings": 2382
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "1b0c1f6d9470cfe676b321f26bdac044c78a7d7cf397e5f022c5efefdd6909be",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 8192,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-8/vocab-16384": {
+      "actual_vocabulary_size": 16384,
+      "artifact_fingerprint": "b2d5fcb673722bb90cec07143183421a962255508bf91ae4b53505654cee8c00",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.741119688971164,
+        "character_fallback_rate": 0.11286295662883918,
+        "fertility_rate": 1.3559887318275567,
+        "morpheme_boundary": {
+          "f1": 0.7727361499902351,
+          "false_negative": 1906,
+          "false_positive": 1585,
+          "precision": 0.7892287234042553,
+          "recall": 0.7569187603621987,
+          "true_positive": 5935
+        },
+        "morphological_consistency": {
+          "f1": 0.40186192721557246,
+          "precision": 0.655633580558624,
+          "recall": 0.2897214183605871,
+          "shared_both_pairs": 16619,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 25348,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.11731631506309621,
+        "protected_root_or_compound_extra_boundaries": 766,
+        "tokens_per_sentence_nonwhitespace": 93.09013398294762,
+        "tokens_per_sentence_with_whitespace": 152.52040194884287,
+        "tokens_per_word": 1.3559887318275567,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.00040807695589430067,
+        "validation_proxy_boundary_crossings": 1906
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "3f2377f3f469d64a536e278c3500e70b2a11c7f6ba5305662c10452272e0b6d4",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 16384,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-8/vocab-6080": {
+      "actual_vocabulary_size": 6080,
+      "artifact_fingerprint": "692863f152085920d69ffcfc2eabd487cddee0ddbc67041df43b83f5675bbf75",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.173595878663524,
+        "character_fallback_rate": 0.1573667001299719,
+        "fertility_rate": 1.598475778459681,
+        "morpheme_boundary": {
+          "f1": 0.7481097294257327,
+          "false_negative": 1855,
+          "false_positive": 2176,
+          "precision": 0.7333986767949032,
+          "recall": 0.7634230327764315,
+          "true_positive": 5986
+        },
+        "morphological_consistency": {
+          "f1": 0.39049772415359246,
+          "precision": 0.4502607072110021,
+          "recall": 0.3447404204874307,
+          "shared_both_pairs": 19775,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 43919,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.1366970118579561,
+        "protected_root_or_compound_extra_boundaries": 3003,
+        "tokens_per_sentence_nonwhitespace": 107.76857490864799,
+        "tokens_per_sentence_with_whitespace": 167.19884287454323,
+        "tokens_per_word": 1.598475778459681,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.00034617212307363083,
+        "validation_proxy_boundary_crossings": 1855
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "06d32dac4fb4ff39262caf6c8475d3a2daa683d9bc91898f73b8b9e92d632607",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 6080,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    },
+    "penalty-8/vocab-8192": {
+      "actual_vocabulary_size": 8192,
+      "artifact_fingerprint": "8e83bc43cc7f4365d540a75eb845c91b823a88d2cbd2bee6f3f6d6db9e75c5e9",
+      "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+      "evidence_status": "provisional_development_proxy_not_gold",
+      "held_out_test_used": false,
+      "metrics": {
+        "average_token_length_codepoints": 3.3644777185028008,
+        "character_fallback_rate": 0.13790940603804053,
+        "fertility_rate": 1.507787112027768,
+        "morpheme_boundary": {
+          "f1": 0.7613708752707351,
+          "false_negative": 1865,
+          "false_positive": 1881,
+          "precision": 0.7605956471935853,
+          "recall": 0.762147685244229,
+          "true_positive": 5976
+        },
+        "morphological_consistency": {
+          "f1": 0.4063332474005327,
+          "precision": 0.5292998264957743,
+          "recall": 0.32973048359541157,
+          "shared_both_pairs": 18914,
+          "shared_morpheme_pairs": 57362,
+          "shared_token_pairs": 35734,
+          "word_types": 2226
+        },
+        "morphological_distance": 0.12710696551898265,
+        "protected_root_or_compound_extra_boundaries": 1926,
+        "tokens_per_sentence_nonwhitespace": 102.278928136419,
+        "tokens_per_sentence_with_whitespace": 161.70919610231425,
+        "tokens_per_word": 1.507787112027768,
+        "training_protected_boundary_merge_violations": 0,
+        "unknown_fallback_rate": 0.00036699329069538554,
+        "validation_proxy_boundary_crossings": 1865
+      },
+      "proxy_scored_occurrences": 6058,
+      "proxy_status_occurrences": {
+        "accepted": 6058,
+        "ambiguous": 24,
+        "protected_compound": 750,
+        "protected_root": 69706,
+        "unchanged": 122252
+      },
+      "report_fingerprint": "b4c747f3345bc9a51fb44fa6fc519e7680438e54d709a722082337d716a49309",
+      "schema_version": "1.0.0",
+      "target_vocabulary_size": 8192,
+      "validation_records": 3284,
+      "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+      "word_occurrences": 198790,
+      "word_types": 34046
+    }
+  },
+  "lexicon_path": "C:\\Users\\Gabo\\kapampangan-tokenizer-pipeline\\resources\\training-lexicon.json",
+  "note": "Scoring only; no retraining. Compares weighted_morphbpe_v3's already -trained artifacts against the real data/validation.csv, replacing the 1,197-form silver audit those artifacts were previously judged on. No selection is performed here.",
+  "rows": [
+    {
+      "boundary_f1": 0.445369260069126,
+      "condition": "shipped_constrained_bpe",
+      "consistency_f1": 0.15262938809490773,
+      "crossing_penalty": null,
+      "fertility_rate": 1.580627798178983,
+      "morphological_distance": 0.2647229439611416,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.5883584041857423,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.19598754255087997,
+      "crossing_penalty": 1,
+      "fertility_rate": 1.5912369837516978,
+      "morphological_distance": 0.21386274074042314,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.5969152700807906,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.1938437459240903,
+      "crossing_penalty": 1,
+      "fertility_rate": 1.5004527390713818,
+      "morphological_distance": 0.20472990886081016,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.6113181504485852,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.18096299405184016,
+      "crossing_penalty": 1,
+      "fertility_rate": 1.348075858946627,
+      "morphological_distance": 0.1904409789066442,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.6307274139269997,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.2773408934939867,
+      "crossing_penalty": 2,
+      "fertility_rate": 1.5929523617888224,
+      "morphological_distance": 0.19682583749107355,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.6409765753876608,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.278531349109539,
+      "crossing_penalty": 2,
+      "fertility_rate": 1.502454851853715,
+      "morphological_distance": 0.18729756176108103,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.65083135391924,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.2623411718142239,
+      "crossing_penalty": 2,
+      "fertility_rate": 1.351038784647115,
+      "morphological_distance": 0.17611294880608197,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.6929213625427378,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.3429992937629784,
+      "crossing_penalty": 4,
+      "fertility_rate": 1.595437396247296,
+      "morphological_distance": 0.16243015449024034,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.7027096608096801,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.35108579727245903,
+      "crossing_penalty": 4,
+      "fertility_rate": 1.5053875949494442,
+      "morphological_distance": 0.1539976356499962,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.7113239732318593,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.35151499797324687,
+      "crossing_penalty": 4,
+      "fertility_rate": 1.3544846320237436,
+      "morphological_distance": 0.1476024392869887,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.7481097294257327,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.39049772415359246,
+      "crossing_penalty": 8,
+      "fertility_rate": 1.598475778459681,
+      "morphological_distance": 0.1366970118579561,
+      "target_vocabulary_size": 6080,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.7613708752707351,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.4063332474005327,
+      "crossing_penalty": 8,
+      "fertility_rate": 1.507787112027768,
+      "morphological_distance": 0.12710696551898265,
+      "target_vocabulary_size": 8192,
+      "training_protected_boundary_merge_violations": 0
+    },
+    {
+      "boundary_f1": 0.7727361499902351,
+      "condition": "weighted_morphbpe",
+      "consistency_f1": 0.40186192721557246,
+      "crossing_penalty": 8,
+      "fertility_rate": 1.3559887318275567,
+      "morphological_distance": 0.11731631506309621,
+      "target_vocabulary_size": 16384,
+      "training_protected_boundary_merge_violations": 0
+    }
+  ]
+}
