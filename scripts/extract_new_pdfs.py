@@ -79,7 +79,7 @@ def extract_one(pdf_path: Path, source_id: str) -> dict:
             tmp_img.write_bytes(pix.tobytes("png"))
             try:
                 final_text = pytesseract.image_to_string(str(tmp_img), lang="eng")
-            except Exception as exc:  # noqa: BLE001
+            except Exception as exc:
                 final_text = ""
                 print(f"  [{source_id}] page {pg}: OCR ERROR: {exc}", flush=True)
             tmp_img.unlink(missing_ok=True)
@@ -112,11 +112,14 @@ def extract_one(pdf_path: Path, source_id: str) -> dict:
 def main() -> None:
     pdf_dir = Path(r"D:\Coding\thesis\pdf-dls")
     already_processed_names = {
-        "A Case Grammar of Pampangan (Charles Monroe Richards) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
-        "Bayung OrtograpiyaNG Kapampangan (Dr. Lucena P. Samson etc.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "A Case Grammar of Pampangan (Charles Monroe Richards) "
+        "(z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "Bayung OrtograpiyaNG Kapampangan (Dr. Lucena P. Samson etc.) "
+        "(z-library.sk, 1lib.sk, z-lib.sk).pdf",
         "Paggamit sa Apat a Pagsabi (coll.) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
         "SL-030-forman-kapampangan-grammar-notes.pdf",
-        "Vocabulario De Pampango Fray DIEGO BERGA\u00d1O Translated by Venacio O. Samson (DIEGO BERGA\u00d1O) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
+        "Vocabulario De Pampango Fray DIEGO BERGA\u00d1O Translated by Venacio O. Samson "
+        "(DIEGO BERGA\u00d1O) (z-library.sk, 1lib.sk, z-lib.sk).pdf",
         "ilide.info-233458581-tagalog-ilocano-panggalatok-bicol-kapampangan-pr_90267df93eba53ba24b5b291ea07864d.pdf",
         "ilide.info-an-introduction-to-the-kapampangan-langu-pdf-pr_0f5aabe15f5d068f64c9a0185ad5b4cb.pdf",
         "ilide.info-b-pr_5ed9e563d92c49978a92f59bbc2ea2aa.pdf",
@@ -128,7 +131,9 @@ def main() -> None:
     }
 
     targets = sorted(
-        p for p in pdf_dir.iterdir() if p.suffix.lower() == ".pdf" and p.name not in already_processed_names
+        p
+        for p in pdf_dir.iterdir()
+        if p.suffix.lower() == ".pdf" and p.name not in already_processed_names
     )
 
     manifest = {"sources": []}
@@ -151,7 +156,9 @@ def main() -> None:
         f.write("\n")
 
     total_elapsed = time.time() - grand_t0
-    print(f"\nDone: {len(targets)} files in {total_elapsed/60:.1f} min. Manifest: {manifest_path}")
+    print(
+        f"\nDone: {len(targets)} files in {total_elapsed / 60:.1f} min. Manifest: {manifest_path}"
+    )
 
 
 if __name__ == "__main__":

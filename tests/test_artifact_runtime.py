@@ -14,6 +14,22 @@ from kapampangan_morphbpe.runtime_bridge import load_runtime_tokenizer
 from kapampangan_morphbpe.verification import verify_clean_runtime
 
 
+@pytest.mark.parametrize(
+    "artifact_path",
+    [
+        "artifacts/selected-tokenizer",
+        "webapp/backend/tokenizer/artifacts/morphbpe-penalty32",
+        "webapp/backend/tokenizer/artifacts/plain-bpe",
+    ],
+)
+def test_shipped_artifact_checksums_and_round_trip(artifact_path: str) -> None:
+    artifact = Path(__file__).resolve().parents[1] / artifact_path
+    assert validate_artifact_files(artifact)["checksums_match"] is True
+    tokenizer = load_runtime_tokenizer(artifact)
+    text = "Masánting! ñ"
+    assert tokenizer.decode(tokenizer.encode(text).ids) == text
+
+
 def test_artifact_round_trip_offsets_and_unknown(toy_artifact: Path) -> None:
     tokenizer = load_runtime_tokenizer(toy_artifact)
     encoding = tokenizer.encode("ab  ñ!")

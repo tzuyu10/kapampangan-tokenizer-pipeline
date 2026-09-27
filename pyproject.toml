@@ -53,6 +53,12 @@ strict = true
 packages = ["kapampangan_morphbpe"]
 mypy_path = ["src", "runtime"]
 
+# These integrations are optional; the core development environment does not
+# install the pretrained-tokenizer or machine-translation dependencies.
+[[tool.mypy.overrides]]
+module = ["tokenizers", "torch", "transformers"]
+ignore_missing_imports = true
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"

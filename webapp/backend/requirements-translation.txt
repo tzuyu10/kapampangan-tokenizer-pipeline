@@ -1,0 +1,6 @@
+torch>=2.6,<3
+transformers==4.48.3
+tokenizers==0.21.0
+sentencepiece==0.2.0
+safetensors==0.5.3
+huggingface-hub==0.28.1

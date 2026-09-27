@@ -1,82 +1,156 @@
-"""Truthful readiness metadata for the planned translator comparison.
-
-The repository currently contains the source-tokenizer adapter contract, but
-not the baseline NLLB weights or a trained custom-tokenizer checkpoint.  This
-module exposes that state to the UI so the comparison screen never invents a
-translation or implies that an untrained model is usable.
-"""
-
-from __future__ import annotations
-
+"""Real translation from matched source-embedding bundles; lazy single-process loading."""
+from functools import lru_cache
+from collections import OrderedDict
+import copy
+import hashlib
+import importlib.util
 import json
+import os
 from pathlib import Path
-from typing import Any
-
+import threading
+import time
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
-EXPORT_MANIFEST = REPOSITORY_ROOT / "nllb" / "export_manifest.json"
+BUNDLE_ROOT = Path(os.environ.get('KAPAMPANGAN_MODEL_DIR', str(REPOSITORY_ROOT/'nllb'/'checkpoints')))
+_LOCK = threading.Lock()
+_CACHE = {}
+_SHARED = {}
+_EMBEDDINGS = {}
+_RESULTS = OrderedDict()
+_RESULT_LIMIT = 128
 
 
-def _manifest() -> dict[str, Any]:
-    try:
-        value = json.loads(EXPORT_MANIFEST.read_text(encoding="utf-8"))
-    except (FileNotFoundError, json.JSONDecodeError):
-        return {}
-    return value if isinstance(value, dict) else {}
+@lru_cache(maxsize=2)
+def _bundle(condition):
+    path = BUNDLE_ROOT/condition
+    manifest = json.loads((path/'manifest.json').read_text(encoding='utf-8'))
+    if manifest['identity']['condition'] != condition:
+        raise ValueError('Checkpoint condition does not match its folder')
+    for relative,key in [('source_artifact/tokenizer.json','tokenizer_sha256'),
+                         ('source_artifact/tokenizer-manifest.json','artifact_manifest_sha256'),
+                         ('nllb_source_adapter.py','helper_sha256'),
+                         ('runtime/kapampangan_morphbpe_runtime/tokenizer.py','runtime_sha256')]:
+        if hashlib.sha256((path/relative).read_bytes()).hexdigest() != manifest['identity'][key]:
+            raise ValueError('Bundle checksum mismatch: '+relative)
+    if not (path/'best_source.safetensors').is_file():
+        raise ValueError('Trained source weights missing')
+    return path,manifest
+
+def status():
+    conditions = {}
+    for key,condition,label in [('baseline','plain_bpe','Plain BPE + NLLB-200'),('custom','morph_bpe','Morph-BPE + NLLB-200')]:
+        try:
+            _bundle(condition)
+            installed = True
+        except (OSError,ValueError,KeyError):
+            installed = False
+        dependencies = all(importlib.util.find_spec(x) is not None for x in ('torch','transformers','tokenizers','safetensors','sentencepiece'))
+        ready = installed and dependencies
+        conditions[key] = dict(label=label, role='Baseline' if key=='baseline' else 'Proposed system',
+            tokenizer=('Plain BPE' if key=='baseline' else 'Hard-constrained Morph-BPE')+' (6,080 source tokens)',
+            model='NLLB-200 Distilled 600M with trained source embeddings',ready=ready,
+            checkpoint_ready=installed, loaded=condition in _CACHE,
+            reason='Checkpoint installed; first translation loads the base model.' if ready else
+            ('Install translation dependencies and restart the backend.' if installed else 'Trained checkpoint not installed.'))
+    available = any(c['ready'] for c in conditions.values())
+    return dict(conditions=conditions,can_translate=available,
+        can_compare=all(c['ready'] for c in conditions.values()),inference_api_ready=available,
+        direction=dict(source='Kapampangan',target='Filipino',target_language_code='tgl_Latn'),
+        message='Plain BPE is available. Morph-BPE requires its own trained bundle.' if conditions['baseline']['ready'] and not conditions['custom']['ready'] else 'Translation uses installed trained bundles; first use may download the base model.')
+
+def translate(text, condition='plain_bpe'):
+    if not isinstance(text,str) or not text.strip() or len(text)>500:
+        raise ValueError('Enter between 1 and 500 characters of Kapampangan text.')
+    if condition not in ('plain_bpe','morph_bpe'):
+        raise ValueError('Unknown translation condition')
+    with _LOCK:
+        key = (condition, text.strip())
+        if key in _RESULTS:
+            _RESULTS.move_to_end(key)
+            return dict(_RESULTS[key], latency_ms=0, cache_hit=True)
+        path,manifest = _bundle(condition)
+        import torch
+        if condition not in _CACHE:
+            spec=importlib.util.spec_from_file_location('translation_adapter_'+condition,path/'nllb_source_adapter.py')
+            helper=importlib.util.module_from_spec(spec); spec.loader.exec_module(helper)
+            device=torch.device(os.environ.get('KAPAMPANGAN_DEVICE','cuda' if torch.cuda.is_available() else 'cpu'))
+            if device.type == 'cpu' and not _SHARED:
+                threads=int(os.environ.get('KAPAMPANGAN_CPU_THREADS', str(min(4, os.cpu_count() or 1))))
+                if threads < 1: raise ValueError('KAPAMPANGAN_CPU_THREADS must be positive')
+                torch.set_num_threads(threads)
+            # Share frozen NLLB weights; only the source embedding differs.
+            shared_key=(manifest['model_id'],manifest['revision'],str(device),
+                        hashlib.sha256((path/'target_tokenizer/tokenizer.json').read_bytes()).hexdigest())
+            if shared_key in _SHARED:
+                model,target=_SHARED[shared_key]
+                source=helper.SourceTokenizer(path/'source_artifact',manifest['source_vocab_size'])
+                from safetensors.torch import load_file
+                embedding=copy.copy(model.get_encoder().embed_tokens)
+                embedding._parameters=dict(embedding._parameters)
+                weight=load_file(str(path/'best_source.safetensors'))['weight']
+                if tuple(weight.shape)!=(source.size,model.config.d_model):
+                    raise ValueError('Source embedding dimensions do not match the base model')
+                embedding.weight=torch.nn.Parameter(weight.to(device),requires_grad=False)
+            else:
+                model,source,target=helper.load_bundle(path,device)
+                model.requires_grad_(False)
+                embedding=model.get_encoder().embed_tokens
+                _SHARED[shared_key]=(model,target)
+            _EMBEDDINGS[condition]=embedding
+            _CACHE[condition]=(model,source,target,device)
+        model,source,target,device=_CACHE[condition]
+        model.get_encoder().embed_tokens=_EMBEDDINGS[condition]
+        ids=source.encode(text.strip())
+        if len(ids)>manifest['identity']['source_limit']:
+            raise ValueError('Text exceeds the trained source-token limit. Translate a shorter passage.')
+        started=time.perf_counter()
+        with torch.inference_mode():
+            tensor=torch.tensor([ids],device=device)
+            output=model.generate(input_ids=tensor,attention_mask=tensor.ne(source.pad).long(),
+                forced_bos_token_id=target.convert_tokens_to_ids('tgl_Latn'),
+                max_new_tokens=manifest['identity']['max_new_tokens'],
+                num_beams=manifest['identity']['beams'],do_sample=False,use_cache=True)
+        token_ids=output[0].tolist()
+        result=dict(translation=target.decode(token_ids,skip_special_tokens=True),condition=condition,
+            source_token_count=len(ids),output_token_count=sum(x not in target.all_special_ids for x in token_ids),
+            latency_ms=round((time.perf_counter()-started)*1000), cache_hit=False)
+        _RESULTS[key]=dict(result)
+        if len(_RESULTS)>_RESULT_LIMIT: _RESULTS.popitem(last=False)
+        return result
+
+def compare(text):
+    readiness=status()
+    if not readiness['can_translate']:
+        raise ValueError('No trained translation bundle is available in this backend environment.')
+    result={}
+    for key,condition in [('baseline','plain_bpe'),('custom','morph_bpe')]:
+        if readiness['conditions'][key]['ready']:
+            result[key]=translate(text,condition)
+    return result
 
 
-def status() -> dict[str, Any]:
-    manifest = _manifest()
-    baseline_ready = manifest.get("nllb_model_downloaded") is True
-    custom_ready = manifest.get("nllb_model_trained") is True
+def tokenize_adapted(text, condition='plain_bpe'):
+    if not isinstance(text, str) or not text.strip() or len(text)>500:
+        raise ValueError('Enter between 1 and 500 characters.')
+    if condition not in ('plain_bpe', 'morph_bpe'):
+        raise ValueError('Unknown tokenizer condition')
+    path,manifest = _bundle(condition)
+    tokenizer=_native_tokenizer(condition)
+    encoded=tokenizer.encode(text)
+    result=encoded.to_dict()
+    result['condition']=condition
+    result['model_source_ids']=[2]+[1 if x==0 else 0 if x==1 else x for x in encoded.ids]+[3]
+    result['tokenizer_sha256']=manifest['identity']['tokenizer_sha256']
+    return result
 
-    # Loading/generation is intentionally not claimed here.  When inference
-    # is implemented, make this flag true only after both checkpoints pass a
-    # startup generation smoke test.
-    inference_api_ready = False
 
-    return {
-        "direction": {
-            "source": "Kapampangan",
-            "target": "Filipino",
-            "target_language_code": "tgl_Latn",
-        },
-        "can_compare": baseline_ready and custom_ready and inference_api_ready,
-        "inference_api_ready": inference_api_ready,
-        "conditions": {
-            "custom": {
-                "label": "MorphBPE + NLLB-200",
-                "role": "Proposed system",
-                "tokenizer": "MorphBPE penalty-32 (6,080 source tokens)",
-                "model": "NLLB-200 Distilled 600M with source embedding swap",
-                "ready": custom_ready and inference_api_ready,
-                "checkpoint_ready": custom_ready,
-                "reason": (
-                    "Ready for inference."
-                    if custom_ready and inference_api_ready
-                    else "The custom-tokenizer NLLB checkpoint has not been trained and exported."
-                ),
-            },
-            "baseline": {
-                "label": "Original NLLB-200",
-                "role": "Baseline",
-                "tokenizer": "Native NLLB-200 tokenizer",
-                "model": "facebook/nllb-200-distilled-600M",
-                "ready": baseline_ready and inference_api_ready,
-                "checkpoint_ready": baseline_ready,
-                "reason": (
-                    "Ready for inference."
-                    if baseline_ready and inference_api_ready
-                    else "The original NLLB-200 weights are not included in this repository."
-                ),
-            },
-        },
-        "message": (
-            "Both translation conditions are ready."
-            if baseline_ready and custom_ready and inference_api_ready
-            else "Translation comparison is waiting for the baseline weights, the trained "
-            "custom-tokenizer checkpoint, and the inference adapter."
-        ),
-        "manifest_status": manifest.get("status", "manifest_unavailable"),
-    }
-
+@lru_cache(maxsize=2)
+def _native_tokenizer(condition):
+    path,manifest=_bundle(condition)
+    import sys
+    spec=importlib.util.spec_from_file_location('adapted_runtime_'+condition,path/'runtime/kapampangan_morphbpe_runtime/tokenizer.py')
+    runtime=importlib.util.module_from_spec(spec)
+    sys.modules[spec.name]=runtime
+    spec.loader.exec_module(runtime)
+    tokenizer=runtime.Tokenizer(path/'source_artifact')
+    return tokenizer

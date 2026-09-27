@@ -1,3 +1,33 @@
+# Current matched translation workflow (2026-09-18)
+
+The fixed `notebooks/phase5-nllb-morphbpe-finetune.ipynb` now uses the same
+project-integrated implementation as `nllb/matched_colab/NLLB_600M_Kapampangan_Training.ipynb`.
+Use it with `nllb/matched_colab/kapampangan_colab_inputs.zip`.
+The two primary conditions are plain BPE and hard-constrained MorphBPE, with the
+same warm-start procedure, encoder-only updates, unchanged target vocabulary,
+correct source padding, full epoch checkpoints, and saved translation outputs.
+
+See [current run instructions](../../nllb/matched_colab/README_PROJECT.md) and
+[validation record](../../nllb/matched_colab/VALIDATION_PROJECT.md).
+The input ZIP contains the existing frozen silver dataset and exact tokenizer
+artifacts. The older six-file-only upload instructions below no longer apply to
+the corrected notebook. Historical results are not reused automatically.
+
+Rebuild the portable inputs and notebook from the repository root:
+
+```text
+python nllb/matched_colab/build_project_notebook.py .
+```
+
+The builder emits its notebook in `nllb/matched_colab/`; use that generated copy
+when rebuilding. Original tokenizer-corpus/test overlap remains unaudited because
+the original corpus is unavailable at its recorded location. Software fixes do not
+turn the silver translations into validated gold data.
+
+---
+
+## Historical experiment notes (retained for provenance)
+
 # NLLB fine-tune v1 (Phase 5)
 
 Adapts `facebook/nllb-200-distilled-600M` to **Kapampangan -> Filipino**

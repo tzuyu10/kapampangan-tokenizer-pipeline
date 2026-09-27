@@ -7,6 +7,7 @@
 # checksums. Treat them as binary so git never touches their line endings.
 artifacts/** -text
 experiments/**/artifacts/** -text
+webapp/backend/tokenizer/artifacts/** -text
 
 # Same risk, different source: translation_gold_v1/ and morphology_gold_v1/
 # copy external source CSVs into resources/ and record their SHA-256 in a

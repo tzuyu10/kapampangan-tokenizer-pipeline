@@ -3,6 +3,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import pytest
 from hypothesis import given
 from hypothesis import strategies as st
 
@@ -62,6 +63,8 @@ def test_target_misamban_matches_mi_an_circumfix_on_samba() -> None:
 def test_target_misamban_on_real_source_adjudicated_v2_lexicon() -> None:
     """Same case against the real, unmodified v2 corpus lexicon (samba is already a root)."""
     lexicon_path = _REPO_ROOT / "experiments/source_adjudicated_v2/resources/training-lexicon.json"
+    if not lexicon_path.exists():
+        pytest.skip("Requires the locally generated source_adjudicated_v2 training lexicon")
     segmenter = ExpandedMorphologicalSegmenter(load_lexicon(lexicon_path))
     result = segmenter.segment("misamban")
     assert result.status == "accepted"

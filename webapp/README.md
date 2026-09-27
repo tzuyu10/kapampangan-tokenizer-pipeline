@@ -1,3 +1,5 @@
+> **Current setup for new devices:** follow [RUNNING.md](RUNNING.md). It includes model installation, Windows/macOS/Linux commands, and local-network access.
+
 # Kapampangan Tokenizer — Web App
 
 A React frontend + Python backend that puts your trained MorphBPE tokenizer

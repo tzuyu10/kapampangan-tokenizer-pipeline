@@ -55,10 +55,9 @@ export default function TokenizerPage({ onTokenized, onCleared }) {
 
   return (
     <div className="page">
-      <h1 className="page-title">Kapampangan Tokenizer</h1>
+      <h1 className="page-title">Tokenizer training visualization</h1>
       <p className="page-subtitle">
-        Powered by Morphologically-Aware Byte-Pair Encoding Tokenizer for the Kapampangan
-        Language
+        Legacy penalty-32 visualization. For the exact Plain BPE and Morph-BPE translation tokenizers, use Show tokens on the Translator tab.
       </p>
 
       {error && <div className="error-banner">{error}</div>}

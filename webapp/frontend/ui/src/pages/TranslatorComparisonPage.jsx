@@ -25,15 +25,15 @@ const FALLBACK_CONDITIONS = {
   custom: {
     label: "MorphBPE + NLLB-200",
     role: "Proposed system",
-    tokenizer: "MorphBPE penalty-32 (6,080 source tokens)",
+    tokenizer: "Hard-constrained Morph-BPE (6,080 source tokens)",
     model: "NLLB-200 Distilled 600M with source embedding swap",
     ready: false,
     reason: "The custom-tokenizer translation checkpoint is not available.",
   },
   baseline: {
-    label: "Original NLLB-200",
+    label: "Plain BPE + NLLB-200",
     role: "Baseline",
-    tokenizer: "Native NLLB-200 tokenizer",
+    tokenizer: "Plain BPE (6,080 source tokens)",
     model: "facebook/nllb-200-distilled-600M",
     ready: false,
     reason: "The original NLLB-200 model is not available.",
@@ -109,7 +109,7 @@ function TranslationCondition({ condition, result, copied, onCopy, accent, demo 
         </div>
         <div>
           <span>Latency</span>
-          <strong>{result?.latency_ms != null ? `${result.latency_ms} ms` : "—"}</strong>
+          <strong>{result?.cache_hit ? "Cached" : result?.latency_ms != null ? `${result.latency_ms} ms` : "—"}</strong>
         </div>
       </div>
     </article>
@@ -136,7 +136,7 @@ export default function TranslatorComparisonPage() {
   }, []);
 
   const conditions = status?.conditions || FALLBACK_CONDITIONS;
-  const canCompare = Boolean(status?.can_compare);
+  const canCompare = Boolean(status?.can_translate);
 
   const runComparison = async () => {
     if (!source.trim() || !canCompare) return;
@@ -185,7 +185,7 @@ export default function TranslatorComparisonPage() {
     : loading
       ? "Comparing…"
       : canCompare
-        ? "Compare translations"
+        ? (status?.can_compare ? "Compare translations" : "Translate with Plain BPE")
         : "Models not ready";
 
   return (
@@ -248,9 +248,7 @@ export default function TranslatorComparisonPage() {
               <TrashIcon className="btn-icon" />
               Clear
             </button>
-            <button className="btn btn-demo" type="button" onClick={loadDemo}>
-              Load demo data
-            </button>
+            
           </div>
           <span className="char-count">{source.length}/{MAX_LEN}</span>
         </div>
@@ -284,15 +282,14 @@ export default function TranslatorComparisonPage() {
         />
       </section>
 
-      {!canCompare && !statusLoading && !isDemo && (
+      {!status?.can_compare && !statusLoading && !isDemo && (
         <aside className="readiness-callout">
           <div className="readiness-icon" aria-hidden="true">i</div>
           <div>
-            <strong>Interface ready; model inference pending</strong>
+            <strong>Translation availability</strong>
             <p>
               {status?.message || "The required translation checkpoints are not available."}
-              {" "}This screen intentionally shows no generated text until both real model
-              conditions can run.
+              
             </p>
           </div>
         </aside>

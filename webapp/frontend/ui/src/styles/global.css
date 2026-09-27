@@ -1291,3 +1291,10 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* Adapted Plain BPE translator uses two equal panels. */
+.plainbpe-panels { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+.plainbpe-panels .text-panel { min-width: 0; }
+.plainbpe-panels .panel-footer { flex-wrap: wrap; gap: 12px; }
+.plainbpe-status { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 0 0 20px; flex-wrap: wrap; }
+@media (max-width: 760px) { .plainbpe-panels { grid-template-columns: minmax(0, 1fr); } }

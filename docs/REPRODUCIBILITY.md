@@ -7,11 +7,24 @@ project-local `.venv`. The pinned build/test tools are maturin 1.9.4,
 pytest 8.4.1, Hypothesis 6.138.15, mypy 1.17.1, and Ruff 0.12.10. Training is a
 CPU/corpus workload; no GPU is required.
 
+On Windows, also install Microsoft C++ Build Tools with the Desktop development
+with C++ workload, including MSVC and the Windows SDK. A `link.exe not found`
+build error means this prerequisite is missing or unavailable to the shell.
+Use a Developer PowerShell for Visual Studio if the tools are installed but
+not detected.
+
 ```powershell
 uv venv .venv
 uv pip install --python .venv\Scripts\python.exe -r requirements-lock.txt
 uv pip install --python .venv\Scripts\python.exe -e .
 ```
+
+Virtual environments are machine-local. If `.venv\Scripts\python.exe --version`
+reports `No Python at ...` after moving the project or uninstalling Python,
+recreate the environment using an installed interpreter and reinstall the
+dependencies above. Do not copy `.venv` between machines. Installing the project
+with `-e .` is required as well as installing its dependency lock: it builds the
+Rust extension and creates the CLI commands.
 
 ## End-to-end Windows commands
 
@@ -51,6 +64,11 @@ python -m json.tool notebooks\tokenizer-training-colab.ipynb > $null
 
 `notebooks/tokenizer-training-colab.ipynb` provides the same staged workflow
 for an uploaded or mounted package and uses only generic `/content` paths.
+
+The real-corpus v4 morphology integration test is skipped when the locally
+generated `experiments/source_adjudicated_v2/resources/training-lexicon.json`
+is absent. The synthetic morphology regressions still run. Rust parity tests
+require the compiled extension and are not skipped when it is missing.
 
 ## Dataset validator note
 

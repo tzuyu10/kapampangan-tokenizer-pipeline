@@ -75,7 +75,7 @@ def rerun_source(source_id: str, pdf_path: str, dpi: int = 300) -> None:
         tmp_img.write_bytes(img_bytes)
         try:
             fresh_text = pytesseract.image_to_string(str(tmp_img), lang="eng")
-        except Exception as exc:  # noqa: BLE001 - record and continue
+        except Exception as exc:
             fresh_text = ""
             print(f"  page {pg}: OCR ERROR: {exc}", flush=True)
 
@@ -83,7 +83,9 @@ def rerun_source(source_id: str, pdf_path: str, dpi: int = 300) -> None:
         fresh_text_path.write_text(fresh_text, encoding="utf-8", newline="\n")
 
         orig_path = original_text_dir / f"page-{pg:04d}.txt"
-        orig_text = orig_path.read_text(encoding="utf-8", errors="replace") if orig_path.exists() else ""
+        orig_text = (
+            orig_path.read_text(encoding="utf-8", errors="replace") if orig_path.exists() else ""
+        )
 
         fresh_len = len(fresh_text.strip())
         orig_len = len(orig_text.strip())
@@ -120,7 +122,11 @@ def rerun_source(source_id: str, pdf_path: str, dpi: int = 300) -> None:
             elapsed = time.time() - t0
             rate = elapsed / pg
             remaining = rate * (n_pages - pg)
-            print(f"  ...page {pg}/{n_pages}, {elapsed:.0f}s elapsed, ~{remaining/60:.1f} min remaining", flush=True)
+            print(
+                f"  ...page {pg}/{n_pages}, {elapsed:.0f}s elapsed, "
+                f"~{remaining / 60:.1f} min remaining",
+                flush=True,
+            )
 
     report_csv = OUTPUT_ROOT / "reports" / f"{source_id}-comparison.csv"
     report_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -130,9 +136,17 @@ def rerun_source(source_id: str, pdf_path: str, dpi: int = 300) -> None:
         writer.writerows(rows)
 
     flagged = [r for r in rows if r["flag"]]
-    print(f"[{source_id}] done in {(time.time()-t0)/60:.1f} min. {len(flagged)} flagged pages of {n_pages}.", flush=True)
+    print(
+        f"[{source_id}] done in {(time.time() - t0) / 60:.1f} min. "
+        f"{len(flagged)} flagged pages of {n_pages}.",
+        flush=True,
+    )
     for r in flagged:
-        print(f"  page {r['pdf_page']}: {r['flag']} (orig={r['original_chars']}, fresh={r['fresh_chars']})", flush=True)
+        print(
+            f"  page {r['pdf_page']}: {r['flag']} "
+            f"(orig={r['original_chars']}, fresh={r['fresh_chars']})",
+            flush=True,
+        )
 
 
 if __name__ == "__main__":

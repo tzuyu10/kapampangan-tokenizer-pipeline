@@ -1,5 +1,7 @@
 # Kapampangan MorphBPE
 
+> **Run the translation and tokenizer web app:** see [webapp/RUNNING.md](webapp/RUNNING.md). It covers Windows, macOS/Linux, model installation, and testing from another device. Trained model bundles are distributed separately from Git source.
+
 Independent implementation and completed train/validation run of the
 three-stage tokenizer in `G4-THESIS-PROPOSAL-REVISED.pdf`:
 
@@ -29,6 +31,8 @@ Prerequisites:
 - Python 3.11 or newer
 - `uv`
 - Rust and Cargo (required to build the PyO3 segmenter)
+- Microsoft C++ Build Tools with the Desktop development with C++ workload
+  (MSVC compiler/linker and Windows SDK, required by Rust on Windows)
 - The external corpus only if you will reproduce training or validation
 
 Clone the repository and select the project branch after it has been pushed:

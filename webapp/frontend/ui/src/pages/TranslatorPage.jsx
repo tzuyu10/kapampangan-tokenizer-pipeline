@@ -1,85 +1,78 @@
-import { useState } from "react";
-import { TranslateIcon, TrashIcon, SwapIcon, CopyIcon } from "../components/icons.jsx";
+import { useEffect, useState } from "react";
+import { getTranslationStatus, translateAdapted, tokenizeAdapted } from "../api.js";
 
-const MAX_LEN = 500;
-
-// NOTE: There is no trained Kapampangan<->Filipino translation model yet —
-// the thesis pipeline currently ends at the tokenizer artifact (see the
-// project's PAPER_TRACEABILITY / LIMITATIONS docs: NLLB fine-tuning is
-// explicitly future work). This page is a UI shell only, matching the
-// provided design, so the layout exists ahead of that model. It does not
-// call the tokenizer backend at all.
 export default function TranslatorPage() {
+  const [condition, setCondition] = useState("plain_bpe");
+  const [tokens, setTokens] = useState(null);
+  const label = condition === "plain_bpe" ? "Plain BPE" : "Morph-BPE";
   const [source, setSource] = useState("");
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [checking, setChecking] = useState(true);
+  const [status, setStatus] = useState(null);
+  const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(source);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1200);
-    } catch {
-      // clipboard API unavailable (e.g. non-HTTPS context) — fail silently
-    }
-  };
-
-  return (
-    <div className="page">
-      <h1 className="page-title">Kapampangan-Filipino Translator</h1>
-      <p className="page-subtitle">
-        Powered by Morphologically-Aware Byte-Pair Encoding Tokenizer for the Kapampangan
-        Language
-      </p>
-
-      <div className="two-column">
-        <div className="card text-panel">
-          <span className="card-pill">Kapampangan</span>
-          <textarea
-            placeholder="Enter text here"
-            maxLength={MAX_LEN}
-            value={source}
-            onChange={(e) => setSource(e.target.value)}
-          />
-          <div className="panel-footer">
-            <div className="button-row">
-              <button className="btn btn-primary" disabled>
-                <TranslateIcon className="btn-icon" />
-                Translate
-              </button>
-              <button className="btn btn-secondary" onClick={() => setSource("")}>
-                <TrashIcon className="btn-icon" />
-                Clear
-              </button>
-            </div>
-            <span className="char-count">
-              {source.length}/{MAX_LEN}
-            </span>
+  const ready = Boolean(status?.conditions?.[condition === "plain_bpe" ? "baseline" : "custom"]?.ready);
+  async function checkStatus() {
+    setChecking(true); setError("");
+    try { setStatus(await getTranslationStatus()); }
+    catch { setStatus(null); setError("Cannot reach the backend. Start webapp/start-translation-backend.cmd, then click Check connection."); }
+    finally { setChecking(false); }
+  }
+  useEffect(() => { checkStatus(); }, []);
+  async function run() {
+    if (loading || !ready || !source.trim()) return;
+    setLoading(true); setError(""); setResult(null); setCopied(false);
+    try { setResult(await translateAdapted(source.trim(), condition)); }
+    catch (e) { setError(e.message.includes("fetch") ? "Connection lost. Check the backend terminal, then retry." : e.message); }
+    finally { setLoading(false); }
+  }
+  async function copy() {
+    try { await navigator.clipboard.writeText(result.translation); setCopied(true); }
+    catch { setError("Clipboard unavailable. Select and copy the translation manually."); }
+  }
+  return <main className="page">
+    <h1 className="page-title">Kapampangan-Filipino Translator</h1>
+    <p className="page-subtitle">Adapted Plain BPE and Morph-BPE + NLLB-200 600M</p>
+    <label>Model and tokenizer <select disabled={loading} value={condition} onChange={e => {setCondition(e.target.value);setResult(null);setTokens(null);setError("");}}><option value="plain_bpe">Plain BPE</option><option value="morph_bpe">Morph-BPE</option></select></label>
+    <div className="plainbpe-status" role="status">
+      <span>{checking ? "Checking backend..." : ready ? `${label} checkpoint available` : `${label} unavailable`}</span>
+      <button className="btn btn-secondary" disabled={checking || loading} onClick={checkStatus}>Check connection</button>
+    </div>
+    {!checking && status && !ready && <p>{status.conditions?.[condition === "plain_bpe" ? "baseline" : "custom"]?.reason}</p>}
+    {error && <div className="error-banner" role="alert">{error}</div>}
+    <div className="plainbpe-panels">
+      <div className="card text-panel">
+        <label className="card-pill" htmlFor="plainbpe-source">Kapampangan</label>
+        <textarea id="plainbpe-source" value={source} maxLength={500} disabled={loading}
+          onChange={e => { setSource(e.target.value); setTokens(null); setResult(null); setCopied(false); }}
+          onKeyDown={e => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); run(); } }}
+          placeholder="Enter Kapampangan text" />
+        <div className="panel-footer">
+          <div className="button-row">
+            <button className="btn btn-primary" disabled={loading || checking || !ready || !source.trim()} onClick={run}>{loading ? 'Translating...' : `Translate with ${label}`}</button>
+            <button className="btn btn-secondary" disabled={loading} onClick={() => { setSource(''); setResult(null); setError(''); setCopied(false); }}>Clear</button>
           </div>
-        </div>
-
-        <button className="swap-button" title="Swap languages (UI only)">
-          <SwapIcon />
-        </button>
-
-        <div className="card text-panel" style={{ position: "relative" }}>
-          <span className="card-pill">Filipino</span>
-          <textarea placeholder="Translation will show here..." readOnly value="" />
-          <button className="copy-button" onClick={handleCopy} title="Copy">
-            <CopyIcon />
-          </button>
-          {copied && (
-            <span style={{ position: "absolute", bottom: 18, right: 46, fontSize: 11 }}>
-              copied
-            </span>
-          )}
+          <span className="char-count">{source.length}/500</span>
         </div>
       </div>
-
-      <p className="translator-note">
-        Translation is not wired up yet — this page mirrors the design and is ready for the
-        NLLB-based translator once it's trained. The working part of this app is the Tokenizer
-        tab above.
-      </p>
+      <div className="card text-panel" aria-busy={loading}>
+        <label className="card-pill" htmlFor="plainbpe-output">Filipino</label>
+        <textarea id="plainbpe-output" readOnly value={result?.translation || ''} placeholder={loading ? 'Generating your translation...' : 'Translation appears here'} />
+        <div className="panel-footer"><button className="btn btn-secondary" disabled={!result?.translation} onClick={copy}>{copied ? 'Copied' : 'Copy translation'}</button></div>
+      </div>
     </div>
-  );
+    {loading && <p role="status">Loading or translating. The first request may download the base model; check the backend terminal for progress.</p>}
+    {result && <p className="translator-note">{label} output · {result.source_token_count} source tokens · {result.output_token_count} output tokens · {result.cache_hit ? 'Cached translation' : `${result.latency_ms} ms generation time`}</p>}
+    <button className="btn btn-secondary" disabled={loading || !source.trim()} onClick={async () => {
+      setError(''); setTokens(null); setLoading(true);
+      try { setTokens(await tokenizeAdapted(source, condition)); } catch(e) {setError(e.message);} finally {setLoading(false);}
+    }}>Show {label} tokens</button>
+    {tokens && <section className="card"><h2>{label} tokenization</h2>
+      <p>{tokens.tokens.map((t,i) => <code key={i} style={{display:'inline-block',whiteSpace:'pre-wrap',padding:'6px',margin:'3px',border:'1px solid #bbb'}}>{t.token}</code>)}</p>
+      <p>Token IDs: {tokens.ids.join(', ')}</p>
+      <details><summary>Model input IDs (including boundary tokens)</summary><p style={{overflowWrap:'anywhere'}}>{tokens.model_source_ids.join(', ')}</p></details>
+    </section>}
+    <p className="translator-note">Tokenization uses the exact artifact from the selected trained model.</p>
+  </main>;
 }

@@ -7,7 +7,7 @@ import ComparisonPage from "./pages/ComparisonPage.jsx";
 import { compareCustom } from "./api.js";
 
 export default function App() {
-  const [tab, setTab] = useState("tokenizer");
+  const [tab, setTab] = useState("translator");
 
   // The Comparison tab has no input of its own — it always shows the 3-way
   // comparison for whatever text was last tokenized on the Tokenizer tab.
