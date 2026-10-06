@@ -31,3 +31,6 @@ experiments/nllb_finetune_v1/data/** -text
 # Phase 4 NLLB architecture-verification result copied verbatim from Colab;
 # SHA-256 recorded in nllb/phase4-provenance-manifest.json.
 nllb/phase4-architecture-verification.json -text
+
+# Runtime tokenizer bytes are verified by checksums on every device.
+webapp/backend/tokenizer/artifacts/** -text

@@ -148,12 +148,16 @@ can never drift from the real Boundary F1 / Consistency F1 above them.
 A ~110-line HTTP server using only Python's standard library
 (`http.server`) — deliberately **not** Flask/FastAPI, so the backend needs
 zero `pip install` and can never break from a dependency mismatch before a
-defense. It has four routes: `GET /api/health`, `GET /api/examples`
+defense. It has six routes: `GET /api/health`, `GET /api/examples`
 (returns your `WORDS`/`SENTENCES`/`FAMILIES` data as ready-made example
 strings), `POST /api/tokenize` (calls `trace_service.analyze(text)`), and
-`POST /api/comparison/custom` (calls `comparison_service.custom_compare(text)`)
-— each just returns that function's dict as JSON. CORS headers are added by
-hand for the same zero-dependency reason.
+`POST /api/comparison/custom` (calls `comparison_service.custom_compare(text)`),
+plus `GET /api/translation/status` and reserved
+`POST /api/translate/compare`. `translation_service.py` derives checkpoint
+readiness from `nllb/export_manifest.json`; the reserved compare route returns
+503 until real model inference exists, preventing the UI from presenting mock
+text as research output. CORS headers are added by hand for the same
+zero-dependency reason.
 
 ### The frontend (`frontend/ui/`)
 
@@ -170,6 +174,13 @@ bars, no charting library — consistent with the zero-dependency backend),
 and a per-metric `<details>` disclosure with the `scoring_explain.py`
 breakdown. Every page contains **no tokenizer logic and no scoring math at
 all** — they only render whatever JSON the corresponding endpoint returns.
+
+`pages/TranslatorComparisonPage.jsx` adds a symmetric translator A/B view:
+one shared Kapampangan input followed by the MorphBPE source-tokenizer
+condition and the original NLLB-200 baseline. It renders live readiness,
+model/tokenizer identity, translation output, token counts, and latency. The
+action remains disabled while either checkpoint or the inference adapter is
+missing.
 
 `App.jsx` owns the state that connects the two tabs: `comparisonInput` /
 `comparisonResult` (plus loading/error) live there, `TokenizerPage` calls an

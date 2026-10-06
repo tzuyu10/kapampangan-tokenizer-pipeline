@@ -1,5 +1,5 @@
 """Minimal SentencePiece-Unigram decoder — copied verbatim from the team's
-own `demo.py` (see `_reference_demo_source.py`). Not modified in any way;
+own `demo.py` (see `_reference_demo_source.py`). Extended with optional best-path tracing;
 only moved into its own module so the backend can import it without also
 re-running demo.py's module-level side effects (which construct its
 tokenizers using paths relative to demo.py's own location).
@@ -32,7 +32,7 @@ class UnigramLM:
         self.vocabulary_size = len(model["vocab"])
         self._unk = min(s for s in self.score.values() if s < 0) - 10.0
 
-    def encode(self, word: str) -> list[str]:
+    def encode(self, word: str, *, trace: bool = False):
         n = len(word)
         best: list[tuple[float, int, str]] = [(-math.inf, -1, "")] * (n + 1)
         best[0] = (0.0, -1, "")
@@ -63,4 +63,8 @@ class UnigramLM:
             if p == "<unk>" and merged and merged[-1] == "<unk>":
                 continue
             merged.append(p)
+        if trace:
+            return dict(surface=word, final_tokens=merged, steps=[
+                dict(end=i, start=best[i][1], piece=best[i][2], score=best[i][0])
+                for i in range(1, n+1)])
         return merged

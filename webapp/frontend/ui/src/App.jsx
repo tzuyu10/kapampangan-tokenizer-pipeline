@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Header from "./components/Header.jsx";
 import TranslatorPage from "./pages/TranslatorPage.jsx";
+import TranslatorComparisonPage from "./pages/TranslatorComparisonPage.jsx";
 import TokenizerPage from "./pages/TokenizerPage.jsx";
 import ComparisonPage from "./pages/ComparisonPage.jsx";
 import { compareCustom } from "./api.js";
 
 export default function App() {
-  const [tab, setTab] = useState("tokenizer");
+  const [tab, setTab] = useState("translator");
 
   // The Comparison tab has no input of its own — it always shows the 3-way
   // comparison for whatever text was last tokenized on the Tokenizer tab.
@@ -19,6 +20,7 @@ export default function App() {
   const runComparison = async (text) => {
     setComparisonInput(text);
     setComparisonLoading(true);
+    setComparisonResult(null);
     setComparisonError(null);
     try {
       const data = await compareCustom(text);
@@ -27,7 +29,9 @@ export default function App() {
       setComparisonError(
         err.message.includes("fetch")
           ? "Could not reach the tokenizer backend. Is `python server.py` running on port 8000?"
-          : err.message
+          : err.message.includes("unicodedata")
+            ? "The backend has an older comparison module loaded. Restart the backend, then retry the comparison."
+            : err.message
       );
       setComparisonResult(null);
     } finally {
@@ -45,6 +49,7 @@ export default function App() {
     <div className="app-shell">
       <Header active={tab} onChange={setTab} />
       {tab === "translator" && <TranslatorPage />}
+      {tab === "translator-comparison" && <TranslatorComparisonPage />}
       {tab === "tokenizer" && (
         <TokenizerPage onTokenized={runComparison} onCleared={clearComparison} />
       )}
@@ -55,6 +60,7 @@ export default function App() {
           loading={comparisonLoading}
           error={comparisonError}
           onGoToTokenizer={() => setTab("tokenizer")}
+          onRetry={() => runComparison(comparisonInput)}
         />
       )}
       <div className="footer-bar">

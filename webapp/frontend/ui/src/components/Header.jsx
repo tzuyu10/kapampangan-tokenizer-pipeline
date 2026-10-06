@@ -1,5 +1,6 @@
 const TABS = [
   { key: "translator", label: "Translator" },
+  { key: "translator-comparison", label: "Translator A/B" },
   { key: "tokenizer", label: "Tokenizer" },
   { key: "comparison", label: "Comparison" },
 ];

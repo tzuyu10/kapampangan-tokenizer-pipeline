@@ -1,3 +1,4 @@
+import { TokenizationProcess } from "../components/ProcessViews.jsx";
 const NAMES = ["MorphBPE", "Plain BPE", "Unigram-LM"];
 const DOT_CLASS = { MorphBPE: "morph", "Plain BPE": "plain", "Unigram-LM": "uni" };
 
@@ -160,7 +161,7 @@ function ConsistencyExplainTokenizer({ name, explain }) {
     groups.length === 0
       ? "none"
       : groups.map((g) => `'${g[keyName]}' → ${g.words.join(", ")}`).join("; ");
-  const pairText = (pairs) => (pairs.length ? ` [${pairs.map((p) => p.join(" ↔ ")).join(", ")}]` : "");
+  const pairText = (pairs) => (pairs.length ? ` [${pairs.map((p) => p.join(" â†” ")).join(", ")}]` : "");
 
   return (
     <div className="compute-tokenizer-block">
@@ -216,16 +217,16 @@ function ConsistencyExplain({ explain }) {
   );
 }
 
-export default function ComparisonPage({ input, result, loading, error, onGoToTokenizer }) {
+export default function ComparisonPage({ input, result, loading, error, onGoToTokenizer, onRetry }) {
   return (
     <div className="page">
       <h1 className="page-title">Tokenizer Comparison</h1>
       <p className="page-subtitle">
-        MorphBPE penalty-32 vs. Plain BPE vs. Unigram-LM (NLLB&rsquo;s own algorithm) — using the
+        MorphBPE penalty-32 vs. Plain BPE vs. matched Unigram-LM control — using the
         same input you tokenize on the Tokenizer tab
       </p>
 
-      {error && <div className="error-banner">{error}</div>}
+      {error && <div className="error-banner" role="alert"><p>{error}</p>{input && <button className="btn btn-secondary" disabled={loading} onClick={onRetry}>Retry comparison</button>}</div>}
 
       {!input && !loading && !error && (
         <div className="card comparison-empty-card">
@@ -243,10 +244,11 @@ export default function ComparisonPage({ input, result, loading, error, onGoToTo
 
       {result && (
         <>
-          <SplitsSection result={result} />
+          <TokenizationProcess result={result} />
+          <details className="process-step"><summary>Resulting token splits</summary><SplitsSection result={result} /></details>
 
-          <div className="comparison-section">
-            <h2 className="comparison-section-title">Score Comparison</h2>
+          <section className="comparison-section" aria-labelledby="score-comparison-heading">
+            <h2 id="score-comparison-heading" className="comparison-section-title">Score comparison</h2>
             <p className="comparison-section-note">
               Every score below is computed live from the actual artifacts for the exact text you
               tokenized — nothing here is pre-baked.
@@ -295,10 +297,10 @@ export default function ComparisonPage({ input, result, loading, error, onGoToTo
                 </div>
               )}
             </div>
-          </div>
+          </section>
 
-          <div className="comparison-section">
-            <h2 className="comparison-section-title">How These Scores Are Computed</h2>
+          <details className="process-step">
+            <summary>How the scores are computed</summary>
             <p className="comparison-section-note">
               Straight from the scoring code — the numbers below are the exact intermediate
               values used to produce the scores above, verified at server startup to match{" "}
@@ -307,7 +309,7 @@ export default function ComparisonPage({ input, result, loading, error, onGoToTo
             <FertilityExplain fertility={result.fertility} />
             {result.gold && <BoundaryExplain explain={result.gold.explain} />}
             {result.gold && <ConsistencyExplain explain={result.gold.explain} />}
-          </div>
+          </details>
         </>
       )}
     </div>

@@ -24,3 +24,16 @@ experiments/expanded_morphology_v4/resources/nllb-tokenizer/
 # policy as the NLLB tokenizer above. The small curated derivatives
 # (pld_prompt_inventory_*, candidate/verified pair CSVs) are kept.
 experiments/parallel_extraction_*/resources/pld_prompt_entries_pam_fil.csv
+
+# Local trained translation bundles and runtime
+nllb/checkpoints/
+.venv-translation/
+
+# Local dependency and model caches
+.cache/
+
+# Local distribution files and configuration
+release-assets/
+.env
+.env.*
+!.env.example

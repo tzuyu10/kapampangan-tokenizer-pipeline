@@ -1,0 +1,559 @@
+{
+  "controls": {
+    "compatible": true,
+    "errors": [],
+    "warnings": [
+      "Morph-BPE translation artifact uses hard constraints without crossing-penalty scoring; see manuscript alignment audit."
+    ],
+    "scope": "Saved bundle controls; does not establish data quality or translation accuracy."
+  },
+  "conditions": {
+    "plain_bpe": {
+      "cfg": {
+        "seed": 42,
+        "epochs": 15,
+        "early_stopping_patience": 3,
+        "early_stopping_min_delta": 0.001,
+        "lr": 0.0003,
+        "batch_size": 1,
+        "accumulation": 8,
+        "initialization": "warm_start"
+      },
+      "adaptation": "source_embedding_only",
+      "completed_epochs": 15,
+      "best_validation_epoch": 15,
+      "tokenization": {
+        "normalized_text": "Masanting ya ing abak. Komusta ka?",
+        "tokens": [
+          {
+            "token": "Mas",
+            "id": 2518,
+            "start": 0,
+            "end": 3,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": "anting",
+            "id": 2167,
+            "start": 3,
+            "end": 9,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 9,
+            "end": 10,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ya",
+            "id": 1609,
+            "start": 10,
+            "end": 12,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 12,
+            "end": 13,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ing",
+            "id": 1594,
+            "start": 13,
+            "end": 16,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 16,
+            "end": 17,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "abak",
+            "id": 3830,
+            "start": 17,
+            "end": 21,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": ".",
+            "id": 19,
+            "start": 21,
+            "end": 22,
+            "pretoken_kind": "punctuation",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 22,
+            "end": 23,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "K",
+            "id": 48,
+            "start": 23,
+            "end": 24,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "om",
+            "id": 1663,
+            "start": 24,
+            "end": 26,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": "usta",
+            "id": 5781,
+            "start": 26,
+            "end": 30,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 30,
+            "end": 31,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ka",
+            "id": 1598,
+            "start": 31,
+            "end": 33,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": "?",
+            "id": 36,
+            "start": 33,
+            "end": 34,
+            "pretoken_kind": "punctuation",
+            "vocabulary_kind": "character"
+          }
+        ],
+        "ids": [
+          2518,
+          2167,
+          5,
+          1609,
+          5,
+          1594,
+          5,
+          3830,
+          19,
+          5,
+          48,
+          1663,
+          5781,
+          5,
+          1598,
+          36
+        ],
+        "attention_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "offsets": [
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            13,
+            16
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            17,
+            21
+          ],
+          [
+            21,
+            22
+          ],
+          [
+            22,
+            23
+          ],
+          [
+            23,
+            24
+          ],
+          [
+            24,
+            26
+          ],
+          [
+            26,
+            30
+          ],
+          [
+            30,
+            31
+          ],
+          [
+            31,
+            33
+          ],
+          [
+            33,
+            34
+          ]
+        ],
+        "condition": "plain_bpe",
+        "model_source_ids": [
+          2,
+          2518,
+          2167,
+          5,
+          1609,
+          5,
+          1594,
+          5,
+          3830,
+          19,
+          5,
+          48,
+          1663,
+          5781,
+          5,
+          1598,
+          36,
+          3
+        ],
+        "tokenizer_sha256": "4098512366353a8d0d0793b11a62eb53f92ea442972b29bb042a4cef2069fa52"
+      },
+      "unknown_count": 0
+    },
+    "morph_bpe": {
+      "cfg": {
+        "seed": 42,
+        "epochs": 15,
+        "early_stopping_patience": 3,
+        "early_stopping_min_delta": 0.001,
+        "lr": 0.0003,
+        "batch_size": 1,
+        "accumulation": 8,
+        "initialization": "warm_start"
+      },
+      "adaptation": "source_embedding_only",
+      "completed_epochs": 15,
+      "best_validation_epoch": 15,
+      "tokenization": {
+        "normalized_text": "Masanting ya ing abak. Komusta ka?",
+        "tokens": [
+          {
+            "token": "Mas",
+            "id": 2509,
+            "start": 0,
+            "end": 3,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": "anting",
+            "id": 2155,
+            "start": 3,
+            "end": 9,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 9,
+            "end": 10,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ya",
+            "id": 1606,
+            "start": 10,
+            "end": 12,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 12,
+            "end": 13,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ing",
+            "id": 1594,
+            "start": 13,
+            "end": 16,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 16,
+            "end": 17,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "abak",
+            "id": 3723,
+            "start": 17,
+            "end": 21,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": ".",
+            "id": 19,
+            "start": 21,
+            "end": 22,
+            "pretoken_kind": "punctuation",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 22,
+            "end": 23,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "K",
+            "id": 48,
+            "start": 23,
+            "end": 24,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "om",
+            "id": 1671,
+            "start": 24,
+            "end": 26,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": "usta",
+            "id": 5702,
+            "start": 26,
+            "end": 30,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 30,
+            "end": 31,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ka",
+            "id": 1598,
+            "start": 31,
+            "end": 33,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": "?",
+            "id": 36,
+            "start": 33,
+            "end": 34,
+            "pretoken_kind": "punctuation",
+            "vocabulary_kind": "character"
+          }
+        ],
+        "ids": [
+          2509,
+          2155,
+          5,
+          1606,
+          5,
+          1594,
+          5,
+          3723,
+          19,
+          5,
+          48,
+          1671,
+          5702,
+          5,
+          1598,
+          36
+        ],
+        "attention_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "offsets": [
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            13,
+            16
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            17,
+            21
+          ],
+          [
+            21,
+            22
+          ],
+          [
+            22,
+            23
+          ],
+          [
+            23,
+            24
+          ],
+          [
+            24,
+            26
+          ],
+          [
+            26,
+            30
+          ],
+          [
+            30,
+            31
+          ],
+          [
+            31,
+            33
+          ],
+          [
+            33,
+            34
+          ]
+        ],
+        "condition": "morph_bpe",
+        "model_source_ids": [
+          2,
+          2509,
+          2155,
+          5,
+          1606,
+          5,
+          1594,
+          5,
+          3723,
+          19,
+          5,
+          48,
+          1671,
+          5702,
+          5,
+          1598,
+          36,
+          3
+        ],
+        "tokenizer_sha256": "b034e67b0c6e53db63230e418870ab5e3a8414435236ab75d3d6971443381c01"
+      },
+      "unknown_count": 0
+    }
+  },
+  "scope": "Source sequences and saved controls only; no generation or translation-quality assessment."
+}

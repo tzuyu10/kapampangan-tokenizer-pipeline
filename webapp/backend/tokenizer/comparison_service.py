@@ -12,13 +12,14 @@ the same-named functions in the team's own demo.py.
 
 The Comparison tab always compares whatever text you last tokenized on the
 Tokenizer tab (there is no separate example showcase or static input box
-here anymore) — `custom_compare()` is the single entry point, called for
+here anymore) â€” `custom_compare()` is the single entry point, called for
 every request.
 """
 
 from __future__ import annotations
 
 import math
+import unicodedata
 from pathlib import Path
 from typing import Any
 
@@ -53,7 +54,7 @@ def groups_by_tokenizer(text: str) -> dict[str, list[tuple[str, ...]]]:
     """Per-word piece tuples for each tokenizer, aligned word-for-word."""
     m = [tuple(g) for g in _bpe_groups(MORPH, text)]
     p = [tuple(g) for g in _bpe_groups(PLAIN, text)]
-    surfaces = ["".join(g) for g in m]  # normalized + pretokenized word surfaces
+    surfaces = unicodedata.normalize("NFC", text).split()  # Preserve original characters, including unknowns.
     u = [tuple(UNI.encode(s)) for s in surfaces]
     return {"MorphBPE": m, "Plain BPE": p, "Unigram-LM": u}
 
@@ -74,7 +75,10 @@ def custom_compare(raw_text: str) -> dict[str, Any] | None:
     """
     if not raw_text or not raw_text.strip():
         return None
-    raw_tokens = raw_text.split()
+    if len(raw_text)>500: raise ValueError("Use at most 500 characters.")
+    raw_tokens = unicodedata.normalize("NFC", raw_text).split()
+    if any(not t.replace("|", "") or ("|" in t and any(not p for p in t.split("|"))) for t in raw_tokens):
+        raise ValueError("Place | only between non-empty morphemes.")
     sentence = [(t.replace("|", ""), t if "|" in t else "") for t in raw_tokens]
     text = " ".join(surface for surface, _ in sentence)
     has_gold = any(spec for _surface, spec in sentence)
@@ -94,6 +98,21 @@ def custom_compare(raw_text: str) -> dict[str, Any] | None:
         },
         "gold": None,
     }
+    from trace_service import trace_word
+    from kapampangan_morphbpe_runtime.tokenizer import _pretokenize
+    pretokens = _pretokenize(unicodedata.normalize('NFC', text))
+    result['process'] = {'pretokens': [p.surface for p in pretokens], 'traces': {}}
+    for name, tok in [('MorphBPE', MORPH), ('Plain BPE', PLAIN)]:
+        traces=[]
+        for pretoken in pretokens:
+            if pretoken.kind == 'whitespace': continue
+            trace=trace_word(tok, pretoken.surface)
+            actual=[t.token for t in tok.encode(pretoken.surface).tokens]
+            if actual != [t['token'] for t in trace['final_tokens']]:
+                raise ValueError('Trace does not match tokenizer output')
+            traces.append(trace)
+        result['process']['traces'][name]=traces
+    result['process']['traces']['Unigram-LM'] = [UNI.encode(word, trace=True) for word in text.split()]
     if has_gold and all(len(enc[n]) == len(sentence) for n in NAMES):
         rows = ref.rows_for(sentence)
         shared_pairs = int(ref.mcf1(rows, enc["MorphBPE"])["mcf1_gold_pairs"])

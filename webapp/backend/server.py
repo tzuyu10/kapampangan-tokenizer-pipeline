@@ -13,6 +13,7 @@ Serves on: http://127.0.0.1:8000
 from __future__ import annotations
 
 import json
+import os
 import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -22,9 +23,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "tokenizer"))
 
 import trace_service  # noqa: E402
 import comparison_service  # noqa: E402
+import translation_service  # noqa: E402
 
-HOST = "127.0.0.1"
-PORT = 8000
+HOST = os.environ.get("KAPAMPANGAN_HOST", "127.0.0.1")
+PORT = int(os.environ.get("KAPAMPANGAN_PORT", "8000"))
 
 # Allow the Vite dev server (default port 5173) — and a couple of common
 # alternates — to call this API from the browser.
@@ -76,6 +78,8 @@ class Handler(BaseHTTPRequestHandler):
                 )
             elif path == "/api/examples":
                 self._send_json(200, trace_service.examples())
+            elif path == "/api/translation/status":
+                self._send_json(200, translation_service.status())
             else:
                 self._send_json(404, {"error": f"not found: {path}"})
         except Exception as exc:  # pragma: no cover - defensive
@@ -83,7 +87,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self) -> None:
         path = urlparse(self.path).path
-        if path not in ("/api/tokenize", "/api/comparison/custom"):
+        if path not in ("/api/tokenize", "/api/comparison/custom", "/api/translate/compare", "/api/translate", "/api/tokenize/adapted"):
             self._send_json(404, {"error": f"not found: {path}"})
             return
         try:
@@ -93,10 +97,16 @@ class Handler(BaseHTTPRequestHandler):
             text = data.get("text", "")
             if not isinstance(text, str):
                 raise ValueError("`text` must be a string")
-            if path == "/api/tokenize":
+            if path == "/api/tokenize/adapted":
+                result = translation_service.tokenize_adapted(text, data.get("condition", "plain_bpe"))
+            elif path == "/api/tokenize":
                 result = trace_service.analyze(text)
-            else:
+            elif path == "/api/comparison/custom":
                 result = comparison_service.custom_compare(text)
+            elif path == "/api/translate":
+                result = translation_service.translate(text, data.get("condition", "plain_bpe"))
+            else:
+                result = translation_service.compare(text)
             self._send_json(200, result)
         except Exception as exc:
             self._send_json(400, {"error": str(exc)})

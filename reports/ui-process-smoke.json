@@ -1,0 +1,408 @@
+{
+  "baseline": {
+    "translation": "Maliwanag ang umaga.",
+    "condition": "plain_bpe",
+    "source_token_count": 11,
+    "output_token_count": 5,
+    "latency_ms": 13691,
+    "cache_hit": false,
+    "process": {
+      "tokenization": {
+        "normalized_text": "Masanting ya ing abak.",
+        "tokens": [
+          {
+            "token": "Mas",
+            "id": 2518,
+            "start": 0,
+            "end": 3,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": "anting",
+            "id": 2167,
+            "start": 3,
+            "end": 9,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 9,
+            "end": 10,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ya",
+            "id": 1609,
+            "start": 10,
+            "end": 12,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 12,
+            "end": 13,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ing",
+            "id": 1594,
+            "start": 13,
+            "end": 16,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 16,
+            "end": 17,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "abak",
+            "id": 3830,
+            "start": 17,
+            "end": 21,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": ".",
+            "id": 19,
+            "start": 21,
+            "end": 22,
+            "pretoken_kind": "punctuation",
+            "vocabulary_kind": "character"
+          }
+        ],
+        "ids": [
+          2518,
+          2167,
+          5,
+          1609,
+          5,
+          1594,
+          5,
+          3830,
+          19
+        ],
+        "attention_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "offsets": [
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            13,
+            16
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            17,
+            21
+          ],
+          [
+            21,
+            22
+          ]
+        ],
+        "condition": "plain_bpe",
+        "model_source_ids": [
+          2,
+          2518,
+          2167,
+          5,
+          1609,
+          5,
+          1594,
+          5,
+          3830,
+          19,
+          3
+        ],
+        "tokenizer_sha256": "4098512366353a8d0d0793b11a62eb53f92ea442972b29bb042a4cef2069fa52"
+      },
+      "attention_mask": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "embedding_shape": [
+        6080,
+        1024
+      ],
+      "output_ids": [
+        2,
+        256174,
+        34306,
+        72639,
+        477,
+        223192,
+        248075,
+        2
+      ],
+      "output_tokens": [
+        "</s>",
+        "tgl_Latn",
+        "▁Mali",
+        "wanag",
+        "▁ang",
+        "▁umaga",
+        ".",
+        "</s>"
+      ],
+      "beams": 4,
+      "max_new_tokens": 160,
+      "target_language": "tgl_Latn",
+      "adaptation": "source_embedding_only"
+    }
+  },
+  "custom": {
+    "translation": "Mabilis ang umaga.",
+    "condition": "morph_bpe",
+    "source_token_count": 11,
+    "output_token_count": 5,
+    "latency_ms": 4704,
+    "cache_hit": false,
+    "process": {
+      "tokenization": {
+        "normalized_text": "Masanting ya ing abak.",
+        "tokens": [
+          {
+            "token": "Mas",
+            "id": 2509,
+            "start": 0,
+            "end": 3,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": "anting",
+            "id": 2155,
+            "start": 3,
+            "end": 9,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 9,
+            "end": 10,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ya",
+            "id": 1606,
+            "start": 10,
+            "end": 12,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 12,
+            "end": 13,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "ing",
+            "id": 1594,
+            "start": 13,
+            "end": 16,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": " ",
+            "id": 5,
+            "start": 16,
+            "end": 17,
+            "pretoken_kind": "whitespace",
+            "vocabulary_kind": "character"
+          },
+          {
+            "token": "abak",
+            "id": 3723,
+            "start": 17,
+            "end": 21,
+            "pretoken_kind": "word",
+            "vocabulary_kind": "merge"
+          },
+          {
+            "token": ".",
+            "id": 19,
+            "start": 21,
+            "end": 22,
+            "pretoken_kind": "punctuation",
+            "vocabulary_kind": "character"
+          }
+        ],
+        "ids": [
+          2509,
+          2155,
+          5,
+          1606,
+          5,
+          1594,
+          5,
+          3723,
+          19
+        ],
+        "attention_mask": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "offsets": [
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            9,
+            10
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            13,
+            16
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            17,
+            21
+          ],
+          [
+            21,
+            22
+          ]
+        ],
+        "condition": "morph_bpe",
+        "model_source_ids": [
+          2,
+          2509,
+          2155,
+          5,
+          1606,
+          5,
+          1594,
+          5,
+          3723,
+          19,
+          3
+        ],
+        "tokenizer_sha256": "b034e67b0c6e53db63230e418870ab5e3a8414435236ab75d3d6971443381c01"
+      },
+      "attention_mask": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "embedding_shape": [
+        6080,
+        1024
+      ],
+      "output_ids": [
+        2,
+        256174,
+        24418,
+        17545,
+        477,
+        223192,
+        248075,
+        2
+      ],
+      "output_tokens": [
+        "</s>",
+        "tgl_Latn",
+        "▁Mab",
+        "ilis",
+        "▁ang",
+        "▁umaga",
+        ".",
+        "</s>"
+      ],
+      "beams": 4,
+      "max_new_tokens": 160,
+      "target_language": "tgl_Latn",
+      "adaptation": "source_embedding_only"
+    }
+  }
+}

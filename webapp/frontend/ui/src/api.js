@@ -1,7 +1,7 @@
 // Thin fetch wrapper around the Python backend (backend/server.py).
 // Change API_BASE if you run the backend on a different host/port.
 
-export const API_BASE = "http://127.0.0.1:8000";
+export const API_BASE = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
 
 async function request(path, options) {
   const res = await fetch(`${API_BASE}${path}`, options);
@@ -34,4 +34,30 @@ export function compareCustom(text) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ text }),
   });
+}
+
+export function getTranslationStatus() {
+  return request("/api/translation/status");
+}
+
+export function compareTranslations(text) {
+  return request("/api/translate/compare", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text }),
+  });
+}
+
+export function translatePlainBpe(text) {
+  return request("/api/translate", {
+    method: "POST", headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text, condition: "plain_bpe" }),
+  });
+}
+
+export function translateAdapted(text, condition) {
+ return request('/api/translate', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,condition})});
+}
+export function tokenizeAdapted(text, condition) {
+ return request('/api/tokenize/adapted', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,condition})});
 }
