@@ -2,17 +2,38 @@
 
 This app supports **Kapampangan to Filipino**, with separately trained Plain BPE and Morph-BPE source embeddings on NLLB-200 distilled 600M. It does not support the reverse direction. Translator lets you select a model and inspect its exact tokens. Translator A/B compares both outputs. The older Tokenizer tab is labeled as a penalty-32 training visualization.
 
+## Presenting the translation process
+
+In **Translator A/B**, enter a sentence in the left Kapampangan card and click **Compare translations**. Both Filipino results and generation statistics appear in the right Results card. Narrow screens stack the cards. Below them, choose **Morph-BPE** or **Plain BPE** to explain that condition's actual translation. The single Translator tab includes the same process panel.
+
+The numbered flow is: prepare input, tokenize Kapampangan, look up source embeddings, encode the sentence, generate target tokens with the decoder, decode using the native NLLB target tokenizer, and display Filipino output. Source pieces and vocabulary IDs, mapped model input IDs, target pieces and generated IDs come from the selected inference result. Embedding and encoder tables show the first four actual vector values per source position, rounded for readability. Embeddings include the model's lookup scaling, before positions are added. Encoder vectors are the last encoder-layer output; they are not new token IDs.
+
+Use **Previous**, **Next**, or **Decoder step** to walk through the real generation. **Incoming beam** selects a prefix and its top four next-token candidates. Four beams means four candidate sequences, not only four possible words. A second table shows the beam slots retained after each step; completed candidates are handled separately. Highlighting identifies prefixes matching the returned output retrospectively. The final candidates table shows actual sequence scores including the length penalty and marks the selected translation. Forced language/EOS constraints can leave fewer than four finite next-token candidates. Scores are log scores, not confidence percentages or translation-quality measures.
+
+The native NLLB target tokenizer table shows generated ID to token piece to growing readable text, with control tokens removed. It formats the model's output and does not translate the source by itself. All displayed vectors and candidate scores are observed during the original generation under the model lock, without changing generation settings or making an extra model pass. `generation_trace.py` observes the pinned Transformers 4.48.3 beam-search implementation and removes its hooks even on failure. Only small vector slices and candidate lists are stored, not full vocabulary score tensors. Reported generation time includes observation overhead and should not be compared directly with timings from uninstrumented runs.
+
+Only source embeddings were trained; pretrained encoder and decoder layers remain frozen. Generation statistics are not quality scores. Editing or clearing the input clears its previous results. Restart an already-running backend after updating the code so translation responses include the new `process` data. Cached translations retain that data and are labeled Cached.
+
+Backend regression checks: run `.venv-translation/Scripts/python.exe -m unittest discover -s webapp/backend -p "test_*.py" -v` on Windows (use `.venv-translation/bin/python` on macOS/Linux). Response tests use a mocked generation result; trace tests use a tiny real encoder-decoder to verify unchanged output, exact vector slices/candidate scores/final scores, beam continuity, and hook cleanup. No pretrained download or translation-quality evaluation is required for these tests.
+
 ## Requirements
 
 - Git, Python **3.11 or 3.12**, and Node.js **22 LTS** with npm.
 - Internet for dependency installation and the initial NLLB base download (approximately 2.5 GB). Allow additional space for environments and caches. 16 GB RAM is a practical target for CPU testing.
 - One or both trusted trained model ZIPs supplied by the project maintainer. A fresh Git clone does not contain them.
 
-All commands below start in the cloned repository root. Clone this repository using its actual GitHub URL, then open that folder in VS Code. Do not copy another device's virtual environment or node_modules.
+Clone the app branch, then open its folder in VS Code:
+
+```powershell
+git clone --branch Latest/WebApp --single-branch https://github.com/tzuyu10/kapampangan-tokenizer-pipeline.git
+Set-Location kapampangan-tokenizer-pipeline
+```
+
+All setup commands below start in the cloned repository root unless stated otherwise. Do not copy another device's virtual environment or node_modules.
 
 ## 1. Obtain the model bundles
 
-Download `plain_bpe_inference.zip` and `morph_bpe_inference.zip` from this repository's Releases **after the maintainer uploads them**, or request them directly. They are not automatically available just because the source was pushed. The original Kaggle backup ZIPs are also accepted.
+Obtain `plain_bpe_inference.zip` and `morph_bpe_inference.zip` directly from the project maintainer. Both are needed for the complete Translator A/B comparison. If the maintainer later publishes Release assets, those can be used instead. No public model download is assumed by this guide; pushing the source does not publish the bundles. Original full project backup ZIPs are also accepted.
 
 These bundles contain source weights, tokenizers, inference helper and provenance. They do not contain the frozen NLLB base. Inference ZIPs omit the optimizer checkpoint and cannot resume training; keep original Kaggle backups separately. Install trusted project bundles only, since their inference helper is Python code.
 
@@ -97,7 +118,7 @@ The server shares frozen base weights, keeps separate source embeddings, uses fo
 
 ## Evaluation
 
-See `notebooks/NLLB_600M_Kaggle_Paired_Evaluation.ipynb` and `notebooks/README_PAIRED_EVALUATION.md`. Those instructions use original full Kaggle backups, not the inference-only ZIPs. The local web app does not calculate BLEU without references and should not be used for uncached timing benchmarks. Training and evaluation data are not required to serve translations.
+Research evaluation notebooks and datasets are excluded from this app-only branch and remain on the research branches, including `nllb/translation`. Evaluation uses original full project backups, not the inference-only ZIPs. The local web app does not calculate BLEU without references and should not be used for uncached timing benchmarks. Training and evaluation data are not required to serve translations.
 
 ## Troubleshooting
 
@@ -110,12 +131,10 @@ See `notebooks/NLLB_600M_Kaggle_Paired_Evaluation.ipynb` and `notebooks/README_P
 - **Another device cannot connect:** use Vite's Network URL, not localhost; check private-network firewall and Wi-Fi isolation.
 - **Copy unavailable over LAN HTTP:** manually select the translation. Browsers can restrict clipboard access outside secure contexts.
 
-## Maintainer: preparing the GitHub push
+## Maintainer: app-only distribution
 
-1. Review `git status` and `git diff`; this working tree contains thesis work in addition to web app changes. Do not discard unrelated changes or blindly stage everything.
-2. Include `webapp` source, its existing UI package-lock.json, `.gitignore`, `.gitattributes`, this guide, and the root README update. Keep tokenizer artifact checksums together with the exact corresponding files. `.gitattributes` protects their bytes from line-ending conversion.
-3. Keep `.venv*`, `node_modules`, `.cache`, `dist`, `nllb/checkpoints`, and `release-assets` out of Git. Never commit account tokens or local .env files.
-4. Review and stage intended paths, for example `git add webapp README.md .gitignore .gitattributes`, then inspect `git diff --cached` before committing. Add evaluation notebooks separately if desired.
-5. Commit and push to your chosen branch. No commit, push, or public release was performed by the setup work.
-6. Upload the two inference ZIPs from the local ignored `release-assets` directory as GitHub Release assets, or distribute them privately. Only publish model/data assets you are authorized to share. Keep the pretrained NLLB base as an upstream download rather than including it in Git.
-7. Test a fresh clone using these instructions. Do not rely on files that exist only in your original checkout.
+- Keep app source, dependency manifests and UI lockfile, complete legacy tokenizer artifacts, setup scripts, this guide, and root project guidance together. Regression tests verify the translation process without downloading the base model.
+- Keep the checksum-preserving `.gitattributes` rule. Removing files listed in a tokenizer artifact's checksum inventory prevents backend startup.
+- Do not commit environments, node_modules, caches, build outputs, installed checkpoint folders, local distribution ZIPs, or credentials. The root ignore rules intentionally keep research files outside this branch's tracked snapshot.
+- Supply both trained model ZIPs to users separately. Keep full training backups for resume; inference-only bundles omit the optimizer checkpoint and do not include the frozen NLLB base.
+- Verify a fresh checkout with dependency installation, both installed bundles, tokenizer inspection, Translator, and Translator A/B before reporting a new device as tested.

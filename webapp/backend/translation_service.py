@@ -104,7 +104,9 @@ def translate(text, condition='plain_bpe'):
         if len(ids)>manifest['identity']['source_limit']:
             raise ValueError('Text exceeds the trained source-token limit. Translate a shorter passage.')
         started=time.perf_counter()
-        with torch.inference_mode():
+        from generation_trace import GenerationTrace
+        trace = GenerationTrace(target)
+        with torch.inference_mode(), trace.capture(model):
             tensor=torch.tensor([ids],device=device)
             output=model.generate(input_ids=tensor,attention_mask=tensor.ne(source.pad).long(),
                 forced_bos_token_id=target.convert_tokens_to_ids('tgl_Latn'),
@@ -114,6 +116,21 @@ def translate(text, condition='plain_bpe'):
         result=dict(translation=target.decode(token_ids,skip_special_tokens=True),condition=condition,
             source_token_count=len(ids),output_token_count=sum(x not in target.all_special_ids for x in token_ids),
             latency_ms=round((time.perf_counter()-started)*1000), cache_hit=False)
+        # Observations are from this exact generation, with no extra model pass.
+        encoded=source.backend.encode(text.strip()).to_dict()
+        result['process']=dict(
+            input_text=text.strip(), normalized_text=encoded['normalized_text'],
+            source_tokens=encoded['tokens'], source_ids=encoded['ids'], model_source_ids=ids,
+            embedding_dimension=model.config.d_model,
+            encoder_layers=model.config.encoder_layers, decoder_layers=model.config.decoder_layers,
+            target_language='tgl_Latn', beams=manifest['identity']['beams'],
+            max_new_tokens=manifest['identity']['max_new_tokens'],
+            target_tokens=[dict(id=i, token=t, special=i in target.all_special_ids)
+                           for i,t in zip(token_ids,target.convert_ids_to_tokens(token_ids))])
+        result['process'].update(trace.finish(token_ids))
+        result['process']['target_decode_steps'] = [dict(id=token, token=target.convert_ids_to_tokens(token),
+            special=token in target.all_special_ids, text=target.decode(token_ids[:i+1],skip_special_tokens=True))
+            for i,token in enumerate(token_ids)]
         _RESULTS[key]=dict(result)
         if len(_RESULTS)>_RESULT_LIMIT: _RESULTS.popitem(last=False)
         return result

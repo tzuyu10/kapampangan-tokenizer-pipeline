@@ -60,10 +60,10 @@ function WordCard({ word, isFirst }) {
         <WordTitle word={word} />
         <div className="legend">
           <span className="legend-item">
-            <span className="legend-dot root" /> Longest piece
+            <span className="legend-dot root" /> Root Word
           </span>
           <span className="legend-item">
-            <span className="legend-dot affix" /> Shorter piece(s)
+            <span className="legend-dot affix" /> Affixes
           </span>
         </div>
       </div>

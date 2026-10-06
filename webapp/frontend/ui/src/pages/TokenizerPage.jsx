@@ -57,7 +57,7 @@ export default function TokenizerPage({ onTokenized, onCleared }) {
     <div className="page">
       <h1 className="page-title">Tokenizer training visualization</h1>
       <p className="page-subtitle">
-        Legacy penalty-32 visualization. For the exact Plain BPE and Morph-BPE translation tokenizers, use Show tokens on the Translator tab.
+        For the exact Plain BPE and Morph-BPE translation tokenizers, use Show tokens on the Translator tab.
       </p>
 
       {error && <div className="error-banner">{error}</div>}

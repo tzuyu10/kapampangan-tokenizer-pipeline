@@ -1,119 +1,39 @@
 import { useEffect, useState } from "react";
 import { CompareIcon, CopyIcon, TrashIcon } from "../components/icons.jsx";
+import TranslationProcess from "../components/TranslationProcess.jsx";
 import { compareTranslations, getTranslationStatus } from "../api.js";
 
 const MAX_LEN = 500;
+const CONDITIONS = [
+  { key: "custom", label: "Morph-BPE + NLLB-200", short: "Morph-BPE", role: "Proposed system" },
+  { key: "baseline", label: "Plain BPE + NLLB-200", short: "Plain BPE", role: "Baseline" },
+];
 
-const DEMO_INPUT = "Masanting ya ing abak. Komusta ka?";
-
-const DEMO_RESULT = {
-  custom: {
-    translation: "Magandang umaga. Kumusta ka?",
-    source_token_count: 11,
-    output_token_count: 9,
-    latency_ms: 684,
-  },
-  baseline: {
-    translation: "Magandang umaga po. Kamusta ka?",
-    source_token_count: 17,
-    output_token_count: 11,
-    latency_ms: 731,
-  },
-};
-
-const FALLBACK_CONDITIONS = {
-  custom: {
-    label: "MorphBPE + NLLB-200",
-    role: "Proposed system",
-    tokenizer: "Hard-constrained Morph-BPE (6,080 source tokens)",
-    model: "NLLB-200 Distilled 600M with source embedding swap",
-    ready: false,
-    reason: "The custom-tokenizer translation checkpoint is not available.",
-  },
-  baseline: {
-    label: "Plain BPE + NLLB-200",
-    role: "Baseline",
-    tokenizer: "Plain BPE (6,080 source tokens)",
-    model: "facebook/nllb-200-distilled-600M",
-    ready: false,
-    reason: "The original NLLB-200 model is not available.",
-  },
-};
-
-function StatusBadge({ ready, demo }) {
-  return (
-    <span className={`translation-status ${demo ? "demo" : ready ? "ready" : "waiting"}`}>
-      <span className="translation-status-dot" aria-hidden="true" />
-      {demo ? "Demo data" : ready ? "Ready" : "Checkpoint required"}
-    </span>
-  );
-}
-
-function TranslationCondition({ condition, result, copied, onCopy, accent, demo }) {
-  const translation = result?.translation || "";
-
-  return (
-    <article className={`translation-condition ${accent}`}>
-      <div className="condition-header">
-        <div>
-          <span className="condition-role">{condition.role}</span>
-          <h2>{condition.label}</h2>
-        </div>
-        <StatusBadge ready={condition.ready} demo={demo} />
+function TranslationCondition({ condition, status, result, loading, copied, onCopy }) {
+  return <article className={`comparison-result ${condition.key}`}>
+    <div className="condition-header">
+      <div><span className="condition-role">{condition.role}</span><h2>{condition.label}</h2></div>
+      <span className={`translation-status ${status?.ready ? "ready" : "waiting"}`}>
+        <span className="translation-status-dot" aria-hidden="true" />
+        {status?.ready ? "Ready" : "Unavailable"}
+      </span>
+    </div>
+    <div className="comparison-output" aria-live="polite">
+      <div className="output-label-row"><span>Filipino output</span>
+        {result?.translation && <button className="inline-copy-button" onClick={onCopy} aria-label={`Copy ${condition.short} translation`}>
+          <CopyIcon />{copied ? "Copied" : "Copy"}
+        </button>}
       </div>
-
-      <dl className="condition-specs">
-        <div>
-          <dt>Source tokenizer</dt>
-          <dd>{condition.tokenizer}</dd>
-        </div>
-        <div>
-          <dt>Translation model</dt>
-          <dd>{condition.model}</dd>
-        </div>
-      </dl>
-
-      <div className={`translation-output ${translation ? "has-result" : ""}`}>
-        <div className="output-label-row">
-          <span>Filipino output</span>
-          {translation && (
-            <button
-              className="inline-copy-button"
-              type="button"
-              onClick={onCopy}
-              aria-label={`Copy ${condition.label} translation`}
-            >
-              <CopyIcon />
-              {copied ? "Copied" : "Copy"}
-            </button>
-          )}
-        </div>
-        {translation ? (
-          <p className="translation-text">{translation}</p>
-        ) : (
-          <div className="output-empty">
-            <span className="output-empty-mark" aria-hidden="true">Aa</span>
-            <p>{condition.reason}</p>
-          </div>
-        )}
-      </div>
-
-      <div className="translation-metrics" aria-label={`${condition.label} generation metrics`}>
-        <div>
-          <span>Source tokens</span>
-          <strong>{result?.source_token_count ?? "—"}</strong>
-        </div>
-        <div>
-          <span>Output tokens</span>
-          <strong>{result?.output_token_count ?? "—"}</strong>
-        </div>
-        <div>
-          <span>Latency</span>
-          <strong>{result?.cache_hit ? "Cached" : result?.latency_ms != null ? `${result.latency_ms} ms` : "—"}</strong>
-        </div>
-      </div>
-    </article>
-  );
+      <p className={result ? "translation-text" : "comparison-placeholder"}>
+        {loading ? "Generating translation..." : result ? result.translation || "No visible text was generated." : status?.ready ? "Compare a sentence to see the translation here." : status?.reason || "Checking model availability..."}
+      </p>
+    </div>
+    <div className="translation-metrics" aria-label={`${condition.short} generation metrics`}>
+      <div><span>Source tokens</span><strong>{result?.source_token_count ?? "Pending"}</strong></div>
+      <div><span>Output tokens</span><strong>{result?.output_token_count ?? "Pending"}</strong></div>
+      <div><span>Generation time</span><strong>{result?.cache_hit ? "Cached" : result ? `${result.latency_ms} ms` : "Pending"}</strong></div>
+    </div>
+  </article>;
 }
 
 export default function TranslatorComparisonPage() {
@@ -124,176 +44,81 @@ export default function TranslatorComparisonPage() {
   const [statusLoading, setStatusLoading] = useState(true);
   const [error, setError] = useState(null);
   const [copied, setCopied] = useState(null);
-  const [isDemo, setIsDemo] = useState(false);
+  const [processKey, setProcessKey] = useState("custom");
 
-  useEffect(() => {
-    getTranslationStatus()
-      .then(setStatus)
-      .catch(() => {
-        setError("Could not reach the translation backend on port 8000.");
-      })
-      .finally(() => setStatusLoading(false));
-  }, []);
+  async function checkStatus() {
+    setStatusLoading(true); setError(null);
+    try { setStatus(await getTranslationStatus()); }
+    catch { setStatus(null); setError("Could not reach the translation backend. Start the backend, then check the connection."); }
+    finally { setStatusLoading(false); }
+  }
+  useEffect(() => { checkStatus(); }, []);
 
-  const conditions = status?.conditions || FALLBACK_CONDITIONS;
-  const canCompare = Boolean(status?.can_translate);
-
-  const runComparison = async () => {
-    if (!source.trim() || !canCompare) return;
-    setLoading(true);
-    setError(null);
-    setIsDemo(false);
+  const canTranslate = Boolean(status?.can_translate);
+  async function runComparison() {
+    if (loading || statusLoading || !source.trim() || !canTranslate) return;
+    setLoading(true); setError(null); setResult(null); setCopied(null);
     try {
-      setResult(await compareTranslations(source.trim()));
-    } catch (err) {
-      setError(err.message);
-      setResult(null);
-    } finally {
-      setLoading(false);
-    }
-  };
+      const data = await compareTranslations(source.trim());
+      setResult(data);
+      setProcessKey(data.custom ? "custom" : "baseline");
+    } catch (err) { setError(err.message); }
+    finally { setLoading(false); }
+  }
+  function clear() { setSource(""); setResult(null); setError(null); setCopied(null); }
+  async function copy(key) {
+    try { await navigator.clipboard.writeText(result[key].translation); setCopied(key); }
+    catch { setError("Clipboard access is unavailable. Select and copy the translation manually."); }
+  }
+  const active = CONDITIONS.find(condition => condition.key === processKey);
 
-  const clear = () => {
-    setSource("");
-    setResult(null);
-    setError(null);
-    setIsDemo(false);
-  };
+  return <main className="page translation-comparison-page">
+    <div className="comparison-kicker">Controlled A/B comparison</div>
+    <h1 className="page-title">Translator vs. Translator</h1>
+    <p className="page-subtitle translation-comparison-subtitle">One Kapampangan input, two NLLB-200 conditions. Compare their Filipino output and follow how each translation is produced.</p>
 
-  const loadDemo = () => {
-    setSource(DEMO_INPUT);
-    setResult(DEMO_RESULT);
-    setError(null);
-    setCopied(null);
-    setIsDemo(true);
-  };
-
-  const copy = async (key) => {
-    const value = result?.[key]?.translation;
-    if (!value) return;
-    try {
-      await navigator.clipboard.writeText(value);
-      setCopied(key);
-      window.setTimeout(() => setCopied(null), 1200);
-    } catch {
-      setError("Clipboard access is unavailable in this browser.");
-    }
-  };
-
-  const buttonLabel = statusLoading
-    ? "Checking models…"
-    : loading
-      ? "Comparing…"
-      : canCompare
-        ? (status?.can_compare ? "Compare translations" : "Translate with Plain BPE")
-        : "Models not ready";
-
-  return (
-    <main className="page translation-comparison-page">
-      <div className="comparison-kicker">Controlled A/B comparison</div>
-      <h1 className="page-title">Translator vs. Translator</h1>
-      <p className="page-subtitle translation-comparison-subtitle">
-        One Kapampangan input, two NLLB-200 conditions. The only intended difference is
-        the source tokenizer and its matching encoder embedding.
-      </p>
-
-      {error && <div className="error-banner">{error}</div>}
-      {isDemo && (
-        <div className="demo-data-banner" role="status">
-          <strong>Demo preview</strong>
-          <span>
-            These translations and measurements are dummy data for interface testing, not
-            model-generated results.
-          </span>
-        </div>
-      )}
-
-      <section className="translation-source-card" aria-labelledby="source-heading">
-        <div className="source-card-heading">
-          <div>
-            <span className="source-step">01 · Shared input</span>
-            <h2 id="source-heading">Kapampangan source text</h2>
-          </div>
-          <span className="direction-chip">Kapampangan <b>→</b> Filipino</span>
-        </div>
-        <label className="sr-only" htmlFor="comparison-source">Kapampangan source text</label>
-        <textarea
-          id="comparison-source"
-          value={source}
-          maxLength={MAX_LEN}
-          placeholder="Enter the same Kapampangan sentence for both translators…"
-          onChange={(event) => {
-            setSource(event.target.value);
-            if (isDemo) {
-              setResult(null);
-              setIsDemo(false);
-            }
-          }}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) runComparison();
-          }}
-        />
-        <div className="source-actions">
+    {error && <div className="error-banner" role="alert">{error}</div>}
+    <div className="translation-test-grid">
+      <section className="card text-panel comparison-input" aria-labelledby="comparison-input-label">
+        <label className="card-pill" id="comparison-input-label" htmlFor="comparison-source">Kapampangan</label>
+        <span className="source-step">Shared input</span>
+        <textarea id="comparison-source" value={source} maxLength={MAX_LEN} disabled={loading}
+          placeholder="Enter the same Kapampangan sentence for both translators..."
+          onChange={event => { setSource(event.target.value); setResult(null); setCopied(null); }}
+          onKeyDown={event => {
+            if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) { event.preventDefault(); runComparison(); }
+          }} />
+        <p className="comparison-input-note">Each condition uses its own 6,080-token source vocabulary and trained source embeddings. Both use the same frozen NLLB base and decoding settings.</p>
+        <div className="panel-footer">
           <div className="button-row">
-            <button
-              className="btn btn-primary compare-translation-button"
-              type="button"
-              onClick={runComparison}
-              disabled={!source.trim() || !canCompare || loading || statusLoading}
-            >
+            <button className="btn btn-primary" onClick={runComparison} disabled={!source.trim() || !canTranslate || loading || statusLoading}>
               <CompareIcon className="btn-icon" />
-              {buttonLabel}
+              {statusLoading ? "Checking models..." : loading ? "Translating..." : status?.can_compare ? "Compare translations" : "Translate available model"}
             </button>
-            <button className="btn btn-secondary" type="button" onClick={clear}>
-              <TrashIcon className="btn-icon" />
-              Clear
-            </button>
-            
+            <button className="btn btn-secondary" onClick={clear} disabled={loading}><TrashIcon className="btn-icon" />Clear</button>
           </div>
           <span className="char-count">{source.length}/{MAX_LEN}</span>
         </div>
       </section>
-
-      <div className="results-heading-row">
-        <div>
-          <span className="source-step">02 · Side-by-side output</span>
-          <h2>Compare the translations</h2>
-        </div>
-        <p>Same decoding settings · Filipino target · No post-editing</p>
-      </div>
-
-      <section className="translator-versus-grid">
-        <TranslationCondition
-          condition={conditions.custom}
-          result={result?.custom}
-          copied={copied === "custom"}
-          onCopy={() => copy("custom")}
-          accent="custom"
-          demo={isDemo}
-        />
-        <div className="versus-marker" aria-hidden="true">VS</div>
-        <TranslationCondition
-          condition={conditions.baseline}
-          result={result?.baseline}
-          copied={copied === "baseline"}
-          onCopy={() => copy("baseline")}
-          accent="baseline"
-          demo={isDemo}
-        />
+      <section className="card comparison-results" aria-labelledby="comparison-results-label" aria-busy={loading}>
+        <span className="card-pill" id="comparison-results-label">Results</span>
+        {CONDITIONS.map(condition => <TranslationCondition key={condition.key} condition={condition}
+          status={status?.conditions?.[condition.key]} result={result?.[condition.key]} loading={loading && status?.conditions?.[condition.key]?.ready}
+          copied={copied === condition.key} onCopy={() => copy(condition.key)} />)}
+        <p className="comparison-results-note">Source counts include start/end tokens. Output counts exclude special tokens. These are generation statistics, not translation-quality scores.</p>
       </section>
+    </div>
+    {loading && <p className="translator-note" role="status">Loading or translating. The first request may load the base model. Both results appear when the comparison finishes.</p>}
+    {!status?.can_compare && !statusLoading && <aside className="readiness-callout">
+      <div><strong>Translation availability</strong><p>{status?.message || "Start the backend and check the connection."}</p></div>
+      <button className="btn btn-secondary" onClick={checkStatus} disabled={loading}>Check connection</button>
+    </aside>}
 
-      {!status?.can_compare && !statusLoading && !isDemo && (
-        <aside className="readiness-callout">
-          <div className="readiness-icon" aria-hidden="true">i</div>
-          <div>
-            <strong>Translation availability</strong>
-            <p>
-              {status?.message || "The required translation checkpoints are not available."}
-              
-            </p>
-          </div>
-        </aside>
-      )}
-    </main>
-  );
+    <div className="process-switch" role="group" aria-label="Translation process condition">
+      <span>Explain the process for</span>
+      {CONDITIONS.map(condition => <button key={condition.key} className={`example-chip ${processKey === condition.key ? "selected" : ""}`}
+        aria-pressed={processKey === condition.key} onClick={() => setProcessKey(condition.key)}>{condition.short}</button>)}
+    </div>
+    <TranslationProcess result={result?.[processKey]} label={active.short} />
+  </main>;
 }

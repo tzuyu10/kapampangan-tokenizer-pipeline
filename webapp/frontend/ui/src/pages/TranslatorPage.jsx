@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTranslationStatus, translateAdapted, tokenizeAdapted } from "../api.js";
+import TranslationProcess from "../components/TranslationProcess.jsx";
 
 export default function TranslatorPage() {
   const [condition, setCondition] = useState("plain_bpe");
@@ -22,7 +23,7 @@ export default function TranslatorPage() {
   useEffect(() => { checkStatus(); }, []);
   async function run() {
     if (loading || !ready || !source.trim()) return;
-    setLoading(true); setError(""); setResult(null); setCopied(false);
+    setLoading(true); setError(""); setResult(null); setTokens(null); setCopied(false);
     try { setResult(await translateAdapted(source.trim(), condition)); }
     catch (e) { setError(e.message.includes("fetch") ? "Connection lost. Check the backend terminal, then retry." : e.message); }
     finally { setLoading(false); }
@@ -51,7 +52,7 @@ export default function TranslatorPage() {
         <div className="panel-footer">
           <div className="button-row">
             <button className="btn btn-primary" disabled={loading || checking || !ready || !source.trim()} onClick={run}>{loading ? 'Translating...' : `Translate with ${label}`}</button>
-            <button className="btn btn-secondary" disabled={loading} onClick={() => { setSource(''); setResult(null); setError(''); setCopied(false); }}>Clear</button>
+            <button className="btn btn-secondary" disabled={loading} onClick={() => { setSource(''); setResult(null); setTokens(null); setError(''); setCopied(false); }}>Clear</button>
           </div>
           <span className="char-count">{source.length}/500</span>
         </div>
@@ -74,5 +75,6 @@ export default function TranslatorPage() {
       <details><summary>Model input IDs (including boundary tokens)</summary><p style={{overflowWrap:'anywhere'}}>{tokens.model_source_ids.join(', ')}</p></details>
     </section>}
     <p className="translator-note">Tokenization uses the exact artifact from the selected trained model.</p>
+    <TranslationProcess result={result} label={label} />
   </main>;
 }
