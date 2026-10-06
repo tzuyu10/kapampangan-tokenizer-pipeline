@@ -1,13 +1,17 @@
 import { useState } from "react";
 import Header from "./components/Header.jsx";
-import TranslatorPage from "./pages/TranslatorPage.jsx";
+import TranslationPerformancePage from "./pages/TranslationPerformancePage.jsx";
 import TranslatorComparisonPage from "./pages/TranslatorComparisonPage.jsx";
 import TokenizerPage from "./pages/TokenizerPage.jsx";
 import ComparisonPage from "./pages/ComparisonPage.jsx";
 import { compareCustom } from "./api.js";
 
 export default function App() {
-  const [tab, setTab] = useState("translator");
+  const [tab, setTab] = useState("translator-comparison");
+  const [source, setSource] = useState("");
+  const [translationResult, setTranslationResult] = useState(null);
+  const [translationLoading, setTranslationLoading] = useState(false);
+  const [translationError, setTranslationError] = useState(null);
 
   // The Comparison tab has no input of its own — it always shows the 3-way
   // comparison for whatever text was last tokenized on the Tokenizer tab.
@@ -45,12 +49,19 @@ export default function App() {
   return (
     <div className="app-shell">
       <Header active={tab} onChange={setTab} />
-      {tab === "translator" && <TranslatorPage />}
-      {tab === "translator-comparison" && <TranslatorComparisonPage />}
-      {tab === "tokenizer" && (
+      <section className="tab-panel" role="tabpanel" id="panel-translator-comparison" aria-labelledby="tab-translator-comparison" hidden={tab !== "translator-comparison"}>
+        <TranslatorComparisonPage source={source} setSource={setSource} result={translationResult} setResult={setTranslationResult}
+          loading={translationLoading} setLoading={setTranslationLoading} error={translationError} setError={setTranslationError}
+          onViewPerformance={() => setTab("translation-performance")} />
+      </section>
+      <section className="tab-panel" role="tabpanel" id="panel-translation-performance" aria-labelledby="tab-translation-performance" hidden={tab !== "translation-performance"}>
+        <TranslationPerformancePage source={source} result={translationResult} loading={translationLoading} error={translationError}
+          onGoToTranslator={() => setTab("translator-comparison")} />
+      </section>
+      <section className="tab-panel" role="tabpanel" id="panel-tokenizer" aria-labelledby="tab-tokenizer" hidden={tab !== "tokenizer"}>
         <TokenizerPage onTokenized={runComparison} onCleared={clearComparison} />
-      )}
-      {tab === "comparison" && (
+      </section>
+      <section className="tab-panel" role="tabpanel" id="panel-comparison" aria-labelledby="tab-comparison" hidden={tab !== "comparison"}>
         <ComparisonPage
           input={comparisonInput}
           result={comparisonResult}
@@ -58,7 +69,7 @@ export default function App() {
           error={comparisonError}
           onGoToTokenizer={() => setTab("tokenizer")}
         />
-      )}
+      </section>
       <div className="footer-bar">
         CANSINO, FAELDONIA, LUCERO, MAGTANONG, MITAL | BSCS 3-5 | All Rights Reserved 2026
       </div>

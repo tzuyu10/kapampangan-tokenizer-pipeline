@@ -40,16 +40,16 @@ Local installation paths (ignored by Git):
 - `nllb/checkpoints/plain_bpe/`
 - `nllb/checkpoints/morph_bpe/`
 
-Both supplied histories completed 15 epochs and selected epoch 15 by lowest validation loss:
+Both currently installed histories completed 30 epochs and selected epoch 30 by lowest validation loss:
 
 | Condition | Training loss | Validation loss |
 | --- | ---: | ---: |
-| Plain BPE | 1.5903862097 | 1.3429940128 |
-| Morph-BPE | 1.5923796454 | 1.3384593213 |
+| Plain BPE | 1.3705258429 | 1.2331663835 |
+| Morph-BPE | 1.3788796273 | 1.2349860019 |
 
 Common settings: seed 42, learning rate 0.0003, batch size 1, gradient accumulation 8, warm initialization, source limit 256, target limit 128. Generation uses 4 beams and at most 160 new tokens.
 
-The saved configurations differ: Plain BPE had maximum 30 epochs; Morph-BPE had maximum 15. Both manifests retain early-stopping patience 3 and minimum improvement 0.001. Both histories continued improving through epoch 15. Report these facts, not an identical configured stopping budget. Lower validation loss alone does not establish better generated translations or statistical significance.
+Both currently installed manifests configure maximum 30 epochs and retain early-stopping patience 3 and minimum improvement 0.001. Older 15-epoch bundles are historical artifacts, not the active local models. Lower validation loss alone does not establish better generated translations or statistical significance.
 
 The original full backups include `last.pt` for epoch-boundary training resume and `best_source.safetensors` for inference. Resume requires the exact saved training configuration and identity. Changing epoch configuration can fail the strict resume check. Inference-only release ZIPs omit `last.pt` and cannot resume training.
 
@@ -95,9 +95,9 @@ Endpoints:
 | POST `/api/tokenize` | Legacy penalty-32 tokenizer visualization |
 | POST `/api/comparison/custom` | Legacy tokenizer comparison/scoring |
 
-The Translator tab selects the adapted condition and can display exact tokens. Translator A/B compares outputs. The older Tokenizer tab is explicitly a **penalty-32** training visualization. Do not label its artifact as the hard-constrained Morph-BPE checkpoint used for translation. Likewise, the historical root README selected-tokenizer fingerprint refers to another artifact family.
+The four tabs are Translator A/B, Translation Metrics & Process, Tokenization, and Tokenization Comparison & Metrics. App.jsx owns shared translation input/results; the second tab displays the first tab's exact generation response without rerunning inference. All four pages remain mounted but inactive panels are hidden, preserving current-session inputs/results and in-progress requests. Tokenization displays **penalty-32** token output and segmentation; its metrics are on the fourth tab. Do not label its artifact as the hard-constrained Morph-BPE checkpoint used for translation. Likewise, the historical root README selected-tokenizer fingerprint refers to another artifact family.
 
-Both translation tabs include a shared `TranslationProcess.jsx` panel: input preparation, source tokenization, embedding lookup, encoder, decoder, native target-tokenizer decoding, and Filipino output. Translation responses include a `process` object containing actual source pieces/IDs, mapped model input IDs, generated target IDs/pieces and special-token flags, model dimensions/layer counts, and decoding settings. They also include four-value slices of actual embedding outputs (with lookup scaling, before positional information) and final encoder context vectors for each source position. Vectors do not become new token IDs at the encoder stage.
+The second tab includes the existing `TranslationProcess.jsx` panel: input preparation, source tokenization, embedding lookup, encoder, decoder, native target-tokenizer decoding, and Filipino output. Translation responses include a `process` object containing actual source pieces/IDs, mapped model input IDs, generated target IDs/pieces and special-token flags, model dimensions/layer counts, and decoding settings. They also include four-value slices of actual embedding outputs (with lookup scaling, before positional information) and final encoder context vectors for each source position. Vectors do not become new token IDs at the encoder stage.
 
 Decoder tracing records each incoming prefix's top four finite next-token scores after constraints, the scorer's ranked extension shortlist, four retained beam slots, and the actual final hypotheses/scores including length penalty. Four beams refers to candidate sequences, not only four possible next tokens. The UI offers step/beam navigation and retrospectively highlights prefixes matching the returned output. EOS candidates are handled separately from continuing slots; search may continue after the eventual winner has ended. Native target decoding is shown as ID to piece to cumulative text. Cached responses preserve all process data.
 
@@ -158,10 +158,6 @@ The project owner requires this file to be updated after every project-related u
 
 ## Latest interaction
 
-- Request: provide instructions for publishing the full local project to a new branch; explicitly do not perform the Git changes.
-- Current state: the user already created and checked out `Latest/WebAppFull`, at app-only commit `6f07a0d`, with 62 tracked files and the inherited root `/*` ignore rule. Research files still exist locally. The working tree was clean before this mandatory context update.
-- Clarification: ordinary `git add .` currently skips the research material. On the new branch, restoring only `.gitignore` and `.gitattributes` from `nllb/translation` restores full-project staging rules and checksum protection without replacing the latest app source. Then review status, stage project files, inspect the staged diff, commit, and push `Latest/WebAppFull`. These are instructions for the user, not executed operations.
-- Scope: full project source and research material can be included while environments, dependency caches, build outputs, credentials, installed model checkpoints, local distribution ZIPs, and previously excluded external resources remain excluded. Literally every local generated/model file is a different distribution scope; do not equate it with `git add .` or recommend blanket forced staging.
-- Verification: read current branch/status, local file inventory, tracked-file count, and the actual ignore/attribute rules on both current and research branches. No application tests, inference, or training were performed, and no project behavior changed.
-- Changes: updated this context only. No branch creation/switching, staging, committing, pushing, ignore-rule edits, or artifact changes were performed.
-- Outstanding: the user can perform the documented full-project staging/commit/push sequence. No full-project source restoration or new publication was claimed for this question-only turn.
+- Request: rename the tokenizer visualization heading to Tokenizer Process Visualization.
+- Updated TokenizerPage.jsx page heading from Tokenization (the current source label) to Tokenizer Process Visualization. The Tokenization navigation tab remains as specified in the four-tab layout.
+- Verified the requested heading in source and checked the diff. Text-only change; no tests or model execution needed. Refresh the frontend to see the current source; older running builds may still show the previous training-visualization heading.

@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "tokenizer"))
 import trace_service  # noqa: E402
 import comparison_service  # noqa: E402
 import translation_service  # noqa: E402
+import performance_metrics  # noqa: E402
 
 HOST = os.environ.get("KAPAMPANGAN_HOST", "127.0.0.1")
 PORT = int(os.environ.get("KAPAMPANGAN_PORT", "8000"))
@@ -80,6 +81,8 @@ class Handler(BaseHTTPRequestHandler):
                 self._send_json(200, trace_service.examples())
             elif path == "/api/translation/status":
                 self._send_json(200, translation_service.status())
+            elif path == "/api/performance/initial":
+                self._send_json(200, performance_metrics.initial_metrics())
             else:
                 self._send_json(404, {"error": f"not found: {path}"})
         except Exception as exc:  # pragma: no cover - defensive

@@ -2,16 +2,16 @@
 
 React + Vite frontend and a local Python backend for **Kapampangan to Filipino** translation using matched Plain BPE and Morph-BPE source embeddings on NLLB-200 distilled 600M.
 
-The app includes Translator, Translator A/B, tokenizer visualization/comparison, and a step-by-step translation panel showing actual token IDs, embedding and encoder vector slices, beam-search candidates, target-token decoding, and the final Filipino output.
+The app has four tabs: Translator A/B, Translation Metrics & Process, Tokenization, and Tokenization Comparison & Metrics. The translation process shows actual token IDs, embedding and encoder vector slices, beam-search candidates, target-token decoding, and the final Filipino output.
 
 ## Clone this branch
 
 ```powershell
-git clone --branch Latest/WebApp --single-branch https://github.com/tzuyu10/kapampangan-tokenizer-pipeline.git
+git clone --branch Latest/WebAppFull --single-branch https://github.com/tzuyu10/kapampangan-tokenizer-pipeline.git
 Set-Location kapampangan-tokenizer-pipeline
 ```
 
-If you already have this repository, switch to `Latest/WebApp` and pull its latest commit before following the setup guide.
+If you already have this repository, use `Latest/WebAppFull` for the full source branch. Local UI edits must be committed and published before another device can obtain them through Git.
 
 ## Run the app
 
@@ -25,9 +25,18 @@ Follow **[webapp/RUNNING.md](webapp/RUNNING.md)** for prerequisites, Windows and
 
 Only the computer running the backend needs Python and model files. Another device on the same network can use the app through the host's Vite Network URL as described in the guide.
 
-## Branch contents
+## Use the four tabs
 
-This branch contains app source, tokenizer artifacts, dependency manifests, setup scripts, regression tests, and project guidance. Research datasets, training/evaluation notebooks, Rust code, environments, downloaded weights, caches, and build outputs are excluded from its current tracked snapshot. Research material remains on the research branches, including `nllb/translation`.
+1. In **Translator A/B**, enter one Kapampangan sentence and compare Plain BPE with Morph-BPE.
+2. Open **Translation Metrics & Process** to view the same run's token counts, timing, model diagnostics and selectable process trace. Switching tabs does not run the model again.
+3. In **Tokenization**, enter text to see token output and segmentation steps.
+4. Open **Tokenization Comparison & Metrics** for the same tokenization input's splits, fertility and morphology F1 charts, plus initial diagnostics.
+
+Inputs/results persist while switching tabs. Editing translation input clears its previous process. BLEU/chrF++ remain unavailable until paired held-out evaluation is completed. See [initial metrics and scope](docs/INITIAL_UI_METRICS.md).
+
+## Source and models
+
+This full source branch contains app source, tokenizer artifacts, research/training code and notebooks, dependency manifests, setup scripts, regression tests, and project guidance. Trained model weights, environments, caches and build outputs are not supplied by the clone.
 
 The installer creates `nllb/checkpoints/plain_bpe` and `nllb/checkpoints/morph_bpe` locally. Preserve complete tokenizer artifact inventories and their checksums. Keep full training backups separately because inference bundles cannot resume training.
 

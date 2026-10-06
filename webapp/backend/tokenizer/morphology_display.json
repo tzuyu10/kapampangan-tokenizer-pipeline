@@ -1,0 +1,8396 @@
+{
+  "sinabi": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "abi",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0023"
+  },
+  "naman": {
+    "spans": [
+      {
+        "text": "nam",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0034"
+  },
+  "dalan": {
+    "spans": [
+      {
+        "text": "dal",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0040"
+  },
+  "arapan": {
+    "spans": [
+      {
+        "text": "arap",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0043"
+  },
+  "maguing": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uing",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0044"
+  },
+  "mabilug": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bilug",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0048"
+  },
+  "pabustan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bust",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0050"
+  },
+  "kapampangan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "pampang",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0053"
+  },
+  "manibat": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ibat",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project word-family reference",
+    "reference_id": "ibat"
+  },
+  "sabian": {
+    "spans": [
+      {
+        "text": "sabi",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0065"
+  },
+  "marawak": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rawak",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0066"
+  },
+  "panaun": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "naun",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0068"
+  },
+  "matulid": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tulid",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0069"
+  },
+  "binie": {
+    "spans": [
+      {
+        "text": "b",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ie",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0071"
+  },
+  "dewakan": {
+    "spans": [
+      {
+        "text": "dewak",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0072"
+  },
+  "maragul": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ragul",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0077"
+  },
+  "meguing": {
+    "spans": [
+      {
+        "text": "meg",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uing",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0078"
+  },
+  "manuknangan": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uknang",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0080"
+  },
+  "depatan": {
+    "spans": [
+      {
+        "text": "depat",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0082"
+  },
+  "kapakaluluan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "pakalulu",
+        "start": 2,
+        "end": 10,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 10,
+        "end": 12,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0083"
+  },
+  "daptan": {
+    "spans": [
+      {
+        "text": "dapt",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0084"
+  },
+  "manatili": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "atili",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0087"
+  },
+  "laman": {
+    "spans": [
+      {
+        "text": "lam",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0088"
+  },
+  "pasibayu": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sibayu",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0091"
+  },
+  "marangle": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rangle",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0092"
+  },
+  "kautusan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "utus",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0093"
+  },
+  "sikanan": {
+    "spans": [
+      {
+        "text": "sikan",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0095"
+  },
+  "laban": {
+    "spans": [
+      {
+        "text": "lab",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0096"
+  },
+  "panuanan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "nuan",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0097"
+  },
+  "binili": {
+    "spans": [
+      {
+        "text": "b",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ili",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0098"
+  },
+  "dinatang": {
+    "spans": [
+      {
+        "text": "d",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "atang",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0099"
+  },
+  "panalangin": {
+    "spans": [
+      {
+        "text": "pan",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "alangin",
+        "start": 3,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0103"
+  },
+  "makananu": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "nanu",
+        "start": 4,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0104"
+  },
+  "kasalanan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "salan",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0108"
+  },
+  "pamangan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "mang",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0110"
+  },
+  "kaligtasan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ligtas",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project word-family reference",
+    "reference_id": "ligtas"
+  },
+  "kamatayan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "matay",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0112"
+  },
+  "kinua": {
+    "spans": [
+      {
+        "text": "k",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ua",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0113"
+  },
+  "mangatua": {
+    "spans": [
+      {
+        "text": "mang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "atua",
+        "start": 4,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0114"
+  },
+  "bulan": {
+    "spans": [
+      {
+        "text": "bul",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0117"
+  },
+  "misan": {
+    "spans": [
+      {
+        "text": "mis",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0119"
+  },
+  "wanan": {
+    "spans": [
+      {
+        "text": "wan",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0120"
+  },
+  "malyari": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lyari",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0121"
+  },
+  "pamamilatan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "mamilat",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0122"
+  },
+  "pitung": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tung",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0124"
+  },
+  "kayanakan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yanak",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0126"
+  },
+  "kaluguran": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lugur",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0128"
+  },
+  "pablasang": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "blasang",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0129"
+  },
+  "sisuan": {
+    "spans": [
+      {
+        "text": "sisu",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0130"
+  },
+  "katutuan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tutu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0134"
+  },
+  "malyaring": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lyaring",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0135"
+  },
+  "tinape": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ape",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0136"
+  },
+  "maiguit": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "iguit",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0137"
+  },
+  "magkang": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "kang",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0138"
+  },
+  "pasbul": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sbul",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0139"
+  },
+  "gawan": {
+    "spans": [
+      {
+        "text": "gaw",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0141"
+  },
+  "maniabi": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "iabi",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0142"
+  },
+  "sinta": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ta",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0143"
+  },
+  "miniabi": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "iabi",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0145"
+  },
+  "linual": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ual",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0146"
+  },
+  "pasalamat": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "salamat",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0147"
+  },
+  "mangan": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ngan",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0151"
+  },
+  "nangan": {
+    "spans": [
+      {
+        "text": "nang",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0152"
+  },
+  "binang": {
+    "spans": [
+      {
+        "text": "b",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ang",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0153"
+  },
+  "dinalan": {
+    "spans": [
+      {
+        "text": "d",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "alan",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0154"
+  },
+  "larawan": {
+    "spans": [
+      {
+        "text": "laraw",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0157"
+  },
+  "menuknangan": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uknang",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0159"
+  },
+  "pibandian": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bandi",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0160"
+  },
+  "pagamuamu": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "gamuamu",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0161"
+  },
+  "kapayapan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "payap",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0162"
+  },
+  "tinalakad": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "alakad",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0164"
+  },
+  "manaya": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "naya",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0165"
+  },
+  "marayu": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rayu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0166"
+  },
+  "bandian": {
+    "spans": [
+      {
+        "text": "bandi",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0169"
+  },
+  "dinapat": {
+    "spans": [
+      {
+        "text": "d",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "apat",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0170"
+  },
+  "makapagmulala": {
+    "spans": [
+      {
+        "text": "makapag",
+        "start": 0,
+        "end": 7,
+        "role": "affix"
+      },
+      {
+        "text": "mulala",
+        "start": 7,
+        "end": 13,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0171"
+  },
+  "tuparan": {
+    "spans": [
+      {
+        "text": "tupar",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0172"
+  },
+  "kasakitan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sakit",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0174"
+  },
+  "malagu": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lagu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0175"
+  },
+  "linub": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ub",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0177"
+  },
+  "malugud": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lugud",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0178"
+  },
+  "manalig": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "alig",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0179"
+  },
+  "dininan": {
+    "spans": [
+      {
+        "text": "d",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "inan",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0180"
+  },
+  "jordan": {
+    "spans": [
+      {
+        "text": "jord",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0181"
+  },
+  "masikan": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sikan",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0182"
+  },
+  "paninap": {
+    "spans": [
+      {
+        "text": "pan",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "inap",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0183"
+  },
+  "tanaman": {
+    "spans": [
+      {
+        "text": "tanam",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0184"
+  },
+  "manakit": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "akit",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0185"
+  },
+  "bunduk-bundukan": {
+    "spans": [
+      {
+        "text": "bunduk-bunduk",
+        "start": 0,
+        "end": 13,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 13,
+        "end": 15,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0186"
+  },
+  "damdaman": {
+    "spans": [
+      {
+        "text": "damdam",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0187"
+  },
+  "lawan": {
+    "spans": [
+      {
+        "text": "law",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0188"
+  },
+  "ninumang": {
+    "spans": [
+      {
+        "text": "n",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "umang",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0189"
+  },
+  "mangaragul": {
+    "spans": [
+      {
+        "text": "mang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "aragul",
+        "start": 4,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0191"
+  },
+  "menganak": {
+    "spans": [
+      {
+        "text": "meng",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "anak",
+        "start": 4,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0192"
+  },
+  "ganakan": {
+    "spans": [
+      {
+        "text": "ganak",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0194"
+  },
+  "kuanan": {
+    "spans": [
+      {
+        "text": "kuan",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0195"
+  },
+  "makapayan": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "payan",
+        "start": 4,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0196"
+  },
+  "masanting": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "santing",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0197"
+  },
+  "menibatan": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ibat",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project word-family reference",
+    "reference_id": "ibat"
+  },
+  "leguan": {
+    "spans": [
+      {
+        "text": "legu",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0199"
+  },
+  "ninung": {
+    "spans": [
+      {
+        "text": "n",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ung",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0200"
+  },
+  "daraptan": {
+    "spans": [
+      {
+        "text": "darapt",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0201"
+  },
+  "magsaya": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "saya",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0202"
+  },
+  "manintun": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "intun",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0203"
+  },
+  "aslagan": {
+    "spans": [
+      {
+        "text": "aslag",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0205"
+  },
+  "lelangan": {
+    "spans": [
+      {
+        "text": "lelang",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0206"
+  },
+  "linigtas": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "igtas",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0207"
+  },
+  "palsintan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lsint",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0208"
+  },
+  "sugatan": {
+    "spans": [
+      {
+        "text": "sugat",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0211"
+  },
+  "sumpa": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "pa",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0212"
+  },
+  "kanuanan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "nuan",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0213"
+  },
+  "luklukan": {
+    "spans": [
+      {
+        "text": "lukluk",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0215"
+  },
+  "patutu": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tutu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0217"
+  },
+  "sinampa": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ampa",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0218"
+  },
+  "kawatasan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "watas",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0219"
+  },
+  "malapit": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lapit",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0220"
+  },
+  "menakit": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "akit",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0222"
+  },
+  "matibe": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tibe",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0223"
+  },
+  "tuknangan": {
+    "spans": [
+      {
+        "text": "tuknang",
+        "start": 0,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0225"
+  },
+  "kabiasnan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "biasn",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0226"
+  },
+  "kinanua": {
+    "spans": [
+      {
+        "text": "k",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "anua",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0227"
+  },
+  "ausan": {
+    "spans": [
+      {
+        "text": "aus",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0228"
+  },
+  "daralan": {
+    "spans": [
+      {
+        "text": "daral",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0229"
+  },
+  "linapit": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "apit",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0230"
+  },
+  "makatalakad": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "talakad",
+        "start": 4,
+        "end": 11,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0232"
+  },
+  "kailangan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ilang",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0236"
+  },
+  "makatua": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "katua",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0239"
+  },
+  "timan": {
+    "spans": [
+      {
+        "text": "tim",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0241"
+  },
+  "binye": {
+    "spans": [
+      {
+        "text": "b",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ye",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0242"
+  },
+  "makiramdam": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kiramdam",
+        "start": 2,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0243"
+  },
+  "sangkan": {
+    "spans": [
+      {
+        "text": "sangk",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0246"
+  },
+  "legwan": {
+    "spans": [
+      {
+        "text": "legw",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0248"
+  },
+  "linto": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "to",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0249"
+  },
+  "miguising": {
+    "spans": [
+      {
+        "text": "mig",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uising",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0251"
+  },
+  "kanan": {
+    "spans": [
+      {
+        "text": "kan",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0255"
+  },
+  "luguran": {
+    "spans": [
+      {
+        "text": "lugur",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0256"
+  },
+  "magsantung": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "santung",
+        "start": 3,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0257"
+  },
+  "makananung": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "nanung",
+        "start": 4,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0258"
+  },
+  "matudtud": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tudtud",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0259"
+  },
+  "kaisipan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "isip",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0261"
+  },
+  "menibat": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ibat",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project word-family reference",
+    "reference_id": "ibat"
+  },
+  "mitagan": {
+    "spans": [
+      {
+        "text": "mitag",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0266"
+  },
+  "pinili": {
+    "spans": [
+      {
+        "text": "p",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ili",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0267"
+  },
+  "kayatulan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yatul",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0269"
+  },
+  "kinuldas": {
+    "spans": [
+      {
+        "text": "k",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uldas",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0270"
+  },
+  "lumakad": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "akad",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0271"
+  },
+  "magdala": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "dala",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0272"
+  },
+  "makanianman": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "nianm",
+        "start": 4,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0273"
+  },
+  "malinis": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "linis",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0274"
+  },
+  "pilinan": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "linan",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0276"
+  },
+  "sabyan": {
+    "spans": [
+      {
+        "text": "saby",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0277"
+  },
+  "sinulat": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ulat",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0278"
+  },
+  "tumakut": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "akut",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0279"
+  },
+  "atulan": {
+    "spans": [
+      {
+        "text": "atul",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0280"
+  },
+  "basan": {
+    "spans": [
+      {
+        "text": "bas",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0281"
+  },
+  "beluan": {
+    "spans": [
+      {
+        "text": "belu",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0282"
+  },
+  "durulukan": {
+    "spans": [
+      {
+        "text": "duruluk",
+        "start": 0,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0283"
+  },
+  "kutkutan": {
+    "spans": [
+      {
+        "text": "kutkut",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0284"
+  },
+  "likwan": {
+    "spans": [
+      {
+        "text": "likw",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0285"
+  },
+  "masaya": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "saya",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0287"
+  },
+  "paburen": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "buren",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0288"
+  },
+  "tinakas": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "akas",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0289"
+  },
+  "tinas": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "as",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0290"
+  },
+  "kalalaman": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lalam",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0292"
+  },
+  "mumunang": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "unang",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0296"
+  },
+  "santungan": {
+    "spans": [
+      {
+        "text": "santung",
+        "start": 0,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0298"
+  },
+  "keraklan": {
+    "spans": [
+      {
+        "text": "kerakl",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0299"
+  },
+  "macanian": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "cani",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0300"
+  },
+  "malagung": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lagung",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0301"
+  },
+  "maranun": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ranun",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0302"
+  },
+  "pagkeran": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "gker",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0304"
+  },
+  "pilatan": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "latan",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0307"
+  },
+  "sigatan": {
+    "spans": [
+      {
+        "text": "sigat",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0308"
+  },
+  "sinugat": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ugat",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0309"
+  },
+  "sinuyu": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uyu",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0310"
+  },
+  "kalibakan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "libak",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0312"
+  },
+  "kayarian": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yari",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0313"
+  },
+  "malati": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lati",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0315"
+  },
+  "mayupaya": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yupaya",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0316"
+  },
+  "midian": {
+    "spans": [
+      {
+        "text": "midi",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0317"
+  },
+  "dinam": {
+    "spans": [
+      {
+        "text": "d",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "am",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0321"
+  },
+  "kalinguan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lingu",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0323"
+  },
+  "makapagmulalang": {
+    "spans": [
+      {
+        "text": "makapag",
+        "start": 0,
+        "end": 7,
+        "role": "affix"
+      },
+      {
+        "text": "mulalang",
+        "start": 7,
+        "end": 15,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0324"
+  },
+  "makipamuk": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kipamuk",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0325"
+  },
+  "minaus": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "aus",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0327"
+  },
+  "minunang": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "unang",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0328"
+  },
+  "pangisnawa": {
+    "spans": [
+      {
+        "text": "pang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "isnawa",
+        "start": 4,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0329"
+  },
+  "panlalawe": {
+    "spans": [
+      {
+        "text": "pan",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "lalawe",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0330"
+  },
+  "sumuyu": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uyu",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0331"
+  },
+  "tinuki": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uki",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0332"
+  },
+  "capampangan": {
+    "spans": [
+      {
+        "text": "capampang",
+        "start": 0,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0333"
+  },
+  "kakataskatasan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kataskatas",
+        "start": 2,
+        "end": 12,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 12,
+        "end": 14,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0335"
+  },
+  "kamarinayan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "marinay",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0336"
+  },
+  "kapulungan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "pulung",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0337"
+  },
+  "lumapit": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "apit",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0338"
+  },
+  "makalukluk": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "lukluk",
+        "start": 4,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0339"
+  },
+  "manases": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ases",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0340"
+  },
+  "masayang": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sayang",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0342"
+  },
+  "minum": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "um",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0343"
+  },
+  "myuman": {
+    "spans": [
+      {
+        "text": "myum",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0344"
+  },
+  "pisamban": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "samb",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0345"
+  },
+  "batiawan": {
+    "spans": [
+      {
+        "text": "batiaw",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0348"
+  },
+  "dangalan": {
+    "spans": [
+      {
+        "text": "dangal",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0349"
+  },
+  "kayupayan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yupay",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0351"
+  },
+  "magligtas": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ligtas",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project word-family reference",
+    "reference_id": "ligtas"
+  },
+  "pamintuan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "mintu",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0355"
+  },
+  "pangatau": {
+    "spans": [
+      {
+        "text": "pang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "atau",
+        "start": 4,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0356"
+  },
+  "patugut": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tugut",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0357"
+  },
+  "saupan": {
+    "spans": [
+      {
+        "text": "saup",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0358"
+  },
+  "singsing": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "gsing",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0359"
+  },
+  "binutil": {
+    "spans": [
+      {
+        "text": "b",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "util",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0361"
+  },
+  "kiniak": {
+    "spans": [
+      {
+        "text": "k",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "iak",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0362"
+  },
+  "labanan": {
+    "spans": [
+      {
+        "text": "laban",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0363"
+  },
+  "lakuan": {
+    "spans": [
+      {
+        "text": "laku",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0364"
+  },
+  "liguran": {
+    "spans": [
+      {
+        "text": "ligur",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0365"
+  },
+  "mabayat": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bayat",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0366"
+  },
+  "malalam": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lalam",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0367"
+  },
+  "mapilan": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "pilan",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0368"
+  },
+  "minie": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ie",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0369"
+  },
+  "minta": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ta",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0370"
+  },
+  "pakakalulu": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kakalulu",
+        "start": 2,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0371"
+  },
+  "pisali": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sali",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0374"
+  },
+  "tinikdo": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ikdo",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0375"
+  },
+  "akalinguan": {
+    "spans": [
+      {
+        "text": "akalingu",
+        "start": 0,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0376"
+  },
+  "daramdaman": {
+    "spans": [
+      {
+        "text": "daramdam",
+        "start": 0,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0377"
+  },
+  "makatungkul": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "tungkul",
+        "start": 4,
+        "end": 11,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0381"
+  },
+  "mapalyari": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "palyari",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0382"
+  },
+  "ninuman": {
+    "spans": [
+      {
+        "text": "n",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uman",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0383"
+  },
+  "paimburisan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "imburis",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0384"
+  },
+  "panugali": {
+    "spans": [
+      {
+        "text": "pan",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ugali",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0385"
+  },
+  "sikan": {
+    "spans": [
+      {
+        "text": "sik",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0386"
+  },
+  "tanggapan": {
+    "spans": [
+      {
+        "text": "tanggap",
+        "start": 0,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0387"
+  },
+  "kalungkutan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lungkut",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0388"
+  },
+  "kandungan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ndung",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0389"
+  },
+  "magbalik": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "balik",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0391"
+  },
+  "malating": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lating",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0393"
+  },
+  "maldang": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ldang",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0394"
+  },
+  "mangmang": {
+    "spans": [
+      {
+        "text": "mang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "mang",
+        "start": 4,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0396"
+  },
+  "maybug": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ybug",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0397"
+  },
+  "palalu": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lalu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0398"
+  },
+  "palang": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lang",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0399"
+  },
+  "pansin": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "nsin",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0400"
+  },
+  "sinumpa": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "umpa",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0403"
+  },
+  "taguimpan": {
+    "spans": [
+      {
+        "text": "taguimp",
+        "start": 0,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0404"
+  },
+  "ubingan": {
+    "spans": [
+      {
+        "text": "ubing",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0405"
+  },
+  "kabyasnan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "byasn",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0406"
+  },
+  "linian": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ian",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0408"
+  },
+  "makibat": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kibat",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0410"
+  },
+  "mangarawak": {
+    "spans": [
+      {
+        "text": "mang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "arawak",
+        "start": 4,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0411"
+  },
+  "marinat": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rinat",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0413"
+  },
+  "masakit": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sakit",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0414"
+  },
+  "masalese": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "salese",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0415"
+  },
+  "masant": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sant",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0416"
+  },
+  "maslag": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "slag",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0417"
+  },
+  "pagkalub": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "gkalub",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0418"
+  },
+  "pagsalbat": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "gsalbat",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0419"
+  },
+  "pakamalan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kamal",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0420"
+  },
+  "parakalan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rakal",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0421"
+  },
+  "paralan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ralan",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0422"
+  },
+  "pinatubu": {
+    "spans": [
+      {
+        "text": "p",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "atubu",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0425"
+  },
+  "sukulan": {
+    "spans": [
+      {
+        "text": "sukul",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0427"
+  },
+  "tinuknang": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uknang",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0429"
+  },
+  "adwan": {
+    "spans": [
+      {
+        "text": "adw",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0430"
+  },
+  "bustan": {
+    "spans": [
+      {
+        "text": "bust",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0431"
+  },
+  "canian": {
+    "spans": [
+      {
+        "text": "cani",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0432"
+  },
+  "kaban": {
+    "spans": [
+      {
+        "text": "kab",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0434"
+  },
+  "kayubuan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yubu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0436"
+  },
+  "malutu": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lutu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0437"
+  },
+  "manalo": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "nalo",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0438"
+  },
+  "mangalati": {
+    "spans": [
+      {
+        "text": "mang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "alati",
+        "start": 4,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0439"
+  },
+  "parati": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rati",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0444"
+  },
+  "samban": {
+    "spans": [
+      {
+        "text": "samb",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0446"
+  },
+  "sinag": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ag",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0449"
+  },
+  "tumakas": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "akas",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0450"
+  },
+  "aguman": {
+    "spans": [
+      {
+        "text": "agum",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0451"
+  },
+  "apalsintan": {
+    "spans": [
+      {
+        "text": "apalsint",
+        "start": 0,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0452"
+  },
+  "ipagamuamu": {
+    "spans": [
+      {
+        "text": "ipa",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "gamuamu",
+        "start": 3,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0454"
+  },
+  "kalaraman": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "laram",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0455"
+  },
+  "kapanayan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "panay",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0457"
+  },
+  "karalumduman": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ralumdum",
+        "start": 2,
+        "end": 10,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 10,
+        "end": 12,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0458"
+  },
+  "karampatan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rampat",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0459"
+  },
+  "makimut": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kimut",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0462"
+  },
+  "makudta": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kudta",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0463"
+  },
+  "manenaya": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "enaya",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0465"
+  },
+  "matalik": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "talik",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0466"
+  },
+  "miglalang": {
+    "spans": [
+      {
+        "text": "mig",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "lalang",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0467"
+  },
+  "minuli": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "uli",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0468"
+  },
+  "pampanga": {
+    "spans": [
+      {
+        "text": "pam",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "panga",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0470"
+  },
+  "pangamate": {
+    "spans": [
+      {
+        "text": "panga",
+        "start": 0,
+        "end": 5,
+        "role": "affix"
+      },
+      {
+        "text": "mate",
+        "start": 5,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0472"
+  },
+  "pikakasaman": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kakasam",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0475"
+  },
+  "siran": {
+    "spans": [
+      {
+        "text": "sir",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0476"
+  },
+  "dinukit": {
+    "spans": [
+      {
+        "text": "d",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ukit",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0479"
+  },
+  "kaligayan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ligay",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0482"
+  },
+  "katipunan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tipun",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0484"
+  },
+  "kayatinan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yatin",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0485"
+  },
+  "linabas": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "abas",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0487"
+  },
+  "linakad": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "akad",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0488"
+  },
+  "linukluk": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ukluk",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0489"
+  },
+  "mangalambut": {
+    "spans": [
+      {
+        "text": "mang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "alambut",
+        "start": 4,
+        "end": 11,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0490"
+  },
+  "maniaman": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "iaman",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0491"
+  },
+  "mantabe": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "tabe",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0492"
+  },
+  "mengari": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "gari",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0493"
+  },
+  "minic": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ic",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0494"
+  },
+  "minukiat": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ukiat",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0495"
+  },
+  "mitakutan": {
+    "spans": [
+      {
+        "text": "mitakut",
+        "start": 0,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0496"
+  },
+  "pagnasan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "gnas",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0497"
+  },
+  "tikpan": {
+    "spans": [
+      {
+        "text": "tikp",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0499"
+  },
+  "tinipa": {
+    "spans": [
+      {
+        "text": "t",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ipa",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0500"
+  },
+  "tipunan": {
+    "spans": [
+      {
+        "text": "tipun",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0501"
+  },
+  "kapagnasan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "pagnas",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0503"
+  },
+  "kasangkapan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sangkap",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0504"
+  },
+  "kekaban": {
+    "spans": [
+      {
+        "text": "kekab",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0505"
+  },
+  "kelinguan": {
+    "spans": [
+      {
+        "text": "kelingu",
+        "start": 0,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0506"
+  },
+  "lingap": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "gap",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0507"
+  },
+  "malunus": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lunus",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0509"
+  },
+  "mangga": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ngga",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0510"
+  },
+  "marapat": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rapat",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0511"
+  },
+  "mekamate": {
+    "spans": [
+      {
+        "text": "meka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "mate",
+        "start": 4,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0513"
+  },
+  "mingat": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "gat",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0514"
+  },
+  "nanuman": {
+    "spans": [
+      {
+        "text": "nanum",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0515"
+  },
+  "patingapun": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tingapun",
+        "start": 2,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0517"
+  },
+  "pilan": {
+    "spans": [
+      {
+        "text": "pil",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0520"
+  },
+  "sibukan": {
+    "spans": [
+      {
+        "text": "sibuk",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0522"
+  },
+  "siniping": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "iping",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0523"
+  },
+  "bayaran": {
+    "spans": [
+      {
+        "text": "bayar",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0527"
+  },
+  "inatulan": {
+    "spans": [
+      {
+        "text": "i",
+        "start": 0,
+        "end": 1,
+        "role": "affix"
+      },
+      {
+        "text": "natul",
+        "start": 1,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0529"
+  },
+  "kabilugan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bilug",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0530"
+  },
+  "kalaganapan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "laganap",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0531"
+  },
+  "kapagalan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "pagal",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0532"
+  },
+  "kapainawan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "painaw",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0533"
+  },
+  "kealan": {
+    "spans": [
+      {
+        "text": "keal",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0534"
+  },
+  "kimutan": {
+    "spans": [
+      {
+        "text": "kimut",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0535"
+  },
+  "magbili": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "bili",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0537"
+  },
+  "makasulat": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "sulat",
+        "start": 4,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0538"
+  },
+  "makibalu": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kibalu",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0539"
+  },
+  "malambut": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lambut",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0541"
+  },
+  "malungkut": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lungkut",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0542"
+  },
+  "manganak": {
+    "spans": [
+      {
+        "text": "mang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "anak",
+        "start": 4,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0543"
+  },
+  "marangal": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "rangal",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0544"
+  },
+  "masipag": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sipag",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0545"
+  },
+  "matuling": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tuling",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0546"
+  },
+  "menalig": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "alig",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0547"
+  },
+  "menatili": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "atili",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0548"
+  },
+  "mipanuanan": {
+    "spans": [
+      {
+        "text": "mipanuan",
+        "start": 0,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0549"
+  },
+  "pagumasdan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "gumasd",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0550"
+  },
+  "pakakak": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kakak",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0551"
+  },
+  "pakibat": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "kibat",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0552"
+  },
+  "paldas": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "ldas",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0553"
+  },
+  "pampang": {
+    "spans": [
+      {
+        "text": "pam",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "pang",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0556"
+  },
+  "pilipinas": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lipinas",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0561"
+  },
+  "sumiping": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "iping",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0564"
+  },
+  "dasnan": {
+    "spans": [
+      {
+        "text": "dasn",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0566"
+  },
+  "degulan": {
+    "spans": [
+      {
+        "text": "degul",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0567"
+  },
+  "dumpa": {
+    "spans": [
+      {
+        "text": "d",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "pa",
+        "start": 3,
+        "end": 5,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0568"
+  },
+  "haran": {
+    "spans": [
+      {
+        "text": "har",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0570"
+  },
+  "kabilyan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bily",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0571"
+  },
+  "kaburian": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "buri",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0572"
+  },
+  "kamulangan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "mulang",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0573"
+  },
+  "kapalaluan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "palalu",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0574"
+  },
+  "kapatagan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "patag",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0575"
+  },
+  "katungkulan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tungkul",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0576"
+  },
+  "kawakasan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "wakas",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0577"
+  },
+  "kayaldawan": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yaldaw",
+        "start": 2,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0578"
+  },
+  "kumabsi": {
+    "spans": [
+      {
+        "text": "k",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "absi",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0579"
+  },
+  "lasakan": {
+    "spans": [
+      {
+        "text": "lasak",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0581"
+  },
+  "linaban": {
+    "spans": [
+      {
+        "text": "l",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "aban",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0582"
+  },
+  "mabilis": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bilis",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0584"
+  },
+  "magaral": {
+    "spans": [
+      {
+        "text": "mag",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "aral",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0585"
+  },
+  "malangi": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "langi",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0587"
+  },
+  "malino": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "lino",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0588"
+  },
+  "mangamate": {
+    "spans": [
+      {
+        "text": "mang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "amate",
+        "start": 4,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0590"
+  },
+  "maniabing": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "iabing",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0591"
+  },
+  "maninap": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "inap",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0592"
+  },
+  "manyawad": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "yawad",
+        "start": 3,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0593"
+  },
+  "mapait": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "pait",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0594"
+  },
+  "mayubu": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yubu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0595"
+  },
+  "minyabi": {
+    "spans": [
+      {
+        "text": "m",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "yabi",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0597"
+  },
+  "nining": {
+    "spans": [
+      {
+        "text": "n",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ing",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0598"
+  },
+  "pamilya": {
+    "spans": [
+      {
+        "text": "pam",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "ilya",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0600"
+  },
+  "pangaku": {
+    "spans": [
+      {
+        "text": "pan",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "gaku",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0601"
+  },
+  "pangaras": {
+    "spans": [
+      {
+        "text": "pang",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "aras",
+        "start": 4,
+        "end": 8,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0602"
+  },
+  "pasibayung": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sibayung",
+        "start": 2,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0603"
+  },
+  "patawad": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tawad",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0604"
+  },
+  "pibandyan": {
+    "spans": [
+      {
+        "text": "pi",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bandy",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0606"
+  },
+  "sumakup": {
+    "spans": [
+      {
+        "text": "s",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "akup",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0608"
+  },
+  "talan": {
+    "spans": [
+      {
+        "text": "tal",
+        "start": 0,
+        "end": 3,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 3,
+        "end": 5,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0609"
+  },
+  "telanan": {
+    "spans": [
+      {
+        "text": "telan",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0610"
+  },
+  "uvasan": {
+    "spans": [
+      {
+        "text": "uvas",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0611"
+  },
+  "akalingwan": {
+    "spans": [
+      {
+        "text": "akalingw",
+        "start": 0,
+        "end": 8,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 8,
+        "end": 10,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0612"
+  },
+  "albugan": {
+    "spans": [
+      {
+        "text": "albug",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0613"
+  },
+  "atbusan": {
+    "spans": [
+      {
+        "text": "atbus",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0614"
+  },
+  "dumalan": {
+    "spans": [
+      {
+        "text": "d",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "um",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "alan",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0617"
+  },
+  "ipaintulut": {
+    "spans": [
+      {
+        "text": "ipa",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "intulut",
+        "start": 3,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0620"
+  },
+  "kabengian": {
+    "spans": [
+      {
+        "text": "ka",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "bengi",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 7,
+        "end": 9,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0621"
+  },
+  "kibkuban": {
+    "spans": [
+      {
+        "text": "kibkub",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0622"
+  },
+  "kinaul": {
+    "spans": [
+      {
+        "text": "k",
+        "start": 0,
+        "end": 1,
+        "role": "root"
+      },
+      {
+        "text": "in",
+        "start": 1,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "aul",
+        "start": 3,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0623"
+  },
+  "kundiman": {
+    "spans": [
+      {
+        "text": "kundim",
+        "start": 0,
+        "end": 6,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 6,
+        "end": 8,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0624"
+  },
+  "kwayan": {
+    "spans": [
+      {
+        "text": "kway",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0625"
+  },
+  "lakwan": {
+    "spans": [
+      {
+        "text": "lakw",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0626"
+  },
+  "likuan": {
+    "spans": [
+      {
+        "text": "liku",
+        "start": 0,
+        "end": 4,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 4,
+        "end": 6,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0627"
+  },
+  "magari": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "gari",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0629"
+  },
+  "makalunus": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "lunus",
+        "start": 4,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0631"
+  },
+  "makasalikut": {
+    "spans": [
+      {
+        "text": "maka",
+        "start": 0,
+        "end": 4,
+        "role": "affix"
+      },
+      {
+        "text": "salikut",
+        "start": 4,
+        "end": 11,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0632"
+  },
+  "mamintu": {
+    "spans": [
+      {
+        "text": "mam",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "intu",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0633"
+  },
+  "manaliwang": {
+    "spans": [
+      {
+        "text": "man",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "aliwang",
+        "start": 3,
+        "end": 10,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0634"
+  },
+  "manyad": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "nyad",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0635"
+  },
+  "mapinu": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "pinu",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0636"
+  },
+  "masala": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "sala",
+        "start": 2,
+        "end": 6,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0637"
+  },
+  "masquil": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "squil",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0638"
+  },
+  "mayakit": {
+    "spans": [
+      {
+        "text": "ma",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "yakit",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0639"
+  },
+  "menalakad": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "alakad",
+        "start": 3,
+        "end": 9,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0640"
+  },
+  "meninap": {
+    "spans": [
+      {
+        "text": "men",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "inap",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0641"
+  },
+  "migdala": {
+    "spans": [
+      {
+        "text": "mig",
+        "start": 0,
+        "end": 3,
+        "role": "affix"
+      },
+      {
+        "text": "dala",
+        "start": 3,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (A_strong_silver)",
+    "reference_id": "kap-morph-0642"
+  },
+  "mirinan": {
+    "spans": [
+      {
+        "text": "mirin",
+        "start": 0,
+        "end": 5,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 5,
+        "end": 7,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0643"
+  },
+  "pangaligtas": {
+    "spans": [
+      {
+        "text": "panga",
+        "start": 0,
+        "end": 5,
+        "role": "affix"
+      },
+      {
+        "text": "ligtas",
+        "start": 5,
+        "end": 11,
+        "role": "root"
+      }
+    ],
+    "source": "project word-family reference",
+    "reference_id": "ligtas"
+  },
+  "pasiknangan": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "siknang",
+        "start": 2,
+        "end": 9,
+        "role": "root"
+      },
+      {
+        "text": "an",
+        "start": 9,
+        "end": 11,
+        "role": "affix"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0646"
+  },
+  "patutut": {
+    "spans": [
+      {
+        "text": "pa",
+        "start": 0,
+        "end": 2,
+        "role": "affix"
+      },
+      {
+        "text": "tutut",
+        "start": 2,
+        "end": 7,
+        "role": "root"
+      }
+    ],
+    "source": "project morphology reference (B_moderate_silver)",
+    "reference_id": "kap-morph-0647"
+  }
+}

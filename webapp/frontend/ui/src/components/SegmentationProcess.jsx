@@ -132,23 +132,7 @@ function GoldSummary({ gold }) {
       <p style={{ margin: 0 }}>
         gold: {gold.gold_pieces.map((p) => p.join("-")).join("  ")}
       </p>
-      <div className="gold-row">
-        <span className="gold-metric">
-          Boundary F1 <b>{gold.boundary_f1.toFixed(3)}</b>
-        </span>
-        <span className="gold-metric">
-          precision <b>{gold.boundary_precision.toFixed(3)}</b>
-        </span>
-        <span className="gold-metric">
-          recall <b>{gold.boundary_recall.toFixed(3)}</b>
-        </span>
-        {gold.consistency_f1 !== null && (
-          <span className="gold-metric">
-            Consistency F1 <b>{gold.consistency_f1.toFixed(3)}</b> ({gold.shared_morpheme_pairs}{" "}
-            shared pair{gold.shared_morpheme_pairs === 1 ? "" : "s"})
-          </span>
-        )}
-      </div>
+      <p className="process-hint">Boundary and consistency scores are shown in Tokenization Comparison &amp; Metrics.</p>
     </div>
   );
 }

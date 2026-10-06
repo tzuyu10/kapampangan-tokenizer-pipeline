@@ -55,9 +55,9 @@ export default function TokenizerPage({ onTokenized, onCleared }) {
 
   return (
     <div className="page">
-      <h1 className="page-title">Tokenizer training visualization</h1>
+      <h1 className="page-title">Tokenizer Process Visualization</h1>
       <p className="page-subtitle">
-        For the exact Plain BPE and Morph-BPE translation tokenizers, use Show tokens on the Translator tab.
+        Kapampangan input → MorphBPE penalty-32 token output → step-by-step segmentation.
       </p>
 
       {error && <div className="error-banner">{error}</div>}

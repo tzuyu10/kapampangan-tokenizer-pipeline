@@ -1364,3 +1364,33 @@ textarea {
   .process-steps > li { padding-left: 30px; }
   .translation-comparison-page .page-title { font-size: 30px; }
 }
+/* Initial metrics remain separate from per-input generation statistics. */
+.initial-metrics { padding: 20px 24px; margin: 20px 0 28px; }
+.initial-metrics-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.initial-metrics-heading h2 { margin: 0; font-size: 18px; }
+.initial-metrics-badge { font-size: 12px; color: #27547b; background: #eef5fc; padding: 5px 10px; border-radius: 20px; }
+.initial-metrics-note { font-size: 13px; color: #526174; margin: 10px 0; line-height: 1.5; text-align: left; }
+.initial-table-scroll { overflow-x: auto; }
+.initial-metrics-table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+.initial-metrics-table th, .initial-metrics-table td { padding: 12px 10px; border-bottom: 1px solid #e2eaf3; white-space: nowrap; }
+.initial-metrics-table thead th { font-size: 12px; color: #526174; }
+.initial-score { display: flex; align-items: center; gap: 10px; font-variant-numeric: tabular-nums; }
+.initial-score-track { width: 85px; height: 7px; border-radius: 7px; background: #e6edf5; overflow: hidden; }
+.initial-score-track .metric-bar-fill { display: block; height: 100%; }
+.initial-pending { font-size: 12px; color: #687485; }
+.initial-metrics-details { margin-top: 14px; font-size: 13px; line-height: 1.6; }
+.initial-metrics-details summary { cursor: pointer; color: #0055ae; }
+.initial-metric-source { overflow-wrap: anywhere; font-size: 12px; }
+.initial-reference { display: inline-block; margin: 3px 8px 3px 0; }
+@media (max-width: 640px) { .initial-metrics { padding: 16px; } .initial-score-track { width: 55px; } }
+.tab-panel { flex: 1; min-width: 0; }
+.tab-panel[hidden] { display: none; }
+.top-bar { height: auto; min-height: 62px; overflow-x: auto; }
+.tab-button { white-space: nowrap; font-size: 14px; padding-left: 18px; padding-right: 18px; }
+.tab-button:focus-visible { outline: 3px solid #e7af5f; outline-offset: -4px; }
+.shared-translation-input { padding: 20px 24px; margin-bottom: 24px; }
+.shared-translation-input h2, .translation-performance-page .initial-metrics > h2 { margin: 0; font-size: 18px; }
+.page-next-action { margin-top: 24px; text-align: center; }
+.token-output-panel { gap: 12px; min-width: 0; overflow-wrap: anywhere; }
+.token-output-pieces { display: flex; flex-wrap: wrap; gap: 8px; }
+.token-output-chip { padding: 7px 10px; border: 1px solid #bcd2ea; border-radius: 8px; color: #014ca9; background: #f2f7fc; font-size: 14px; }

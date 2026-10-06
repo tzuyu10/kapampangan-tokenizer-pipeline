@@ -20,7 +20,7 @@ export default function ExampleChips({ examples, onPick }) {
       </div>
       <p className="example-hint">
         Tip: mark gold morpheme boundaries with <code>|</code> (e.g. <code>s|in|ulat</code>) to
-        also compute Boundary F1 and Consistency F1 — otherwise only Fertility is shown.
+        compute Boundary F1 and Consistency F1 in the Tokenization Comparison &amp; Metrics tab.
       </p>
     </div>
   );

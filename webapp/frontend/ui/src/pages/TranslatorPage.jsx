@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTranslationStatus, translateAdapted, tokenizeAdapted } from "../api.js";
 import TranslationProcess from "../components/TranslationProcess.jsx";
+import InitialMetrics from "../components/InitialMetrics.jsx";
 
 export default function TranslatorPage() {
   const [condition, setCondition] = useState("plain_bpe");
@@ -35,6 +36,7 @@ export default function TranslatorPage() {
   return <main className="page">
     <h1 className="page-title">Kapampangan-Filipino Translator</h1>
     <p className="page-subtitle">Adapted Plain BPE and Morph-BPE + NLLB-200 600M</p>
+    <InitialMetrics level="translation" />
     <label>Model and tokenizer <select disabled={loading} value={condition} onChange={e => {setCondition(e.target.value);setResult(null);setTokens(null);setError("");}}><option value="plain_bpe">Plain BPE</option><option value="morph_bpe">Morph-BPE</option></select></label>
     <div className="plainbpe-status" role="status">
       <span>{checking ? "Checking backend..." : ready ? `${label} checkpoint available` : `${label} unavailable`}</span>

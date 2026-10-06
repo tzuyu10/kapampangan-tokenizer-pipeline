@@ -28,6 +28,10 @@ export function getHealth() {
   return request("/api/health");
 }
 
+export function getInitialMetrics() {
+  return request("/api/performance/initial");
+}
+
 export function compareCustom(text) {
   return request("/api/comparison/custom", {
     method: "POST",

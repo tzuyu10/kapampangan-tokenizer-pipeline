@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { CompareIcon, CopyIcon, TrashIcon } from "../components/icons.jsx";
-import TranslationProcess from "../components/TranslationProcess.jsx";
 import { compareTranslations, getTranslationStatus } from "../api.js";
 
 const MAX_LEN = 500;
@@ -28,23 +27,13 @@ function TranslationCondition({ condition, status, result, loading, copied, onCo
         {loading ? "Generating translation..." : result ? result.translation || "No visible text was generated." : status?.ready ? "Compare a sentence to see the translation here." : status?.reason || "Checking model availability..."}
       </p>
     </div>
-    <div className="translation-metrics" aria-label={`${condition.short} generation metrics`}>
-      <div><span>Source tokens</span><strong>{result?.source_token_count ?? "Pending"}</strong></div>
-      <div><span>Output tokens</span><strong>{result?.output_token_count ?? "Pending"}</strong></div>
-      <div><span>Generation time</span><strong>{result?.cache_hit ? "Cached" : result ? `${result.latency_ms} ms` : "Pending"}</strong></div>
-    </div>
   </article>;
 }
 
-export default function TranslatorComparisonPage() {
-  const [source, setSource] = useState("");
+export default function TranslatorComparisonPage({ source, setSource, result, setResult, loading, setLoading, error, setError, onViewPerformance }) {
   const [status, setStatus] = useState(null);
-  const [result, setResult] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [statusLoading, setStatusLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [copied, setCopied] = useState(null);
-  const [processKey, setProcessKey] = useState("custom");
 
   async function checkStatus() {
     setStatusLoading(true); setError(null);
@@ -61,7 +50,6 @@ export default function TranslatorComparisonPage() {
     try {
       const data = await compareTranslations(source.trim());
       setResult(data);
-      setProcessKey(data.custom ? "custom" : "baseline");
     } catch (err) { setError(err.message); }
     finally { setLoading(false); }
   }
@@ -70,12 +58,11 @@ export default function TranslatorComparisonPage() {
     try { await navigator.clipboard.writeText(result[key].translation); setCopied(key); }
     catch { setError("Clipboard access is unavailable. Select and copy the translation manually."); }
   }
-  const active = CONDITIONS.find(condition => condition.key === processKey);
 
   return <main className="page translation-comparison-page">
     <div className="comparison-kicker">Controlled A/B comparison</div>
     <h1 className="page-title">Translator vs. Translator</h1>
-    <p className="page-subtitle translation-comparison-subtitle">One Kapampangan input, two NLLB-200 conditions. Compare their Filipino output and follow how each translation is produced.</p>
+    <p className="page-subtitle translation-comparison-subtitle">Enter one Kapampangan input and compare Filipino output from Plain BPE and Morph-BPE + NLLB-200.</p>
 
     {error && <div className="error-banner" role="alert">{error}</div>}
     <div className="translation-test-grid">
@@ -105,7 +92,7 @@ export default function TranslatorComparisonPage() {
         {CONDITIONS.map(condition => <TranslationCondition key={condition.key} condition={condition}
           status={status?.conditions?.[condition.key]} result={result?.[condition.key]} loading={loading && status?.conditions?.[condition.key]?.ready}
           copied={copied === condition.key} onCopy={() => copy(condition.key)} />)}
-        <p className="comparison-results-note">Source counts include start/end tokens. Output counts exclude special tokens. These are generation statistics, not translation-quality scores.</p>
+        <p className="comparison-results-note">View the metrics and model process for this input in the next tab.</p>
       </section>
     </div>
     {loading && <p className="translator-note" role="status">Loading or translating. The first request may load the base model. Both results appear when the comparison finishes.</p>}
@@ -114,11 +101,6 @@ export default function TranslatorComparisonPage() {
       <button className="btn btn-secondary" onClick={checkStatus} disabled={loading}>Check connection</button>
     </aside>}
 
-    <div className="process-switch" role="group" aria-label="Translation process condition">
-      <span>Explain the process for</span>
-      {CONDITIONS.map(condition => <button key={condition.key} className={`example-chip ${processKey === condition.key ? "selected" : ""}`}
-        aria-pressed={processKey === condition.key} onClick={() => setProcessKey(condition.key)}>{condition.short}</button>)}
-    </div>
-    <TranslationProcess result={result?.[processKey]} label={active.short} />
+    <div className="page-next-action"><button className="btn btn-secondary" onClick={onViewPerformance}>View translation metrics & process →</button></div>
   </main>;
 }

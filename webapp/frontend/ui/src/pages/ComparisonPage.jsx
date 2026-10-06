@@ -1,3 +1,5 @@
+import InitialMetrics from "../components/InitialMetrics.jsx";
+
 const NAMES = ["MorphBPE", "Plain BPE", "Unigram-LM"];
 const DOT_CLASS = { MorphBPE: "morph", "Plain BPE": "plain", "Unigram-LM": "uni" };
 
@@ -50,7 +52,7 @@ function SplitsSection({ result }) {
     <div className="comparison-section">
       <h2 className="comparison-section-title">Your Input — 3-Way Split</h2>
       <p className="comparison-section-note">
-        The same text you tokenized on the Tokenizer tab (<code>{result.input}</code>), run
+        The same text you tokenized on the Tokenization tab (<code>{result.input}</code>), run
         through all three tokenizers live. &ldquo;+&rdquo; marks a subword join.
       </p>
       <div className="card" style={{ padding: "20px 24px" }}>
@@ -219,12 +221,13 @@ function ConsistencyExplain({ explain }) {
 export default function ComparisonPage({ input, result, loading, error, onGoToTokenizer }) {
   return (
     <div className="page">
-      <h1 className="page-title">Tokenizer Comparison</h1>
+      <h1 className="page-title">Tokenization Comparison & Metrics</h1>
       <p className="page-subtitle">
-        MorphBPE penalty-32 vs. Plain BPE vs. Unigram-LM (NLLB&rsquo;s own algorithm) — using the
-        same input you tokenize on the Tokenizer tab
+        MorphBPE penalty-32 vs. Plain BPE vs. matched Unigram-LM — using the
+        same input you tokenize on the Tokenization tab
       </p>
 
+      <InitialMetrics level="tokenizer" />
       {error && <div className="error-banner">{error}</div>}
 
       {!input && !loading && !error && (
@@ -234,7 +237,7 @@ export default function ComparisonPage({ input, result, loading, error, onGoToTo
             input is compared here across all three tokenizers, live.
           </p>
           <button className="btn btn-primary" onClick={onGoToTokenizer}>
-            Go to Tokenizer tab
+            Go to Tokenization tab
           </button>
         </div>
       )}
@@ -289,7 +292,7 @@ export default function ComparisonPage({ input, result, loading, error, onGoToTo
               ) : (
                 <div className="card metric-chart-hint">
                   <p>
-                    Mark gold boundaries with <code>|</code> in the Tokenizer tab (e.g.{" "}
+                    Mark gold boundaries with <code>|</code> in the Tokenization tab (e.g.{" "}
                     <code>s|in|ulat</code>) to also compare Boundary F1 and Consistency F1 here.
                   </p>
                 </div>
