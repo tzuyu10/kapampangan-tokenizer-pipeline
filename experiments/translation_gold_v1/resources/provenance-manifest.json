@@ -1,0 +1,11 @@
+{
+  "copied_from_external_paths": {
+    "kapampangan_mt_pld_pam_fil_curated.csv": {
+      "copied_sha256": "81a82e89a7a7797b82bd9e3152a75023eb14128efb80b25135c1c74a73a6de72",
+      "source_mtime": "2026-05-09T19:37:45",
+      "source_path": "D:/Coding/thesis/curated_research_dataset/kapampangan_mt_pld_pam_fil_curated.csv",
+      "source_sha256": "81a82e89a7a7797b82bd9e3152a75023eb14128efb80b25135c1c74a73a6de72",
+      "source_size_bytes": 83183
+    }
+  }
+}

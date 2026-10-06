@@ -1,0 +1,139 @@
+{
+  "base_inputs": {
+    "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+    "lexicon_fingerprint": "02a9886ccfeff83b710374c71a0c3dd8bd5a8a99d440621cafe1709cfb03daba",
+    "lexicon_sha256": "c6695f09e13d0f07798358ac7177c278468f6a713658ab7a0545abb7d46ec8fd",
+    "prepared_manifest_fingerprint": "b67953c3ced4417ccecc4a69824d42d298697ba326909c88ae592d22b19172d2",
+    "prepared_stream_sha256": "509d6d518737400f4658c268b4dcd3af4ca59b03a7b571551ffe704694b2c765",
+    "train_sha256": "2309d439133c73b183a45954adfc8c54d36b8824b0cd2899631415497f6d4d2d"
+  },
+  "decisions": [
+    {
+      "candidate_ids": [
+        "ocr-001"
+      ],
+      "confidence": "high",
+      "form": "bukas",
+      "operation": "add_provisional_root",
+      "rationale": "Three independent modern sources identify bukas as the Kapampangan word for tomorrow.",
+      "sources": [
+        "kapampangan-trilingual-lexicon:pdf-page-12",
+        "forman-grammar-notes:pdf-page-57",
+        "mirikitani-speaking-kapampangan:pdf-page-263"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "ocr-002"
+      ],
+      "canonical_form": "bukas",
+      "confidence": "high",
+      "form": "bucas",
+      "operation": "add_exact_historical_variant",
+      "rationale": "The historical dictionaries attest BUCAS for tomorrow; only this exact pair is operational, never a global c-to-k rewrite.",
+      "sources": [
+        "samson-dictionary:pdf-page-131",
+        "bergano-vocabulario-samson:pdf-page-116",
+        "bayung-ortograpiyang-kapampangan:pdf-page-10"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "ocr-003"
+      ],
+      "confidence": "high",
+      "form": "datang",
+      "operation": "keep_existing_root",
+      "rationale": "Independent sources confirm datang as the root come or arrive."
+    },
+    {
+      "candidate_ids": [
+        "ocr-004",
+        "ocr-005",
+        "ocr-008"
+      ],
+      "confidence": "local_test_only",
+      "form": "pangulo",
+      "operation": "add_exact_provisional_borrowed_root",
+      "rationale": "The exact source sentence attests pangulo. Conflicting lexical evidence prevents a canonical claim, but the user authorizes an isolated local adjudication. The form remains atomic and is not analyzed as pang plus ulo.",
+      "sources": [
+        "comparative-kapampangan-paper:pdf-page-5"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "ocr-006"
+      ],
+      "confidence": "high",
+      "form": "presidente",
+      "operation": "add_provisional_root",
+      "rationale": "Instructional and orthographic sources attest presidente or its accented counterpart as a Kapampangan form for president.",
+      "sources": [
+        "mirikitani-speaking-kapampangan:pdf-page-96",
+        "forman-grammar-notes:pdf-page-45",
+        "bayung-ortograpiyang-kapampangan:pdf-page-48"
+      ]
+    },
+    {
+      "candidate_ids": [
+        "ocr-007"
+      ],
+      "confidence": "high",
+      "form": "pamuntuk",
+      "operation": "keep_existing_root",
+      "rationale": "The existing root is independently supported as head or leader."
+    },
+    {
+      "candidate_ids": [
+        "ocr-009"
+      ],
+      "confidence": "high",
+      "form": "pangulu",
+      "operation": "keep_existing_root_distinct",
+      "rationale": "Keep the existing north root distinct from pangulo; no spelling normalization connects them."
+    },
+    {
+      "candidate_ids": [
+        "ocr-010"
+      ],
+      "form": "na",
+      "operation": "hold_richards_evidence",
+      "rationale": "Do not introduce contextual clitic classification in this experiment."
+    },
+    {
+      "candidate_ids": [
+        "ocr-011"
+      ],
+      "form": "na + ya -> ne",
+      "operation": "hold_richards_evidence",
+      "rationale": "Do not introduce morphophonemic decomposition in this experiment."
+    },
+    {
+      "candidate_ids": [
+        "ocr-012"
+      ],
+      "form": "pag-...-an / paN-...-an",
+      "operation": "hold_richards_evidence",
+      "rationale": "Do not extend the paper-declared operational affix inventory in this experiment."
+    }
+  ],
+  "evidence_queue": "reports/source-evidence-adjudication.csv",
+  "experiment_id": "source-adjudicated-v1",
+  "richards_candidate_ids_held": [
+    "ocr-010",
+    "ocr-011",
+    "ocr-012"
+  ],
+  "selection_policy": {
+    "candidate_vocabulary_sizes": [
+      1656,
+      3008,
+      6080
+    ],
+    "current_validation_re_evaluated": false,
+    "inherited_canonical_selection_fingerprint": "3ca3a1781c5544014a50615032124ddc02875204a0d7501b39e481c2dbfb657f",
+    "selected_target_vocabulary_size": 6080,
+    "strategy": "inherit_precommitted_canonical_target_because_raw_validation_split_is_unavailable"
+  }
+}
+

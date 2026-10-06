@@ -1,0 +1,17 @@
+{
+  "authority": "paper inventory exercised with a synthetic root lexicon; no held-out corpus text",
+  "cases": [
+    {"token": "", "segments": [], "status": "empty", "rule_id": null},
+    {"token": "sulat", "segments": ["sulat"], "status": "protected_root", "rule_id": "PROTECT_ROOT"},
+    {"token": "bahay-basa", "segments": ["bahay-basa"], "status": "protected_compound", "rule_id": "PROTECT_COMPOUND"},
+    {"token": "masulat", "segments": ["ma", "sulat"], "status": "accepted", "rule_id": "PREFIX_MA"},
+    {"token": "kuman", "segments": ["k", "um", "an"], "status": "accepted", "rule_id": "INFIX_UM"},
+    {"token": "sulatan", "segments": ["sulat", "an"], "status": "accepted", "rule_id": "SUFFIX_AN"},
+    {"token": "kasulatan", "segments": ["ka", "sulat", "an"], "status": "accepted", "rule_id": "CIRCUMFIX_KA_AN"},
+    {"token": "sulatya", "segments": ["sulat", "ya"], "status": "accepted", "rule_id": "CLITIC_YA"},
+    {"token": "pamkanan", "segments": ["pam", "kan", "an"], "status": "accepted", "rule_id": "CIRCUMFIX_PANG_PAM_AN"},
+    {"token": "makapagkan", "segments": ["makapagkan"], "status": "ambiguous", "rule_id": null},
+    {"token": "main", "segments": ["main"], "status": "protected_root", "rule_id": "PROTECT_ROOT"},
+    {"token": "xyz", "segments": ["xyz"], "status": "unchanged", "rule_id": null}
+  ]
+}

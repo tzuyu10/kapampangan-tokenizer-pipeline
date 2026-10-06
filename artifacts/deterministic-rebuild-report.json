@@ -1,0 +1,35 @@
+{
+  "byte_identical_core_and_documentation": true,
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "file_count": 9,
+  "first_training_report": {
+    "failed_targets": [],
+    "final_vocabulary_size": 6080,
+    "merge_rules_learned": 4488,
+    "protected_boundary_merge_violations": 0,
+    "requested_targets": [
+      6080
+    ],
+    "stopped_because": "maximum_target_reached",
+    "trained_targets": [
+      6080
+    ]
+  },
+  "rebuild_artifact_fingerprint": "d3974f566756314f961a678a6bbf665a4ed3ecd2e64a82826c01950aa3e0e14e",
+  "schema_version": "1.0.0",
+  "second_training_report": {
+    "failed_targets": [],
+    "final_vocabulary_size": 6080,
+    "merge_rules_learned": 4488,
+    "protected_boundary_merge_violations": 0,
+    "requested_targets": [
+      6080
+    ],
+    "stopped_because": "maximum_target_reached",
+    "trained_targets": [
+      6080
+    ]
+  },
+  "selected_artifact_fingerprint": "d3974f566756314f961a678a6bbf665a4ed3ecd2e64a82826c01950aa3e0e14e",
+  "selected_target_vocabulary_size": 6080
+}

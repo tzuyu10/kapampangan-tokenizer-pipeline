@@ -1,0 +1,25 @@
+{
+  "copied_from_external_paths": {
+    "kapampangan_lexicon_local_curated.csv": {
+      "copied_sha256": "c58e5fa5311727db64fdf14a15a46064b9054d4602ac77d3cff385ecf5c89746",
+      "source_mtime": "2026-05-09T21:09:30",
+      "source_path": "D:/Coding/thesis/curated_research_dataset/kapampangan_lexicon_local_curated.csv",
+      "source_sha256": "c58e5fa5311727db64fdf14a15a46064b9054d4602ac77d3cff385ecf5c89746",
+      "source_size_bytes": 3891669
+    },
+    "kapampangan_lexicon_polytranslator_curated.csv": {
+      "copied_sha256": "b82255553f6f0ea2c676bfd013999fa71b01711180297f4d4cc49d112d3ce534",
+      "source_mtime": "2026-05-09T21:09:30",
+      "source_path": "D:/Coding/thesis/curated_research_dataset/kapampangan_lexicon_polytranslator_curated.csv",
+      "source_sha256": "b82255553f6f0ea2c676bfd013999fa71b01711180297f4d4cc49d112d3ce534",
+      "source_size_bytes": 69291
+    },
+    "kapampangan_morph_annotated_dataset.csv": {
+      "copied_sha256": "96a9326c72499a1d2949c2524fb19aca503f99f6f5e96cd512d619d09adccc28",
+      "source_mtime": "2026-05-13T01:35:14",
+      "source_path": "D:/Coding/thesis/datasets/kapampangan_morph_annotated_dataset.csv",
+      "source_sha256": "96a9326c72499a1d2949c2524fb19aca503f99f6f5e96cd512d619d09adccc28",
+      "source_size_bytes": 201743
+    }
+  }
+}

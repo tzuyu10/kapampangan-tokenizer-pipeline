@@ -1,0 +1,65 @@
+{
+  "experiment_id": "source-adjudicated-v2",
+  "evidence_label": "external-source-supported provisional silver; not independent linguistic gold",
+  "base_condition": "source-adjudicated-v1",
+  "target_vocabulary_sizes": [
+    6080,
+    8192,
+    16384
+  ],
+  "direct_root_policy": {
+    "decision": "new_exact_root_matched_hypothesis",
+    "candidate_kind": "direct_root",
+    "required_evidence_status": "source_supported_root_exact",
+    "minimum_letters": 3,
+    "quality_flags_must_be_empty": true
+  },
+  "derived_policy": {
+    "accepted_analysis_kinds": [
+      "circumfix",
+      "prefix",
+      "infix",
+      "suffix"
+    ],
+    "accepted_word_decisions": [
+      "already_analyzed",
+      "new_exact_root_matched_hypothesis"
+    ],
+    "required_evidence_status": "source_supported_root_exact",
+    "minimum_root_letters": 3,
+    "quality_flags_must_be_empty": true,
+    "accepted_relation_evidence": [
+      "forman_cross_reference_to_root",
+      "forman_root_entry_lists_derived_form",
+      "acd_explicit_hyphenated_segmentation"
+    ],
+    "clitics_are_held": true
+  },
+  "held_decisions": [
+    "conflicting_exact_root_matched_hypotheses",
+    "current_rule_conflict",
+    "lexically_attested_unresolved",
+    "probable_noise_unresolved",
+    "unresolved_no_source_match"
+  ],
+  "richards_candidate_ids_held": [
+    "ocr-010",
+    "ocr-011",
+    "ocr-012"
+  ],
+  "required_boundary_safe_regressions": [
+    "kabukasan",
+    "sinulat"
+  ],
+  "runtime_contract": {
+    "paper_morphbpe": "standard BPE without a runtime lexicon",
+    "boundary_safe_extension": "standard BPE without a runtime lexicon",
+    "plain_bpe": "standard BPE without morphology"
+  },
+  "selection_policy": {
+    "selection_performed": false,
+    "current_validation_re_evaluated": false,
+    "reason": "raw validation split unavailable; all three sizes remain comparison candidates"
+  }
+}
+

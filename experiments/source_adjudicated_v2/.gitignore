@@ -1,0 +1,9 @@
+artifacts/
+runs/
+reports/*.csv
+reports/*.json
+reports/*.jsonl
+resources/
+!reports/adjudication-summary.md
+!reports/experiment-summary.md
+

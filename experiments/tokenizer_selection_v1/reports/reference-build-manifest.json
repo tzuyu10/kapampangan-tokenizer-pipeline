@@ -1,0 +1,16 @@
+{
+  "reference_csv": "reference-morphology.csv",
+  "reference_csv_sha256": "e7e77fbad536ab45dd158d5f94aea518170c90aafcb712acbcb244dae5895238",
+  "source": "experiments/morphology_gold_v1/ (Tier A/B silver + Tier F user adjudication)",
+  "label": "silver + partial user adjudication; NOT independent native-speaker gold",
+  "rows_total": 534,
+  "rows_tierAB_silver": 452,
+  "rows_tierF_user_auto": 50,
+  "rows_tierF_user_monomorphemic": 20,
+  "rows_tierF_user_manual_surface_map": 12,
+  "tierF_excluded": 15,
+  "base_pool_skipped_function_word": 74,
+  "base_pool_skipped_reconstruction_fail": 0,
+  "total_gold_boundaries": 656,
+  "zero_boundary_rows": 53
+}

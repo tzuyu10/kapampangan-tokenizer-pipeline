@@ -1,0 +1,29 @@
+{
+  "candidate_grid_fingerprint": "5f098d5b92dc2428a7324783df0413536ff29c3896702b4971f90cf6c2194d0b",
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "family_training": {
+    "failed_targets": [],
+    "final_vocabulary_size": 6080,
+    "merge_rules_learned": 4488,
+    "protected_boundary_merge_violations": 0,
+    "requested_targets": [
+      1656,
+      3008,
+      6080
+    ],
+    "stopped_because": "maximum_target_reached",
+    "trained_targets": [
+      1656,
+      3008,
+      6080
+    ]
+  },
+  "model_fingerprints": {
+    "1656": "1a74edf5cc1dbba276d296ef4cfe1753ac995760c6093f1efac8c60ad091f227",
+    "3008": "359e7535ac9876e5d377be163b5c8c2dfe3cb44ae13cdfdc723842d20c6ffe4e",
+    "6080": "38fd3cec3aedd93fc3a31d078a5e18eda8adf88fc6e725bfb9439cfdb3b37977"
+  },
+  "prepared_manifest_fingerprint": "b67953c3ced4417ccecc4a69824d42d298697ba326909c88ae592d22b19172d2",
+  "report_fingerprint": "04aabaa44b3dc51c8bae8daa8a0ebb69e1b71a00a0ec9da45bdd1a51cb41de3a",
+  "schema_version": "1.0.0"
+}

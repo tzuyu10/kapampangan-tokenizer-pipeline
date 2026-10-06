@@ -1,0 +1,183 @@
+pair_id,source_item_num,confidence,verification_basis,pam_text,fil_text,english_gloss,note
+extvoc_001,1,high,pld_corroborated,Mayap a abak pu.,Magandang umaga po.,Good morning.,Basic greeting; 'Mayap a abak' pattern seen throughout raw PLD Greetings text.
+extvoc_002,2,high,pld_corroborated,Mayap a ugto pu.,Magandang tanghali po.,Good noon.,'Ugto' (noon) seen directly in raw PLD Greetings text this session already read ('Mayap a ugtu pu').
+extvoc_003,3,high,pld_corroborated,Mayap a gatpanapun pu.,Magandang hapon po.,Good afternoon.,'Mayap a gatpanapun' pattern seen throughout raw PLD Greetings text.
+extvoc_004,4,high,pld_corroborated,Mayap a bengi pu.,Magandang gabi po.,Good evening.,'Mayap a bengi' pattern seen throughout raw PLD Greetings text.
+extvoc_005,5,high,dictionary_attested,Dakal a salamat pu.,Maraming salamat po.,Thank you very much.,
+extvoc_007,7,medium,dictionary_attested,Alang anuman.,Walang anuman.,You're welcome.,'Alang' (none/without) + 'anuman' (anything); calque of the FIL phrase.
+extvoc_008,8,medium,dictionary_attested,Usuk pu,Tuloy po kayo.,Please come in.,Using the attested 'Usuk pu'; 'Tulik pu' alternate not independently attested or corroborated.
+extvoc_009,9,medium,dictionary_attested,Komusta kayu pu?,Kumusta po kayo?,How are you?,"Using 'Komusta kayu pu?' (Spanish-loanword 'komusta', attested); 'Mapanu kayu pu?' alternate not independently attested."
+extvoc_017,17,medium,dictionary_attested,Mako na ku pu,Paalam na po.,Goodbye.,Using the first alternate; 'King ulian na ku pu' not independently checked.
+extvoc_018,18,medium,dictionary_attested,Maligayang kebaitan!,Maligayang kaarawan!,Happy birthday!,Fills a gap this session's own PLD reading left unmatched -- PAM Utt_Greetings.txt slot 8 uses 'kebaitan' with no FIL counterpart found at the time; this document's birthday reading is plausible and uncontradicted.
+extvoc_019,19,high,pld_corroborated,Nanu?,Ano?,What?,
+extvoc_020,20,high,pld_corroborated,Ninu?,Sino?,Who?,
+extvoc_021,21,high,pld_corroborated,Nukarin?,Saan? / Nasaan?,Where?,"Using 'Nukarin?', which matches this experiment's own confirmed pldpair_022/023 PAM text; 'Pukarin?' alternate not independently corroborated."
+extvoc_022,22,medium,dictionary_attested,Kapilan?,Kailan?,When?,Root shared with 'capilanman' (whenever/always) seen in Iso_Time.txt.
+extvoc_023,23,high,pld_corroborated,Obat? / Bakit?,Bakit?,Why?,'Obat' seen directly in the Iput-Ipot story dialogue this session already read.
+extvoc_024,24,high,pld_corroborated,Makananu?,Paano?,How?,Matches 'Macananu' in this experiment's own pldpair_026 (spelling variant).
+extvoc_025,25,medium,pld_corroborated,Isanu? / Isanung?,Alin?,Which?,'Insanu'/'Isanu' seen in Story-domain text (pldpair_020 region) in a 'what/which' sense.
+extvoc_026,26,medium,dictionary_attested,Pilan?,Ilan?,How many?,
+extvoc_027,27,medium,dictionary_attested,Magkanu? / Pilan ya?,Magkano?,How much?,
+extvoc_028,28,medium,dictionary_attested,Kang ninu?,Nakanino? / Kanino?,Whose? / With whom?,Using the fully-attested-by-parts alternate; 'Kanganinu?' (fused form) not independently attested.
+extvoc_033,33,medium,dictionary_attested,Nucarin ya ing kawi/susi ning bale?,Nakanino ang susi ng bahay?,Who has the house key? / Where is the key?,"Kept as-is (word-level alternate mid-sentence, not a substitutable substring): 'susi' (key) is attested, 'kawi' is not."
+extvoc_034,34,high,dictionary_attested,Aku,Ako,I / Me,
+extvoc_035,35,high,dictionary_attested,Ika / Ka,Ikaw / Ka,You (singular),
+extvoc_036,36,high,pld_corroborated,Ya,Siya,He / She,3rd-person-singular 'ya' appears constantly throughout every PLD text read this session.
+extvoc_037,37,medium,dictionary_attested,Kami,Kami,We (exclusive),
+extvoc_038,38,high,pld_corroborated,Katamu / Tamu,Tayo,We (inclusive),'kecatamu'/'itamu' forms seen throughout the Letter-domain text.
+extvoc_039,39,high,pld_corroborated,Kayu,Kayo,You (plural),'kayu' seen constantly throughout PLD text.
+extvoc_040,40,medium,dictionary_attested,Ila,Sila,They,
+extvoc_041,41,medium,dictionary_attested,Kakung / Ku,Akin / Ko,My / Mine,'ku' possessive/agent marker extremely common throughout PLD text.
+extvoc_042,42,medium,dictionary_attested,Kekang / Mu,Iyo / Mo,Your / Yours,'mu' possessive/agent marker extremely common throughout PLD text.
+extvoc_043,43,medium,dictionary_attested,Kaya / Na,Kanya / Niya,His / Her / Hers,'na' possessive/agent marker extremely common throughout PLD text.
+extvoc_044,44,medium,dictionary_attested,Kekami / Mi,Amin / Namin,Our / Ours (exclusive),
+extvoc_045,45,high,pld_corroborated,Kekatamu / Tamu,Atin / Natin,Our / Ours (inclusive),'kekatamung' seen in the Letter-domain text.
+extvoc_046,46,medium,dictionary_attested,Kekayu / Yu,Inyo / Ninyo,Your / Yours (plural),'yu' common throughout PLD text.
+extvoc_047,47,medium,dictionary_attested,Keraklan / Da,Kanila / Nila,Their / Theirs,'da' (3rd-plural agent marker) extremely common throughout PLD text; 'Keraklan' less independently corroborated.
+extvoc_048,48,medium,dictionary_attested,Ini / Iti,Ito,This,'iti' ('this') appears constantly throughout PLD text.
+extvoc_049,49,medium,dictionary_attested,Iyan,Iyan,That (near listener),Identical spelling to FIL; plausible shared cognate.
+extvoc_050,50,medium,dictionary_attested,Ita,Iyon,That (far from both),
+extvoc_051,51,medium,dictionary_attested,Keni,Dito,Here,
+extvoc_052,52,medium,dictionary_attested,Kena,Diyan,There (near listener),
+extvoc_053,53,high,pld_corroborated,Karin,Doon,There (far),'carin' seen directly in the Bernardo Carpio story text.
+extvoc_054,54,high,pld_corroborated,Metung,Isa,One,Verified numeral roots also confirmed via this session's own Iso_Ordinal.txt reading.
+extvoc_055,55,high,pld_corroborated,Addua,Dalawa,Two,
+extvoc_056,56,high,pld_corroborated,Atlu,Tatlo,Three,
+extvoc_057,57,high,dictionary_attested,Apat,Apat,Four,
+extvoc_058,58,high,dictionary_attested,Lima,Lima,Five,
+extvoc_059,59,high,dictionary_attested,Anam,Anim,Six,
+extvoc_060,60,high,dictionary_attested,Pitu,Pito,Seven,
+extvoc_061,61,high,dictionary_attested,Walu,Walo,Eight,
+extvoc_062,62,high,dictionary_attested,Siam,Siyam,Nine,
+extvoc_063,63,high,dictionary_attested,Apulu,Sampu,Ten,
+extvoc_064,64,high,dictionary_attested,Labing-metung,Labing-isa,Eleven,
+extvoc_065,65,medium,transparent_compound,Labing-addua,Labing-dalawa,Twelve,'labi-ng-adua' (ten+two=twelve) follows the exact same transparent compounding pattern as item 64; not attested as one surface token but both constituent parts are.
+extvoc_066,66,medium,transparent_compound,Adduang pulu,Dalawampu,Twenty,"Using 'Adduang pulu' (two-tens=twenty); the document's other alternate 'Labing-addua' is a copy-paste error from item 65 (that literally means twelve, not twenty)."
+extvoc_067,67,medium,dictionary_attested,Dalan / Metung a dalan,Isandaan,One hundred,
+extvoc_068,68,medium,dictionary_attested,Libu / Metung a libu,Isang libo,One thousand,
+extvoc_069,69,high,pld_corroborated,Ngeni,Ngayon,Now / Today,'Ngeni' appears constantly throughout PLD text.
+extvoc_070,70,medium,dictionary_attested,Napun,Kahapon,Yesterday,
+extvoc_071,71,high,dictionary_attested,Bukas,Bukas,Tomorrow,Well-known root; this project's own morphology work (v1-v4) discusses 'Bukas' extensively as an attested word.
+extvoc_072,72,high,pld_corroborated,Nandin,Kanina,Earlier,'nandin' seen directly as a PAM Iso_Time.txt slot this session already read (left unmatched there; this document supplies its FIL counterpart).
+extvoc_073,73,medium,dictionary_attested,Pota,Mamaya,Later,
+extvoc_074,74,high,pld_corroborated,Aldo,Araw,Day / Sun,'Aldo' appears constantly throughout PLD text.
+extvoc_077,77,high,pld_corroborated,Ugto,Tanghali,Noon,"Same 'Ugto' root as item 2, seen directly in raw PLD Greetings text."
+extvoc_075,75,high,pld_corroborated,Bengi,Gabi,Night,'Bengi' appears constantly throughout PLD text.
+extvoc_076,76,high,pld_corroborated,Abak,Umaga,Morning,Matches this experiment's own pldpair_025 PAM word.
+extvoc_078,78,high,pld_corroborated,Gatpanapun,Hapon,Afternoon,'Mayap a gatpanapun' pattern seen throughout PLD text.
+extvoc_079,79,medium,dictionary_attested,Domingo / Linggu,Linggo,Week / Sunday,'Domingo' is a transparent Spanish loanword.
+extvoc_080,80,medium,dictionary_attested,Bulan,Buwan,Month / Moon,
+extvoc_081,81,high,project_established,Banua,Taon,Year,"Directly corroborated by this experiment's own confirmed pldpair_003 ('bayung banua' = 'bagong taon', new year)."
+extvoc_082,82,high,project_established,Tatang / Ibpa,Ama / Tatay,Father,"'Tatang' is directly established as a genuine, monomorphemic Kapampangan word in this project's own 2026-08-25 Phase 1 adjudication."
+extvoc_083,83,high,pld_corroborated,Indu / Ima,Ina / Nanay,Mother,'Indu' seen constantly throughout the Gamugamo story text.
+extvoc_084,84,high,dictionary_attested,Anak,Anak,Child,
+extvoc_085,85,medium,dictionary_attested,Kaputol / Kapatad,Kapatid,Sibling,
+extvoc_086,86,medium,dictionary_attested,Pangane,Panganay,Eldest child,
+extvoc_087,87,high,dictionary_attested,Bunsso,Bunso,Youngest child,"Confirmed (2026-08-28) via direct dictionary verification: Bergano (1732, Samson translation) p.124 -- 'BUNGSO. Strictly speaking, the youngest child, or the youngest among siblings...' Using 'Bunsso' (the attested alternate); excluding the unattested 'Anaktian'."
+extvoc_088,88,medium,transparent_compound,Apu a lalaki,Lolo,Grandfather,Compositional 'apu' (grandparent) + 'a lalaki' (male); not attested as one surface token.
+extvoc_089,89,medium,transparent_compound,Apu a babai,Lola,Grandmother,Compositional 'apu' (grandparent) + 'a babai' (female); not attested as one surface token.
+extvoc_090,90,medium,dictionary_attested,Bapa,Tiyo / Tito,Uncle,
+extvoc_091,91,medium,dictionary_attested,Dara,Tiya / Tita,Aunt,
+extvoc_092,92,high,project_established,Pisan,Pinsan,Cousin,'Pisan' (cousin) is directly confirmed in this project's own 2026-08-25 Phase 1 adjudication ('kapamisanan' root).
+extvoc_093,93,medium,dictionary_attested,Pangunakan,Pamangkin,Nephew / Niece,
+extvoc_094,94,high,dictionary_attested,Asawa,Asawa,Spouse,"Multi-source attestation (Forman, ACD, UCLA Phonetics Archive, Kaikki) confirmed directly in word-evidence.csv."
+extvoc_095,95,medium,dictionary_attested,Kasintahan / Novia,Kasintahan / Nobya / Nobyo,Sweetheart / Partner,"PAM 'Kasintahan' (direct Tagalog loanword) and 'Novia' (Spanish loanword) are plausible alongside this experiment's own 'Capalsintan' (pldpair_039); code-switching alternates, not independently attested in this project's historical-dictionary sources."
+extvoc_096,96,high,pld_corroborated,Kaluguran,Kaibigan,Friend,Shares the 'caluguran' root already used in this experiment's own confirmed pldpair_011.
+extvoc_097,97,high,dictionary_attested,Kambal,Kambal,Twin,"Using the directly-attested, identical-cognate 'Kambal' rather than the ambiguous 'Cacambal' (declined earlier in this experiment for exactly this ambiguity)."
+extvoc_098,98,medium,pld_corroborated,Tau,Tao,Person / Human,'ding tau' ('the people') seen throughout the Letter/Essay domain text.
+extvoc_099,99,medium,dictionary_attested,Lalaki,Lalaki,Man / Male,
+extvoc_100,100,medium,dictionary_attested,Babai,Babae,Woman / Female,
+extvoc_101,101,high,dictionary_attested,Buntuk,Ulo,Head,"Multi-source attestation (Forman, Kaikki) confirmed directly in word-evidence.csv."
+extvoc_102,102,medium,dictionary_attested,Bwak / Buak,Buhok,Hair,
+extvoc_103,103,high,dictionary_attested,Mata,Mata,Eye,Identical cognate spelling.
+extvoc_104,104,high,pld_corroborated,Arung,Ilong,Nose,'king arung ning gorilya' (in the gorilla's nose) appears repeatedly in the Iput-Ipot story text.
+extvoc_105,105,medium,dictionary_attested,Asbuk,Bibig,Mouth,
+extvoc_107,107,medium,dictionary_attested,Dila,Dila,Tongue,Identical cognate spelling.
+extvoc_108,108,medium,dictionary_attested,Balugbug,Tenga,Ear,"Using the attested 'Balugbug'; excluding the document's 'Tuli' alternate, which most plausibly means 'circumcision' in Kapampangan/Tagalog, not 'ear' -- likely an error in the source document."
+extvoc_110,110,medium,dictionary_attested,Gamat,Kamay,Hand,
+extvoc_111,111,medium,dictionary_attested,Taliri,Daliri,Finger / Toe,
+extvoc_113,113,high,pld_corroborated,Bitis,Paa,Foot,Consistent with this session's own Iso_BodyParts.txt reading.
+extvoc_114,114,high,pld_corroborated,Pusu,Puso,Heart,"'taus pusung' (heartfelt, lit. true-heart) seen throughout the Greetings/Letter domain text."
+extvoc_115,115,medium,dictionary_attested,Atian / Atsan,Tiyan,Stomach / Belly,
+extvoc_116,116,medium,dictionary_attested,Gulut,Likod,Back,
+extvoc_117,117,high,dictionary_attested,Sakit,Sakit,Sickness / Pain,Identical cognate spelling; also appears in item 205's sentence.
+extvoc_119,119,high,project_established,Bucung-bucung,Bukung-bukong,Ankle,Directly confirmed by this project's own 2026-08-25 Phase 1 adjudication (fixes a gap this session's own PLD Iso_BodyParts.txt reading could not fill -- no FIL 'ankle' term appeared in that specific elicitation list).
+extvoc_120,120,high,project_established,Galang-galangan,Galang-galangan,Wrist,"Directly confirmed by this project's own 2026-08-25 Phase 1 adjudication (galang-galangan = wrist, not ankle)."
+extvoc_121,121,high,project_established,Pamangan,Pagkain,Food,Derived from the 'mangan'/'pangan' root this project's own Phase 1 adjudication already confirmed correct.
+extvoc_122,122,high,dictionary_attested,Danum,Tubig,Water,
+extvoc_123,123,medium,dictionary_attested,Nasi,Kanin,Cooked rice,Consistent with 'binayu' (pounded [rice]) in this experiment's own confirmed pldpair_009.
+extvoc_124,124,medium,dictionary_attested,Ulam / Asan,Ulam,Dish / Side dish,
+extvoc_125,125,medium,dictionary_attested,Asan / Isda,Isda,Fish,
+extvoc_126,126,medium,dictionary_attested,Karne,Karne,Meat,"Spanish loanword, identical spelling."
+extvoc_127,127,medium,dictionary_attested,Gule,Gulay,Vegetables,
+extvoc_128,128,medium,dictionary_attested,Prutas,Prutas,Fruits,"Spanish loanword, identical spelling; thematically consistent with the Story domain's fruit-picking content."
+extvoc_129,129,medium,dictionary_attested,Asukar,Asukal,Sugar,"Using 'Asukar' (direct Spanish-loanword cognate of 'Asukal'); excluding the 'Yumu' alternate, which this same document's own item 200 defines as 'sweetness' (a quality), not 'sugar' (the substance)."
+extvoc_130,130,medium,dictionary_attested,Asin,Asin,Salt,Identical cognate spelling.
+extvoc_131,131,medium,dictionary_attested,Suka,Suka,Vinegar,Identical cognate spelling.
+extvoc_132,132,medium,dictionary_attested,Kape,Kape,Coffee,"International/Spanish loanword, identical spelling."
+extvoc_133,133,medium,dictionary_attested,Gatas,Gatas,Milk,Identical cognate spelling.
+extvoc_134,134,high,project_established,Mangan,Kumain,To eat,'Mangan' (eat) is directly confirmed as the correct root in this project's own 2026-08-25 Phase 1 adjudication.
+extvoc_135,135,medium,dictionary_attested,Minum,Uminom,To drink,
+extvoc_136,136,high,pld_corroborated,Maglutu,Magluto,To cook,Shares the 'melutu' (cooked) root already used in this experiment's own confirmed pldpair_009.
+extvoc_137,137,medium,dictionary_attested,Kakanan,Kainan,Dining place / Eating,
+extvoc_138,138,high,dictionary_attested,Angin,Hangin,Wind / Air,"Multi-source attestation (Forman, Kaikki) confirmed directly in word-evidence.csv."
+extvoc_140,140,medium,dictionary_attested,Uran,Ulan,Rain,
+extvoc_143,143,medium,dictionary_attested,Bituin,Bituin,Star,Identical cognate spelling.
+extvoc_144,144,medium,dictionary_attested,Langit,Langit,Sky / Heaven,"Using 'Langit' (identical cognate); excluding the 'Banua' alternate, which this experiment's own confirmed pldpair_003 already establishes means 'year', not 'sky/heaven'."
+extvoc_145,145,medium,dictionary_attested,Labi / Lupa / Gabun,Lupa,Earth / Ground / Soil,
+extvoc_146,146,medium,dictionary_attested,Dagat,Dagat,Sea / Ocean,"Using the identical-cognate, attested 'Dagat'; excluding the unattested 'Kalatdan' alternate."
+extvoc_147,147,high,pld_corroborated,Ilug,Ilog,River,'iyugse king ilug' (thrown into the river) appears in the Story-domain text this session already read.
+extvoc_148,148,medium,dictionary_attested,Bundok / Bunduc,Bundok,Mountain,
+extvoc_149,149,high,pld_corroborated,Pun,Puno,Tree,'pun saging'/'pun dutung' (banana tree/tree) appear constantly throughout the Story/Essay domain text.
+extvoc_150,150,high,pld_corroborated,Bulung,Dahon,Leaf,Matches 'aluntiang bulung' (green leaves) in this experiment's own confirmed pldpair_017/018.
+extvoc_151,151,medium,dictionary_attested,Bulaklak / Bulaclac,Bulaklak,Flower,Near-identical cognate spelling.
+extvoc_152,152,medium,dictionary_attested,Hayop / Ayup,Hayop,Animal,
+extvoc_153,153,medium,dictionary_attested,Ayup,Ibon,Bird,"Same PAM word as item 152 ('ayup'); plausible polysemy (animal/bird), not treated as a contradiction."
+extvoc_154,154,high,pld_corroborated,Pau,Pagong,Turtle,'Pau' (turtle) is the recurring character name throughout the Matsing story text this session already read in full.
+extvoc_155,155,high,pld_corroborated,Matsing,Matsing,Monkey,Identical spelling; recurring throughout the Story/Essay domain text.
+extvoc_156,156,high,pld_corroborated,Alitaptap,Alitaptap,Firefly,"Using 'Alitaptap' (identical cognate spelling, and the generic noun used in the Iput-Ipot story's narration, e.g. 'tacutan ne i alitaptap'); excluding 'Iput-Ipot', which this session's own PLD reading shows is used as the firefly character's proper name within that one story, not the generic word for the species."
+extvoc_157,157,high,pld_corroborated,Gorilya,Gorilya,Gorilla,Identical spelling; 'king arung ning gorilya' appears repeatedly in the Iput-Ipot story text.
+extvoc_158,158,high,pld_corroborated,Lakad / Lumakad,Lakad / Lumakad,Walk / To walk,Matches 'maglacad' in this experiment's own confirmed pldpair_015.
+extvoc_159,159,medium,dictionary_attested,Mulayi,Takbo / Tumakbo,Run / To run,Lower independent confidence; attested but not otherwise corroborated in this session's own reading.
+extvoc_160,160,high,dictionary_attested,Tulug / Matulug,Tulog / Matulog,Sleep / To sleep,Well-established basic vocabulary; standard Kapampangan o->u vowel-shift cognate pattern versus Tagalog 'tulog'/'matulog'.
+extvoc_161,161,medium,dictionary_attested,Gising / Migising,Gising / Gumising,Wake up / To wake up,Identical spelling; plus native affixed form.
+extvoc_162,162,high,pld_corroborated,Basa / Magbasa,Basa / Magbasa,Read / To read,'Basan ke iti para keca' (I'll read this for you) appears in the Gamugamo story text this session already read.
+extvoc_163,163,high,project_established,Sulat / Sumulat,Sulat / Magsulat,Write / To write,This project's own v3/v4 morphology experiments extensively discuss 'Sumulat' and its '-um-' infix.
+extvoc_164,164,medium,dictionary_attested,Aral / Mag-aral,Aral / Mag-aral,Study / To study,"Identical spelling, direct shared cognate."
+extvoc_165,165,high,pld_corroborated,Obra / Magobra,Trabaho / Magtrabaho,Work / To work,'obra' (work/jobs) appears in the Letter-domain text this session already read.
+extvoc_166,166,high,project_established,Sali / Sumali,Bili / Bumili,Buy / To buy,Directly confirmed by this project's own 2026-08-25 Phase 1 adjudication: 'seli' (bought) has root 'sali' (buy).
+extvoc_168,168,high,pld_corroborated,Munta / Muna,Punta / Pumunta,Go / To go,'Munta ca wari king Menila' (Will you go to Manila) appears in the raw PAM Interrogatives text this session already read.
+extvoc_169,169,medium,pld_corroborated,Datang / Dumatang,Dating / Dumating,Arrive / To arrive,Root 'datang' shares this experiment's own confirmed pldpair_035 ('Pangaratang'/'dumating'); 'Dumatang' is a transparent -um- infix form of the same root.
+extvoc_170,170,medium,dictionary_attested,Lawi / Lawen,Tingin / Tumingin,Look / To look,
+extvoc_171,171,medium,pld_corroborated,Ramdam / Makiramdam,Rinig / Makinig,Hear / Listen,"'Makiramdam ca at basan ke iti' (pay attention/listen and I'll read this) in the Gamugamo story text supports a 'listen' sense, though 'ramdam' more literally means 'feel/sense' -- a plausible but not perfectly precise gloss."
+extvoc_172,172,medium,dictionary_attested,Salita / Magsalita,Salita / Magsalita,Speak / To speak,"Identical spelling, direct shared cognate."
+extvoc_173,173,medium,pld_corroborated,Baldug / Mabaldag,Bagsak / Mahulog,Fall / Drop,Root 'baldug' independently seen and corroborated during this session's own Iso_MinPairs.txt reading earlier in Phase 2 ('baldug (v. fall)').
+extvoc_174,174,medium,dictionary_attested,Isip / Pamisip,Isip / Mag-isip,Think / Thought,
+extvoc_175,175,medium,dictionary_attested,Nintun / Panintunan,Hanap / Maghanap,Search / To search,Using the attested 'Panintunan'; root 'Nintun' itself not separately attested as an exact surface form.
+extvoc_176,176,medium,dictionary_attested,Kalingwan / Kakalinguan,Limot / Makalimutan,Forget / To forget,
+extvoc_177,177,high,pld_corroborated,Kibat / Pakibatan,Sagot / Sumagot,Answer / To respond,'Mekibat ya I Iput-Ipot' (Iput-Ipot answered) appears constantly throughout the Story-domain text this session already read.
+extvoc_178,178,medium,dictionary_attested,Din / Dinan,Bigay / Magbigay,Give / To grant,
+extvoc_179,179,high,pld_corroborated,Buri,Nais / Gusto,Want / Desire,Matches 'buri' in this experiment's own confirmed pldpair_020 ('Insanu ing buri mu?').
+extvoc_180,180,high,pld_corroborated,Masanting,Maganda,Beautiful,"Using 'Masanting', which matches this experiment's own confirmed pldpair_017 ('masanting a pun', a beautiful tree); excluding the unattested 'Malagyu' alternate, which more plausibly means 'famous' (from 'lagyu', name/fame), not 'beautiful'."
+extvoc_182,182,high,pld_corroborated,Maragul,Malaki,Big / Large,"'mangaragul' (plural form) appears throughout the Story-domain text this session already read ('mangaragul a batu', 'mangaragul a bulung')."
+extvoc_183,183,high,pld_corroborated,Malati,Maliit,Small / Little,"Matches 'malati' in this experiment's own confirmed pldpair_012 ('metung yang macalunus, malati...')."
+extvoc_184,184,medium,pld_corroborated,Matula,Masaya,Happy,Shares the 'tula' root already used in this experiment's own confirmed pldpair_005 ('Catutula cu pu...').
+extvoc_185,185,medium,dictionary_attested,Malungkut,Malungkot,Sad,
+extvoc_186,186,medium,dictionary_attested,Mapali,Mainit,Hot,Using the attested 'Mapali'; excluding the unattested 'Malapali' alternate.
+extvoc_187,187,medium,dictionary_attested,Marimla,Malamig,Cold,
+extvoc_188,188,medium,dictionary_attested,Manyaman,Masarap,Delicious / Good,
+extvoc_189,189,medium,dictionary_attested,Mabilis / Malagwa,Mabilis,Fast / Quick,Identical cognate spelling for the first alternate.
+extvoc_190,190,high,pld_corroborated,Mabagal,Mabagal,Slow,Matches 'mabagal' discussed in this experiment's own rejected-pair analysis (pldpair review); the word itself is validly corroborated independent of that rejected pairing's other issues.
+extvoc_191,191,medium,dictionary_attested,Mataas,Mataas,High / Tall,Identical cognate spelling.
+extvoc_192,192,medium,dictionary_attested,Mababa,Mababa,Low / Short,Identical cognate spelling.
+extvoc_193,193,high,project_established,Bayu,Bago,New,"Directly corroborated by this experiment's own confirmed pldpair_003 ('bayung banua', new year)."
+extvoc_194,194,medium,dictionary_attested,Luma,Luma,Old (objects),Identical cognate spelling.
+extvoc_195,195,medium,pld_corroborated,Matua,Matanda,Old (people),'matuang capatad' (older sibling) appears in the Iso_Kinship.txt data this session already read.
+extvoc_197,197,high,pld_corroborated,Masikan / Masikanan,Malakas,Strong,'pambihirang sicanan' (extraordinary strength) matches this experiment's own confirmed pldpair_019.
+extvoc_199,199,high,pld_corroborated,Matapat,Matapat,Faithful / Honest,Matches 'matapat' in this experiment's own confirmed pldpair_011 ('Ing matapat a caluguran').
+extvoc_200,200,medium,dictionary_attested,Yumu / Mayumu,Tamis / Matamis,Sweetness / Sweet,"Defines 'Yumu' as the sweetness quality, consistent with item 129's cross-check."
+extvoc_203,203,high,pld_corroborated,Mayap a bengi pu kecayu.,Magandang gabi po sa inyo.,Good evening to you.,'Mayap a bengi' pattern seen throughout PLD Greetings text.
+extvoc_205,205,medium,dictionary_attested,Atin ca waring camaganac a ating capareung saket?,May kakilala ka ba sa pamilya mo na may ganyang sakit din?,Do you have a relative in your family with a similar illness?,"Thematically and structurally consistent with the PAM Utt_Medical.txt content this session already read and rejected as a non-parallel *domain* -- but this specific sentence's grammar is fully transparent and every content word but one ('capareung', a regular ka-X-ng comparative derivation of the attested root 'pareu') is independently attested."
+extvoc_207,207,high,pld_corroborated,Nucarin ya ing seli cung lapis nandin?,Saan ko nabili ang lapis kanina?,Where is the pencil I bought earlier?,"Fills a gap this session's own PLD reading left unmatched (PAM Utt_Interrogatives.txt slot 7, 'Nucarin ya ing seli cung lapis nandin?'); 'seli'/'sali' (bought/buy) is independently confirmed by this project's own 2026-08-25 Phase 1 adjudication. Note: the FIL gloss asks where the pencil *was bought*, a subtly different question than the English gloss given ('where is the pencil'), which asks the pencil's current location."
+extvoc_209,209,high,dictionary_attested,Nanu ing lagyu mu?,Anong pangalan mo?,What is your name?,
+extvoc_210,210,high,dictionary_attested,Ing lagyu ku...,Ang pangalan ko ay...,My name is...,

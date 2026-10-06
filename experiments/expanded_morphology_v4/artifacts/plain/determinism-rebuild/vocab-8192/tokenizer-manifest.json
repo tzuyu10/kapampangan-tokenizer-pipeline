@@ -1,0 +1,35 @@
+{
+  "actual_vocabulary_size": 8192,
+  "artifact_fingerprint": "bcbde127e86e647a4c9f0dec58f814ad62449b1c2881cc9e23e316c8b6e31234",
+  "artifact_type": "kapampangan_plain_bpe",
+  "core_file_sha256": {
+    "merges.json": "8ae69f98f2d11b6b846e44ab0bdf318468fdb8c035ed686a0ccf1e0f0785f686",
+    "normalization.json": "93feac29893a18dfcb6c77e54ce5e02d10a5ebd57b4a5f0d83590bf21a231005",
+    "pretokenizer.json": "6315cf42d8aa53234fe3d31fee173be7fb7e382debe8b0e3d911ab8a9ecf0cda",
+    "special_tokens.json": "7735fa9451bc5d4b8495c2cc9aec21d3882b2f65d24e38577de3e6a5d6f0535c",
+    "tokenizer.json": "9ab4b2044342edf99245003bccbe7a5bae20525365629d0c8c9a2f73c755adea",
+    "vocab.json": "5cad75f83db7073bfa851173479f0fa024b8b8941b0fdc9e4c75c3d068926948"
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "merge_count": 6600,
+  "metadata": {
+    "candidate": true,
+    "condition": "plain",
+    "current_validation_re_evaluated": false,
+    "held_out_test_used": false,
+    "independent_evaluation_gold_used": false,
+    "lexicon_used_at_runtime": false,
+    "paper_replication_training": false,
+    "prepared_manifest_fingerprint": "8ecec7d3ec96ac63c68afa0f976298c1e604743f988efbaf17467dad9c4a0118",
+    "root_inventory_unchanged_from_source_adjudicated_v2": true,
+    "runtime_boundary_guarantee_scope": "none",
+    "selection_performed": false,
+    "surface_specific_runtime_guarantees": [],
+    "surface_specific_training_overrides": [],
+    "training_family_fingerprint": "fd7b7b367348fde0db948aa313ebff2c03366459f9ba01f74fd6bc812c2b05a5"
+  },
+  "protected_boundary_merge_violations": 0,
+  "schema_version": "1.0.0",
+  "special_token_count": 4,
+  "target_vocabulary_size": 8192
+}

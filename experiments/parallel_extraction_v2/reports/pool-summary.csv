@@ -1,0 +1,17 @@
+unit,pam_sentences,fil_sentences,candidate_pairs_pam_x_fil
+Iso_Kinship.txt,10,2,20
+Iso_MinPairs.txt,22,56,1232
+Iso_Ordinal.txt,41,30,1230
+Iso_Time.txt,5,1,5
+Iso_Weather.txt,4,4,16
+Utt_CommonExpressions.txt,96,95,9120
+Utt_Educ.txt,318,351,111618
+Utt_Essay.txt,124,139,17236
+Utt_Greetings.txt,78,77,6006
+Utt_Interrogatives.txt,82,77,6314
+Utt_Letter.txt,34,54,1836
+Utt_Medical.txt,136,127,17272
+Utt_News.txt,325,360,117000
+Utt_Salawikain.txt,141,159,22419
+STORY_folktales(PAM 5 files vs FIL Utt_Story.txt),190,193,36670
+TOTAL,1606,1725,347994

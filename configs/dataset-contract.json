@@ -1,0 +1,19 @@
+{
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "dataset_name": "kapampangan-general-corpus-v1",
+  "dataset_version": "1.0.0",
+  "expected_counts": {
+    "code_switched_optional": 981,
+    "linguistic_evidence": 806,
+    "morphology_reference": 2212,
+    "neutral_total": 32836,
+    "parallel_pam_eng": 2484,
+    "parallel_pam_tgl": 45,
+    "test": 3284,
+    "train": 26268,
+    "validation": 3284
+  },
+  "held_out_test_policy": "checksum verification only; content unavailable to development",
+  "portable_zip_sha256": "9f45ba35ac48147677d269870c52d9f2244ddc3fb60703011c11f640daa6186f",
+  "schema_version": "1.0.0"
+}

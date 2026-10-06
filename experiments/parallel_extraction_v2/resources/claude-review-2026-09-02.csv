@@ -1,0 +1,31 @@
+id,pam_text,fil_text,verdict,note
+rv_0132,Macananu yang mabalu ing sakit a yan?,Nasa dugo niyo ba yung ganyang sakit?,p,'how is that illness known?' vs 'is that illness in your blood?' - weak match
+rv_0180,Panatiliang malinis ing kecatamung silid-aralan.,Pulutin ang mga kalat sa paligid ng silid-aralan.,p,'keep our classroom clean' vs 'pick up the litter around the classroom'
+rv_0199,Apansinan nang Donia Teodora a e makiramdam i Jose king cayang binasa. Sera ne ing aclat.,Napansin ni Donya Teodora na hindi nakikinig si Jose sa kanyang binasa.,p,FIL omits the PAM's second sentence 'Sera ne ing aclat' (she closed the book)
+rv_0217,"Caibat ning cuentu nang Donia Teodora, kitnan ne I Jose.",Tinuruan si Jose ni Donya Teodora na bumasa sa wikang Kastila.,n,'after Donya Teodora's story she asked Jose' vs 'Donya Teodora taught Jose to read Spanish' - different sentences
+rv_0220,"""Ha, ha"", nganing matsing. ""Macanian pala, ne! Tatacut cang malumud! Ilumud daca ngeni.""","""Ha, ha"", ang tawa ng matsing.",p,FIL renders only 'ha ha the monkey laughed' - omits the threat quote
+rv_0221,"“Makiramdam ca cacu Jose, ing sabi na. Atin cung icuentu keca.”","Makinig ka sa akin, Jose, ang sabi niya.",p,FIL omits 'Atin cung icuentu keca' (I have something to tell you)
+rv_0223,"“Ha, ha”, nganing matsing. “Macanian pala, ne! Tatacut cang malumud! Lunuran daca ngeni.”","""Ha, ha"", ang tawa ng matsing.",p,same as rv_0220 - FIL omits the threat quote
+rv_0227,Obat pu misan ating plema ing cucu cu?,Ano po ang gamot sa singaw ng bata?,n,'why does my child sometimes have phlegm?' vs 'what is the medicine for a child's mouth sores?' - different
+rv_0228,Ipagpaumahin yu pu.,Makikisuyo po.,p,"'excuse me / I apologise' vs 'may I ask a favour' - related politeness formulae, not the same"
+rv_0232,"E ya mengan, ne?","Kumain ka, ano?",p,"negation + person mismatch: 'he didn't eat, right?' vs 'you ate, right?'"
+rv_0285,Mayap pu.,Ingat kayo.,n,'good / fine' vs 'take care' - not a translation pair
+rv_0295,Maligayang kebaitan pu.,Maligayang bati po.,p,"'kebaitan' (birthday) but FIL says 'bati' (greeting), not 'kaarawan'"
+rv_0315,Ing pamibaba ning presyo ning LPG pegumpisan da neng patupad,Ibinaba uli ang presyo ng LPG,p,FIL is a shortened version of the PAM headline
+rv_0317,E naman mebanggit king balita nung magcanu asali ning Petron ing Caltex LPG,Binili ng Petron ang Caltex LPG,p,FIL drops 'it was not mentioned in the news how much' - truncated
+rv_0322,Isulat yang ustu ing atiu king pisara.,Isulat sa pisara.,p,'write correctly what is on the board' vs 'write on the board' - FIL simplified
+rv_0323,Panatiliang malinis ing kecatamung silid-aralan.,linisin ang silid-aralan,p,"'keep our classroom clean' vs 'clean the classroom' - close, slight scope difference"
+rv_0346,Nucarin ya ing kawi/susi ning bale?,Nakanino ang susi ng bahay?,p,PAM 'nucarin' (where) vs FIL 'nakanino' (whose) - v1 flagged this already
+rv_0476,Ramdam / Makiramdam,Rinig / Makinig,p,"'ramdam/makiramdam' - Kapampangan 'ramdam' is 'feel', not 'hear' (rinig)"
+rv_0522,"Misan a bengi, maglacad ya I Iput-Ipot, (ing alitaptap) papunta king bale ning cayang caluguran. Iniang miparalan ya king tapat ng bale Amomo ngo (ing gorilya), kitnan ne niti: “Hoy, Iput-Ipot, obat pane cang ating dala-dalang sulu?” Mekibat ya I Iput-Ipot: “Uling tatacut ku king amuc.”","""Hoy, Iput-Iput, bakit lagi kang may dala-dalang ilaw?"" Sumagot si Iput-Iput: "" Dahil natatakot ako sa mga lamok.""",p,FIL renders only the dialogue; PAM has extra opening narration
+rv_0524,"Iti metung yang masanting a pun, ating mangaragul a aluntiang bulung, at atin yang uyat a balamu cararagsa na pa mu caibat na ning baguiu. Sinaca re king pampang ing pun saging.","Ito'y isang magandang puno, may malalaki't luntiang dahon, at may mga ugat pang wari'y kabubuwal lamang pagkatapos ng bagyo.",p,PAM has an extra final sentence FIL does not translate
+rv_0526,"“Mituki cang cacampi mu uling mituki cung libu-libung gorilya a mas mangaragul pa canacu.” Sinabi nang Amomongo ban tacutan ne i alitaptap, a king pakiwari na masisira ne buntuc.","Sinabi ito ni Amomongo upang takutin ang alitaptap,"" na sa pakiwari niya ay nasisiraan ng ulo.",p,"FIL omits the quoted speech, keeps only the framing clause"
+rv_0527,Mamayad ca king kecang carocan; dapat cang mate. Dapot uling maganaca cu papamilinan daca king kecang camatayan. Bayuan da ca king lusong o iyugse king ilug? Insanu ing buri mu?,"Babayuhin ba kita sa lusóng o itatapon sa ilog? Alin ang ibig mo?""",p,PAM has 4 sentences; FIL translates only the last 2 (the question)
+rv_0542,Pangaratang,dumating,p,'pangaratang' vs 'dumating' - rough / possible form mismatch
+rv_0543,palakingkingan,palakingkingan,p,palakingkingan - identical both sides; meaning unattested in any dictionary (2026-08-28 check)
+rv_0561,"""Oyni na ing bus, yapin na ing talwing dating ini.","""Nandito na ang bus, ito na ang ika-tatlumpung dumating.",p,'third arrival' (talwing) mistranslated as 'ika-tatlumpung' (thirtieth) on the FIL side
+rv_0617,"""King malumane boses, anang Ima na kaya,"" Yan ing maralas kung sasabyan keka.","Sa mahinang tinig, sinabi sa kanya ng kanyang Ina, ""Iyan ang madalas kong sinasabi sa iyo.",p,garbled quote punctuation in the PAM line; content matches
+rv_0656,"Ing Sta. Maria, ing kekaming baryun keragulan.","Ang Sta. Maria, ang aming bayan, ay dati nang masaya.",p,'keragulan' (grew up) vs FIL 'dati nang masaya' (was happy before) - slight mismatch
+rv_0668,Deng menimuna keti ila ri Andy Alviz at Recita...,Kabilang sa mga nangunguna rito sina Andy Alviz at Recita...,p,both sides truncated with '...' in the source
+rv_0677,Maralas yang mag Sadyang makayaliwa at makaganang pamangan.,Bihira siyang magsagawa ng espesyal at masarap na pagkain.,p,"PAM 'maralas' = often, but FIL 'bihira' = rarely - opposite frequency adverb (FIL slip)"
+rv_0698,"Misan aldong atin klasi, tiki nening dara nang adwang bulang mabuktut a tatalakad bilang ima na.","Isang araw na may pasok, isinama siya ng kanyang lola sa isang matandang babaeng paralisado, na nagpanggap na parang ina niya.",p,'adwang bula mabuktut a tatalakad' vs 'matandang babaeng paralisado' - rough rendering

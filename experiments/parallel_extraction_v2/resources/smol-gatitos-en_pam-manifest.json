@@ -1,0 +1,11 @@
+{
+  "file": "smol-gatitos-en_pam.jsonl",
+  "sha256": "256228b4b86418d5525184eff3fb019f0461100a8c94039fd09f1a0d5bc37e81",
+  "bytes": 357659,
+  "copied_from": "google/smol dataset : gatitos/en_pam.jsonl (downloaded to a prior session's scratchpad 2026-09-01)",
+  "copied_utc": "2026-09-02T19:53:24.647619+00:00",
+  "origin": "Google SMOL release (arXiv 2502.12301); GATITOS subset (arXiv 2303.15265). Professional human translation, English pivot.",
+  "content": "3,993 EN->PAM entries: {src, trgs:[...], sl:'en', tl:'pam', is_source_orig}. ~93% single English words, 181 two-word, 113 with >=3 words. Some entries lean Tagalog/borrowed.",
+  "tier": "auxiliary lexical resource -- EN->PAM, NOT the PAM->FIL task direction. NOT folded into verified-pairs.csv or the Phase 5 training bundle. Registered for lexicon cross-check / possible future auxiliary use.",
+  "rights": "CC-BY-4.0 (attribution). Cleanly usable. Cite SMOL arXiv 2502.12301 + GATITOS arXiv 2303.15265."
+}

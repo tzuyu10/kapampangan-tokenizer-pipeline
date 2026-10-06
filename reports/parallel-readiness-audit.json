@@ -1,0 +1,72 @@
+{
+  "adequacy": {
+    "available_pairs": 45,
+    "nllb_training_authorized": false,
+    "paper_expected_aligned_test_sentences": 1300,
+    "paper_expected_pairs_approximately": 13000,
+    "requirement_satisfied": false
+  },
+  "counts": {
+    "duplicate_pam_source_rows_beyond_first": 8,
+    "duplicate_target_rows_beyond_first": 4,
+    "nfc_pairs": 45,
+    "nonempty_pairs": 45,
+    "rows": 45,
+    "unique_pair_ids": 45,
+    "unique_pam_sources": 37,
+    "unique_targets": 41
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "input_sha256": {
+    "parallel_pam_tgl": "13c6a197baa8a3f52fbcce10f01bf81f550d8039651e59244ea02c46789a7895",
+    "record_metadata": "51a9a0f21fa8bb315467edc053aea5253d2af02db05ffbf06ef85b8b422261ba",
+    "source_map": "f3f6f319872a843f623033b6d67899b079a74a3623ea5b3f62548d34069a44f8",
+    "split_manifest": "8efd5f89e396de6c641d9fa18f26282387a5b6ef9bb3772e578d3b562c256403"
+  },
+  "language_contract": {
+    "paper_filipino_requirement_satisfied": false,
+    "target_labels": {
+      "tgl": 45
+    },
+    "tgl_interpretation": "Tagalog label; equivalence to Filipino is not established"
+  },
+  "method": {
+    "held_out_test_csv_parsed": false,
+    "neutral_id_rule": "kgc- plus the first 24 SHA-256 hex characters of NFC text",
+    "parallel_file_read": "data/parallel-pam-tgl.csv",
+    "split_assignment_source": "metadata/split-manifest.csv"
+  },
+  "provenance": {
+    "document_key_count": 6,
+    "document_keys": [
+      "pdf-work:WORK-6576ed79ed8960ad",
+      "pdf-work:WORK-6c25fdeb0d828ee6",
+      "pdf-work:WORK-902141740941c7c4",
+      "pdf-work:WORK-a13363a451da0f3d",
+      "pdf-work:WORK-f2fb1247bc531ef6",
+      "pdf-work:WORK-fe54f7958f769f82"
+    ],
+    "mapped_rows_marked_ocr_derived": 29,
+    "semantic_domains": "not encoded in the portable parallel table",
+    "source_keys": [
+      "pdf-parallel"
+    ]
+  },
+  "schema_version": "1.0.0",
+  "split_availability": {
+    "neutral_source_assignments": {
+      "test": 30,
+      "train": 14,
+      "unassigned": 1,
+      "validation": 0
+    },
+    "parallel_rows_have_split_column": false,
+    "unique_neutral_source_ids_mapped": 36
+  },
+  "technical_assessment": {
+    "csv_schema_and_nonempty_rows_usable": true,
+    "reason": "Only 45 Tagalog-labeled pairs exist; sources repeat, 30 source rows map to the neutral held-out assignment, and translation/linguistic quality is not human-validated.",
+    "safe_for_tokenizer_training": false,
+    "safe_for_translation_smoke_test": false
+  }
+}

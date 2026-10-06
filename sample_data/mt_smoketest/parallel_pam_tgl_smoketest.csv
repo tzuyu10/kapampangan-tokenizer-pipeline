@@ -1,0 +1,22 @@
+id,pam_text,tgl_text,split
+smoke-001,metung,isa,train
+smoke-002,adua,dalawa,train
+smoke-003,atlu,tatlo,train
+smoke-004,apat,apat,train
+smoke-005,lima,lima,train
+smoke-006,anam,anim,train
+smoke-007,pitu,pito,train
+smoke-008,walu,walo,train
+smoke-009,siam,siyam,train
+smoke-010,apulu,sampu,train
+smoke-011,"Metung, adua, atlu.","Isa, dalawa, tatlo.",train
+smoke-012,"Apat, lima, anam.","Apat, lima, anim.",train
+smoke-013,"Pitu, walu, siam.","Pito, walo, siyam.",validation
+smoke-014,Kumusta ka?,Kumusta ka?,validation
+smoke-015,Masalamat.,Salamat.,validation
+smoke-016,Metung at adua.,Isa at dalawa.,validation
+smoke-017,Atlu at apat.,Tatlo at apat.,test
+smoke-018,Lima at anam.,Lima at anim.,test
+smoke-019,Pitu at walu.,Pito at walo.,test
+smoke-020,Siam at apulu.,Siyam at sampu.,test
+smoke-021,Kumusta ka? Masalamat.,Kumusta ka? Salamat.,test

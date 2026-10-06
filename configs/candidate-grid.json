@@ -1,0 +1,26 @@
+{
+  "candidate_vocabulary_sizes": [
+    1656,
+    3008,
+    6080
+  ],
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "feasible_merge_upper_bound": 967122,
+  "formula": "nearest_multiple_64(multiplier * sqrt(word_types)); multipliers=[4,8,16]",
+  "grid_fingerprint": "5f098d5b92dc2428a7324783df0413536ff29c3896702b4971f90cf6c2194d0b",
+  "initial_permitted_pair_types": 7728,
+  "initial_vocabulary_size": 1592,
+  "prepared_manifest_fingerprint": "b67953c3ced4417ccecc4a69824d42d298697ba326909c88ae592d22b19172d2",
+  "schema_version": "1.0.0",
+  "selection_hierarchy": [
+    "reject_nonzero_training_protected_boundary_merge_violations",
+    "minimize_validation_proxy_morphological_distance",
+    "maximize_validation_proxy_mbf1",
+    "maximize_validation_proxy_mcf1",
+    "minimize_fertility_when_morphology_metrics_are_maintained",
+    "prefer_smaller_vocabulary_as_final_tie_breaker"
+  ],
+  "status": "frozen_before_validation",
+  "validation_results_observed_when_frozen": false,
+  "word_types": 143529
+}

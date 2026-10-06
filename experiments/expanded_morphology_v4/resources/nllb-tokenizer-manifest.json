@@ -1,0 +1,26 @@
+{
+  "excluded_file": "pytorch_model.bin (~2.4GB model weights; never downloaded)",
+  "fetch_method": "huggingface_hub.snapshot_download",
+  "fetch_scope": "tokenizer_files_only_model_weights_excluded",
+  "files": {
+    "sentencepiece.bpe.model": {
+      "sha256": "14bb8dfb35c0ffdea7bc01e56cea38b9e3d5efcdcb9c251d6b40538e1aab555a",
+      "size_bytes": 4852054
+    },
+    "special_tokens_map.json": {
+      "sha256": "992bd4ed610d644d6823081937bcc91bb8878dd556cea4ae5327f2480361330e",
+      "size_bytes": 3548
+    },
+    "tokenizer.json": {
+      "sha256": "e316b82de11d0f951f370943b3c438311629547285129b0b81dadabd01bca665",
+      "size_bytes": 17331176
+    },
+    "tokenizer_config.json": {
+      "sha256": "d1aa8c3697d3e35674f97b5b7e9c99d22b010f528e80140257d97316be90d044",
+      "size_bytes": 564
+    }
+  },
+  "repo_id": "facebook/nllb-200-distilled-600M",
+  "revision": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+  "source_url": "https://huggingface.co/facebook/nllb-200-distilled-600M/tree/f8d333a098d19b4fd9a8b18f94170487ad3f821d"
+}

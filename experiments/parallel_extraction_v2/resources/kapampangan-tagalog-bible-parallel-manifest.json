@@ -1,0 +1,11 @@
+{
+  "file": "kapampangan-tagalog-bible-parallel.csv",
+  "sha256": "9a939bccee28fff3476e790e779a46d5af88355e6b779ccf86378fa36a4a2426",
+  "bytes": 1184670,
+  "copied_from": "D:/Downloads/kapampangan_tagalog_parallel.csv",
+  "copied_utc": "2026-09-02T19:53:24.647619+00:00",
+  "origin": "supplied by the user 2026-09-03; per the user, produced by a groupmate. The user believes it is the PLOC Kapampangan religious corpus + its Filipino/Tagalog parallel (the 'PLOC Kapampangan religious corpus' named as the PRIMARY downstream dataset in the thesis proposal; DLSU Language Technology Lab resources are LGPL, Roxas et al. 2009) -- but this has NOT been independently confirmed. Groupmate to confirm exact editions + license.",
+  "content": "3,085 verse-aligned Kapampangan<->Tagalog Bible pairs. Books: Genesis 1527, Deuteronomy 956, Judges 602. Columns: id, section, book_kap, book_en, chapter, verse, ref, kapampangan, tagalog. Clean on inspection: 0 empty, 0 identical sides, 0 duplicate ids, 0 length-ratio outliers; mean ~29 words/side.",
+  "tier": "bible -- published Bible translation, verse-aligned, formal/archaic religious register. The PRIMARY downstream translation dataset per the thesis proposal ('approximately 13,000 parallel sentence pairs drawn from the PLOC Kapampangan religious corpus'). NOT native-speaker reviewed for this project; a committee translation, treated as silver-equivalent pending review.",
+  "rights": "UNRESOLVED. Believed LGPL (PLOC/DLSU LTL) but unconfirmed -- from a groupmate. Same posture as the PLD-derived pairs already in the bundle: flag before any Colab upload; user makes the call."
+}

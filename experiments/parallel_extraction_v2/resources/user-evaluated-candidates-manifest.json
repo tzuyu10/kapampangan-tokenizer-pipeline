@@ -1,0 +1,8 @@
+{
+  "file": "user-evaluated-candidates-2026-09-01.csv",
+  "sha256": "d3afd78930e347f8e601147d83093ae993ce8e15ac988fd5bec63b8f08965f50",
+  "bytes": 167260,
+  "origin": "user returned this after running an automated dictionary-alignment + scoring pass over candidate-pairs-review-order.csv (2026-09-01)",
+  "nature": "reviewer_verdict is accept (95) / review (754); NOT a native-speaker review -- user explicitly flagged \"grain of salt, not a native speaker\". Automated second opinion only.",
+  "copied_utc": "2026-08-31T16:57:13.783450+00:00"
+}
