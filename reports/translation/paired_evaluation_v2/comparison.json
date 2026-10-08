@@ -1,0 +1,25 @@
+{
+  "rows": [
+    {
+      "condition": "plain_bpe",
+      "split": "test",
+      "examples": 1659,
+      "full_split": true,
+      "BLEU": 45.80158515598869,
+      "chrF_plus_plus": 65.39727705338743
+    },
+    {
+      "condition": "morph_bpe",
+      "split": "test",
+      "examples": 1659,
+      "full_split": true,
+      "BLEU": 46.00762043052671,
+      "chrF_plus_plus": 65.31353458952087
+    }
+  ],
+  "morph_minus_plain": {
+    "BLEU": 0.20603527453801718,
+    "chrF_plus_plus": -0.0837424638665567
+  },
+  "note": "Corpus scores on a 0-100 scale. Differences alone do not establish statistical significance or human correctness."
+}

@@ -17,7 +17,7 @@ If you already have this repository, use `Latest/WebAppFull` for the full source
 
 Follow **[webapp/RUNNING.md](webapp/RUNNING.md)** for prerequisites, Windows and macOS/Linux commands, model installation, troubleshooting, and testing from another device.
 
-1. Install Python 3.11 or 3.12 and Node.js with npm.
+1. Install 64-bit Python 3.11, 3.12 or 3.13 and Node.js with npm.
 2. Obtain both trusted model bundles from the maintainer: `plain_bpe_inference.zip` and `morph_bpe_inference.zip`. Original full project backup ZIPs are also accepted. The Git clone does not include trained models. No hosted download is assumed by these instructions.
 3. On Windows, run `webapp\setup-translation.cmd`, install both ZIPs with `webapp/install-model-bundle.py`, then run `webapp\start-translation-backend.cmd`.
 4. In a second terminal, open `webapp/frontend/ui`, run `npm.cmd ci`, then `npm.cmd run dev`.

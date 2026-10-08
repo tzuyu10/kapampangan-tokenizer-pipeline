@@ -1,6 +1,8 @@
 torch>=2.6,<3
 transformers==4.48.3
 tokenizers==0.21.0
-sentencepiece==0.2.0
+# 0.2.1 provides CPython 3.13 wheels; preserve the original pin on 3.11/3.12.
+sentencepiece==0.2.0; python_version < "3.13"
+sentencepiece==0.2.1; python_version >= "3.13"
 safetensors==0.5.3
 huggingface-hub==0.28.1

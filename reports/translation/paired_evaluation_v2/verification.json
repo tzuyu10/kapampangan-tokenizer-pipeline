@@ -1,0 +1,45 @@
+{
+  "archive_sha256": "b123dfbf3996f9abf7547b309ced6ef77e34f2ff32f3e0f4ad097158f4b3ee33",
+  "files": {
+    "comparison.csv": "e70a5adfce82f884ab2a4a34f0975701b083d3cffebb45bb4ea055a833bdbaab",
+    "paired_predictions.csv": "af1b950c03842d26a6daaa0410061d74ead090d760c3717a6be178bb8fc5b920",
+    "bleu_variables.csv": "4fa1c7c4f71a26acdb08e1a2280a73edbe48c753320d9819a222cb6cd5d19a88",
+    "comparison.json": "c29dbe8138a4c0750b891d51c7093cb706143510d274aa5b8b58e431664b48d6",
+    "training_diagnostics.json": "a755902fbd86553948290f1c0ae1d254ebe17554081a421bbed2dd5474526d4a",
+    "metric_variable_tables.md": "5b5d769f9083adc2da133f0b32865e818cc1038e2fbcc7def59744dfb97f3be4",
+    "chrf_variables.csv": "b4c0bdeb2910cff52f0ffdb43eae08e5f508b137a87ce4a32022a8bedba22fdb",
+    "ngram_counts.csv": "adc285e77edaec37be43c62a434221b4fec01e941feb9326a2914460a5a20a80",
+    "morph_bpe/metrics.json": "fee7d513e5abe21a6f312dbe1556a831937b5103598e86b11de0077dc83d7090",
+    "morph_bpe/hypotheses.txt": "4027e0afe02ca08d458ffdbe2b7db7aaf060c4ef887ab40ec4a2e85fa49bc216",
+    "morph_bpe/predictions.jsonl": "71bd26b19d609042cc64561c0ff86a7dfe2eb12182f3c7988645fbbe8471ca22",
+    "morph_bpe/metric_variables.json": "38a528ed48cdb90b419b420b514b7d2fd18b65af19fa9470adbd9e544ef3c5c8",
+    "morph_bpe/evaluation_identity.json": "d6619d1d72b8acadb59534d1be985df773fa342169b7480393469068a1da1f18",
+    "morph_bpe/references.txt": "fa49bebcf86d13e94c860c50182d9f583bd30ded4ba8226c4a9571c3cdf7c400",
+    "plain_bpe/metrics.json": "73a011c383b0a5f0cd6dd0fc16efd24cf68343f2313b655ceecae4fd18458ffc",
+    "plain_bpe/hypotheses.txt": "e269e5cf71b53e036b2712cfece04a6a7023732fb6009d47e0f9627d46bf1c5c",
+    "plain_bpe/predictions.jsonl": "d77c2ed089406263dc133f9f43fb0a8ac1fa2e3c23402efc24f57da25c51d3df",
+    "plain_bpe/metric_variables.json": "3cde85893b213acc75e47790a0c1dbae572b231e82f068dba8e3e8a25085a9d9",
+    "plain_bpe/evaluation_identity.json": "24e0076d342139c102fc6150d584422c7ea8f9e0086bdd416912a5706d8fbcaa",
+    "plain_bpe/references.txt": "fa49bebcf86d13e94c860c50182d9f583bd30ded4ba8226c4a9571c3cdf7c400"
+  },
+  "conditions": {
+    "plain_bpe": {
+      "scores": {
+        "BLEU": 45.80158515598869,
+        "chrF++": 65.39727705338743
+      },
+      "examples": 1659,
+      "split": "test",
+      "validation": "passed"
+    },
+    "morph_bpe": {
+      "scores": {
+        "BLEU": 46.00762043052671,
+        "chrF++": 65.31353458952087
+      },
+      "examples": 1659,
+      "split": "test",
+      "validation": "passed"
+    }
+  }
+}

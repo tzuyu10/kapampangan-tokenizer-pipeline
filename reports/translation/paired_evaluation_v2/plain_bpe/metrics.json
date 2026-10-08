@@ -1,0 +1,17 @@
+{
+  "BLEU": {
+    "score": 45.80158515598869,
+    "signature": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.5.1"
+  },
+  "chrF++": {
+    "score": 65.39727705338743,
+    "signature": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.5.1"
+  },
+  "scope": {
+    "split": "test",
+    "examples": 1659,
+    "full_split": true,
+    "available_rows": 1659,
+    "reached_output_limit": 0
+  }
+}

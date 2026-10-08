@@ -7,11 +7,11 @@ Installed bundle: `nllb/checkpoints/plain_bpe`. Best validation checkpoint: epoc
 ## Start on this computer
 
 1. Stop an older backend using port 8000, if one is running.
-2. Once, run `webapp\setup-translation.cmd` (requires installed Python 3.12 or 3.11 and Internet). Then run `webapp\start-translation-backend.cmd`.
+2. Once, run `webapp\setup-translation.cmd` (requires installed standard 64-bit Python 3.11, 3.12 or 3.13 and Internet). Then run `webapp\start-translation-backend.cmd`.
 3. In a second CMD window, change directory to `webapp\frontend\ui` and run `npm run dev`.
 4. Open the URL printed by Vite. The Translator page runs Plain BPE. The comparison page can show Plain BPE alone while Morph-BPE is unavailable.
 
-The launcher resolves the pipeline root relative to its own file. It uses only `.venv-translation` for dependencies, `.cache/huggingface` for model downloads, and `nllb/checkpoints` for trained bundles within that root. Setup uses the installed Windows Python launcher to create the local virtual environment and caches packages under `.cache/pip`. There is no dependency on the Thesis Time workspace. First inference downloads the pinned NLLB base if missing. CPU inference works but is slower; CUDA is selected automatically if available. Do not start another copy while the original still owns port 8000.
+The launcher resolves the pipeline root relative to its own file. It uses only `.venv-translation` for dependencies, `.cache/huggingface` for model downloads, and `nllb/checkpoints` for trained bundles within that root. Setup uses the installed Windows Python launcher to create the local virtual environment and caches packages under `.cache/pip`. New environments prefer Python 3.13, falling back to 3.12 or 3.11; existing environments keep their interpreter. SentencePiece 0.2.1 is installed on Python 3.13 because it provides compatible wheels. Python 3.11/3.12 retain SentencePiece 0.2.0. There is no dependency on the Thesis Time workspace. First inference downloads the pinned NLLB base if missing. CPU inference works but is slower; CUDA is selected automatically if available. Do not start another copy while the original still owns port 8000.
 
 ## Other computers
 

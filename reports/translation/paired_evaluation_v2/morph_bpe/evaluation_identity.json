@@ -1,0 +1,23 @@
+{
+  "condition": "morph_bpe",
+  "split": "test",
+  "final_full_split": true,
+  "examples": 1659,
+  "row_ids_sha256": "2e3679f1d1af8644b8eabe92e9904e76e8c633ed0d82f47f551878395e96a67e",
+  "data": "69a67a2773a5ecb49d16ef01c47057bd9b75916cf10f55d397df01d13c29c01b",
+  "weights": "399a4f2edea35c3e7bcf13119aad3146997d67c84b8899a7206df392dc3b3b91",
+  "tokenizer": "b034e67b0c6e53db63230e418870ab5e3a8414435236ab75d3d6971443381c01",
+  "helper": "05ca697d06674939825a04c2f0eb57abce3807b4a82fc484e8a2e34197e2c9cd",
+  "runtime": "e3b8c028bb5f8b8162485351f6cf2c33c79063c96535a671e264a6bfd0c76463",
+  "evaluator": "f3fe2cb0b29a4bb48aa43641fc2f717b4c873fc1b6b27717edb0f1aa7293482d",
+  "base": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+  "target": "cb6fba1521c0d5576d2d8079ecf79d5c7dddb1fe0c0ce3cb979e2ec9323e28ad",
+  "beams": 4,
+  "max_new_tokens": 160,
+  "source_limit": 256,
+  "seed": 42,
+  "precision": "fp32",
+  "torch": "2.11.0+cu128",
+  "transformers": "4.48.3",
+  "sacrebleu": "2.5.1"
+}

@@ -74,9 +74,10 @@ kapampangan-tokenizer-app/
 
 ## Prerequisites
 
-- **Python 3.11 or later** (the runtime uses `dataclass(slots=True)` and
+- **Python 3.11, 3.12 or 3.13** (the runtime uses `dataclass(slots=True)` and
   `itertools.pairwise`, both 3.10+; the artifact's own README asks for 3.11+).
-  No `pip install` needed — the backend uses only the standard library.
+  Tokenization uses only the standard library. Translation requires the
+  dependencies installed by `setup-translation.cmd`; follow [RUNNING.md](RUNNING.md).
 - **Node.js 18+** and **npm**, for the React frontend.
 
 ## 1. Run the backend

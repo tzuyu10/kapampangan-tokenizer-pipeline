@@ -1,0 +1,18 @@
+[
+  {
+    "condition": "morph_bpe",
+    "completed_epochs": 30,
+    "best_epoch": 30,
+    "train_loss": 1.3788796272870731,
+    "validation_loss": 1.2349860018742773,
+    "weighted_penalty_used": false
+  },
+  {
+    "condition": "plain_bpe",
+    "completed_epochs": 30,
+    "best_epoch": 30,
+    "train_loss": 1.37052584294504,
+    "validation_loss": 1.2331663835085813,
+    "weighted_penalty_used": null
+  }
+]

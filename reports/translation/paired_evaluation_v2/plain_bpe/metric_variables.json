@@ -1,0 +1,177 @@
+{
+  "BLEU": {
+    "BP": 1.0,
+    "c": 28304,
+    "r": 27921,
+    "N": 4,
+    "w1": 0.25,
+    "w2": 0.25,
+    "w3": 0.25,
+    "w4": 0.25,
+    "p1": 0.7207815149802148,
+    "p2": 0.5176956276975042,
+    "p3": 0.3917233106757297,
+    "p4": 0.3010679196924391,
+    "geometric_precision": 0.4580158515598869,
+    "BLEU": 45.80158515598869
+  },
+  "chrF_plus_plus": {
+    "beta": 2,
+    "char_order": 6,
+    "word_order": 2,
+    "effective_orders": 8,
+    "P": 0.6543722787825516,
+    "R": 0.6538729696814218,
+    "chrF_plus_plus": 65.39727705338743
+  },
+  "ngrams": [
+    {
+      "metric": "BLEU",
+      "unit": "word",
+      "order": 1,
+      "hypothesis_count": 28304,
+      "reference_count": "",
+      "matching_count": 20401,
+      "raw_precision": 0.7207815149802148,
+      "scoring_precision": 0.7207815149802148,
+      "recall": "",
+      "included": true
+    },
+    {
+      "metric": "BLEU",
+      "unit": "word",
+      "order": 2,
+      "hypothesis_count": 26645,
+      "reference_count": "",
+      "matching_count": 13794,
+      "raw_precision": 0.5176956276975042,
+      "scoring_precision": 0.5176956276975042,
+      "recall": "",
+      "included": true
+    },
+    {
+      "metric": "BLEU",
+      "unit": "word",
+      "order": 3,
+      "hypothesis_count": 25010,
+      "reference_count": "",
+      "matching_count": 9797,
+      "raw_precision": 0.3917233106757297,
+      "scoring_precision": 0.3917233106757297,
+      "recall": "",
+      "included": true
+    },
+    {
+      "metric": "BLEU",
+      "unit": "word",
+      "order": 4,
+      "hypothesis_count": 23410,
+      "reference_count": "",
+      "matching_count": 7048,
+      "raw_precision": 0.3010679196924391,
+      "scoring_precision": 0.3010679196924391,
+      "recall": "",
+      "included": true
+    },
+    {
+      "metric": "chrF++",
+      "unit": "character",
+      "order": 1,
+      "hypothesis_count": 117173,
+      "reference_count": 117803,
+      "matching_count": 104743,
+      "raw_precision": 0.893917540730373,
+      "scoring_precision": 0.893917540730373,
+      "recall": 0.8891369489741348,
+      "included": true
+    },
+    {
+      "metric": "chrF++",
+      "unit": "character",
+      "order": 2,
+      "hypothesis_count": 115514,
+      "reference_count": 116144,
+      "matching_count": 89218,
+      "raw_precision": 0.7723565974687051,
+      "scoring_precision": 0.7723565974687051,
+      "recall": 0.7681671029067365,
+      "included": true
+    },
+    {
+      "metric": "chrF++",
+      "unit": "character",
+      "order": 3,
+      "hypothesis_count": 113855,
+      "reference_count": 114485,
+      "matching_count": 76780,
+      "raw_precision": 0.6743665188177945,
+      "scoring_precision": 0.6743665188177945,
+      "recall": 0.6706555443944622,
+      "included": true
+    },
+    {
+      "metric": "chrF++",
+      "unit": "character",
+      "order": 4,
+      "hypothesis_count": 112196,
+      "reference_count": 112826,
+      "matching_count": 67821,
+      "raw_precision": 0.6044867909729402,
+      "scoring_precision": 0.6044867909729402,
+      "recall": 0.6011114459433109,
+      "included": true
+    },
+    {
+      "metric": "chrF++",
+      "unit": "character",
+      "order": 5,
+      "hypothesis_count": 110537,
+      "reference_count": 111167,
+      "matching_count": 60961,
+      "raw_precision": 0.5514985932312257,
+      "scoring_precision": 0.5514985932312257,
+      "recall": 0.548373168296347,
+      "included": true
+    },
+    {
+      "metric": "chrF++",
+      "unit": "character",
+      "order": 6,
+      "hypothesis_count": 108880,
+      "reference_count": 109509,
+      "matching_count": 55226,
+      "raw_precision": 0.5072189566495224,
+      "scoring_precision": 0.5072189566495224,
+      "recall": 0.5043055821895918,
+      "included": true
+    },
+    {
+      "metric": "chrF++",
+      "unit": "word",
+      "order": 1,
+      "hypothesis_count": 28069,
+      "reference_count": 27668,
+      "matching_count": 20141,
+      "raw_precision": 0.7175531725391001,
+      "scoring_precision": 0.7175531725391001,
+      "recall": 0.7279528697412173,
+      "included": true
+    },
+    {
+      "metric": "chrF++",
+      "unit": "word",
+      "order": 2,
+      "hypothesis_count": 26399,
+      "reference_count": 26009,
+      "matching_count": 13558,
+      "raw_precision": 0.513580059850752,
+      "scoring_precision": 0.513580059850752,
+      "recall": 0.521281095005575,
+      "included": true
+    }
+  ],
+  "signatures": {
+    "BLEU": "nrefs:1|case:mixed|eff:no|tok:13a|smooth:exp|version:2.5.1",
+    "chrF_plus_plus": "nrefs:1|case:mixed|eff:yes|nc:6|nw:2|space:no|version:2.5.1"
+  }
+}

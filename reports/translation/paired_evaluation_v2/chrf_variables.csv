@@ -1,0 +1,3 @@
+﻿condition,split,examples,full_split,beta,char_order,word_order,effective_orders,P,R,chrF_plus_plus
+plain_bpe,test,1659,True,2,6,2,8,0.6543722787825516,0.6538729696814218,65.39727705338743
+morph_bpe,test,1659,True,2,6,2,8,0.653601802175773,0.6530188358365274,65.31353458952087

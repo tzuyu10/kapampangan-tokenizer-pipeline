@@ -18,7 +18,7 @@ Backend regression checks: run `.venv-translation/Scripts/python.exe -m unittest
 
 ## Requirements
 
-- Git, Python **3.11 or 3.12**, and Node.js **22 LTS** with npm.
+- Git, standard 64-bit Python **3.11, 3.12 or 3.13**, and Node.js **22 LTS** with npm.
 - Internet for dependency installation and the initial NLLB base download (approximately 2.5 GB). Allow additional space for environments and caches. 16 GB RAM is a practical target for CPU testing.
 - One or both trusted trained model ZIPs supplied by the project maintainer. A fresh Git clone does not contain them.
 
@@ -44,6 +44,10 @@ Run once:
 ```powershell
 .\webapp\setup-translation.cmd
 ```
+
+For a new environment, setup selects Python 3.13 first, then 3.12 or 3.11 if unavailable. It reuses an existing `.venv-translation` and prints its Python version. Installing Python 3.13 does not change an environment already created with Python 3.12.
+
+To switch an existing environment to 3.13, stop the backend, install standard 64-bit Python 3.13 with the Windows launcher, and rename `.venv-translation` to an unused backup name before running setup again. Model bundles in `nllb/checkpoints` do not need reinstalling or retraining. Free-threaded Python 3.13t is not covered by these instructions.
 
 Wait for `Setup complete`. Install the two downloaded ZIPs (replace the example paths):
 
@@ -72,10 +76,10 @@ Open `http://localhost:5173`. Later starts only require the backend command and 
 
 ## 3. macOS / Linux
 
-Use an installed Python 3.11 or 3.12 executable (substitute python3.11 if appropriate):
+Use an installed standard Python 3.11, 3.12 or 3.13 executable (substitute python3.11 or python3.12 if appropriate):
 
 ```bash
-python3.12 -m venv .venv-translation
+python3.13 -m venv .venv-translation
 .venv-translation/bin/python -m pip install -r webapp/backend/requirements-translation.txt
 .venv-translation/bin/python webapp/install-model-bundle.py ~/Downloads/plain_bpe_inference.zip
 .venv-translation/bin/python webapp/install-model-bundle.py ~/Downloads/morph_bpe_inference.zip
@@ -122,7 +126,8 @@ Research evaluation notebooks and datasets are excluded from this app-only branc
 
 ## Troubleshooting
 
-- **Python launcher missing:** install Python 3.11/3.12 with the Windows launcher, then reopen the terminal.
+- **Python launcher missing:** install standard 64-bit Python 3.11, 3.12 or 3.13 with the Windows launcher, then reopen the terminal.
+- **Python 3.13 dependency installation:** use the repository's current requirements file. It installs SentencePiece 0.2.1 on Python 3.13 and preserves 0.2.0 on Python 3.11/3.12. The other translation dependency constraints remain unchanged.
 - **Setup failed:** read the pip error above the failure message; do not start the backend until installation succeeds.
 - **Checkpoint unavailable:** obtain and install the model ZIP. Source code alone is not a trained model.
 - **Backend unreachable:** keep its terminal running and check for startup errors. Avoid running two backends on port 8000.
