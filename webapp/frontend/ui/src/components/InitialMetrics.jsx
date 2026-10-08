@@ -36,11 +36,10 @@ export default function InitialMetrics({ level }) {
           {level === "tokenizer" ? <><td>{format(row.fertility)}</td><td><Score value={row.boundary_f1} color={colors[index]} /></td><td><Score value={row.consistency_f1} color={colors[index]} /></td></> : row.available ? <><td>{row.completed_epochs}</td><td>{row.best_epoch}</td><td>{format(row.train_loss)}</td><td>{format(row.validation_loss)}</td><td className="initial-pending">Not evaluated</td><td className="initial-pending">Not evaluated</td></> : <td colSpan={6}>{row.reason}</td>}
         </tr>)}</tbody>
       </table></div>
-      <details className="initial-metrics-details"><summary>Metric meaning and source</summary>
-        {level === "tokenizer" ? <><p>Fertility is subword pieces per word; lower means fewer pieces, not necessarily better morphology. F1 scores range from 0 to 1; higher means closer agreement with these reference boundaries and shared morphemes.</p><p>The MorphBPE row uses penalty-32 from the tokenizer tab. The translation Morph-BPE bundle uses a different hard-constrained tokenizer. These are separate diagnostics.</p><p>Source: <code>{metrics.source}</code></p>
+      <details className="initial-metrics-details"><summary>Metric Definition</summary>
+        {level === "tokenizer" ? <><p>Fertility is subword pieces per word; lower means fewer pieces, not necessarily better morphology. F1 scores range from 0 to 1; higher means closer agreement with these reference boundaries and shared morphemes.</p><p>The MorphBPE row and the translation Morph-BPE bundle use the same weighted penalty-32 tokenizer. These tokenizer metrics describe segmentation; translation quality requires separate evaluation.</p><p>Source: <code>{metrics.source}</code></p>
           <details><summary>View diagnostic references</summary><p>{metrics.references.map((row, index) => <code key={index} className="initial-reference">{row.segmentation}</code>)}</p></details>
-        </> : <><p>Training and validation loss measure target-token prediction error. They are not accuracy percentages and do not establish which model translates better.</p><p>{metrics.quality_note}</p><p>Run <code>NLLB_600M_Kaggle_Paired_Evaluation.ipynb</code> to obtain paired held-out scores.</p></>}
-        {metrics.rows.map(row => <p className="initial-metric-source" key={row.condition}><strong>{row.condition}</strong>: {row.artifact || row.source || row.reason}<br />Tokenizer SHA-256: <code>{row.tokenizer_sha256 || "Unavailable"}</code></p>)}
+        </> : <><p>Training and validation loss measure target-token prediction error. They are not accuracy percentages and do not establish which model translates better.</p><p>{metrics.quality_note}</p></>}
       </details>
     </>}
   </section>;

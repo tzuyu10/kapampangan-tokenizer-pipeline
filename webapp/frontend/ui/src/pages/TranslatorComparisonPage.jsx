@@ -61,7 +61,7 @@ export default function TranslatorComparisonPage({ source, setSource, result, se
 
   return <main className="page translation-comparison-page">
     <div className="comparison-kicker">Controlled A/B comparison</div>
-    <h1 className="page-title">Translator vs. Translator</h1>
+    <h1 className="page-title">Translator Comparison</h1>
     <p className="page-subtitle translation-comparison-subtitle">Enter one Kapampangan input and compare Filipino output from Plain BPE and Morph-BPE + NLLB-200.</p>
 
     {error && <div className="error-banner" role="alert">{error}</div>}

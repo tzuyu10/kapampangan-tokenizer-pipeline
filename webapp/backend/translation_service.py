@@ -47,7 +47,7 @@ def status():
         dependencies = all(importlib.util.find_spec(x) is not None for x in ('torch','transformers','tokenizers','safetensors','sentencepiece'))
         ready = installed and dependencies
         conditions[key] = dict(label=label, role='Baseline' if key=='baseline' else 'Proposed system',
-            tokenizer=('Plain BPE' if key=='baseline' else 'Hard-constrained Morph-BPE')+' (6,080 source tokens)',
+            tokenizer=('Plain BPE' if key=='baseline' else 'Weighted Morph-BPE with penalty 32')+' (6,080 source tokens)',
             model='NLLB-200 Distilled 600M with trained source embeddings',ready=ready,
             checkpoint_ready=installed, loaded=condition in _CACHE,
             reason='Checkpoint installed; first translation loads the base model.' if ready else

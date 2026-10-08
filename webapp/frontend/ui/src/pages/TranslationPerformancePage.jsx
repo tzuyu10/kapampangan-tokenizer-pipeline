@@ -19,8 +19,8 @@ export default function TranslationPerformancePage({ source, result, loading, er
     {error && <div className="error-banner" role="alert">{error}</div>}
     <section className="card initial-metrics" aria-label="Shared input generation metrics">
       <h2>Current input metrics</h2>
-      <div className="initial-table-scroll"><table className="initial-metrics-table"><thead><tr><th>Condition</th><th>Source tokens</th><th>Output tokens</th><th>Generation time</th></tr></thead>
-        <tbody>{CONDITIONS.map(item => { const output = result?.[item.key]; return <tr key={item.key}><th scope="row">{item.label}</th><td>{output?.source_token_count ?? "Pending"}</td><td>{output?.output_token_count ?? "Pending"}</td><td>{output?.cache_hit ? "Cached" : output ? `${output.latency_ms} ms` : "Pending"}</td></tr>; })}</tbody>
+      <div className="initial-table-scroll"><table className="initial-metrics-table"><thead><tr><th>Condition</th><th>Source tokens</th><th>Output tokens</th></tr></thead>
+        <tbody>{CONDITIONS.map(item => { const output = result?.[item.key]; return <tr key={item.key}><th scope="row">{item.label}</th><td>{output?.source_token_count ?? "Pending"}</td><td>{output?.output_token_count ?? "Pending"}</td></tr>; })}</tbody>
       </table></div><p className="initial-metrics-note">Source counts include start/end tokens. Output counts exclude special tokens. Generation time is for each condition; cached output is not a new timing measurement. These statistics are not BLEU or chrF++.</p>
     </section>
     <div className="process-switch" role="group" aria-label="Translation process condition">

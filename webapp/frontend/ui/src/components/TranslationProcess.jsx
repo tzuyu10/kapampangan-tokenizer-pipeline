@@ -37,14 +37,13 @@ function DecoderTrace({ process }) {
     <div className="decoder-controls">
       <button className="example-chip" disabled={index === 0} onClick={() => move(index - 1)}>Previous</button>
       <label>Decoder step <select value={index} onChange={event => move(Number(event.target.value))} aria-label="Decoder step">
-        {steps.map((item, i) => <option value={i} key={i}>{i + 1} of {steps.length}{i === 0 ? " (Filipino tag)" : ""}</option>)}
+        {steps.map((item, i) => <option value={i} key={i}>{i + 1} of {steps.length - 1}{i === 0 ? " (Filipino tag)" : ""}</option>)}
       </select></label>
-      <button className="example-chip" disabled={index === steps.length - 1} onClick={() => move(index + 1)}>Next</button>
+      <button className="example-chip" disabled={index === steps.length - 2} onClick={() => move(index + 1)}>Next</button>
     </div>
     <label className="decoder-beam-picker">Inspect incoming beam <select value={beam.beam} onChange={event => setBeamIndex(Number(event.target.value))} aria-label="Incoming beam">
       {step.beams.map(item => <option key={item.beam} value={item.beam}>Beam {item.beam + 1}{item.on_final_path ? " (matches final prefix)" : ""}</option>)}
     </select></label>
-    <p className="process-fact">Text so far: <strong>{beam.text || "(no readable text yet)"}</strong></p>
     <details><summary>Prefix token IDs</summary><p className="process-id-list">{beam.prefix_ids.join(" → ")}</p></details>
     <div className="table-scroll"><table className="process-data-table">
       <thead><tr><th>Next piece</th><th>Target ID</th><th>Next-token score</th><th>Final sequence</th></tr></thead>
@@ -58,22 +57,18 @@ function DecoderTrace({ process }) {
     {step.final_choice && beam.on_final_path && !beam.candidates.some(item => item.id === step.final_choice.id) && <p>The final choice is outside this beam's four displayed candidates.</p>}
     <h4>Four beam slots after this step</h4>
     <div className="table-scroll"><table className="process-data-table">
-      <thead><tr><th>Beam</th><th>From</th><th>Appended piece / ID</th><th>Candidate text</th><th>Total score</th></tr></thead>
+      <thead><tr><th>Beam</th><th>Appended piece / ID</th><th>Candidate text</th><th>Total score</th></tr></thead>
       <tbody>{step.retained.map(item => <tr key={item.beam} className={item.on_final_path ? "trace-selected" : ""}>
-        <td>{item.beam + 1}</td><td>Beam {item.from_beam + 1}</td><td><code>{item.token}</code> / {item.id}</td><td>{item.text || "(control tokens only)"}{item.on_final_path && <small className="trace-match">Matches final prefix</small>}</td><td>{scoreText(item.score)}</td>
+        <td>{item.beam + 1}</td><td><code>{item.token}</code> / {item.id}</td><td>{item.text || "(control tokens only)"}{item.on_final_path && <small className="trace-match">Matches final prefix</small>}</td><td>{scoreText(item.score)}</td>
       </tr>)}</tbody>
     </table></div>
     <p className="process-hint">Finished candidates ending in &lt;/s&gt; are handled separately. Early slots can be inactive or share the same prefix. {index === steps.length - 1 ? "Generation stops here, so these slots are not expanded again." : "These slots continue to the next step."} Highlighting follows the returned output after search finishes, not a greedy choice at each step.</p>
-    <details><summary>Ranked extensions considered across all beams</summary>
-      <div className="table-scroll"><table className="process-data-table"><thead><tr><th>Rank</th><th>From beam</th><th>Piece / ID</th><th>Total score</th></tr></thead>
-        <tbody>{step.shortlist.map((item, i) => <tr key={i}><td>{i + 1}</td><td>{item.from_beam + 1}</td><td><code>{item.token}</code> / {item.id}</td><td>{scoreText(item.score)}</td></tr>)}</tbody>
-      </table></div><p>This shortlist can contain more than four extensions because end-of-sentence candidates are handled separately. The final translation is selected by the beam search sequence score, including its length penalty.</p>
-    </details>
     {process.final_candidates?.length > 0 && <>
       <h4>Final candidates and selected translation</h4>
       <div className="table-scroll"><table className="process-data-table"><thead><tr><th>Rank</th><th>Candidate text</th><th>Final sequence score</th><th>Decision</th></tr></thead>
         <tbody>{process.final_candidates.map((item, i) => <tr key={i} className={item.chosen ? "trace-selected" : ""}><td>{i + 1}</td><td>{item.text || "(no readable text)"}</td><td>{scoreText(item.score)}</td><td>{item.chosen ? "Selected output" : "Alternative"}</td></tr>)}</tbody>
-      </table></div><p className="process-hint">Actual finalists after the complete search. These scores include the configured length penalty ({process.length_penalty}), so they differ from the unfinished beam totals above.</p>
+      </table>
+      </div>
     </>}
   </div>;
 }
@@ -104,7 +99,6 @@ export default function TranslationProcess({ result, label }) {
     { title: "Tokenize Kapampangan", description: `${label} splits the text into learned pieces and assigns each piece a vocabulary ID.`,
       detail: process && <><TokenChips tokens={process.source_tokens} />
         <details><summary>IDs sent to the model</summary><p className="process-id-list">{process.model_source_ids.join(" · ")}</p>
-          <p>Start and end tokens are added. Source IDs 0 and 1 are swapped for NLLB compatibility. ␠ represents whitespace.</p>
         </details></> },
     { title: "Look up source embeddings", description: "Each source ID selects a learned number vector that the model can use.",
       detail: process && <><p className="process-fact">{process.model_source_ids.length} input IDs → {process.model_source_ids.length} vectors of {process.embedding_dimension.toLocaleString()} values</p><VectorTable key={`${label}:${process.input_text}`} process={process} /></> },
