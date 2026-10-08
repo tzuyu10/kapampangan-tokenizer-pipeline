@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { TrashIcon } from "../components/icons.jsx";
 import ResultsPanel from "../components/ResultsPanel.jsx";
 import SegmentationProcess from "../components/SegmentationProcess.jsx";
@@ -7,12 +7,26 @@ import { tokenize, getExamples } from "../api.js";
 
 const MAX_LEN = 500;
 
-export default function TokenizerPage({ onTokenized, onCleared }) {
+export default function TokenizerPage({ translationSource, onTokenized, onCleared }) {
   const [text, setText] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [examples, setExamples] = useState(null);
+  const tokenizationRequest = useRef(0);
+
+  const resetTokenization = useCallback(() => {
+    tokenizationRequest.current += 1;
+    setResult(null);
+    setError(null);
+    setLoading(false);
+    onCleared?.();
+  }, [onCleared]);
+
+  useEffect(() => {
+    setText(translationSource);
+    resetTokenization();
+  }, [translationSource, resetTokenization]);
 
   useEffect(() => {
     getExamples()
@@ -23,13 +37,16 @@ export default function TokenizerPage({ onTokenized, onCleared }) {
   const runTokenize = async (value) => {
     const target = value !== undefined ? value : text;
     if (!target.trim()) return;
+    const request = ++tokenizationRequest.current;
     setLoading(true);
     setError(null);
     try {
       const data = await tokenize(target);
+      if (request !== tokenizationRequest.current) return;
       setResult(data);
       onTokenized?.(target);
     } catch (err) {
+      if (request !== tokenizationRequest.current) return;
       setError(
         err.message.includes("fetch")
           ? "Could not reach the tokenizer backend. Is `python server.py` running on port 8000?"
@@ -37,18 +54,17 @@ export default function TokenizerPage({ onTokenized, onCleared }) {
       );
       setResult(null);
     } finally {
-      setLoading(false);
+      if (request === tokenizationRequest.current) setLoading(false);
     }
   };
 
   const handleClear = () => {
     setText("");
-    setResult(null);
-    setError(null);
-    onCleared?.();
+    resetTokenization();
   };
 
   const handleExamplePick = (value) => {
+    resetTokenization();
     setText(value);
     runTokenize(value);
   };
@@ -69,7 +85,10 @@ export default function TokenizerPage({ onTokenized, onCleared }) {
             placeholder="Enter text here"
             maxLength={MAX_LEN}
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => {
+              setText(e.target.value);
+              resetTokenization();
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) runTokenize();
             }}

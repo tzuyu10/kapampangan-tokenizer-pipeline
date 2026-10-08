@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import Header from "./components/Header.jsx";
 import TranslationPerformancePage from "./pages/TranslationPerformancePage.jsx";
 import TranslatorComparisonPage from "./pages/TranslatorComparisonPage.jsx";
@@ -20,15 +20,19 @@ export default function App() {
   const [comparisonResult, setComparisonResult] = useState(null);
   const [comparisonLoading, setComparisonLoading] = useState(false);
   const [comparisonError, setComparisonError] = useState(null);
+  const comparisonRequest = useRef(0);
 
   const runComparison = async (text) => {
+    const request = ++comparisonRequest.current;
     setComparisonInput(text);
     setComparisonLoading(true);
     setComparisonError(null);
     try {
       const data = await compareCustom(text);
+      if (request !== comparisonRequest.current) return;
       setComparisonResult(data);
     } catch (err) {
+      if (request !== comparisonRequest.current) return;
       setComparisonError(
         err.message.includes("fetch")
           ? "Could not reach the tokenizer backend. Is `python server.py` running on port 8000?"
@@ -36,15 +40,17 @@ export default function App() {
       );
       setComparisonResult(null);
     } finally {
-      setComparisonLoading(false);
+      if (request === comparisonRequest.current) setComparisonLoading(false);
     }
   };
 
-  const clearComparison = () => {
+  const clearComparison = useCallback(() => {
+    comparisonRequest.current += 1;
     setComparisonInput("");
     setComparisonResult(null);
+    setComparisonLoading(false);
     setComparisonError(null);
-  };
+  }, []);
 
   return (
     <div className="app-shell">
@@ -59,7 +65,7 @@ export default function App() {
           onGoToTranslator={() => setTab("translator-comparison")} />
       </section>
       <section className="tab-panel" role="tabpanel" id="panel-tokenizer" aria-labelledby="tab-tokenizer" hidden={tab !== "tokenizer"}>
-        <TokenizerPage onTokenized={runComparison} onCleared={clearComparison} />
+        <TokenizerPage translationSource={source} onTokenized={runComparison} onCleared={clearComparison} />
       </section>
       <section className="tab-panel" role="tabpanel" id="panel-comparison" aria-labelledby="tab-comparison" hidden={tab !== "comparison"}>
         <ComparisonPage
