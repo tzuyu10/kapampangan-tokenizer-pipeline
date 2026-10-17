@@ -52,6 +52,59 @@ function MergeSteps({ steps }) {
   );
 }
 
+function FinalTokenTable({ tokens }) {
+  return (
+    <table className="token-table">
+      <thead>
+        <tr>
+          <th>Token</th>
+          <th>Vocabulary ID</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tokens.map((t, i) => (
+          <tr key={i}>
+            <td>{t.token}</td>
+            <td>{t.id}</td>
+            <td>{t.kind === "merge" ? "learned merge" : t.kind}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+function UnigramWordCard({ word }) {
+  const units = word.initial_units || word.characters || Array.from(word.surface);
+  return (
+    <div className="word-card">
+      <div className="word-card-header">
+        <h3 className="word-card-title">{word.surface}</h3>
+      </div>
+      <div className="step">
+        <p className="step-label">1. Normalized word</p>
+        <p className="step-value">{word.surface}</p>
+      </div>
+      <div className="step">
+        <p className="step-label">2. Input characters</p>
+        <div className="chars-row">{units.join(" | ")}</div>
+      </div>
+      <div className="step">
+        <p className="step-label">3. Select learned pieces with Unigram-LM</p>
+        <p className="step-value">
+          Learned piece log-probabilities score possible segmentations. Viterbi decoding
+          selects the highest-scoring path. The table shows the actual selected pieces.
+        </p>
+      </div>
+      <div className="step" style={{ marginBottom: 0 }}>
+        <p className="step-label">4. Final token output</p>
+        <FinalTokenTable tokens={word.final_tokens} />
+      </div>
+    </div>
+  );
+}
+
 function WordCard({ word, isFirst }) {
   return (
     <div className={`word-card ${isFirst ? "" : ""}`}>
@@ -101,24 +154,7 @@ function WordCard({ word, isFirst }) {
 
       <div className="step" style={{ marginBottom: 0 }}>
         <p className="step-label">5. Final token output</p>
-        <table className="token-table">
-          <thead>
-            <tr>
-              <th>Token</th>
-              <th>Vocabulary ID</th>
-              <th>Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            {word.final_tokens.map((t, i) => (
-              <tr key={i}>
-                <td>{t.token}</td>
-                <td>{t.id}</td>
-                <td>{t.kind === "merge" ? "learned merge" : t.kind}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <FinalTokenTable tokens={word.final_tokens} />
       </div>
     </div>
   );
@@ -151,9 +187,9 @@ export default function SegmentationProcess({ result }) {
 
   return (
     <div className="segmentation-box">
-      {result.words.map((word, i) => (
-        <WordCard key={i} word={word} isFirst={i === 0} />
-      ))}
+      {result.words.map((word, i) => result.algorithm === "unigram_lm"
+        ? <UnigramWordCard key={i} word={word} />
+        : <WordCard key={i} word={word} isFirst={i === 0} />)}
       <GoldSummary gold={result.gold} />
     </div>
   );

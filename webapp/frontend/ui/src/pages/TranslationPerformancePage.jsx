@@ -7,6 +7,7 @@ const CONDITIONS = [{ key: "baseline", label: "Plain BPE" }, { key: "custom", la
 export default function TranslationPerformancePage({ source, result, loading, error, onGoToTranslator }) {
   const [selected, setSelected] = useState("custom");
   const condition = CONDITIONS.find(item => item.key === selected);
+  const bundleName = result?.[selected]?.bundle?.display_name;
   return <main className="page translation-performance-page">
     <h1 className="page-title">Translation Metrics & Process</h1>
     <p className="page-subtitle">Saved model diagnostics and the translation process for the input from Translator A/B.</p>
@@ -20,13 +21,14 @@ export default function TranslationPerformancePage({ source, result, loading, er
     <section className="card initial-metrics" aria-label="Shared input generation metrics">
       <h2>Current input metrics</h2>
       <div className="initial-table-scroll"><table className="initial-metrics-table"><thead><tr><th>Condition</th><th>Source tokens</th><th>Output tokens</th></tr></thead>
-        <tbody>{CONDITIONS.map(item => { const output = result?.[item.key]; return <tr key={item.key}><th scope="row">{item.label}</th><td>{output?.source_token_count ?? "Pending"}</td><td>{output?.output_token_count ?? "Pending"}</td></tr>; })}</tbody>
+        <tbody>{CONDITIONS.map(item => { const output = result?.[item.key]; return <tr key={item.key}><th scope="row">{item.label}{output?.bundle?.display_name && <div className="initial-metrics-note">{output.bundle.display_name}</div>}</th><td>{output?.source_token_count ?? "Pending"}</td><td>{output?.output_token_count ?? "Pending"}</td></tr>; })}</tbody>
       </table></div><p className="initial-metrics-note">Source counts include start/end tokens. Output counts exclude special tokens. Generation time is for each condition; cached output is not a new timing measurement. These statistics are not BLEU or chrF++.</p>
     </section>
     <div className="process-switch" role="group" aria-label="Translation process condition">
       <span>Explain the process for</span>{CONDITIONS.map(item => <button key={item.key} className={`example-chip ${selected === item.key ? "selected" : ""}`} aria-pressed={selected === item.key} onClick={() => setSelected(item.key)}>{item.label}</button>)}
     </div>
+    {bundleName && <p className="translator-note">Process bundle: {bundleName}</p>}
     {result && !result[selected] && <p className="translator-note">This condition did not return a result. Select the available condition or install both bundles.</p>}
-    <TranslationProcess result={result?.[selected]} label={condition.label} />
+    <TranslationProcess result={result?.[selected]} label={bundleName ? `${condition.label} · ${bundleName}` : condition.label} />
   </main>;
 }

@@ -4,18 +4,18 @@ React + Vite frontend and a local Python backend for **Kapampangan to Filipino**
 
 The app has four tabs: Translator A/B, Translation Metrics & Process, Tokenization, and Tokenization Comparison & Metrics. The translation process shows actual token IDs, embedding and encoder vector slices, beam-search candidates, target-token decoding, and the final Filipino output.
 
-## Clone this branch
+## Publish and clone the revised branch
 
 ```powershell
-git clone --branch Latest/WebAppFull --single-branch https://github.com/tzuyu10/kapampangan-tokenizer-pipeline.git
+git clone --branch codex/tokenizer-team-revision --single-branch https://github.com/tzuyu10/kapampangan-tokenizer-pipeline.git
 Set-Location kapampangan-tokenizer-pipeline
 ```
 
-If you already have this repository, use `Latest/WebAppFull` for the full source branch. Local UI edits must be committed and published before another device can obtain them through Git.
+This branch name is proposed and is not published yet. The maintainer should follow [the full repository publishing guide](docs/PUBLISH_FULL_REPOSITORY.md) first. Groupmates should follow [the device setup guide](docs/GROUPMATE_SETUP.md) after the branch is pushed. The branch keeps the full project source and tokenizer exports. Trained translation bundles are shared separately.
 
 ## Run the app
 
-Follow **[webapp/RUNNING.md](webapp/RUNNING.md)** for prerequisites, Windows and macOS/Linux commands, model installation, troubleshooting, and testing from another device.
+Follow **[docs/GROUPMATE_SETUP.md](docs/GROUPMATE_SETUP.md)** for the complete groupmate setup and bundle download steps. [webapp/RUNNING.md](webapp/RUNNING.md) has additional runtime, model-selection, and LAN details.
 
 1. Install 64-bit Python 3.11, 3.12 or 3.13 and Node.js with npm.
 2. Obtain both trusted model bundles from the maintainer: `plain_bpe_inference.zip` and `morph_bpe_inference.zip`. Original full project backup ZIPs are also accepted. The Git clone does not include trained models. No hosted download is assumed by these instructions.

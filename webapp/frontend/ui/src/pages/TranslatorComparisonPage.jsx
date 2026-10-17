@@ -9,6 +9,7 @@ const CONDITIONS = [
 ];
 
 function TranslationCondition({ condition, status, result, loading, copied, onCopy }) {
+  const bundle = result?.bundle || status;
   return <article className={`comparison-result ${condition.key}`}>
     <div className="condition-header">
       <div><span className="condition-role">{condition.role}</span><h2>{condition.label}</h2></div>
@@ -17,6 +18,10 @@ function TranslationCondition({ condition, status, result, loading, copied, onCo
         {status?.ready ? "Ready" : "Unavailable"}
       </span>
     </div>
+    <p className="comparison-input-note">{bundle?.display_name || condition.short}
+      {Number.isFinite(bundle?.source_vocab_size) && <> · {bundle.source_vocab_size.toLocaleString()} source tokens</>}
+      {Number.isFinite(bundle?.completed_epochs) && <> · {bundle.completed_epochs} completed epochs</>}
+    </p>
     <div className="comparison-output" aria-live="polite">
       <div className="output-label-row"><span>Filipino output</span>
         {result?.translation && <button className="inline-copy-button" onClick={onCopy} aria-label={`Copy ${condition.short} translation`}>
@@ -60,7 +65,7 @@ export default function TranslatorComparisonPage({ source, setSource, result, se
   }
 
   return <main className="page translation-comparison-page">
-    <div className="comparison-kicker">Controlled A/B comparison</div>
+    <div className="comparison-kicker">Selected model comparison</div>
     <h1 className="page-title">Translator Comparison</h1>
     <p className="page-subtitle translation-comparison-subtitle">Enter one Kapampangan input and compare Filipino output from Plain BPE and Morph-BPE + NLLB-200.</p>
 
@@ -75,7 +80,7 @@ export default function TranslatorComparisonPage({ source, setSource, result, se
           onKeyDown={event => {
             if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) { event.preventDefault(); runComparison(); }
           }} />
-        <p className="comparison-input-note">Each condition uses its own 6,080-token source vocabulary and trained source embeddings. Both use the same frozen NLLB base and decoding settings.</p>
+        <p className="comparison-input-note">Each condition uses the bundle chosen when the backend starts, including its source tokenizer and trained embeddings. Variants can differ in tokenizer settings or training history. This page compares their output on the same input.</p>
         <div className="panel-footer">
           <div className="button-row">
             <button className="btn btn-primary" onClick={runComparison} disabled={!source.trim() || !canTranslate || loading || statusLoading}>

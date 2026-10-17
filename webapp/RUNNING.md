@@ -1,6 +1,6 @@
 # Run the translation and tokenization app
 
-This app supports **Kapampangan to Filipino**, with separately trained Plain BPE and Morph-BPE source embeddings on NLLB-200 distilled 600M. It does not support the reverse direction. Translator lets you select a model and inspect its exact tokens. Translator A/B compares both outputs. The older Tokenizer tab is labeled as a penalty-32 training visualization.
+This app supports **Kapampangan to Filipino**, with separately trained Plain BPE and Morph-BPE source embeddings on NLLB-200 distilled 600M. It does not support the reverse direction. Translator lets you select a model and inspect its exact tokens. Translator A/B compares both outputs. The Tokenization tab lets you inspect exported tokenizer variants independently of the selected translators.
 
 ## Presenting the translation process
 
@@ -22,10 +22,10 @@ Backend regression checks: run `.venv-translation/Scripts/python.exe -m unittest
 - Internet for dependency installation and the initial NLLB base download (approximately 2.5 GB). Allow additional space for environments and caches. 16 GB RAM is a practical target for CPU testing.
 - One or both trusted trained model ZIPs supplied by the project maintainer. A fresh Git clone does not contain them.
 
-Clone the app branch, then open its folder in VS Code:
+Clone the proposed full-project team branch, then open its folder in VS Code. The maintainer must publish this branch first; see [the publishing guide](../docs/PUBLISH_FULL_REPOSITORY.md) and [groupmate guide](../docs/GROUPMATE_SETUP.md):
 
 ```powershell
-git clone --branch Latest/WebApp --single-branch https://github.com/tzuyu10/kapampangan-tokenizer-pipeline.git
+git clone --branch codex/tokenizer-team-revision --single-branch https://github.com/tzuyu10/kapampangan-tokenizer-pipeline.git
 Set-Location kapampangan-tokenizer-pipeline
 ```
 
@@ -56,13 +56,57 @@ Wait for `Setup complete`. Install the two downloaded ZIPs (replace the example 
 .\.venv-translation\Scripts\python.exe .\webapp\install-model-bundle.py "$HOME\Downloads\morph_bpe_inference.zip"
 ```
 
-The installer validates checksums and places them in `nllb/checkpoints/plain_bpe` and `nllb/checkpoints/morph_bpe`. It refuses to overwrite an existing bundle. Existing users with these bundles installed should skip these commands.
+The installer validates checksums and places them in `nllb/checkpoints/plain_bpe` and `nllb/checkpoints/morph_bpe`. It refuses to overwrite an existing bundle. Existing users with these bundles installed should skip these commands. Use `--name` to keep another trained variant beside them.
 
 Start the backend:
 
 ```powershell
 .\webapp\start-translation-backend.cmd
 ```
+
+This opens a numbered model menu before the server starts. Select the Plain BPE variant and the Morph-BPE variant you want to try. Press Enter to keep the listed default. The existing frontend conditions still mean Plain BPE and Morph-BPE; the active bundle names, tokenizers and histories now come from your startup choices. Stop the backend with Ctrl+C and run it again to switch trained models.
+
+List available models without starting the server:
+
+```powershell
+.\webapp\start-translation-backend.cmd --list-models
+```
+
+For repeatable startup, pass the folder names directly. For example, after installing the infix48 bundle under this name:
+
+```powershell
+.\webapp\start-translation-backend.cmd --plain-bundle plain_bpe --morph-bundle morph_bpe_infix_first_penalty48
+```
+
+Use `.\webapp\start-translation-backend.cmd --defaults` to skip the menu and use the original `plain_bpe` and `morph_bpe` folders. The menu includes preserved backup folders when their complete trained bundles validate. An explicit missing, corrupt or wrong-condition selection stops startup with an error.
+
+Add another trusted trained export without replacing an existing model:
+
+```powershell
+.\.venv-translation\Scripts\python.exe .\webapp\install-model-bundle.py "$HOME\Downloads\your_variant_inference.zip" --name morph_bpe_my_variant
+```
+
+Names can contain letters, numbers, underscores and hyphens. A bundle contains its own source tokenizer, trained source weights, runtime, target tokenizer and manifest. A tokenizer-only export cannot be installed as a translation model.
+
+In the **Tokenization** tab, use **Tokenizer variant** to choose a tokenizer while the backend is running. The Kapampangan + Tagalog configurations include Infix-first Morph-BPE penalty 48, the new infix plus other-affix-priority Morph-BPE penalty 48, Plain BPE and Unigram-LM, each at **6,080** and **8,192** tokens. The default remains Infix-first penalty 48 at 6,080. The existing weighted32, older standalone variants and trained-bundle tokenizers remain available. The new affix-priority Morph-BPE uses morphology during training only and produces `nag | aral` for `nagaral` at both vocabulary sizes. Restart the backend and refresh the frontend after updating these files.
+
+Click **Tokenize**, then open **Tokenization Comparison & Metrics** to compare that input. The comparison uses the selected tokenizer in its correctly named row and the other two methods at the same vocabulary size. Selecting Plain BPE or Unigram uses the new infix-first48 Morph-BPE at the matching size. The saved demonstration diagnostic table also follows this selection; it is not the held-out evaluation from the training experiment. Unigram displays its Viterbi segmentation without a BPE merge trace.
+
+These six configurations were trained on 26,268 original Kapampangan records plus 7,880 Tagalog records. The Morph-BPE training lexicon contains 3,311 original roots plus 993 Tagalog entries. The Tagalog additions are 30% of the corresponding original counts, rounded down. Only tokenizer artifacts and tokenizer comparisons use these additions. Installed translation bundles, their tokenizers, source embeddings and training data are unchanged.
+
+The affix-priority Morph-BPE packs are under `webapp/backend/tokenizer/variants/pam_tl_infix_affix48_{6080,8192}`. The original infix-first Morph-BPE packs are under `variants/pam_tl_infix_first48_{6080,8192}`; Plain BPE uses `artifacts/plain-bpe` at 6,080 and `variants/pam_tl_plain_8192` at 8,192; Unigram uses `artifacts/unigram-lm-{6080,8192}`. All paths are relative to `webapp/backend/tokenizer`. Complete artifact bytes and checksums are preserved. The previous 6,080-token Plain and Unigram exports are backed up locally under `.cache/tokenizer_ui_augmented_install/original-artifacts`.
+
+Add another exported tokenizer with its matching portable runtime:
+
+```powershell
+.\.venv-translation\Scripts\python.exe .\webapp\install-tokenizer-variant.py "C:\path\to\exported-tokenizer" --name my_tokenizer --label "My tokenizer" --variant my_variant --runtime "C:\path\to\matching\runtime"
+```
+
+The tokenizer installer refuses an existing name and preserves the export bytes. It verifies the source inventory and supplied runtime before registering the pack. A runtime folder or its `tokenizer.py` file is accepted. If `--runtime` is omitted, it uses this app's portable runtime; supply the exact export's runtime when its implementation differs.
+
+Standalone tokenizer packs live in `webapp/backend/tokenizer/variants/<name>/` with `source_artifact/`, `runtime/kapampangan_morphbpe_runtime/tokenizer.py`, and `package_info.json`. The package metadata records `label`, `tokenizer_variant`, `source_vocab_size`, `tokenizer_sha256`, `artifact_manifest_sha256` and `runtime_sha256`; the runtime and complete source inventory are verified before use. Recently prepared infix-first penalties12,16,20,24,32 and48 can be inspected here without neural training. Reload the tokenizer catalog by refreshing the page after adding a pack.
+
+Saved BLEU and chrF++ are shown only when the backend verifies an evaluation for the chosen checkpoint. A variant without a matching report shows unavailable scores. The Tokenization tab does not calculate translation-quality scores.
 
 Keep it running. In a second terminal:
 
@@ -85,6 +129,8 @@ python3.13 -m venv .venv-translation
 .venv-translation/bin/python webapp/install-model-bundle.py ~/Downloads/morph_bpe_inference.zip
 .venv-translation/bin/python webapp/run-backend.py
 ```
+
+Use `webapp/run-backend.py --select-models` for the same menu, `--list-models` to list bundles, or `--plain-bundle NAME --morph-bundle NAME` for direct selection. Running the Python launcher without flags retains the original folder defaults.
 
 In a second terminal from the repository root:
 
@@ -122,7 +168,7 @@ The server shares frozen base weights, keeps separate source embeddings, uses fo
 
 ## Evaluation
 
-Research evaluation notebooks and datasets are excluded from this app-only branch and remain on the research branches, including `nllb/translation`. Evaluation uses original full project backups, not the inference-only ZIPs. The local web app does not calculate BLEU without references and should not be used for uncached timing benchmarks. Training and evaluation data are not required to serve translations.
+This branch contains the full project sources, including research and evaluation notebooks and datasets. Trained model checkpoints remain local and are shared separately. Evaluation uses original full project backups, not the inference-only ZIPs. The local web app does not calculate BLEU without references and should not be used for uncached timing benchmarks. Training and evaluation data are not required to serve translations.
 
 ## Troubleshooting
 
@@ -136,10 +182,10 @@ Research evaluation notebooks and datasets are excluded from this app-only branc
 - **Another device cannot connect:** use Vite's Network URL, not localhost; check private-network firewall and Wi-Fi isolation.
 - **Copy unavailable over LAN HTTP:** manually select the translation. Browsers can restrict clipboard access outside secure contexts.
 
-## Maintainer: app-only distribution
+## Maintainer: full project distribution
 
-- Keep app source, dependency manifests and UI lockfile, complete legacy tokenizer artifacts, setup scripts, this guide, and root project guidance together. Regression tests verify the translation process without downloading the base model.
+- Keep full project source, dependency manifests and UI lockfile, complete tokenizer artifacts and variants, setup scripts, this guide, and root project guidance together.
 - Keep the checksum-preserving `.gitattributes` rule. Removing files listed in a tokenizer artifact's checksum inventory prevents backend startup.
-- Do not commit environments, node_modules, caches, build outputs, installed checkpoint folders, local distribution ZIPs, or credentials. The root ignore rules intentionally keep research files outside this branch's tracked snapshot.
-- Supply both trained model ZIPs to users separately. Keep full training backups for resume; inference-only bundles omit the optimizer checkpoint and do not include the frozen NLLB base.
+- Do not commit environments, node_modules, caches, build outputs, installed checkpoint folders, local distribution ZIPs, or credentials. The root ignore rules keep these machine-specific or large generated files outside source control.
+- Supply trained model ZIPs to users separately. Keep full training backups for resume; inference-only bundles omit the optimizer checkpoint and do not include the frozen NLLB base. The ZIP exporter and sharing instructions are in the publishing guide.
 - Verify a fresh checkout with dependency installation, both installed bundles, tokenizer inspection, Translator, and Translator A/B before reporting a new device as tested.

@@ -1,0 +1,8 @@
+{
+  "label": "Plain BPE, 8,192 tokens (Kapampangan + Tagalog)",
+  "tokenizer_variant": "plain_bpe",
+  "source_vocab_size": 8192,
+  "tokenizer_sha256": "0e683fd2a2f0847a91a41ec15b2c78c374dc6bbe236db4efeba2ee292ffa4e08",
+  "artifact_manifest_sha256": "72e7bf21aae5a3ecf42b8b1a69d5764ab4a560bd74fe5b38ece34228e3998c5c",
+  "runtime_sha256": "b78b9e0b6535e32063aecfbcc22bce2f4ff70bae25f23e264e081e9460f5d157"
+}

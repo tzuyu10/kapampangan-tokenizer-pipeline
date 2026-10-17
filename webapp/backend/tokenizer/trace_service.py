@@ -33,6 +33,7 @@ from kapampangan_morphbpe_runtime import Tokenizer
 from kapampangan_morphbpe_runtime.tokenizer import _pretokenize  # real pretokenizer, reused as-is
 
 import reference_data as ref
+import tokenizer_variants
 
 ARTIFACT_DIR = Path(__file__).resolve().parent / "artifacts" / "morphbpe-penalty32"
 
@@ -194,15 +195,20 @@ def _group_tokens_by_pretoken(tok: Tokenizer, text: str) -> list[list[dict[str, 
     return [g for g in groups if g]
 
 
-def analyze(raw_text: str) -> dict[str, Any]:
+def analyze(raw_text: str, tokenizer_id: str | None = None) -> dict[str, Any]:
+    if not isinstance(raw_text, str):
+        raise ValueError("`text` must be a string")
+    tok, pretokenize, identity = tokenizer_variants.load(tokenizer_id)
     if not raw_text or not raw_text.strip():
         return {
             "input": raw_text,
             "clean_text": "",
+            "algorithm": identity.get('algorithm', 'bpe'),
             "words": [],
             "fertility": None,
             "gold": None,
             "all_tokens": [],
+            "tokenizer": identity,
         }
 
     raw_tokens = raw_text.split()
@@ -212,16 +218,25 @@ def analyze(raw_text: str) -> dict[str, Any]:
     clean_text = " ".join(surface for surface, _ in sentence)
     has_gold = any(spec for _surface, spec in sentence)
 
-    normalized = TOKENIZER.encode(clean_text).normalized_text
-    pretokens = _pretokenize(normalized)
+    encoding = tok.encode(clean_text)
+    normalized = encoding.normalized_text
+    pretokens = pretokenize(normalized)
 
     word_reports = []
     for pt in pretokens:
         if pt.kind != "word":
             continue
-        word_reports.append(trace_word(TOKENIZER, pt.surface))
+        report = (tok.trace_word(pt.surface) if identity.get('algorithm') == 'unigram_lm'
+                  else trace_word(tok, pt.surface))
+        real = tok.encode(pt.surface).tokens
+        traced = report["final_tokens"]
+        if [(t.token, t.identifier, t.start, t.end) for t in real] != [
+            (t["token"], t["id"], t["start"], t["end"]) for t in traced
+        ]:
+            raise ValueError("Selected tokenizer runtime does not match its displayed merge trace.")
+        word_reports.append(report)
 
-    groups = _group_tokens_by_pretoken(TOKENIZER, clean_text)
+    groups = _group_tokens_by_pretoken(tok, clean_text)
     group_pieces = [tuple(tok["token"] for tok in g) for g in groups]
 
     fertility_value = (
@@ -229,7 +244,13 @@ def analyze(raw_text: str) -> dict[str, Any]:
     )
 
     gold_result = None
-    if has_gold and len(group_pieces) == len(sentence):
+    gold_unavailable_reason = None
+    if (
+        has_gold
+        and len(group_pieces) == len(sentence)
+        and all(t.identifier != tok.special_by_role['unk'][1] for t in encoding.tokens)
+        and all("".join(pieces) == surface for pieces, (surface, _spec) in zip(group_pieces, sentence))
+    ):
         rows = ref.rows_for(sentence)
         metrics = ref.score(rows, group_pieces)
         gold_result = {
@@ -246,6 +267,11 @@ def analyze(raw_text: str) -> dict[str, Any]:
             else None,
             "shared_morpheme_pairs": int(metrics["mcf1_gold_pairs"]),
         }
+    elif has_gold:
+        gold_unavailable_reason = (
+            "Gold boundaries cannot be scored because the selected tokenizer output "
+            "does not align losslessly with the annotated words."
+        )
 
     all_tokens = [
         {
@@ -256,12 +282,13 @@ def analyze(raw_text: str) -> dict[str, Any]:
             "kind": t.vocabulary_kind,
             "pretoken_kind": t.pretoken_kind,
         }
-        for t in TOKENIZER.encode(clean_text).tokens
+        for t in encoding.tokens
     ]
 
     return {
         "input": raw_text,
         "clean_text": clean_text,
+        "algorithm": identity.get('algorithm', 'bpe'),
         "normalized_text": normalized,
         "words": word_reports,
         "fertility": {
@@ -270,7 +297,9 @@ def analyze(raw_text: str) -> dict[str, Any]:
             "score": fertility_value,
         },
         "gold": gold_result,
+        "gold_unavailable_reason": gold_unavailable_reason,
         "all_tokens": all_tokens,
+        "tokenizer": identity,
     }
 
 

@@ -6,7 +6,7 @@ import InitialMetrics from "../components/InitialMetrics.jsx";
 export default function TranslatorPage() {
   const [condition, setCondition] = useState("plain_bpe");
   const [tokens, setTokens] = useState(null);
-  const label = condition === "plain_bpe" ? "Plain BPE" : "Morph-BPE";
+  const conditionLabel = condition === "plain_bpe" ? "Plain BPE" : "Morph-BPE";
   const [source, setSource] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -14,7 +14,10 @@ export default function TranslatorPage() {
   const [status, setStatus] = useState(null);
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
-  const ready = Boolean(status?.conditions?.[condition === "plain_bpe" ? "baseline" : "custom"]?.ready);
+  const selectedStatus = status?.conditions?.[condition === "plain_bpe" ? "baseline" : "custom"];
+  const label = selectedStatus?.display_name || conditionLabel;
+  const resultLabel = result?.bundle?.display_name || label;
+  const ready = Boolean(selectedStatus?.ready);
   async function checkStatus() {
     setChecking(true); setError("");
     try { setStatus(await getTranslationStatus()); }
@@ -37,12 +40,12 @@ export default function TranslatorPage() {
     <h1 className="page-title">Kapampangan-Filipino Translator</h1>
     <p className="page-subtitle">Adapted Plain BPE and Morph-BPE + NLLB-200 600M</p>
     <InitialMetrics level="translation" />
-    <label>Model and tokenizer <select disabled={loading} value={condition} onChange={e => {setCondition(e.target.value);setResult(null);setTokens(null);setError("");}}><option value="plain_bpe">Plain BPE</option><option value="morph_bpe">Morph-BPE</option></select></label>
+    <label>Model and tokenizer <select disabled={loading} value={condition} onChange={e => {setCondition(e.target.value);setResult(null);setTokens(null);setError("");}}><option value="plain_bpe">{status?.conditions?.baseline?.display_name || "Plain BPE"}</option><option value="morph_bpe">{status?.conditions?.custom?.display_name || "Morph-BPE"}</option></select></label>
     <div className="plainbpe-status" role="status">
       <span>{checking ? "Checking backend..." : ready ? `${label} checkpoint available` : `${label} unavailable`}</span>
       <button className="btn btn-secondary" disabled={checking || loading} onClick={checkStatus}>Check connection</button>
     </div>
-    {!checking && status && !ready && <p>{status.conditions?.[condition === "plain_bpe" ? "baseline" : "custom"]?.reason}</p>}
+    {!checking && status && !ready && <p>{selectedStatus?.reason}</p>}
     {error && <div className="error-banner" role="alert">{error}</div>}
     <div className="plainbpe-panels">
       <div className="card text-panel">
@@ -66,7 +69,7 @@ export default function TranslatorPage() {
       </div>
     </div>
     {loading && <p role="status">Loading or translating. The first request may download the base model; check the backend terminal for progress.</p>}
-    {result && <p className="translator-note">{label} output · {result.source_token_count} source tokens · {result.output_token_count} output tokens · {result.cache_hit ? 'Cached translation' : `${result.latency_ms} ms generation time`}</p>}
+    {result && <p className="translator-note">{resultLabel} output · {result.source_token_count} source tokens · {result.output_token_count} output tokens · {result.cache_hit ? 'Cached translation' : `${result.latency_ms} ms generation time`}</p>}
     <button className="btn btn-secondary" disabled={loading || !source.trim()} onClick={async () => {
       setError(''); setTokens(null); setLoading(true);
       try { setTokens(await tokenizeAdapted(source, condition)); } catch(e) {setError(e.message);} finally {setLoading(false);}
@@ -76,7 +79,7 @@ export default function TranslatorPage() {
       <p>Token IDs: {tokens.ids.join(', ')}</p>
       <details><summary>Model input IDs (including boundary tokens)</summary><p style={{overflowWrap:'anywhere'}}>{tokens.model_source_ids.join(', ')}</p></details>
     </section>}
-    <p className="translator-note">Tokenization uses the exact artifact from the selected trained model.</p>
-    <TranslationProcess result={result} label={label} />
+    <p className="translator-note">Active bundle: {label}. Tokenization uses this bundle's exact trained source tokenizer. Choose other bundles when starting the backend.</p>
+    <TranslationProcess result={result} label={resultLabel} />
   </main>;
 }

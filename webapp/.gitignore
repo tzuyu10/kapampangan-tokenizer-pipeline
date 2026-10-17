@@ -3,3 +3,17 @@ __pycache__/
 node_modules/
 dist/
 .DS_Store
+
+# Publish verified tokenizer-only packs; neural model weights remain excluded.
+backend/tokenizer/variants/*
+!backend/tokenizer/variants/infix_first_penalty12/
+!backend/tokenizer/variants/infix_first_penalty16/
+!backend/tokenizer/variants/infix_first_penalty20/
+!backend/tokenizer/variants/infix_first_penalty24/
+!backend/tokenizer/variants/infix_first_penalty32/
+!backend/tokenizer/variants/infix_first_penalty48/
+!backend/tokenizer/variants/pam_tl_infix_affix48_6080/
+!backend/tokenizer/variants/pam_tl_infix_affix48_8192/
+!backend/tokenizer/variants/pam_tl_infix_first48_6080/
+!backend/tokenizer/variants/pam_tl_infix_first48_8192/
+!backend/tokenizer/variants/pam_tl_plain_8192/

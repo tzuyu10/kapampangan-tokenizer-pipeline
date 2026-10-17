@@ -1,0 +1,27 @@
+{
+  "actual_vocabulary_size": 8192,
+  "algorithm": "unigram_lm",
+  "artifact_fingerprint": "f9f4fab06e233424c3f427de1653957ce1897ae1635ecb56eca9b62084dee71f",
+  "artifact_type": "matched_fresh_unigram",
+  "atomic_pretoken_frequency_expansion": true,
+  "augmentation_manifest_sha256": "adba84d0a696dcdd6dc6765e8652f52b22bb0ad1167d2edbf9dae31ff0b953f7",
+  "base_dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "character_inventory_size": 1588,
+  "dataset_fingerprint": "08df0030b7909b941163cc364bf2982a7b965fd7927dcd76220364642e7ae235",
+  "decoder": "Fuse",
+  "elapsed_seconds": 36.875,
+  "library_version": "0.21.0",
+  "normalizer": null,
+  "not_nllb_target_tokenizer": true,
+  "pre_tokenizer": null,
+  "rayon_threads": 1,
+  "reproducibility": "one frozen run; independent Unigram EM runs can differ",
+  "special_tokens": [
+    "<pad>",
+    "<unk>",
+    "<s>",
+    "</s>"
+  ],
+  "tokenizer_sha256": "464d46ce0c3ef950119da6901b36ff6ea88709cbfe6e6f6e2c6297ff354ca3c4",
+  "training_stream_sha256": "9ca41dda2d81838b754fefab4cf0feb1ea74c3fe9cf13a7a6cd9e2dc672d30d4"
+}

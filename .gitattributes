@@ -8,6 +8,7 @@
 artifacts/** -text
 experiments/**/artifacts/** -text
 webapp/backend/tokenizer/artifacts/** -text
+webapp/backend/tokenizer/variants/** -text
 
 # Same risk, different source: translation_gold_v1/ and morphology_gold_v1/
 # copy external source CSVs into resources/ and record their SHA-256 in a

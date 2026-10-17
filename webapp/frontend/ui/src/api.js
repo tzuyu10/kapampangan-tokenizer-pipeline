@@ -12,11 +12,15 @@ async function request(path, options) {
   return data;
 }
 
-export function tokenize(text) {
+export function getTokenizers() {
+  return request("/api/tokenizers");
+}
+
+export function tokenize(text, tokenizer) {
   return request("/api/tokenize", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text }),
+    body: JSON.stringify({ text, ...(tokenizer ? { tokenizer } : {}) }),
   });
 }
 
@@ -28,15 +32,16 @@ export function getHealth() {
   return request("/api/health");
 }
 
-export function getInitialMetrics() {
-  return request("/api/performance/initial");
+export function getInitialMetrics(tokenizerId = null) {
+  const query = tokenizerId ? `?tokenizer=${encodeURIComponent(tokenizerId)}` : "";
+  return request(`/api/performance/initial${query}`);
 }
 
-export function compareCustom(text) {
+export function compareCustom(text, tokenizer) {
   return request("/api/comparison/custom", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ text }),
+    body: JSON.stringify({ text, ...(tokenizer ? { tokenizer } : {}) }),
   });
 }
 

@@ -1,0 +1,48 @@
+{
+  "actual_vocabulary_size": 6080,
+  "artifact_fingerprint": "e03b3efe0d9511520ee738834f02171afad8119ebb1eaeb616052a26e90c17b3",
+  "artifact_type": "kapampangan_morphbpe",
+  "core_file_sha256": {
+    "merges.json": "e5fb62d31a4fcef0ed2ea28365830c0b3e5bd0891169eb0fef2d94aaf732a8a8",
+    "normalization.json": "93feac29893a18dfcb6c77e54ce5e02d10a5ebd57b4a5f0d83590bf21a231005",
+    "pretokenizer.json": "6315cf42d8aa53234fe3d31fee173be7fb7e382debe8b0e3d911ab8a9ecf0cda",
+    "special_tokens.json": "7735fa9451bc5d4b8495c2cc9aec21d3882b2f65d24e38577de3e6a5d6f0535c",
+    "tokenizer.json": "5b3fe36ecbc9fa1d58774bdcb60bcc71cdca3c850ea454d3c9f10c1f0ff56be9",
+    "vocab.json": "6f3fa8ef0b53ce17af93dd4d00376abe29b02b28d8d66adc378edc8027866815"
+  },
+  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "merge_count": 4488,
+  "metadata": {
+    "affix_token_budget": 0,
+    "algorithm": "infix_priority_then_weighted",
+    "analyzer_sha256": "b657ae2f064ab4258b9fb6fdf42f6cfd27519edcdd85b918c813a5a3ae090533",
+    "base_trainer_sha256": "70eb23bef93524292b28534f43b62ecf7376a242d5856966b211e6d90ab78d08",
+    "candidate": true,
+    "crossing_penalty": 12,
+    "dev_sha256": "c36f662b31d882503d7bde33a245cba6626e8b34c780a082628e1cd992b34275",
+    "held_out_test_used": false,
+    "infix_token_budget": 32,
+    "infixes_have_separate_training_role": true,
+    "lexicon_used_at_runtime": false,
+    "priority_order": [
+      "infix",
+      "weighted"
+    ],
+    "priority_selection": "role_frequency, weighted_score, allowed_frequency, UTF8 pair tie break",
+    "role_spans_sha256": "8fd6abb0beb6f97158cd833ce32974892f642fd83985c2899fe484331b210e7a",
+    "root_token_budget": 0,
+    "runner_sha256": "db6c13c17cb135a6a8aa76714a912806073465734ee4ef49115c39e0f9fa3e9e",
+    "selection_evaluator_sha256": "b49f7fe3d9266e219b63eec5b84269c7e6470cddaed286a479b8095238ccc1dc",
+    "selection_performed": false,
+    "surface_specific_overrides": [],
+    "trainer_sha256": "8d7b663610eef6670b4d97f9a003aa26c3ecf4393b71a35958222372e993d986",
+    "training_lexicon_sha256": "5219e018bcd9c4aec44e377f0ba37b07dd2ce38485173102b5462501651050d8",
+    "training_stream_sha256": "fc520e0e3359c3643b70f68f9a63521436be1dd4aac14b0adb1467238e3753c7",
+    "validation_sha256": "9b5db52e563e4f334244fb66f6379c12cafd8501532caacde99e1e8307fd82d2",
+    "vocabulary_budget": 6080
+  },
+  "protected_boundary_merge_violations": 0,
+  "schema_version": "1.0.0",
+  "special_token_count": 4,
+  "target_vocabulary_size": 6080
+}

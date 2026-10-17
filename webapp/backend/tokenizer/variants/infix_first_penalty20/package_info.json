@@ -1,0 +1,8 @@
+{
+  "label": "Infix-first Morph-BPE, penalty 20 (tokenizer only)",
+  "tokenizer_variant": "infix_first_penalty20",
+  "source_vocab_size": 6080,
+  "tokenizer_sha256": "4eb4d257a99918b724713242cf81b485aa6ccab9e7b107bc6f4ef79cc89ca8ac",
+  "artifact_manifest_sha256": "01183220d92088f3038864c19748513ca182b95d4ba3c2ac470a466fab5d7c1a",
+  "runtime_sha256": "b78b9e0b6535e32063aecfbcc22bce2f4ff70bae25f23e264e081e9460f5d157"
+}

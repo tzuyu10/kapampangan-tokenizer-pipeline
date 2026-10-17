@@ -50,18 +50,23 @@ function MetricChart({ title, note, values, digits = 3, scaleMax }) {
 function SplitsSection({ result }) {
   return (
     <div className="comparison-section">
-      <h2 className="comparison-section-title">Your Input — 3-Way Split</h2>
+      <h2 className="comparison-section-title">Your Input: 3-Way Split</h2>
       <p className="comparison-section-note">
         The same text you tokenized on the Tokenization tab (<code>{result.input}</code>), run
         through all three tokenizers live. &ldquo;+&rdquo; marks a subword join.
       </p>
       <div className="card" style={{ padding: "20px 24px" }}>
-        {NAMES.map((n) => (
-          <p key={n} style={{ margin: "8px 0", fontSize: 15 }}>
-            <TokLabel name={n} />{" "}
-            {result.splits[n].map((g) => g.join("+")).join("  |  ")}
-          </p>
-        ))}
+        {NAMES.map((n) => {
+          const metadata = result.comparison?.tokenizers?.[n];
+          return <div key={n} style={{ margin: "12px 0", fontSize: 15 }}>
+            <p style={{ margin: "4px 0" }}><TokLabel name={n} />
+              {metadata && <span className="initial-metrics-note"> · {metadata.label}
+                {Number.isFinite(metadata.source_vocab_size) && <> · {metadata.source_vocab_size.toLocaleString()} tokens</>}
+              </span>}
+            </p>
+            <p style={{ margin: "4px 0" }}>{result.splits[n].map((g) => g.join("+")).join("  |  ")}</p>
+          </div>;
+        })}
       </div>
     </div>
   );
@@ -219,15 +224,17 @@ function ConsistencyExplain({ explain }) {
 }
 
 export default function ComparisonPage({ input, result, loading, error, onGoToTokenizer }) {
+  const comparison = result?.comparison;
+  const morphName = comparison?.tokenizers?.MorphBPE?.label;
   return (
     <div className="page">
       <h1 className="page-title">Tokenization Comparison & Metrics</h1>
       <p className="page-subtitle">
-        MorphBPE penalty-32 vs. Plain BPE vs. matched Unigram-LM — using the
-        same input you tokenize on the Tokenization tab
+        MorphBPE, Plain BPE and Unigram-LM at a matched vocabulary size, using
+        the same input you tokenize on the Tokenization tab.
       </p>
 
-      <InitialMetrics level="tokenizer" />
+      <InitialMetrics level="tokenizer" tokenizerId={comparison?.selected?.id} />
       {error && <div className="error-banner">{error}</div>}
 
       {!input && !loading && !error && (
@@ -246,6 +253,11 @@ export default function ComparisonPage({ input, result, loading, error, onGoToTo
 
       {result && (
         <>
+          {comparison && <p className="translator-note">
+            Selected tokenizer: {comparison.selected?.label || "Selected tokenizer"}.
+            {morphName && <> MorphBPE comparison: {morphName}.</>}
+            {Number.isFinite(comparison.source_vocab_size) && <> All three comparison vocabularies contain {comparison.source_vocab_size.toLocaleString()} tokens.</>}
+          </p>}
           <SplitsSection result={result} />
 
           <div className="comparison-section">

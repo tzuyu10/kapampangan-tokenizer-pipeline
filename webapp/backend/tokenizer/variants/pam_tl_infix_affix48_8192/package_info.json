@@ -1,0 +1,8 @@
+{
+  "label": "Infix + affix priority Morph-BPE, penalty 48, 8,192 tokens (Kapampangan + Tagalog)",
+  "tokenizer_variant": "infix_affix_first_penalty48",
+  "source_vocab_size": 8192,
+  "tokenizer_sha256": "66490ed7786cc99739624f745110c6e520ee662ce714d326e7b6ae29bd4c493e",
+  "artifact_manifest_sha256": "daf1ad949f5ff97ab325744ae832404c1cf3cb9453a9bad86250064c801592e9",
+  "runtime_sha256": "b78b9e0b6535e32063aecfbcc22bce2f4ff70bae25f23e264e081e9460f5d157"
+}

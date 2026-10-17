@@ -1,32 +1,52 @@
 {
   "actual_vocabulary_size": 6080,
-  "artifact_fingerprint": "005f6da948e787876732424df6f25efd6086e0a6d693918892683c346b57f478",
+  "artifact_fingerprint": "e64e18ec614a1ae094ee732373881f739ffb2df0f7429a6b39912de58155ae92",
   "artifact_type": "kapampangan_plain_bpe",
   "core_file_sha256": {
-    "merges.json": "fbff9bb14c5ec1d135a7790407cb7ba296ff15bbc6bdffbe771bb55ea7c70bc8",
+    "merges.json": "183d362d53472132cb574eafce944184cd9845a7f54b0f5ed646e7788aafaca4",
     "normalization.json": "93feac29893a18dfcb6c77e54ce5e02d10a5ebd57b4a5f0d83590bf21a231005",
     "pretokenizer.json": "6315cf42d8aa53234fe3d31fee173be7fb7e382debe8b0e3d911ab8a9ecf0cda",
     "special_tokens.json": "7735fa9451bc5d4b8495c2cc9aec21d3882b2f65d24e38577de3e6a5d6f0535c",
-    "tokenizer.json": "4098512366353a8d0d0793b11a62eb53f92ea442972b29bb042a4cef2069fa52",
-    "vocab.json": "1208f4505ce09fb833c7d1c3cc35673fcef8725dfc1f0d56b6ba1bbedc4c06df"
+    "tokenizer.json": "13cb1ae93aefae4a528e15f4fa136e666dc12012d477f714615f73e514f64de5",
+    "vocab.json": "c7aa64a0bfda6520dfd1ba6611db89faa14ba2f3de1503c4df4395b118c58818"
   },
-  "dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
+  "dataset_fingerprint": "08df0030b7909b941163cc364bf2982a7b965fd7927dcd76220364642e7ae235",
   "merge_count": 4488,
   "metadata": {
+    "augmentation_manifest_sha256": "adba84d0a696dcdd6dc6765e8652f52b22bb0ad1167d2edbf9dae31ff0b953f7",
+    "augmented_dataset_fingerprint": "08df0030b7909b941163cc364bf2982a7b965fd7927dcd76220364642e7ae235",
+    "base_dataset_fingerprint": "aff5de7b8fc158f144eaec4af3e3c22faa3b184859925130a04604a2aa9c5d17",
     "candidate": true,
     "condition": "plain",
-    "current_validation_re_evaluated": false,
+    "crossing_penalty": null,
+    "full_grid_training_report": {
+      "failed_targets": [],
+      "final_vocabulary_size": 16384,
+      "merge_rules_learned": 14792,
+      "protected_boundary_merge_violations": 0,
+      "requested_targets": [
+        6080,
+        8192,
+        16384
+      ],
+      "stopped_because": "maximum_target_reached",
+      "trained_targets": [
+        6080,
+        8192,
+        16384
+      ]
+    },
     "held_out_test_used": false,
-    "independent_evaluation_gold_used": false,
+    "languages": [
+      "pam",
+      "tl"
+    ],
     "lexicon_used_at_runtime": false,
-    "paper_replication_training": false,
-    "prepared_manifest_fingerprint": "8ecec7d3ec96ac63c68afa0f976298c1e604743f988efbaf17467dad9c4a0118",
-    "root_inventory_unchanged_from_source_adjudicated_v2": true,
-    "runtime_boundary_guarantee_scope": "none",
+    "neural_model_training": false,
     "selection_performed": false,
-    "surface_specific_runtime_guarantees": [],
-    "surface_specific_training_overrides": [],
-    "training_family_fingerprint": "fd7b7b367348fde0db948aa313ebff2c03366459f9ba01f74fd6bc812c2b05a5"
+    "training_report_scope": "shared full grid training through16384; artifact itself is exact prefix snapshot at declared vocabulary size",
+    "training_stream_sha256": "9ca41dda2d81838b754fefab4cf0feb1ea74c3fe9cf13a7a6cd9e2dc672d30d4",
+    "vocabulary_budget": 6080
   },
   "protected_boundary_merge_violations": 0,
   "schema_version": "1.0.0",

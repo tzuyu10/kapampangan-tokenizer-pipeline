@@ -13,8 +13,8 @@ export default function App() {
   const [translationLoading, setTranslationLoading] = useState(false);
   const [translationError, setTranslationError] = useState(null);
 
-  // The Comparison tab has no input of its own — it always shows the 3-way
-  // comparison for whatever text was last tokenized on the Tokenizer tab.
+  // The Comparison tab has no input of its own. It shows the matched three-way
+  // comparison for the text and tokenizer last run on the Tokenizer tab.
   // Lifted up here so both tabs share the same source of truth.
   const [comparisonInput, setComparisonInput] = useState("");
   const [comparisonResult, setComparisonResult] = useState(null);
@@ -22,13 +22,13 @@ export default function App() {
   const [comparisonError, setComparisonError] = useState(null);
   const comparisonRequest = useRef(0);
 
-  const runComparison = async (text) => {
+  const runComparison = async (text, tokenizer) => {
     const request = ++comparisonRequest.current;
     setComparisonInput(text);
     setComparisonLoading(true);
     setComparisonError(null);
     try {
-      const data = await compareCustom(text);
+      const data = await compareCustom(text, tokenizer);
       if (request !== comparisonRequest.current) return;
       setComparisonResult(data);
     } catch (err) {

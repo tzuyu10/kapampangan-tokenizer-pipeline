@@ -17,7 +17,7 @@ import os
 import sys
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "tokenizer"))
 
@@ -25,6 +25,7 @@ import trace_service  # noqa: E402
 import comparison_service  # noqa: E402
 import translation_service  # noqa: E402
 import performance_metrics  # noqa: E402
+import tokenizer_variants  # noqa: E402
 
 HOST = os.environ.get("KAPAMPANGAN_HOST", "127.0.0.1")
 PORT = int(os.environ.get("KAPAMPANGAN_PORT", "8000"))
@@ -69,20 +70,24 @@ class Handler(BaseHTTPRequestHandler):
         path = urlparse(self.path).path
         try:
             if path == "/api/health":
+                _tok, _pretokenize, active = tokenizer_variants.load()
                 self._send_json(
                     200,
                     {
                         "status": "ok",
-                        "vocabulary_size": trace_service.TOKENIZER.vocabulary_size,
-                        "artifact": "morphbpe-penalty32",
+                        "vocabulary_size": active['source_vocab_size'],
+                        "artifact": active['id'],
                     },
                 )
             elif path == "/api/examples":
                 self._send_json(200, trace_service.examples())
+            elif path == "/api/tokenizers":
+                self._send_json(200, tokenizer_variants.catalog())
             elif path == "/api/translation/status":
                 self._send_json(200, translation_service.status())
             elif path == "/api/performance/initial":
-                self._send_json(200, performance_metrics.initial_metrics())
+                query = parse_qs(urlparse(self.path).query)
+                self._send_json(200, performance_metrics.initial_metrics(query.get('tokenizer', [None])[0]))
             else:
                 self._send_json(404, {"error": f"not found: {path}"})
         except Exception as exc:  # pragma: no cover - defensive
@@ -103,9 +108,9 @@ class Handler(BaseHTTPRequestHandler):
             if path == "/api/tokenize/adapted":
                 result = translation_service.tokenize_adapted(text, data.get("condition", "plain_bpe"))
             elif path == "/api/tokenize":
-                result = trace_service.analyze(text)
+                result = trace_service.analyze(text, data.get("tokenizer"))
             elif path == "/api/comparison/custom":
-                result = comparison_service.custom_compare(text)
+                result = comparison_service.custom_compare(text, data.get('tokenizer'))
             elif path == "/api/translate":
                 result = translation_service.translate(text, data.get("condition", "plain_bpe"))
             else:
@@ -120,11 +125,12 @@ def main() -> None:
     print(f"[startup] trace/encode parity check: {passed}/{total} words passed")
     scoring_passed, scoring_total = comparison_service.verify_scoring_fidelity()
     print(f"[startup] scoring-explain parity check: {scoring_passed}/{scoring_total} cases passed")
-    print(f"[startup] tokenizer artifact loaded: morphbpe-penalty32 "
-          f"(vocab size {trace_service.TOKENIZER.vocabulary_size})")
-    print(f"[startup] comparison artifacts loaded: plain-bpe "
-          f"(vocab size {comparison_service.PLAIN.vocabulary_size}), "
-          f"unigram-lm-6080 (vocab size {comparison_service.UNI.vocabulary_size})")
+    _tok, _pretokenize, active = tokenizer_variants.load()
+    print(f"[startup] default tokenizer: {active['label']} "
+          f"(vocab size {active['source_vocab_size']})")
+    for condition in translation_service.status()['conditions'].values():
+        print(f"[startup] translation bundle: {condition.get('display_name', condition['label'])} "
+              f"({'available' if condition['checkpoint_ready'] else condition['reason']})")
     httpd = ThreadingHTTPServer((HOST, PORT), Handler)
     print(f"[startup] serving on http://{HOST}:{PORT}  (Ctrl+C to stop)")
     try:

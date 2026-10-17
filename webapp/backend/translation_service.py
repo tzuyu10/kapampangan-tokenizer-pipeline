@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import threading
 import time
+import model_bundles
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 BUNDLE_ROOT = Path(os.environ.get('KAPAMPANGAN_MODEL_DIR', str(REPOSITORY_ROOT/'nllb'/'checkpoints')))
@@ -22,41 +23,60 @@ _RESULT_LIMIT = 128
 
 @lru_cache(maxsize=2)
 def _bundle(condition):
-    path = BUNDLE_ROOT/condition
-    manifest = json.loads((path/'manifest.json').read_text(encoding='utf-8'))
-    if manifest['identity']['condition'] != condition:
-        raise ValueError('Checkpoint condition does not match its folder')
-    for relative,key in [('source_artifact/tokenizer.json','tokenizer_sha256'),
-                         ('source_artifact/tokenizer-manifest.json','artifact_manifest_sha256'),
-                         ('nllb_source_adapter.py','helper_sha256'),
-                         ('runtime/kapampangan_morphbpe_runtime/tokenizer.py','runtime_sha256')]:
-        if hashlib.sha256((path/relative).read_bytes()).hexdigest() != manifest['identity'][key]:
-            raise ValueError('Bundle checksum mismatch: '+relative)
-    if not (path/'best_source.safetensors').is_file():
-        raise ValueError('Trained source weights missing')
+    path = model_bundles.resolve_bundle_path(condition)
+    manifest = model_bundles.validate_bundle(path, condition)
     return path,manifest
 
 def status():
     conditions = {}
     for key,condition,label in [('baseline','plain_bpe','Plain BPE + NLLB-200'),('custom','morph_bpe','Morph-BPE + NLLB-200')]:
+        metadata = {}
+        reason = 'Trained checkpoint not installed.'
         try:
-            _bundle(condition)
+            path,manifest = _bundle(condition)
+            metadata = model_bundles.bundle_metadata(path, manifest)
             installed = True
-        except (OSError,ValueError,KeyError):
+        except (OSError,ValueError,KeyError,TypeError,AttributeError) as exc:
             installed = False
+            reason = f'Cannot use selected bundle: {exc}'
         dependencies = all(importlib.util.find_spec(x) is not None for x in ('torch','transformers','tokenizers','safetensors','sentencepiece'))
         ready = installed and dependencies
         conditions[key] = dict(label=label, role='Baseline' if key=='baseline' else 'Proposed system',
-            tokenizer=('Plain BPE' if key=='baseline' else 'Weighted Morph-BPE with penalty 32')+' (6,080 source tokens)',
+            tokenizer=metadata.get('display_name', label),
             model='NLLB-200 Distilled 600M with trained source embeddings',ready=ready,
             checkpoint_ready=installed, loaded=condition in _CACHE,
             reason='Checkpoint installed; first translation loads the base model.' if ready else
-            ('Install translation dependencies and restart the backend.' if installed else 'Trained checkpoint not installed.'))
+            ('Install translation dependencies and restart the backend.' if installed else reason), **metadata)
     available = any(c['ready'] for c in conditions.values())
     return dict(conditions=conditions,can_translate=available,
         can_compare=all(c['ready'] for c in conditions.values()),inference_api_ready=available,
         direction=dict(source='Kapampangan',target='Filipino',target_language_code='tgl_Latn'),
-        message='Plain BPE is available. Morph-BPE requires its own trained bundle.' if conditions['baseline']['ready'] and not conditions['custom']['ready'] else 'Translation uses installed trained bundles; first use may download the base model.')
+        message='Translation uses the bundles selected at backend startup. Restart the backend to choose other variants; first use may download the base model.')
+
+
+def _bind_source_tokenizer(helper, condition):
+    """Bind the unmodified adapter to this bundle's runtime, avoiding global import reuse."""
+    original = helper.SourceTokenizer
+
+    class SelectedSourceTokenizer(original):
+        def __init__(self, path, expected_size=6080):
+            self.artifact_dir = Path(path)
+            selected, _ = _bundle(condition)
+            if self.artifact_dir.resolve() != (selected / 'source_artifact').resolve():
+                raise ValueError('Source tokenizer path differs from the selected bundle.')
+            self.backend = _native_tokenizer(condition)
+            self.size = self.backend.vocabulary_size
+            entries = json.loads((self.artifact_dir / 'special_tokens.json').read_text(encoding='utf-8'))['special_tokens']
+            original_ids = {entry['token']: entry['id'] for entry in entries}
+            if original_ids != {'<pad>': 0, '<unk>': 1, '<s>': 2, '</s>': 3}:
+                raise ValueError('Unexpected project special-token layout')
+            self.special = {token: self.to_model_id(identifier) for token, identifier in original_ids.items()}
+            self.pad = 1
+            self.start = self.special['<s>']
+            if self.size != expected_size:
+                raise ValueError('Source vocabulary does not match its trained embeddings.')
+
+    helper.SourceTokenizer = SelectedSourceTokenizer
 
 def translate(text, condition='plain_bpe'):
     if not isinstance(text,str) or not text.strip() or len(text)>500:
@@ -73,6 +93,7 @@ def translate(text, condition='plain_bpe'):
         if condition not in _CACHE:
             spec=importlib.util.spec_from_file_location('translation_adapter_'+condition,path/'nllb_source_adapter.py')
             helper=importlib.util.module_from_spec(spec); spec.loader.exec_module(helper)
+            _bind_source_tokenizer(helper, condition)
             device=torch.device(os.environ.get('KAPAMPANGAN_DEVICE','cuda' if torch.cuda.is_available() else 'cpu'))
             if device.type == 'cpu' and not _SHARED:
                 threads=int(os.environ.get('KAPAMPANGAN_CPU_THREADS', str(min(4, os.cpu_count() or 1))))
@@ -80,7 +101,8 @@ def translate(text, condition='plain_bpe'):
                 torch.set_num_threads(threads)
             # Share frozen NLLB weights; only the source embedding differs.
             shared_key=(manifest['model_id'],manifest['revision'],str(device),
-                        hashlib.sha256((path/'target_tokenizer/tokenizer.json').read_bytes()).hexdigest())
+                        hashlib.sha256((path/'target_tokenizer/tokenizer.json').read_bytes()).hexdigest(),
+                        manifest['identity']['helper_sha256'])
             if shared_key in _SHARED:
                 model,target=_SHARED[shared_key]
                 source=helper.SourceTokenizer(path/'source_artifact',manifest['source_vocab_size'])
@@ -91,11 +113,14 @@ def translate(text, condition='plain_bpe'):
                 if tuple(weight.shape)!=(source.size,model.config.d_model):
                     raise ValueError('Source embedding dimensions do not match the base model')
                 embedding.weight=torch.nn.Parameter(weight.to(device),requires_grad=False)
+                embedding.num_embeddings = source.size
             else:
                 model,source,target=helper.load_bundle(path,device)
                 model.requires_grad_(False)
                 embedding=model.get_encoder().embed_tokens
                 _SHARED[shared_key]=(model,target)
+            if not bool(torch.isfinite(embedding.weight).all()):
+                raise ValueError('Trained source embeddings contain nonfinite values.')
             _EMBEDDINGS[condition]=embedding
             _CACHE[condition]=(model,source,target,device)
         model,source,target,device=_CACHE[condition]
@@ -114,6 +139,7 @@ def translate(text, condition='plain_bpe'):
                 num_beams=manifest['identity']['beams'],do_sample=False,use_cache=True)
         token_ids=output[0].tolist()
         result=dict(translation=target.decode(token_ids,skip_special_tokens=True),condition=condition,
+            bundle=model_bundles.bundle_metadata(path, manifest),
             source_token_count=len(ids),output_token_count=sum(x not in target.all_special_ids for x in token_ids),
             latency_ms=round((time.perf_counter()-started)*1000), cache_hit=False)
         # Observations are from this exact generation, with no extra model pass.
@@ -158,6 +184,7 @@ def tokenize_adapted(text, condition='plain_bpe'):
     result['condition']=condition
     result['model_source_ids']=[2]+[1 if x==0 else 0 if x==1 else x for x in encoded.ids]+[3]
     result['tokenizer_sha256']=manifest['identity']['tokenizer_sha256']
+    result['bundle']=model_bundles.bundle_metadata(path, manifest)
     return result
 
 

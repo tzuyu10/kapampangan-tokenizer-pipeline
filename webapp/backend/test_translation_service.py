@@ -1,5 +1,6 @@
 """Process-response regression tests. Run with the translation Python environment."""
 import unittest
+from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
@@ -22,9 +23,14 @@ class TranslationProcessTests(unittest.TestCase):
         self.target.decode.return_value = 'output'
         self.model = Mock(config=SimpleNamespace(d_model=1024, encoder_layers=12, decoder_layers=12))
         self.model.generate.return_value = torch.tensor([[2, 99, 12, 2]])
-        manifest = {'identity': {'source_limit': 256, 'max_new_tokens': 160, 'beams': 4}}
+        manifest = {'identity': {'source_limit': 256, 'max_new_tokens': 160, 'beams': 4,
+            'condition': 'plain_bpe', 'tokenizer_sha256': 'fixture-tokenizer',
+            'tokenizer_variant': 'plain_bpe', 'data_sha256': 'fixture-data'},
+            'model_id': 'facebook/nllb-200-distilled-600M', 'revision': 'fixture-revision',
+            'source_vocab_size': 6080, 'source_format': 'kapampangan_project',
+            'source_id_mapping': 'swap_0_1', 'completed_epochs': 30, 'selected_epoch': 30}
         patches = [
-            patch.object(service, '_bundle', return_value=(None, manifest)),
+            patch.object(service, '_bundle', return_value=(Path('/unused/plain_bpe'), manifest)),
             patch.dict(service._CACHE, {'plain_bpe': (self.model, self.source, self.target, 'cpu')}, clear=True),
             patch.dict(service._EMBEDDINGS, {'plain_bpe': torch.nn.Embedding(20, 4)}, clear=True),
             patch.dict(service._RESULTS, {}, clear=True),
@@ -45,6 +51,8 @@ class TranslationProcessTests(unittest.TestCase):
         self.target.decode.assert_any_call([2, 99, 12, 2], skip_special_tokens=True)
         self.assertEqual(result['source_token_count'], 4)
         self.assertEqual(result['output_token_count'], 1)
+        self.assertEqual(result['bundle']['bundle_id'], 'plain_bpe')
+        self.assertEqual(result['bundle']['tokenizer_variant'], 'plain_bpe')
         self.assertEqual(trace['beams'], self.model.generate.call_args.kwargs['num_beams'])
         self.assertEqual(trace['embedding_dimension'], 1024)
         cached = service.translate('example', 'plain_bpe')

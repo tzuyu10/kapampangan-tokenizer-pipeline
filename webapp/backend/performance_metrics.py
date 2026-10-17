@@ -5,6 +5,7 @@ import json
 import math
 import os
 from pathlib import Path
+import model_bundles
 
 ROOT = Path(__file__).resolve().parents[2]
 CHECKPOINTS = Path(os.environ.get('KAPAMPANGAN_MODEL_DIR', str(ROOT / 'nllb' / 'checkpoints')))
@@ -110,36 +111,48 @@ def training_metrics(path):
         return dict(available=False, reason=f'Cannot read saved metrics: {exc}')
 
 
-def initial_metrics():
+def initial_metrics(tokenizer_id=None):
     import comparison_service as comparison
     import reference_data as ref
 
+    config = comparison.configuration(tokenizer_id)
     # Fixed project demonstration references, not a held-out evaluation corpus.
     sentences = ref.SENTENCES + [forms for _, _, forms in ref.FAMILIES]
     rows = []
     encoded = {name: [] for name in comparison.NAMES}
     for sentence in sentences:
         rows.extend(ref.rows_for(sentence))
-        groups = comparison.groups_by_tokenizer(' '.join(word for word, _ in sentence))
+        groups = comparison.groups_by_tokenizer(' '.join(word for word, _ in sentence), models=config['models'])
         for name in comparison.NAMES:
             if len(groups[name]) != len(sentence):
                 raise ValueError('Initial diagnostic word alignment failed.')
             encoded[name].extend(groups[name])
-    artifacts = dict(zip(comparison.NAMES, ('morphbpe-penalty32', 'plain-bpe', 'unigram-lm-6080')))
     tokenizer_rows = []
     for name in comparison.NAMES:
         scores = ref.score(rows, encoded[name])
-        file = comparison.ARTIFACTS / artifacts[name] / 'tokenizer.json'
-        tokenizer_rows.append(dict(condition=name, artifact=artifacts[name],
-            tokenizer_sha256=hashlib.sha256(file.read_bytes()).hexdigest(),
+        identity = config['metadata']['tokenizers'][name]
+        tokenizer_rows.append(dict(condition=name, artifact=identity['id'],
+            tokenizer_sha256=identity['tokenizer_sha256'],
+            source_vocab_size=identity['source_vocab_size'],
             fertility=sum(len(group) for group in encoded[name]) / len(rows),
             boundary_f1=scores['boundary_f1'], consistency_f1=scores['mcf1']))
-    return dict(tokenizer=dict(rows=tokenizer_rows, word_occurrences=len(rows),
+    return dict(tokenizer_comparison=config['metadata'], tokenizer=dict(rows=tokenizer_rows, word_occurrences=len(rows),
         unique_words=len({row['surface'] for row in rows}),
         source='webapp/backend/tokenizer/reference_data.py: SENTENCES + FAMILIES',
         scope='Fixed project demonstration references; not independent held-out gold.',
         references=[dict(word=word, segmentation=seg or word) for sentence in sentences for word, seg in sentence]),
-        translation=dict(rows=[dict(condition=label, **training_metrics(CHECKPOINTS / condition))
+        translation=dict(rows=[dict(condition=label, **selected_training_metrics(condition))
             for condition, label in [('plain_bpe', 'Plain BPE'), ('morph_bpe', 'Morph-BPE')]],
             scope='Saved training diagnostics and verified test scores for installed bundles. Loss is not translation accuracy.',
             quality_note='BLEU and chrF++ are corpus scores from 0 to 100, comparing saved translations with Filipino references. Scores appear only when the evaluated checkpoint and test split match the installed model. They do not score the current input or establish statistical significance.'))
+
+
+def selected_training_metrics(condition):
+    try:
+        path = model_bundles.resolve_bundle_path(condition)
+        manifest = model_bundles.validate_bundle(path, condition)
+        metadata = model_bundles.bundle_metadata(path, manifest)
+        metadata.pop('condition')
+        return {**metadata, **training_metrics(path)}
+    except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+        return dict(available=False, reason=f'Cannot read selected bundle: {exc}')

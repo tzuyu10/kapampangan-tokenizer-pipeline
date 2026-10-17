@@ -1,8 +1,7 @@
-"""3-way tokenizer comparison (MorphBPE penalty-32 vs Plain BPE vs Unigram-LM).
+"""Three-way comparison using the selected tokenizer and matched-size controls.
 
-Everything computed here reuses, unchanged:
-  - the real Tokenizer.encode() for MorphBPE and Plain BPE
-  - the real UnigramLM.encode() (verbatim from demo.py, see unigram_lm.py)
+Everything computed here reuses:
+  - each selected catalog tokenizer's actual encode() implementation
   - the scoring functions in reference_data.py (also verbatim from demo.py)
   - reference_data.rows_for(), for turning "|"-marked gold morphemes into
     the same boundary/piece representation demo.py itself uses
@@ -26,6 +25,7 @@ from kapampangan_morphbpe_runtime import Tokenizer
 
 import reference_data as ref
 import scoring_explain
+import tokenizer_variants
 from unigram_lm import UnigramLM
 
 ARTIFACTS = Path(__file__).resolve().parent / "artifacts"
@@ -34,6 +34,8 @@ MORPH = Tokenizer(ARTIFACTS / "morphbpe-penalty32")
 PLAIN = Tokenizer(ARTIFACTS / "plain-bpe")
 UNI = UnigramLM(ARTIFACTS / "unigram-lm-6080" / "tokenizer.json")
 NAMES = ("MorphBPE", "Plain BPE", "Unigram-LM")
+DEFAULT_COMPARISON_TOKENIZER = "variant:pam_tl_infix_first48_6080"
+COMPARISON_VOCAB_SIZES = {6080, 8192}
 
 SKIP_KINDS = {"whitespace"}
 
@@ -49,29 +51,81 @@ def _bpe_groups(tok: Tokenizer, text: str) -> list[list[str]]:
     return [g for g in groups if g]
 
 
-def groups_by_tokenizer(text: str) -> dict[str, list[tuple[str, ...]]]:
+def groups_by_tokenizer(
+    text: str, tokenizer_id: str | None = None, *, models: dict[str, Any] | None = None,
+) -> dict[str, list[tuple[str, ...]]]:
     """Per-word piece tuples for each tokenizer, aligned word-for-word."""
-    m = [tuple(g) for g in _bpe_groups(MORPH, text)]
-    p = [tuple(g) for g in _bpe_groups(PLAIN, text)]
-    surfaces = ["".join(g) for g in m]  # normalized + pretokenized word surfaces
-    u = [tuple(UNI.encode(s)) for s in surfaces]
-    return {"MorphBPE": m, "Plain BPE": p, "Unigram-LM": u}
+    models = configuration(tokenizer_id)["models"] if models is None else models
+    # Catalog adapters expose each saved tokenizer's actual encoder,
+    # including Unigram's Viterbi path and its own pretoken boundaries.
+    return {name: [tuple(g) for g in _bpe_groups(models[name], text)] for name in NAMES}
 
 
-def split_word(word: str) -> dict[str, list[str]]:
-    return {
-        "MorphBPE": [t.token for t in MORPH.encode(word).tokens],
-        "Plain BPE": [t.token for t in PLAIN.encode(word).tokens],
-        "Unigram-LM": UNI.encode(word),
+def split_word(
+    word: str, tokenizer_id: str | None = None, *, models: dict[str, Any] | None = None,
+) -> dict[str, list[str]]:
+    models = configuration(tokenizer_id)["models"] if models is None else models
+    return {name: [t.token for t in models[name].encode(word).tokens] for name in NAMES}
+
+
+def _comparison_tokenizers(
+    tokenizer_id: str | None,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Keep the selected encoder in its correct row, with same-size controls.
+
+    A Plain or Unigram selection never becomes a row labeled MorphBPE.
+    Those selections compare against the new infix-first48 of the same size.
+    An explicit existing MorphBPE selection remains the MorphBPE row.
+    """
+    selected_id = DEFAULT_COMPARISON_TOKENIZER if tokenizer_id is None else tokenizer_id
+    selected, _pretokenize, selected_info = tokenizer_variants.load(selected_id)
+    size = selected_info["source_vocab_size"]
+    if type(size) is not int or size not in COMPARISON_VOCAB_SIZES:
+        raise ValueError("Matched tokenizer comparisons support vocabularies of 6,080 or 8,192.")
+    variant = selected_info["tokenizer_variant"].lower()
+    if "unigram" in variant or selected_id.startswith("unigram-lm-"):
+        selected_row = "Unigram-LM"
+    elif variant in {"plain", "plain_bpe"} or selected_id.startswith("variant:pam_tl_plain_"):
+        selected_row = "Plain BPE"
+    else:
+        selected_row = "MorphBPE"
+
+    row_ids = {
+        "MorphBPE": f"variant:pam_tl_infix_first48_{size}",
+        "Plain BPE": f"variant:pam_tl_plain_{size}",
+        "Unigram-LM": f"unigram-lm-{size}",
+    }
+    tokenizers, identities = {}, {}
+    for name, identifier in row_ids.items():
+        if name == selected_row:
+            tok, info = selected, selected_info
+        else:
+            tok, _pretokenize, info = tokenizer_variants.load(identifier)
+        if info["source_vocab_size"] != size:
+            raise ValueError("Comparison controls must have the same vocabulary size.")
+        tokenizers[name], identities[name] = tok, info
+    return tokenizers, {
+        "selected": selected_info,
+        "source_vocab_size": size,
+        "tokenizers": identities,
     }
 
 
-def custom_compare(raw_text: str) -> dict[str, Any] | None:
+def configuration(tokenizer_id: str | None = None) -> dict[str, Any]:
+    """Resolve immutable encoders and identities once for a diagnostic batch."""
+    models, metadata = _comparison_tokenizers(tokenizer_id)
+    return {"models": models, "metadata": metadata}
+
+
+def custom_compare(raw_text: str, tokenizer_id: str | None = None) -> dict[str, Any] | None:
     """3-way comparison for whatever text was just tokenized on the
     Tokenizer tab: same '|' gold-boundary convention as trace_service.analyze
     (mark gold morpheme boundaries with e.g. `s|in|ulat`), scored against all
     three tokenizers side by side instead of just MorphBPE.
     """
+    if not isinstance(raw_text, str):
+        raise ValueError("`text` must be a string")
+    tokenizers, comparison = _comparison_tokenizers(tokenizer_id)
     if not raw_text or not raw_text.strip():
         return None
     raw_tokens = raw_text.split()
@@ -79,7 +133,7 @@ def custom_compare(raw_text: str) -> dict[str, Any] | None:
     text = " ".join(surface for surface, _ in sentence)
     has_gold = any(spec for _surface, spec in sentence)
 
-    enc = groups_by_tokenizer(text)
+    enc = groups_by_tokenizer(text, models=tokenizers)
     result: dict[str, Any] = {
         "input": raw_text,
         "clean_text": text,
@@ -93,8 +147,20 @@ def custom_compare(raw_text: str) -> dict[str, Any] | None:
             for n in NAMES
         },
         "gold": None,
+        "gold_unavailable_reason": None,
+        "comparison": comparison,
     }
-    if has_gold and all(len(enc[n]) == len(sentence) for n in NAMES):
+    aligned = all(
+        len(enc[n]) == len(sentence)
+        and all("".join(pieces) == surface for pieces, (surface, _spec) in zip(enc[n], sentence))
+        for n in NAMES
+    )
+    has_unknown = has_gold and any(
+        token.identifier == model.special_by_role["unk"][1]
+        for model in tokenizers.values()
+        for token in model.encode(text).tokens
+    )
+    if has_gold and aligned and not has_unknown:
         rows = ref.rows_for(sentence)
         shared_pairs = int(ref.mcf1(rows, enc["MorphBPE"])["mcf1_gold_pairs"])
         metrics = {n: ref.score(rows, enc[n]) for n in NAMES}
@@ -111,6 +177,13 @@ def custom_compare(raw_text: str) -> dict[str, Any] | None:
             "metrics": metrics,
             "explain": explain,
         }
+    elif has_gold:
+        result["gold_unavailable_reason"] = (
+            "Gold boundaries cannot be scored because a tokenizer output contains unknown token IDs."
+            if has_unknown else
+            "Gold boundaries cannot be scored because a tokenizer output "
+            "does not align losslessly with the annotated words."
+        )
     return result
 
 
@@ -121,13 +194,14 @@ def verify_scoring_fidelity() -> tuple[int, int]:
     for all three tokenizers. Raises AssertionError on any mismatch.
     """
     checks = 0
+    models = configuration()["models"]
 
     pooled_rows: list[dict[str, Any]] = []
     pooled_enc: dict[str, list[tuple[str, ...]]] = {n: [] for n in NAMES}
     for sentence in ref.SENTENCES:
         text = " ".join(w for w, _ in sentence)
         rows = ref.rows_for(sentence)
-        enc = groups_by_tokenizer(text)
+        enc = groups_by_tokenizer(text, models=models)
         pooled_rows += rows
         for n in NAMES:
             pooled_enc[n] += enc[n]
@@ -152,7 +226,7 @@ def verify_scoring_fidelity() -> tuple[int, int]:
             family_rows.append(
                 {"surface": surface, "gold_boundaries": set(), "gold_pieces": tuple(seg.split("|"))}
             )
-        splits = {n: [tuple(split_word(s)[n]) for s, _ in forms] for n in NAMES}
+        splits = {n: [tuple(split_word(s, models=models)[n]) for s, _ in forms] for n in NAMES}
         for n in NAMES:
             family_enc[n] += splits[n]
 
